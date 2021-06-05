@@ -1,0 +1,359 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    var NewsCate = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+@section Note {
+    <title>Tai mũi họng | Bệnh viện đa khoa Medlatec</title>
+
+    <meta name="description" content="Tai mũi họng" />
+    <meta property="og:description" content="Tai mũi họng" />
+    <meta name="title" content="Tai mũi họng | Bệnh viện đa khoa Medlatec" />
+    <meta property="og:title" content="Tai mũi họng | Bệnh viện đa khoa Medlatec" />
+    <meta name="keywords" content="Tai mũi họng | Bệnh viện đa khoa Medlatec" />
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/Chuyen-khoa/anh-chinh-tai-mui-hong.jpg" />
+
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <meta property="og:url" content="https://medlatec.vn/chuyen-khoa/tai-mui-hong" />
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/chuyen-khoa/tai-mui-hong" />
+}
+
+@using (Html.BeginForm("Taimuihong", "Service", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+
+ 
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="https://medlatec.vn/chuyen-khoa">Chuyên khoa y tế</a></li>
+            <li><a href="#">Tai mũi họng</a></li>
+
+        </ul>
+    </div>
+
+    <div class="specialist specialist-child container">
+        <div class="specialist-child--row row">
+            <div class="specialist-child--col col-xl-9 col-lg-8">
+                <h1>Tai mũi họng</h1>
+                <div class="specialist-child--desc">Là một trong những chuyên khoa ra đời ngay sau khi Bệnh viện Đa khoa MEDLATEC chính thức đi vào hoạt động, theo thời gian, chuyên khoa Tai mũi họng không ngừng lớn mạnh và khẳng định vai trò của mình trong hoạt động chuyên môn bệnh viện. Đặc biệt, đến chuyên khoa khám, khách hàng cùng người nhà đã đặt niềm tin, sự hài lòng vì có kết quả chẩn đoán, điều trị và thực hiện chính xác các thủ thuật bệnh lý tai mũi họng và thanh quản.</div>
+                <div class="specialist-child--img"><img src="/Content/images/Chuyen-khoa/anh-chinh-tai-mui-hong.jpg" alt="Chuyên khoa tai mũi họng" /></div>
+                <div class="specialist-service">
+                    <h2 class="main-title">Dịch vụ chính</h2>
+                    <div class="specialist-service--wrapper">
+                        <div class="specialist-service--list row">
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Các bệnh về tai</h3>
+                                    <p>Viêm tai ngoài, Viêm tai giữa cấp và mạn tính, Chấn thương tai, Thủng màng nhĩ, Ù tai, điếc đột ngột , Đặt ống thông khí màng nhĩ …</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Các bệnh về mũi - xoang</h3>
+                                    <p>Viêm mũi xoang, Polyps mũi, Chảy máu mũi, gãy xương chính mũi, phì đại cuốn mũi, vẹo vách ngăn,…</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Các bệnh về họng</h3>
+                                    <p>Viêm Amydal, Viêm VA cấp/mãn, Viêm vòm họng, Sinh thiết khối u TMH, Chích rạch khối abces Amydal, thành sau họng</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Các bệnh về thanh quản</h3>
+                                    <p>Hạt xơ dây thanh, Polyps dây thanh, Nang dây thanh, phù Reinke, papilloma thanh quản, bênh lý hạ thanh môn,…</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Bệnh ung thư vùng Tai – Mũi - Họng</h3>
+                                    <p>Ung thư vòm, Ung thư hốc mũi, Ung thư amydal, Ung thư hạ họng thanh quản…</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="specialist-material" style="margin-top:15px;">
+                    <h2 class="main-title">Cơ sở vật chất - Trang thiết bị</h2>
+                    <div class="specialist-material-desc">Để giúp nâng cao chất lượng chẩn đoán và điều trị bệnh, Bệnh viện Đa khoa MEDLATEC luôn coi trọng cập nhật đầy đủ các trang thiết bị chuyên dụng hiện đại của các hãng tiên tiến trên thế giới. Đồng thời, chuyên khoa còn sự hỗ trợ đầy đủ các kỹ thuật chẩn đoán chuyên sâu hay khi bất thường vùng tai mũi họng nghi ung thư tai mũi họng mang đến kết quả chẩn đoán nhanh, chính xác, tiết kiệm tối đa thời gian và công sức cho người bệnh.</div>
+                    <div class="specialist-material-wrapper">
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/noi-soi-bang-ong-mem.jpg" alt="Máy nội soi tai mũi họng bằng ống mềm Pentax (Hoya) model" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy nội soi tai mũi họng bằng ống mềm Pentax (Hoya) model</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>MEDLATEC là một trong những cơ sở đầu tiên tại Hà Nội đầu tư, máy có ưu điểm ưu vượt trội như: không gây cảm giác đau, khó chịu, khó nuốt, thời gian thực hiện nhanh trong 5 phút, hình ảnh rõ nét nên dễ dàng quan sát các bất thưởng ở vị trí nhỏ,… Máy có giá trị phát hiện ung thư tai mũi họng ở giai đoạn sớm, khi chưa có dấu hiệu rõ ràng.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/cac-thiet-bi-chuan-doan-hinh-anh.png" alt="Chẩn đoán hình ảnh" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Chẩn đoán hình ảnh</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Chụp X quang xoang, chụp cắt lớp vi tính (CT-scanner) xoang nhằm xác định chính xác bệnh lý viêm xoang, bệnh lý khối u vùng mũi họng.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/may-logiq-f6.png" alt="Máy LOGIQ F6 (xuất xứ từ Mỹ)" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Xét nghiệm</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Cúm, dịch mũi họng xoang để xác định chủng virus, vi khuẩn, nấm gây bệnh, sinh thiết vòm mũi họng.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="single-news--col col-xl-3 col-lg-4 d-none d-lg-block">
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin cùng chuyên mục</p>
+                        <div class="news-post--list">
+                            @if (NewsCate != null)
+                            {
+                                for (int i = 0; i < NewsCate.Count; i++)
+                                {
+
+                                    if (i < 5)
+                                    {
+                                        <div class="news-post--item">
+                                            <div class="news-post--row row">
+                                                <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                    <div class="news-post--img">
+
+                                                        @if (NewsCate[i].NewsImages != null)
+                                                        {
+                                                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@NewsCate[i].NewsImages.ToString()" alt="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                        }
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                    <div class="news-post--content">
+
+                                                        @if (@NewsCate[i].NewsName != null)
+                                                        {
+                                                            <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()">@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                        }
+
+                                                        <div class="news-post--info clearfix">
+                                                            @if (@NewsCate[i].DateCreate != null)
+                                                            {
+                                                                <span class="news-post--date">Ngày @NewsCate[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin nổi bật</p>
+                        <div class="news-post--list">
+
+                            @for (int i = 0; i < 5; i++)
+                            {
+
+
+
+                                <div class="news-post--item">
+                                    <div class="news-post--row row">
+                                        <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                            <div class="news-post--img">
+
+                                                @if (@TinNoiBat[i].NewsImages != null)
+                                                {
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@TinNoiBat[i].NewsImages.ToString()" alt="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                        <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                            <div class="news-post--content">
+
+                                                @if (@TinNoiBat[i].NewsName != null)
+                                                {
+                                                    <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                }
+
+                                                <div class="news-post--info clearfix">
+                                                    @if (@TinNoiBat[i].DateCreate != null)
+                                                    {
+                                                        <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                    }
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+    <div class="register-main single-register-main container">
+        <div class="register-wrapper">
+            <div class="register-row row">
+                <div class="register-col col-lg-6">
+                    <div class="register-form">
+                        <p style="font-size: 21px;line-height: 21px;color:white;text-align:center;text-transform:uppercase;">Đăng ký khám, tư vấn</p>
+                        <div class="form">
+
+                            <style type="text/css">
+                                input[name='CaptchaInputText'] {
+                                    width: 100% !important;
+                                    line-height: 28px;
+                                    background: rgba(255, 255, 255, .8) none;
+                                    padding: 10px;
+                                    height: 50px;
+                                    display: block;
+                                    width: 100%;
+                                    font-size: 1rem;
+                                    font-weight: 400;
+                                    line-height: 1.5;
+                                    color: #495057;
+                                    border: 1px solid #ced4da;
+                                    border-radius: .25rem;
+                                    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                }
+                            </style>
+
+                            <div class="form-group register-name">
+                                <label>Họ và tên <i>(*)</i></label>
+                                <input value="" name="txthoten" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-phone">
+                                <label>Số điện thoại <i>(*)</i></label>
+                                <input value="" name="txtsdt" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-email">
+                                <label>Email</label>
+                                <input value="" name="txtemail" class="form-control" type="email" />
+                            </div>
+                            <div class="form-group register-comment">
+                                <label>Ghi chú khác</label>
+                                <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                            </div>
+
+
+                            <div class="form-group form-group--btn">
+                                <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-col col-lg-6 d-none d-lg-block">
+                    <div class="choose-main">
+                        <p class="line-title">Tại sao nên chọn bệnh viện đa khoa MEDLATEC</p>
+                        <div class="choose-main--row row">
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/hospital.png" alt="" /></div>
+                                    <div class="choose-main--desc">Bệnh viện đa khoa với nhiều năm kinh nghiệm trong lĩnh vực y tế.</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/doctors.png" alt="" /></div>
+                                    <div class="choose-main--desc">Thăm khám bởi đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/infrastructure.png" alt="" /></div>
+                                    <div class="choose-main--desc">Cơ sở vật chất, máy móc trang thiết bị hiện đại</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/bill.png" alt="" /></div>
+                                    <div class="choose-main--desc">Áp dụng thanh toán bảo hiểm y tế và các bảo hiểm khác lên tới 100%</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/fast.png" alt="" /></div>
+                                    <div class="choose-main--desc">Quy trình khám chữa bệnh nhanh chóng, thuận tiện</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/dollar.png" alt="" /></div>
+                                    <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

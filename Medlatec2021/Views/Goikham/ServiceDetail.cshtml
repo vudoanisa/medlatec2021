@@ -1,0 +1,385 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using System.Text.RegularExpressions;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Service = (List<Root>)ViewBag.Service;
+    var ServiceGroup = (List<ServiceGroup>)ViewBag.ServiceGroup;
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    <style>
+        .archive-item--desc {
+            margin-top: 20px;
+        }
+
+        .giamgia {
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .spangiamgia {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 20px;
+            padding: 6px;
+            border-radius: 2px;
+            background-color: #c63829;
+            vertical-align: top;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .nguyengia {
+            color: red;
+            font-size: 16px;
+            font-weight: 700;
+            color: #c63829;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .trugia {
+            font-size: 13px;
+            color: #666;
+            text-decoration: line-through;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .img-goikham {
+            max-width: 500px;
+        }
+
+        .news-tags a {
+            color: #4a4a4a;
+            text-decoration: none;
+            background-color: #f2f2f2;
+            margin: 5px 2px 0 0;
+            padding: 5px 12px 6px;
+            border-radius: 20px;
+        }
+
+            .news-tags a:hover {
+                color: white;
+                text-decoration: none;
+                background-color: #1576C4;
+                margin: 5px 2px 0 0;
+                padding: 5px 12px 6px;
+                border-radius: 20px;
+            }
+
+        .single-news--content h2, h3, h4 {
+            font-size: 1.25rem;
+        }
+
+        .single-news--content h3, h4 {
+            font-size: 1rem;
+        }
+
+        .single-news--content-img {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        table.return-table .return-col--2 {
+            width: 10%;
+        }
+
+        table.return-table .return-col--1 {
+            width: 60%;
+        }
+
+        table.return-table .return-col--4 {
+            width: 30%;
+            text-align: center;
+        }
+        .img-1{
+            max-height:300px;
+            width:auto;
+            text-align:center;
+            display:initial;
+        }
+        .line-title{
+font-size:20px;
+margin-bottom:10px;
+        }
+    </style>
+}
+
+
+@*@if(!string.IsNullOrEmpty(NewsDichvu[0].NewsId.ToString()))
+    {*@
+@Html.Raw(TempData["msg"])
+
+@section Note {
+    <title>@Html.Raw(Service[0].Service.ServiceName.ToString().TrimStart().TrimEnd().Replace("\"", "")) | Medlatec</title>
+
+    <meta name="description" content="@Html.Raw(Service[0].Service.ServiceDes.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+    <meta property="og:description" content="@Html.Raw(Service[0].Service.ServiceName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+
+
+    <meta name="title" content="@Html.Raw(Service[0].Service.ServiceName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+    <meta property="og:title" content="@Html.Raw(Service[0].Service.ServiceName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+
+    <meta name="keywords" content="@Html.Raw(Service[0].Service.ServiceName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+
+
+
+    @if (@Service[0].Service.Img != null)
+    {
+        string abc = "http://imgservice.icnm.vn/iCNMImage/ServiceImage/" + Service[0].Service.ServiceID + "/" + Service[0].Service.Img.ToString();
+        abc = abc.Replace("\"", "/");
+        abc = abc.Replace("\\", "/");
+        <meta property="og:image" content="@abc" />
+    }
+
+
+}
+
+
+   @using (Html.BeginForm("NewsDetails", "News", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+   {
+
+
+<div class="breadcrumb-container container">
+    <ul class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://medlatec.vn/" itemprop="item"><span itemprop="name">Trang chủ</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="#" itemprop="item"><span itemprop="name">Gói khám...</span></a>
+            <meta itemprop="position" content="2" />
+        </li>
+
+        <li><span>@Service[0].Service.ServiceName.ToString().TrimStart().TrimEnd()</span></li>
+    </ul>
+</div>
+
+<div class="single-news container">
+    <div class="single-news--row row">
+        <div class="single-news--col col-12 col-lg-8">
+            <div class="single-news--container">
+                <h1>@Html.Raw(CMS_Core.Common.Common.removeCharEncode(Service[0].Service.ServiceName.ToString().TrimStart().TrimEnd()))</h1>
+
+                <div class="single-news--wrapper">
+                    <div class="share-social clearfix">
+                        <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/" class="share-social--facebook"><img src="/Content/images/facebook-share.png" alt="" /></a>
+                        <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q" class="share-social--youtube"><img src="/Content/images/youtube-share.png" alt="" /></a>
+                        <a href="" class="share-social--linkin"><img src="/Content/images/linkedin-share.png" alt="" /></a>
+                        <a href="" class="share-social--twitter"><img src="/Content/images/twitter-share.png" alt="" /></a>
+
+                    </div>
+                    <div class="single-news--content-img">
+                        @if (@Service[0].Service.Img != null)
+                        {
+                            string abc = "http://imgservice.icnm.vn/iCNMImage/ServiceImage/" + Service[0].Service.ServiceID + "/" + Service[0].Service.Img.ToString();
+                            abc = abc.Replace("\"", "/");
+                            abc = abc.Replace("\\", "/");
+                            <img class="img-1 embed-responsive" src="@abc" alt="" />
+                        }
+                        @{
+                            float tien = float.Parse(@Service[0].Service.Cost.ToString()) * 1000;
+                            float giamgia = float.Parse(@Service[0].Service.Discount.ToString()) * 1000;
+                            float tile = (giamgia - tien) / tien;
+                            float tontile = tile * 100 * -1;
+                            <div class="row" style="margin-top:15px;">
+                                <div class="col-12 col-lg-6" style="text-align:right;">
+                                    <b style="color: red;font-size:26px;font-weight:700;color:#c63829;display:inline-block;margin-right:8px;padding-top:10px;">Giá sau ưu đãi : @String.Format("{0:#,##0.#}", giamgia).Replace(",", ".")đ</b>
+                                </div>
+                                <div class="col-12 col-lg-6" style="text-align:left;">
+                                    <label style="font-size:18px;color:#666;text-decoration:line-through;display:inline-block;margin-right:5px;padding-top:15px;">Nguyên gốc:  @String.Format("{0:#,##0.#}", tien).Replace(",", ".") đ </label><span style="display:inline-block;color:#fff;font-size:23px;font-weight:700;line-height:20px;padding:15px;border-radius:2px;background-color:#c63829;vertical-align:top;float: right;">Giảm @String.Format("{0:#,##}", tontile).Replace(",", ".")%</span>
+                                </div>
+                                </div>
+                            
+                        }
+
+                    </div>
+                    <div class="single-news--content">
+
+                        @if (Service[0].Service.ServiceDes != null)
+                        {
+
+                            <p> @Service[0].Service.ServiceDes.ToString().TrimStart().TrimEnd().Replace("\"", "")</p>
+
+
+                        }
+                        <p>
+                            <b>Danh mục các xét nghiệm trong gói khám</b>
+
+                        </p>
+                    </div>
+                    @if (@Service[0].Service.ServiceDetails != null)
+                    {
+                        <div class="return-table--container">
+                            <table class="return-table table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="return-col--2">STT</th>
+                                        <th class="return-col--1">Tên xét nghiệm</th>
+                                        <th class="return-col--4">Giá</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Service[0].Service.ServiceDetails.Count; i++)
+                                    {
+                                        <tr>
+                                            <td class="return-col--2">@i</td>
+                                            <td class="return-col--1">@Service[0].Service.ServiceDetails[i].TestName.ToString()</td>
+                                            <td class="return-col--4">@Service[0].Service.ServiceDetails[i].Price.ToString()</td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+
+            <div class="xntn-main" id="coso" style="padding-bottom:0px;padding-top:45px;">
+
+               
+                <div class="banner-feature--row row">
+                    @Html.AntiForgeryToken()
+                 
+
+                    <div class="banner-feature--col col-xl-12" style="background:transparent;background-image:url(/Content/images/Landing-covid/fixing-05.png);background-size: cover;">
+
+                        <div class="feature-main" style="width:100%;background:transparent;background-image:url(/Content/images/Landing-covid/fixing-07.png);background-size: cover;padding:18%;border:none;background-repeat:round;">
+                            <h3 class="line-title">ĐĂNG KÝ GÓI KHÁM NGAY BÂY GIỜ</h3>
+                            <div class="row">
+                                <div class="feature-col col-12 col-lg-12">
+                                    <div class="form-group">
+                                        <input placeholder="Họ tên (Bắt buộc)" name="txtHoten" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="feature-col col-12 col-lg-12">
+                                    <div class="form-group">
+                                        <input placeholder="Số điện thoại (Bắt buộc)" name="txtsdt" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="feature-col col-12 col-lg-12">
+                                    <div class="form-group">
+                                        <input placeholder="Địa chỉ" name="txtDiachi" type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="feature-col col-12 col-lg-12">
+                                    <div class="form-group schedule-birthday">
+
+                                        <input name="txtngaysinh" class="form-control schedule-date" readonly="true" placeholder="Ngày hẹn khám" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="feature-col col-12 col-lg-12">
+                                    <div class="form-group schedule-row--btn">
+                                        <button type="submit" name="submit" value="SaveAdd">Đặt lịch khám</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="single-news--col col-xl-3 col-lg-4">
+            <div class="sidebar-container">
+                <div class="news-post">
+                    <h2>Danh mục gói khám</h2>
+                    <div class="news-post--list">
+
+                        @for (int i = 0; i < ServiceGroup.Count; i++)
+                        {
+
+
+
+                            <div class="news-post--item">
+                                <div class="news-post--row row">
+
+                                    <div class="news-post--col col-12">
+                                        <div class="news-post--content">
+                                            @if (ServiceGroup[i].Name != null)
+                                            {
+                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByCate("goi-kham", @ServiceGroup[i].Name.ToString().ToLower(),"r"+@ServiceGroup[i].ServiceGroupID.ToString())">@ServiceGroup[i].Name.ToString()</a></h3>
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sidebar-container">
+                <div class="news-post">
+                    <p class="news-qt">Tin mới nhất</p>
+                    <div class="news-post--list">
+
+                        @for (int i = 0; i < 6; i++)
+                        {
+
+
+
+                            <div class="news-post--item">
+                                <div class="news-post--row row">
+                                    <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                        <div class="news-post--img">
+
+                                            @if (@TinNoiBat[i].NewsImages != null)
+                                            {
+                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@TinNoiBat[i].NewsImages.ToString()" alt="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                    <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                        <div class="news-post--content">
+
+                                            @if (@TinNoiBat[i].NewsName != null)
+                                            {
+                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                            }
+
+                                            <div class="news-post--info clearfix">
+                                                @if (@TinNoiBat[i].DateCreate != null)
+                                                {
+                                                    <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        </div>
+    </div>
+
+}
+
+
+

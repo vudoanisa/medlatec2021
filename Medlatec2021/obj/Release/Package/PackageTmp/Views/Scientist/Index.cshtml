@@ -1,0 +1,159 @@
+﻿@model  MEDLATEC2019.Models.ScientistViewModel
+@using CMS_Core.Entity;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int index = 1;
+}
+
+
+
+@section Note {
+    <title>Danh sách công trình nghiên cứu khoa học  </title>
+
+    <meta name="description" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi,Danh sách công trình nghiên cứu khoa học"  )" />
+
+
+    <meta name="title" content="@Html.Raw("Danh sách công trình nghiên cứu khoa học | Medlatec "  )" />
+
+    <meta name="keywords" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi, Danh sách công trình nghiên cứu khoa học"  )" />
+    <meta name="robots" content="noindex,follow,all">
+
+}
+
+
+
+@using (Html.BeginForm("Index", "Scientist", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="return-find container">
+
+        <div class="return-find--container">
+            <h2 class="title">Danh sách công trình nghiên cứu khoa học</h2>
+
+            <div class="form-group row" style="margin-top:30px;">
+                <div class="return-find--col col-lg-5">
+                    @Html.DropDownListFor(m => m.DatePerform, this.ViewBag.NamThuchien as List<SelectListItem>, new { @class = "form-control tab-customer--location" })
+                </div>
+                <div class="return-find--col col-lg-2">
+                </div>
+                <div class="return-find--col col-lg-5">
+                    @Html.DropDownListFor(m => m.ScientistCate, this.ViewBag.getChuyenKhoa as List<SelectListItem>, new { @class = "form-control tab-customer--location" })
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="return-find--col col-lg-12">
+                    @Html.TextBoxFor(m => m.PersionPerform, new { @class = "form-control tab-customer--code", type = "text", placeholder = "Người thực hiện" })
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="return-find--col col-lg-10">
+                    @Html.TextBoxFor(m => m.keyworkd, new { @class = "form-control tab-customer--code", type = "text", placeholder = "Từ khóa tìm kiếm" })
+                    
+
+                </div>
+                <div class="return-find--col col-lg-2">
+                    <button type="submit" name="submit" class="btn btn-default btn-submit-from" id="IDfromsubmit" value="SaveAdd">Tìm kiếm</button>
+
+                </div>
+                </div>
+
+                <div class="form-group row" style="display:none;">
+                    <button type="submit" name="submit" value="search" id="search" class="btn-form--submit">Tra cứu</button>
+
+                </div>
+
+                <div class="return-table--container">
+                    <table class="return-table table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="return-col--8">STT</th>
+                                <th class="return-col--1">Tên đề tài</th>
+
+                                <th class="return-col--8">Thời gian thực hiện</th>
+                                <th class="return-col--8">Người thực hiện</th>
+                                <th class="return-col--3">Đơn vị</th>
+                                <th class="return-col--8">Hội đồng nghiệm thu</th>
+                                <th class="return-col--8"> </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Scientist)
+                            {
+                                <tr>
+
+                                    <td class="return-col--8">@(index++)</td>
+                                    <td class="return-col--1">@item.ScientistTitle</td>
+
+                                    <td class="return-col--8">@item.DatePerform</td>
+                                    <td class="return-col--8">@item.PersionPerform</td>
+                                    <td class="return-col--3">@item.UnitPerform</td>
+                                    <td class="return-col--7">@item.CommissioningCommittee</td>
+                                    <td class="return-col--8">
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu",item.ScientistTitle.ToString().ToLower(),"s"+item.ScientistCae.ToString() ,"n"+item.ID.ToString())" title="@item.ScientistTitle.ToString().TrimStart().TrimEnd()">
+                                            Xem thêm
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="return-find--col col-lg-12">
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+}
+
+
+<script>
+    var input = document.getElementById("keyworkd");
+            input.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("search").click();
+                }
+    });
+
+    input = document.getElementById("PersionPerform");
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+
+    input = document.getElementById("DatePerform");
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+
+    input = document.getElementById("ScientistCate");
+    input.addEventListener("keyup", function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+</script>

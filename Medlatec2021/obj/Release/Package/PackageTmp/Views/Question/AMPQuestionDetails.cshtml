@@ -1,0 +1,1426 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@{
+
+    Layout = null;
+    var Cauhoi = (List<Question>)ViewBag.Cauhoi;
+    var CauhoiLienquan = (List<Question>)ViewBag.CahoiLienQuan;
+    var DanhMucCauHoi = (List<Question>)ViewBag.DanhMucCauHoi;
+    var TopCauHoi = (List<Question>)ViewBag.TopCauHoi;
+    var Total = (List<Question>)ViewBag.Tongcauhoi;
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    string fullname = "";
+    var NewsTags = (List<Cms_NewsTags>)ViewBag.Tag;
+
+}
+
+@if (Cauhoi != null)
+{
+    if (Cauhoi.Count > 0)
+    {
+
+
+        <!doctype html>
+        <html amp lang="vi">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1" />
+
+
+
+            @if (@Cauhoi[0].QuestionContent != null)
+            {
+                <meta name="description" content="@Html.Raw(@Cauhoi[0].QuestionContent.TrimStart().TrimEnd().Replace("\"", ""))" />
+            }
+
+            @if (@Cauhoi[0].QuestionTitle != null)
+            {
+                @*if (Cauhoi[0].QuestionTitle.Trim().Length == 0)
+                {
+                    if (@Cauhoi[0].QuestionContent.Length > 75)
+                    {
+                        <meta name="title" content="@Html.Raw(@Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd())" />
+                        <title>@Html.Raw(@Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd()) | Medlatec Hỏi Đáp số @Cauhoi[0].QuestionID.ToString()  </title>
+                        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", @CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd().ToLower()), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+                       
+                    }
+                    else
+                    {
+                        <meta name="title" content="@Html.Raw("Câu hỏi số :" + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString())" />
+                        <title>@@Html.Raw("Câu hỏi số :" + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString()) </title>
+                        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", "Câu hỏi số " + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+                       
+                    }
+                }
+                else if ((Cauhoi[0].QuestionTitle.Trim().Length < 15) && (Cauhoi[0].QuestionTitle.Trim().Length > 0))
+                {
+                    if (@Cauhoi[0].QuestionContent.Length > 75)
+                    {
+
+                        <meta name="title" content="@Html.Raw(Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd() +" - "+ @Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd())" />
+                        <title>@Html.Raw(Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd() + " - " + @Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd()) | Medlatec Hỏi Đáp số @Cauhoi[0].QuestionID.ToString()  </title>
+                        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",@CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd().ToLower()), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+
+                      
+
+                    }
+                    else
+                    {
+                        <meta name="title" content="@Html.Raw("Câu hỏi: " + @Cauhoi[0].QuestionTitle.ToString().ToLower() + " tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString())" />
+                        <title>@Html.Raw("Câu hỏi: " + @Cauhoi[0].QuestionTitle.ToString().ToLower() + " tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString()) </title>
+                        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", "Câu hỏi " + @CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionTitle.ToString().ToLower()) + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+
+
+                       
+                    }
+                }
+                else
+                {*@
+                    <meta name="title" content="@Html.Raw(@Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+                    <title>@Html.Raw(@Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd().Replace("\"", "")) | Medlatec Hỏi Đáp số @Cauhoi[0].QuestionID.ToString()  </title>
+                    <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd().Replace("\"", "").ToLower()), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+
+
+                //}
+
+            }
+            else
+            {
+                <meta name="title" content="@Html.Raw("Câu hỏi số : " + @Cauhoi[0].QuestionID.ToString().TrimStart().TrimEnd()+ "tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString())" />
+                <title>@Html.Raw("Câu hỏi số : " + @Cauhoi[0].QuestionID.ToString().TrimStart().TrimEnd() + "tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString()) </title>
+                <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", "Câu hỏi số " + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+
+
+               
+
+            }
+
+
+
+            @if (@Cauhoi[0].QuestionContent != null)
+            {
+                <meta name="keywords" content="@Html.Raw(@Cauhoi[0].QuestionContent.TrimStart().TrimEnd().Replace("\"", "").ToLower())" />
+            }
+
+
+
+
+            <meta name="robots" content="index,follow,all">
+            @*<link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",CMS_Core.Common.Common.removeCharEncode(NewsDichvu[0].NewsName.ToLower().TrimEnd().TrimStart().ToString()), "s" + NewsDichvu[0].CateId.ToString(), "n" + NewsDichvu[0].NewsId.ToString())" />*@
+
+            <link rel="apple-touch-icon" sizes="180x180" href="/content/amp/images/logochuan-01.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="/content/amp/images/logochuan-32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/content/amp/images/logochuan-16.png">
+
+            <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js" />
+            <script async src="https://cdn.ampproject.org/v0.js"></script>
+            <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+            <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+            <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+            <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+
+
+
+
+
+            <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+
+
+
+
+
+            <style amp-boilerplate>
+                body {
+                    -webkit-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+                    -moz-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+                    -ms-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+                    animation: -amp-start 8s steps(1,end) 0s 1 normal both
+                }
+
+                @@-webkit-keyframes -amp-start {
+                    from {
+                        visibility: hidden
+                    }
+
+                    to {
+                        visibility: visible
+                    }
+                }
+
+                @@-moz-keyframes -amp-start {
+                    from {
+                        visibility: hidden
+                    }
+
+                    to {
+                        visibility: visible
+                    }
+                }
+
+                @@-ms-keyframes -amp-start {
+                    from {
+                        visibility: hidden
+                    }
+
+                    to {
+                        visibility: visible
+                    }
+                }
+
+                @@-o-keyframes -amp-start {
+                    from {
+                        visibility: hidden
+                    }
+
+                    to {
+                        visibility: visible
+                    }
+                }
+
+                @@keyframes -amp-start {
+                    from {
+                        visibility: hidden
+                    }
+
+                    to {
+                        visibility: visible
+                    }
+                }
+            </style>
+            <noscript>
+                <style amp-boilerplate>
+                    body {
+                        -webkit-animation: none;
+                        -moz-animation: none;
+                        -ms-animation: none;
+                        animation: none
+                    }
+                </style>
+            </noscript>
+
+
+            <style amp-custom>
+                *,
+                ::after,
+                ::before {
+                    box-sizing: border-box;
+                }
+
+                body {
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #333;
+                    line-height: 1.5;
+                }
+
+                .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+                    min-width: inherit;
+                    width: 288pt;
+                    right: 29px;
+                }
+
+                .chatbuttonmobi {
+                    position: fixed;
+                    z-index: 99;
+                    right: 10px;
+                    bottom: 0px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #007bff;
+                }
+
+                p {
+                    margin: 0 0 1rem;
+                }
+
+                .clearfix::after {
+                    content: '';
+                    display: table;
+                    clear: both;
+                }
+
+                .ul-clear {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+
+                .container {
+                    width: 100%;
+                    padding: 0 15px;
+                    margin: 0 auto;
+                }
+
+                .navigation-main {
+                    background: #DEECFF none;
+                    padding: 7px 0;
+                    position: relative;
+                }
+
+                .search-button {
+                    width: 40px;
+                    height: 32px;
+                    background: #1576C4 url('/content/amp/images/search.png') no-repeat center;
+                    -webkit-border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    border-radius: 5px;
+                    float: right;
+                }
+
+                .navigation-button {
+                    width: 24px;
+                    height: 32px;
+                    background: transparent url('/content/amp/images/bar.png') no-repeat center;
+                    float: right;
+                    margin: 0 0 0 15px;
+                }
+
+                .language-main {
+                    float: left;
+                    display: -ms-flexbox;
+                    display: flex;
+                }
+
+                    .language-main select {
+                        height: 32px;
+                        border: none;
+                        padding: 0 15px 0 0;
+                        background: transparent url('/content/amp/images/drop-down.png') no-repeat right center;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        text-indent: 1px;
+                        text-overflow: '';
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 14px;
+                    }
+
+                    .language-main .language-flag {
+                        width: 24px;
+                        height: 32px;
+                        background: transparent url('/content/amp/images/vn.png') no-repeat center;
+                        margin: 0 0 0 5px;
+                    }
+
+                .footer-main {
+                    background: #183661 none;
+                    padding: 40px 0 30px;
+                    color: #fff;
+                }
+
+                .company-info h3 {
+                    margin: 0;
+                    font-size: 24px;
+                    font-weight: 500;
+                    color: #1D93E3;
+                    text-align: center;
+                    line-height: 32px;
+                }
+
+                .company-info p {
+                    text-align: center;
+                    line-height: 20px;
+                }
+
+                    .company-info p:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    .company-info p b {
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+
+                .social-main {
+                    margin: 30px 0 0;
+                }
+
+                .social-item {
+                    display: inline-block;
+                    position: relative;
+                    left: 50%;
+                    -webkit-transform: translateX(-50%);
+                    -ms-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                }
+
+                    .social-item a {
+                        width: 44px;
+                        height: 44px;
+                        display: block;
+                        float: left;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        border-radius: 50%;
+                        margin: 0 25px 0 0;
+                    }
+
+                        .social-item a:last-child {
+                            margin-right: 0;
+                        }
+
+                .social-facebook {
+                    background: #1D93E3 url('/content/amp/images/facebook.png') no-repeat center;
+                }
+
+                .social-youtube {
+                    background: #1D93E3 url('/content/amp/images/youtube.png') no-repeat center;
+                }
+
+                .social-linkin {
+                    background: #1D93E3 url('/content/amp/images/linkin.png') no-repeat center;
+                }
+
+                .social-twitter {
+                    background: #1D93E3 url('/content/amp/images/twitter.png') no-repeat center;
+                }
+
+                .company-contact {
+                    margin: 25px 0 0;
+                }
+
+                    .company-contact li {
+                        border-top: 1px solid #365A8F;
+                        color: #BEBEBE;
+                        padding: 15px 0 15px 40px;
+                        font-size: 16px;
+                    }
+
+                    .company-contact .company-phone {
+                        background: transparent url('/content/amp/images/phone.png') no-repeat left top 11px;
+                    }
+
+                    .company-contact .company-mail {
+                        background: transparent url('/content/amp/images/mail.png') no-repeat left top 12px;
+                    }
+
+                    .company-contact .company-address {
+                        background: transparent url('/content/amp/images/maker.png') no-repeat left top 15px;
+                    }
+
+                    .company-contact a {
+                        line-height: 20px;
+                        color: #BEBEBE;
+                    }
+
+                    .company-contact p {
+                        line-height: 20px;
+                    }
+
+                        .company-contact p:last-child {
+                            margin-bottom: 0;
+                        }
+
+                .call-hotline {
+                    position: fixed;
+                    left: 5px;
+                    bottom: 0;
+                    z-index: 99;
+                }
+
+                    .call-hotline a {
+                        display: block;
+                        height: 36px;
+                        color: #F9E484;
+                        padding: 10px 15px 8px 45px;
+                        line-height: 19px;
+                        font-size: 18px;
+                        background: #1576C4 url('/content/amp/images/call.png') no-repeat left 10px center;
+                        -webkit-border-radius: 8px 8px 0 0;
+                        -moz-border-radius: 8px 8px 0 0;
+                        border-radius: 8px 8px 0 0;
+                        position: relative;
+                        font-weight: 700;
+                    }
+
+                .search-form {
+                    width: 100%;
+                    background: #F1EAEA none;
+                    top: 45px;
+                    left: 0;
+                    display: block;
+                    position: absolute;
+                    z-index: -1;
+                    max-height: 0;
+                    -webkit-transition: all .3s;
+                    transition: all .3s;
+                    overflow: hidden;
+                }
+
+                    .search-form .container {
+                        padding-top: 8px;
+                        padding-bottom: 8px;
+                    }
+
+                    .search-form.open {
+                        max-height: 56px;
+                        z-index: 99;
+                    }
+
+                    .search-form input[type="text"] {
+                        background: #fff none;
+                        height: 40px;
+                        padding: 10px 40px 10px 13px;
+                        font-size: 14px;
+                        line-height: 20px;
+                        border: none;
+                        -webkit-border-radius: 5px 0 0 5px;
+                        -moz-border-radius: 5px 0 0 5px;
+                        border-radius: 5px 0 0 5px;
+                        display: block;
+                        color: #333;
+                        float: left;
+                        width: -webkit-calc(100% - 40px);
+                        width: -moz-calc(100% - 40px);
+                        width: calc(100% - 40px);
+                    }
+
+                    .search-form button {
+                        float: right;
+                        width: 40px;
+                        height: 40px;
+                        border: none;
+                        background: #1576C4 url('/content/amp/images/find.png') no-repeat center;
+                        ;
+                        -webkit-border-radius: 0 5px 5px 0;
+                        -moz-border-radius: 0 5px 5px 0;
+                        border-radius: 0 5px 5px 0;
+                    }
+
+                .nav-menu {
+                    position: fixed;
+                    top: 0;
+                    right: -100%;
+                    height: 100%;
+                    z-index: 999;
+                    opacity: 0;
+                    transition: .2s ease-in-out;
+                    -moz-transition: .2s ease-in-out;
+                    -webkit-transition: .2s ease-in-out;
+                    -o-transition: .2s ease-in-out;
+                    width: 100%;
+                }
+
+                    .nav-menu::after {
+                        content: '';
+                        display: table;
+                        clear: both;
+                    }
+
+                    .nav-menu.open {
+                        right: 0;
+                        opacity: 1;
+                    }
+
+                .nav-menu-wrapper {
+                    position: relative;
+                    overflow-y: scroll;
+                    height: 100%;
+                    width: 100%;
+                    max-width: 260px;
+                    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+                    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+                    background: #fff none;
+                    float: right;
+                }
+
+                .nav-menu-header {
+                    line-height: 70px;
+                    background: #1576C4 none;
+                    color: #fff;
+                    font-size: 18px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    text-align: center;
+                    margin: 0 0 5px;
+                    display: block;
+                }
+
+                .nav-menu-wrapper ul {
+                    margin: 0 0 0 15px;
+                    padding: 0;
+                    list-style: none;
+                    display: block;
+                }
+
+                .nav-menu-wrapper li {
+                    display: block;
+                    margin: 0;
+                    padding: 0;
+                    position: relative;
+                }
+
+                    .nav-menu-wrapper li a {
+                        display: block;
+                        position: relative;
+                        font-size: 16px;
+                        color: #333;
+                        padding: 12px 0;
+                        border-bottom: 1px solid #EFEFEF;
+                        line-height: 22px;
+                        height: auto;
+                        font-weight: 400;
+                    }
+
+                .arrow-children {
+                    background: transparent url('/content/amp/images/arrrow-down.png') no-repeat center;
+                    width: 22px;
+                    height: 22px;
+                    position: absolute;
+                    display: block;
+                    right: 10px;
+                    top: 14px;
+                    text-align: center;
+                }
+
+                    .arrow-children.open {
+                        background-image: url('/content/amp/images/arrrow-up.png');
+                    }
+
+                .nav-menu-wrapper .sub-menu {
+                    position: relative;
+                    width: 100%;
+                    top: 0;
+                    opacity: 1;
+                    z-index: 1;
+                    background: transparent;
+                    margin-left: 0;
+                    display: block;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                    max-height: 0;
+                    overflow: hidden;
+                    -webkit-transition: all .3s;
+                    transition: all .3s;
+                }
+
+                    .nav-menu-wrapper .sub-menu.open {
+                        max-height: 645px;
+                    }
+
+                    .nav-menu-wrapper .sub-menu li a {
+                        line-height: 20px;
+                        height: auto;
+                        color: #333;
+                        background: #fff none;
+                        padding: 12px 20px 10px 15px;
+                        font-weight: 400;
+                        font-size: 15px;
+                    }
+
+                    .nav-menu-wrapper .sub-menu .sub-menu li a {
+                        padding-left: 30px;
+                    }
+
+                .breadcrumb-main {
+                    padding: 15px 0;
+                }
+
+                    .breadcrumb-main li {
+                        margin: 0;
+                        padding: 0 15px 0 0;
+                        float: left;
+                        background: transparent url('/content/amp/images/breadcrumb.png') no-repeat right 5px bottom 5px;
+                        font-size: 13px;
+                        color: #898787;
+                        line-height: 18px;
+                    }
+
+                        .breadcrumb-main li:last-child {
+                            background: transparent none;
+                            padding-right: 0;
+                        }
+
+                    .breadcrumb-main a {
+                        color: #898787;
+                    }
+
+                .page-main {
+                    margin: 15px 0 0;
+                }
+
+                .service-menu {
+                    text-align: right;
+                }
+
+                    .service-menu select {
+                        line-height: 20px;
+                        padding: 8px 25px 8px 10px;
+                        background: #EEF1F7 url('/content/amp/images/drop-down.png') no-repeat right 10px top 18px;
+                        border: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        border-radius: 5px;
+                        font-family: inherit;
+                        font-size: inherit;
+                        margin: 0;
+                    }
+
+                .page-title {
+                    margin: 15px 0 0;
+                    font-size: 24px;
+                    line-height: 28px;
+                    font-weight: 700;
+                    border-top: 1px solid #DEDEDE;
+                    padding: 15px 0 0;
+                }
+
+                .faq-main {
+                    margin: 20px 0 0;
+                }
+
+                .faq-question-info {
+                    display: -ms-flexbox;
+                    display: flex;
+                    align-items: center;
+                    -webkit-justify-content: space-between;
+                    justify-content: space-between;
+                }
+
+                .customer-name {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #1576C4;
+                    line-height: 21px;
+                }
+
+                .faq-question-info .faq-date,
+                .faq-reply-date span {
+                    color: #B3B3B3;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 21px;
+                    background: transparent url('/content/amp/images/calendar-faq.png') no-repeat left top 2px;
+                    padding: 0 0 0 20px;
+                }
+
+                .faq-content {
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: #333;
+                    margin: 5px 0 0;
+                }
+
+                .faq-reply-answer {
+                    position: relative;
+                    min-height: 27px;
+                    margin: 15px 0 0;
+                }
+
+                    .faq-reply-answer::before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background: #DEDEDE none;
+                        -webkit-transform: translateY(-50%);
+                        -ms-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                    }
+
+                    .faq-reply-answer span {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        background: #1ABC9B url('/content/amp/images/check.png') no-repeat left 10px top 3px;
+                        font-size: 14px;
+                        line-height: 21px;
+                        padding: 4px 10px 2px 33px;
+                        color: #fff;
+                        font-style: italic;
+                        display: block;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        border-radius: 5px;
+                    }
+
+                .faq-reply {
+                    margin: 30px 0 0;
+                    padding: 0 15px 0 0;
+                }
+
+                .faq-reply-item {
+                    background: #EAF5FF none;
+                    padding: 15px;
+                    -webkit-border-radius: 5px;
+                    -moz-border-radius: 5px;
+                    border-radius: 5px;
+                    position: relative;
+                }
+
+                    .faq-reply-item::after {
+                        content: '';
+                        width: 30px;
+                        height: 31px;
+                        background: transparent url('/content/amp/images/arrow-reply.png') no-repeat center center;
+                        display: block;
+                        position: absolute;
+                        top: -20px;
+                        right: -10px;
+                    }
+
+                .faq-reply-content {
+                    margin: 15px 0 0;
+                    text-align: justify;
+                }
+
+                .faq-reply-date {
+                    text-align: right;
+                }
+
+                .faq-reply-content p:last-child {
+                    margin-bottom: 0;
+                }
+
+                .share-box {
+                    margin: 30px 0 0;
+                    text-align: right;
+                }
+
+                .share-box-container {
+                    display: inline-block;
+                }
+
+                .share-box-text {
+                    float: left;
+                    line-height: 30px;
+                    padding: 0 0 0 23px;
+                    background: transparent url('/content/amp/images/share.png') no-repeat left center;
+                    font-size: 14px;
+                    color: #333;
+                }
+
+                .share-box-container a {
+                    width: 30px;
+                    height: 30px;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    display: block;
+                    float: left;
+                    margin: 0 0 0 15px;
+                }
+
+                    .share-box-container a:last-child {
+                        margin-right: 0;
+                    }
+
+                .share-box-facebook {
+                    background: transparent url('/content/amp/images/share-facebook.png') no-repeat center/100% 100%;
+                }
+
+                .share-box-youtube {
+                    background: transparent url('/content/amp/images/share-youtube.png') no-repeat center/100% 100%;
+                }
+
+                .share-box-linkin {
+                    background: transparent url('/content/amp/images/share-linkedin.png') no-repeat center/100% 100%;
+                }
+
+                .share-box-twitter {
+                    background: transparent url('/content/amp/images/share-twitter.png') no-repeat center/100% 100%;
+                }
+
+                .faq-banner {
+                    background: transparent url('/content/amp/images/faq-quest-mobile.png') no-repeat center/cover;
+                    min-height: 180px;
+                    padding: 30px 0;
+                    margin: 30px -15px 0;
+                    position: relative;
+                    z-index: 0;
+                }
+
+                    .faq-banner::before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(255, 255, 255, .8) none;
+                        z-index: -1;
+                    }
+
+                    .faq-banner h3 {
+                        font-size: 28px;
+                        line-height: 33px;
+                        font-weight: 500;
+                        color: #333;
+                        text-align: center;
+                    }
+
+                        .faq-banner h3 a {
+                            display: block;
+                            max-width: 182px;
+                            margin: 10px auto 0;
+                            padding: 8px 30px;
+                            line-height: 30px;
+                            border: none;
+                            -webkit-border-radius: 25px;
+                            -moz-border-radius: 25px;
+                            border-radius: 25px;
+                            font-size: 16px;
+                            color: #fff;
+                            font-weight: 700;
+                            background: #C92027 none;
+                            text-transform: uppercase;
+                        }
+
+                .faq-related {
+                    margin: 30px 0 0;
+                }
+
+                .faq-related-title {
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    color: #333;
+                    margin: 0 0 10px;
+                    font-size: 18px;
+                    line-height: 21px;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid #DEDEDE;
+                }
+
+                .faq-related li {
+                    margin: 15px 0 0;
+                    padding: 0 0 15px 25px;
+                    border-bottom: 1px solid #DEDEDE;
+                    position: relative;
+                }
+
+                    .faq-related li::before {
+                        content: attr(data-number);
+                        position: absolute;
+                        top: 1px;
+                        left: 0;
+                        width: 18px;
+                        height: 18px;
+                        display: block;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        border-radius: 50%;
+                        color: #fff;
+                        background: #1576C4 none;
+                        font-size: 11px;
+                        line-height: 19px;
+                        text-align: center;
+                    }
+
+                    .faq-related li h2 {
+                        font-size: 18px;
+                        line-height: 20px;
+                        font-weight: 700;
+                        margin: 0;
+                    }
+
+                .faq-related-desc {
+                    line-height: 18px;
+                    color: #333;
+                    margin: 5px 0 0;
+                    text-align: justify;
+                }
+
+                .faq-answer {
+                    margin: 30px -15px 0;
+                    background: #EEF1F7 none;
+                    padding: 15px;
+                    text-align: center;
+                }
+
+                .faq-answer-number {
+                    display: block;
+                    color: #1576C4;
+                    font-size: 59px;
+                    font-weight: 500;
+                    line-height: 69px;
+                }
+
+                .faq-answer-note {
+                    font-size: 14px;
+                    display: block;
+                    line-height: 20px;
+                    color: #333;
+                }
+
+                .faq-answer .faq-send {
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    line-height: 21px;
+                    padding: 11px 20px 9px;
+                    border: none;
+                    color: #fff;
+                    background: #C92027 none;
+                    -webkit-border-radius: 20px;
+                    -moz-border-radius: 20px;
+                    border-radius: 20px;
+                    margin: 15px 0 0;
+                }
+            </style>
+
+        </head>
+        <body>
+            <header class="header-main">
+                <div class="logo">
+                    <a href="https://medlatec.vn" title="Bệnh viện đa khoa Medlatec">
+                        <amp-img width="375" height="70" src="/content/amp/images/logo.png" layout="responsive" alt="Bệnh viện đa khoa Medlatec"></amp-img>
+                    </a>
+                </div>
+            </header>
+
+            <section class="navigation-main">
+                <div class="container clearfix">
+                    <div class="language-main">
+                        <select>
+                            <option value="vn">Tiếng Việt</option>
+                            <option value="en">Tiếng Anh</option>
+                        </select>
+                        <span class="language-flag"></span>
+                    </div>
+                    <div role="button" tabindex="0" class="navigation-button" on="tap:AMP.setState({menuExpand: !menuExpand})"></div>
+                    <div role="button" tabindex="0" class="search-button" on="tap:AMP.setState({searchForm: !searchForm})"></div>
+                </div>
+
+                <div class="search-form" [class]="searchForm ? 'search-form open' : 'search-form'">
+                    <div class="container clearfix">
+                        <input type="text" name="timkiem" id="timkiem" placeholder="Tìm kiếm" />
+                        <button id="nuttimkiem" name="nuttimkiem" class="btn-search"></button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="breadcrumb-main">
+                <div class="container">
+                    <ul class="ul-clear clearfix">
+                        <li><a href="https://medlatec.vn/">Trang chủ</a></li>
+                        <li><a href="/hoi-dap">Hỏi đáp cùng chuyên gia</a></li>
+                        <li><a href="/@CMS_Core.Common.Common.GetURLDetailByCate("hoi-dap",Cauhoi[0].SpecialName.ToString().ToLower(),"c"+Cauhoi[0].SpecialistID.ToString())" title="@Cauhoi[0].QuestionTitle.ToString()">@Cauhoi[0].SpecialName.ToString()</a></li>
+                        <li><span>@Cauhoi[0].QuestionTitle.ToString() </span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="page-main">
+                <div class="container">
+                    @*<div class="service-menu">
+                    <select>
+                        <option>Tim mạch</option>
+                        <option>Nội tiết - Tiểu đường</option>
+                    </select>
+                </div>*@
+
+                    @if (@Cauhoi[0].QuestionTitle != null)
+                    {
+                        <h1 class="page-title">@Cauhoi[0].QuestionTitle.ToString()</h1>
+
+                    }
+
+
+                    <div class="faq-main">
+                        <div class="faq-question">
+                            <div class="faq-question-info">
+                                @if (@Cauhoi[0].FullName != null)
+                                {
+                                    <div class="customer-name">@Cauhoi[0].FullName.ToString()</div>
+                                    fullname = @Cauhoi[0].FullName;
+                                }
+
+
+                                @if (@Cauhoi[0].NgayHoi != null)
+                                {
+                                    <div class="faq-date">@Cauhoi[0].NgayHoi.ToString("dd/MM/yyyy")</div>
+                                }
+
+                            </div>
+
+                            @if (@Cauhoi[0].QuestionContent != null)
+                            {
+                                <div class="faq-content">@Cauhoi[0].QuestionContent.ToString()</div>
+                            }
+
+
+                            <div class="faq-reply-answer"><span>Đã trả lời</span></div>
+                        </div>
+
+                        <div class="faq-reply">
+                            <div class="faq-reply-item">
+
+                                @if (@Cauhoi[0].NgayTraLoi != null)
+                                {
+                                    <div class="faq-reply-date"><span>@Cauhoi[0].NgayTraLoi.ToString("dd/MM/yyyy")</span></div>
+
+                                }
+                                @{
+                                    int check = 0;
+                                    check = DateTime.Compare(DateTime.Parse("2019-09-04 16:00:00"), @Cauhoi[0].NgayTraLoi);
+                                    if (check > 0)
+                                    {
+                                        if (@Cauhoi[0].AnswerContentAutoLink != null)
+                                        {
+                                            string noidung = CMS_Core.Common.Common.CleanHtml(Cauhoi[0].AnswerContentAutoLink.ToString());
+                                            noidung = CMS_Core.Common.Common.StripStyleTags(noidung);
+                                            // noidung = CMS_Core.Common.Common.removeCharEncode(noidung);
+                                            noidung = noidung.Replace("&nbsp;", "");
+                                            noidung = noidung.Replace("<br />", "");
+                                            noidung = noidung.Replace("<br/>", "");
+                                            noidung = noidung.Replace("<br type=\"_moz\" />", "");
+                                            noidung = noidung.Replace("<br type=\"_moz\"/>", "");
+                                    <div class="faq-reply-content">
+                                        
+                                        @Html.Raw(noidung)
+                                    </div>
+                                        }
+
+
+                                    }
+                                    else
+                                    {
+
+                                        if (@Cauhoi[0].AnswerContent != null)
+                                        {
+                                            string noidung = CMS_Core.Common.Common.CleanHtml(Cauhoi[0].AnswerContent.ToString());
+                                            noidung = CMS_Core.Common.Common.StripStyleTags(noidung);
+                                            // noidung = CMS_Core.Common.Common.removeCharEncode(noidung);
+                                            noidung = noidung.Replace("&nbsp;", " ");
+                                            noidung = noidung.Replace("<br />", "");
+                                            noidung = noidung.Replace("<br/>", "");
+                                            noidung = noidung.Replace("<br type=\"_moz\" />", "");
+                                            noidung = noidung.Replace("<br type=\"_moz\"/>", "");
+                                            <div class="faq-reply-content">
+                                                @Html.Raw(noidung)
+                                            </div>
+                                        }
+                                    }
+                                }
+
+
+
+                            </div>
+                        </div>
+
+                        @*<div class="share-box">
+                        <div class="share-box-container clearfix">
+                            <span class="share-box-text">Share</span>
+                            <a href="#" class="share-box-facebook"></a>
+                            <a href="#" class="share-box-youtube"></a>
+                            <a href="#" class="share-box-linkin"></a>
+                            <a href="#" class="share-box-twitter"></a>
+                        </div>
+                    </div>*@
+
+                        <div class="faq-banner">
+                            <div class="container">
+                                <h3>Tư vấn sức khoẻ từ các chuyên gia <a href="https://medlatec.vn/dat-cau-hoi">Đặt câu hỏi</a></h3>
+                            </div>
+                        </div>
+
+                        <div class="faq-related">
+                            <div class="faq-related-title">Câu hỏi liên quan</div>
+                            <ul class="ul-clear">
+
+                                @if (CauhoiLienquan != null)
+                                {
+                                    for (int i = 0; i < CauhoiLienquan.Count; i++)
+                                    {
+                                        if (i < 5)
+                                        {
+                                            <li data-number="@(i+1)">
+                                                <div class="faq-related--item">
+                                                    @if (@CauhoiLienquan[i].QuestionTitle != null)
+                                                    {
+                                                        <h2><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",@CauhoiLienquan[i].QuestionTitle.ToString().ToLower(),"c"+@CauhoiLienquan[i].SpecialistID.ToString() , "q"+@CauhoiLienquan[i].QuestionID.ToString())" title="@CauhoiLienquan[i].QuestionTitle.ToString()">@CauhoiLienquan[i].QuestionTitle.ToString()</a></h2>
+                                                    }
+
+                                                    @if (@CauhoiLienquan[i].QuestionContent != null)
+                                                    {
+                                                        <div class="faq-related-desc">@CauhoiLienquan[i].QuestionContent.ToString()</div>
+                                                    }
+
+                                                </div>
+                                            </li>
+                                        }
+
+
+                                    }
+                                }
+
+
+
+
+                            </ul>
+                        </div>
+
+                        <div class="faq-answer">
+                            <span class="faq-answer-number">@Total[0].Total.ToString()</span>
+                            <span class="faq-answer-note">Câu hỏi đã được trả lời</span>
+                            <a class="faq-send" href="/dat-cau-hoi">Gửi câu hỏi</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+            <footer class="footer-main">
+                <div class="container">
+                    <div class="company-info">
+                        <h3>Bệnh viện đa khoa MEDLATEC</h3>
+                        <p><b>Trực thuộc Công ty TNHH Công nghệ và Xét nghiệm Y học</b></p>
+                        <p>Mã số thuế : 0101234974 do Sở Kế hoạch và Đầu tư thành phố Hà Nội cấp ngày 22/04/2002.</p>
+                    </div>
+                    <div class="social-main">
+                        <div class="social-item clearfix">
+                            <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/" class="social-facebook"></a>
+                            <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q" class="social-youtube"></a>
+                     
+                            <a class="social-linkin" href=""></a>
+                            <a class="social-twitter" href=""></a>
+                        </div>
+                    </div>
+                    <div class="company-contact">
+                        <ul class="ul-clear">
+                            <li class="company-phone"><a href="tel:1900 565656">1900 565656</a></li>
+                            <li class="company-mail"><a href="mailto:info@medlatec.com">info@medlatec.com</a></li>
+                            <li class="company-address">
+                                <p>1. Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình, Hà Nội, Việt Nam</p>
+                                <p>2. Số 99 Trích Sài, Tây Hồ, Hà Nội</p>
+                                <p>3. Số 05 Khuất Duy Tiến, Thanh Xuân, Hà Nội.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+
+            <div class="call-hotline">
+                <a href="tel:1900 565656">1900 565656</a>
+            </div>
+
+            <div role="button" tabindex="0" class="nav-menu" [class]="menuExpand ? 'nav-menu open' : 'nav-menu'" on="tap:AMP.setState({menuExpand: !menuExpand})">
+                <div class="nav-menu-wrapper">
+                    <div class="nav-menu-header">Danh mục</div>
+                    <ul>
+                        <li class="has-children">
+                            <a href="#">Giới thiệu<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand1: !menuExpand1})" [class]="menuExpand1 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpand1 ? 'sub-menu open' : 'sub-menu'">
+                                <li><a href="https://medlatec.vn/tin-tuc/medlatec-no-luc-khong-ngung-vi-suc-khoe-cong-dong-s5-n11033">Lịch sử hình thành và phát triển</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/medlatec--noi-quy-tu-doi-ngu-chuyen-gia-dau-nganh-s1-n10653">Đội ngũ chuyên gia</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/medlatec-tay-ho--co-so-uy-tin-phuc-vu-cham-soc-suc-khoe-nguoi-dan-doanh-nghiep-s1-n10805">Cơ sở vật chất &amp; trang thiết bị</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/-phong-xet-nghiem-benh-vien-da-khoa-medlatec-nhan-chung-chi-iso-151892012-s1-n6746">Chứng chỉ, chứng nhận</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#">Dịch vụ y tế<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand2: !menuExpand2})" [class]="menuExpand2 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpand2 ? 'sub-menu open' : 'sub-menu'">
+                                <li><a href="https://medlatec.vn/dich-vu/xet-nghiem-lay-mau-tai-nha">Lấy mẫu xét nghiệm tận nơi</a></li>
+                                <li><a href="https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep">Khám sức khỏe doanh nghiệp</a></li>
+                                <li class="has-children">
+                                    <a href="#" title="Dịch vụ bảo hiểm">Dịch vụ bảo hiểm<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpandSub1: !menuExpandSub1})" [class]="menuExpandSub1 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                                    <ul class="sub-menu" [class]="menuExpandSub1 ? 'sub-menu open' : 'sub-menu'">
+                                        <li><a href="https://medlatec.vn/dich-vu/bao-hiem-y-te" title="Dịch vụ khám và điều trị cho bệnh nhân với Bảo Hiểm Y Tế | Medlatec">Bảo hiểm y tế</a></li>
+                                        <li><a href="https://medlatec.vn/dich-vu/bao-lanh-vien-phi" title="Bảo hiểm thương mại">Bảo hiểm thương mại</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" title="Dịch vụ mới">Dịch vụ mới</a></li>
+                                <li><a href="#" title="Gói dịch vụ">Gói dịch vụ</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" title="Chuyên khoa y tế">Chuyên khoa y tế<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand3: !menuExpand3})" [class]="menuExpand3 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpand3 ? 'sub-menu open' : 'sub-menu'">
+                                <li><a href="https://medlatec.vn/chuyen-khoa/san-khoa" title="Sản khoa">Sản khoa</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/truyen-nhiem" title="Truyền nhiễm">Truyền nhiễm</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/noi-tiet" title="Nội tiết">Nội tiết</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/nam-khoa" title="Nam khoa">Nam khoa</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/tai-mui-hong" title="Tai mũi họng">Tai mũi họng</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/ngoai-khoa" title="Tai mũi họng">Ngoại khoa</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/chuyen-khoa-mat" title="Tai mũi họng">Mắt</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/tim-mach" title="Tai mũi họng">Tim mạch</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/than-kinh" title="Tai mũi họng">Thần kinh</a></li>
+                                <li><a href="https://medlatec.vn/chuyen-khoa/ung-buou" title="Tai mũi họng">Ung bướu</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#" title="Hướng dẫn khách hàng">Hướng dẫn khách hàng<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand4: !menuExpand4})" [class]="menuExpand4 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpand4 ? 'sub-menu open' : 'sub-menu'">
+                                <li><a href="https://medlatec.vn/tra-cuu-ket-qua" title="Tra cứu kết quả">Tra cứu kết quả</a></li>
+                                <li><a href="/hoi-dap" title="Tư vấn Online">Tư vấn Online</a></li>
+                                <li><a href="#" title="Đặt lịch lấy mẫu, khám tại viện">Đặt lịch lấy mẫu, khám tại viện</a></li>
+                                <li><a href="https://medlatec.vn/bang-gia-dich-vu" title="Bảng giá dịch vụ chung">Bảng giá dịch vụ chung</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/uu-dai-dac-biet-s120" title="Chương trình ưu đãi">Chương trình ưu đãi</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/den-medlatec-kham-benh-thu-7-chu-nhat-va-ngay-le-s2-n10340" title="Giờ làm việc">Giờ làm việc</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/quy-trinh-kham-benh-chua-benh-noi-tru-bhyt-tai-medlatec-s2-n10545" title="Quy trình khám chữa bệnh">Quy trình khám chữa bệnh</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/the-khach-hang-the-pid-su-dung-cang-nhieu-gia-tri-cang-lon--s120-n7003" title="Thẻ bệnh án điện tử (PID)">Thẻ bệnh án điện tử (PID)</a></li>
+                                <li><a href="#" title="Đấu thầu">Đấu thầu</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#" title="Tin tức">Tin tức<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand5: !menuExpand5})" [class]="menuExpand5 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpand5 ? 'sub-menu open' : 'sub-menu'">
+                                <li class="has-children">
+                                    <a href="#" title="Tin tức y học">Tin tức y học<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpandSub2: !menuExpandSub2})" [class]="menuExpandSub2 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                                    <ul class="sub-menu" [class]="menuExpandSub2 ? 'sub-menu open' : 'sub-menu'">
+                                        <li><a href="https://medlatec.vn/tin-tuc/benh-truyen-nhiem-s94" title="Bệnh truyền nhiễm">Bệnh truyền nhiễm</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/xuong-khop-s68" title="Xương khớp">Xương khớp</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/da-lieu-s107" title="Da liễu">Da liễu</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/tieu-hoa-s67" title="Tiêu hóa">Tiêu hóa</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/ho-hap-s64" title="Hô hấp">Hô hấp</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/noi-tiet-s62" title="Nội tiết">Nội tiết</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/san-khoa-s74" title="Sản phụ khoa">Sản phụ khoa</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/tim-mach-s63" title="Tim mạch">Tim mạch</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/benh-ung-thu-s91" title="Ung thư">Ung thư</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/benh-tre-em-s75" title="Bệnh trẻ em">Bệnh trẻ em</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <a href="#" title="Hoạt động bệnh viện">Hoạt động bệnh viện<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpandSub3: !menuExpandSub3})" [class]="menuExpandSub3 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                                    <ul class="sub-menu" [class]="menuExpandSub3 ? 'sub-menu open' : 'sub-menu'">
+                                        <li><a href="https://medlatec.vn/tin-tuc/tin-hoat-dong-s1" title="Tin tức nội bộ">Tin tức nội bộ</a></li>
+                                        <li><a href="https://medlatec.vn/tin-tuc/bao-chi-khach-hang-noi-ve-medlatec-s135" title="Báo chí nói về chúng tôi">Báo chí nói về chúng tôi</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="https://medlatec.vn/tin-tuc/dinh-duong-s51" title="Dinh Dưỡng">Dinh Dưỡng</a>
+                                </li>
+                                <li>
+                                    <a href="https://medlatec.vn/tin-tuc/xet-nghiem-s58" title="Xét nghiệm">Xét nghiệm</a>
+                                </li>
+                                <li>
+                                    <a href="https://medlatec.vn/tin-tuc/thuoc--suc-khoe-s18" title="Thuốc và TPCN">Thuốc và TPCN</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#" title="Hệ thống MEDLATEC">Hệ thống MEDLATEC<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand6: !menuExpand6})" [class]="menuExpand6 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpand6 ? 'sub-menu open' : 'sub-menu'">
+                                <li><a href="https://medlatec.vn/he-thong-medlatec-group" title="Bệnh viện và Phòng khám">Bệnh viện và Phòng khám</a></li>
+                                <li><a href="#" title="Đối tác MEDLATEC">Đối tác MEDLATEC</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/tin-tuc/tuyen-dung-s15" title="Tin tuyển dụng">Tuyển dụng</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chatbuttonmobi">
+
+                <a href="https://m.me/BenhVienDaKhoaMedlatec">
+                    <amp-img width="60" height="60" layout="responsive" style="width:60px; height:60px" src="/content//content/amp/images/face-messenger-min.png" alt="Chat facebook"></amp-img>
+
+                </a>
+            </div>
+
+
+            <script type="application/ld+json">
+                {
+                "@@context": "https://schema.org",
+                "@@type": "QAPage",
+                "mainEntity": {
+                "@@type": "Question",
+                "name": "@Html.Raw(Cauhoi[0].QuestionTitle.ToString().Replace("\"", ""))",
+                "text": "@Html.Raw(Cauhoi[0].QuestionContent.ToString().Replace("\"", ""))",
+                "answerCount": 1,
+                "dateCreated": "@Cauhoi[0].NgayHoi.ToString("dd/MM/yyyy")",
+                "author": {
+                "@@type": "Person",
+                "name": "@fullname"
+                },
+                "acceptedAnswer": {
+                "@@type": "Answer",
+                "upvoteCount":"1",
+                "text": "@Html.Raw(CMS_Core.Common.Common.ConvertHtml(Cauhoi[0].AnswerContent.ToString().Replace("\"", "")))",
+                "dateCreated": "@Cauhoi[0].NgayTraLoi.ToString("dd/MM/yyyy")",
+                "url": "https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", @Cauhoi[0].QuestionTitle.ToString().Replace("\"", "").ToLower(), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())#traloi",
+                "author": {
+                "@@type": "Person",
+                "name": "Bác sỹ MEDLATEC"
+                }
+                }
+                }
+                }
+            </script>
+
+            <script type="application/ld+json">
+                {
+                "@@context": "http://schema.org",
+                "@@type": "LocalBusiness",
+                "@@id":"https://medlatec.vn",
+                "priceRange":"$$",
+                "image":"https://medlatec.vn/Content/images/logo.jpg",
+                "name" : "Bệnh Viện Đa Khoa Medlatec",
+                "telephone": "+841900565656",
+                "address": {
+                "@@type": "PostalAddress",
+                "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+                "addressLocality": "Hà Nội"
+                },
+                "potentialAction": {
+                "@@type": "OrderAction",
+                "target": {
+                "@@type": "EntryPoint",
+                "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+                "inLanguage": "vi-VN",
+                "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+                }}}
+            </script>
+            <script type="application/ld+json">
+                {
+                "@@context": "http://schema.org",
+                "@@type": "Hospital",
+                "priceRange":"$$",
+                "@@id":"https://medlatec.vn",
+                "image":"https://medlatec.vn/Content/images/logo.jpg",
+                "name" : "Bệnh Viện Đa Khoa Medlatec",
+                "telephone": "+841900565656",
+                "openingHours": "Mo-Su 00:00-24:00",
+                "ContactPoint": {
+                "telephone": "+841900565656",
+                "contactType": "sales",
+                "contactOption": "TollFree",
+                "areaServed": "VN"},
+                "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+                "slogan":"Dịch vụ tốt, công nghệ cao",
+                "founder":[{
+                "@@type":"Person",
+                "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+                "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+                "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+                "sameAs":["https://www.facebook.com/tri.1957"]
+                }]
+                }
+
+            </script>
+
+        </body>
+
+    </html>
+    }
+    else
+    {
+        Response.RedirectPermanent("https://medlatec.vn/hoi-dap", false);
+    }
+}
+    <amp-analytics type="googleanalytics">
+
+        <script type="application/json">
+            { "vars": { "account": "UA-20501699-10" }, "triggers": { "trackPageview": { "on": "visible", "request": "pageview" } } }
+
+        </script>
+
+    </amp-analytics>

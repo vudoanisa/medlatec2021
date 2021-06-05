@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "Trang tra cứu thông tin theo thẻ khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="customer-container container">
+    <div class="customer-row row">
+        <div class="customer-col customer-col-left">
+            <div class="customer-sidebar">
+                <div class="customer-info">
+                    <div class="customer-info-row">
+                        <div class="customer-info-col customer-info-left">
+                            <div class="customer-info--img"><img src="/Content/images/person-white.png" alt="" /></div>
+                        </div>
+                        <div class="customer-info-col customer-info-right">
+                            <div class="customer-info--wrapper">
+                                <div class="customer-info--code">B290053602</div>
+                                <div class="customer-info--name">Phạm Thị Mến</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="customer-menu">
+                    <ul>
+                        <li class="customer-ttcn customer-menu--active">
+                            <a href="#">Thông tin cá nhân</a>
+                        </li>
+                        <li class="customer-lsk">
+                            <a href="#">Lịch sử khám</a>
+                        </li>
+                        <li class="customer-qdtkh">
+                            <a href="#">Quy định thẻ KH (PID)</a>
+                        </li>
+                        <li class="customer-lsgd">
+                            <a href="#">Lịch sử giao dịch</a>
+                        </li>
+                        <li class="customer-ctudkh">
+                            <a href="#">Chương trình ưu đãi dành cho KH</a>
+                        </li>
+                        <li class="customer-gydv">
+                            <a href="#">Góp ý dich vụ</a>
+                        </li>
+                        <li class="customer-dxtk">
+                            <a href="#">Đăng xuất tài khoản</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="customer-col customer-col-right">
+            <div class="customer-wrapper customer-wrapper-1">
+                <h1 class="title">Thông tin cá nhân</h1>
+                <div class="customer-content">
+                    <form method="" action="">
+                        <div class="customer-form-row row">
+                            <div class="customer-form-col col-xl-6">
+                                <div class="form-group">
+                                    <label for="customer_pid">Thẻ PID</label>
+                                    <input id="customer_pid" type="text" class="form-control" value="B290053602" readonly />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-xl-6">
+                                <div class="form-group">
+                                    <label for="customer_name">Họ tên</label>
+                                    <input id="customer_name" type="text" class="form-control" value="Phạm Thị Mến" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_birthday">Năm sinh</label>
+                                    <input id="customer_birthday" type="text" class="form-control" value="26/4/1993" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_birthday">Giới tính</label>
+                                    <div class="customer-radio clearfix">
+                                        <label>Nam <input type="radio" name="customer-sex" value="nam" /></label>
+                                        <label>Nữ <input type="radio" name="customer-sex" value="nữ" checked /></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_phone">Điện thoại cố định</label>
+                                    <input id="customer_phone" class="form-control" type="text" value="0234567890" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_mobile">Điện thoại di động</label>
+                                    <input id="customer_mobile" class="form-control" type="text" value="0985485789" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-xl-6">
+                                <div class="form-group">
+                                    <label for="customer_address">Địa chỉ</label>
+                                    <input id="customer_address" type="text" class="form-control" value="Bắc Giang" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_city">Tỉnh / Thành phố</label>
+                                    <select id="customer_city" class="form-control">
+                                        <option>Hà Nội</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_district">Quận / Huyện</label>
+                                    <select id="customer_district" class="form-control">
+                                        <option>Quận Ba Đình</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_job">Nghề nghiệp</label>
+                                    <input id="customer_job" type="text" class="form-control" value="Công nhân" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_identity">CMND</label>
+                                    <input id="customer_identity" type="text" class="form-control" value="122118791" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_email">Email</label>
+                                    <input id="customer_email" type="email" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-6 col-xl-3">
+                                <div class="form-group">
+                                    <label for="customer_facebook">Facebook</label>
+                                    <input id="customer_facebook" type="text" class="form-control" value="" />
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-xl-12">
+                                <div class="form-group form-group-policy">
+                                    <label class="customer-policy"><input type="checkbox" id="customer_policy" value="checked" />Tôi xác nhận các thông tin cá nhân trên của tôi là đúng</label>
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-xl-12">
+                                <div class="form-group">
+                                    <p class="customer-policy-note">Quý khách vui lòng cập nhật thông tin đầy đủ để đảm bảo lợi ích tốt nhất. Xin chân thành cám ơn.<br />Quý khách cần thay đổi thông tin cá nhân vui lòng liên hệ tổng đài : 1900 56 56 56.</p>
+                                </div>
+                            </div>
+                            <div class="customer-form-col col-xl-12">
+                                <div class="form-group form-group--btn clearfix">
+                                    <button class="customer-btn--upgrade">Cập nhật thông tin</button>
+                                    <a href="" class="customer-bnt--charge">Đổi mật khẩu</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

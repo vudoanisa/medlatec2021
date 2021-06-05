@@ -1,0 +1,134 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@model  MEDLATEC2019.Entity.DatLich
+
+
+
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm("DatLich", "Appointment", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @section Note {
+        <title>Đặt lịch lấy mẫu tại nhà tin cậy nhất| Medlatec</title>
+        <meta name="description" content="@Html.Raw("Đặt lịch lấy mẫu tại nhà giúp bạn dễ dàng kiểm soát tình trạng bệnh, giảm thời gian đi lại, chờ đợi, trả kết quả kịp thời, chính xác, có bác sĩ chuyên khoa tư vấn kết quả")" />
+
+        <meta name="title" content="@Html.Raw("Đặt lịch lấy mẫu tại nhà tin cậy nhất| Medlatec")" />
+        <meta name="keywords" content="@Html.Raw("Đặt lịch lấy mẫu tại nhà giúp bạn dễ dàng kiểm soát tình trạng bệnh, giảm thời gian đi lại, chờ đợi, trả kết quả kịp thời, chính xác, có bác sĩ chuyên khoa tư vấn kết quả")" />
+        <meta name="robots" content="index,follow,all">
+        <script src="~/Content/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.standalone.min.css" />
+    }
+
+    @Html.Raw(TempData["msg"])
+    <div class="schedule-main">
+        <div class="container">
+            <div class="schedule-container">
+                <div class="schedule-form">
+                    <h1 style=" text-align: center;text-transform: uppercase;">Đặt lịch lấy mẫu tại nhà</h1>
+                    <div class="schedule-note">Quý khách vui lòng điền đầy đủ thông tin. Chúng tôi sẽ liên hệ lại sớm nhất</div>
+                    <div class="form">
+
+                        @Html.AntiForgeryToken()
+                        <div class="schedule-row row">
+                            <div class="schedule-col col-xl-12">
+                                <div class="form-group schedule-comment">
+                                    <label>@ViewBag.TextErr</label>
+
+                                </div>
+                            </div>
+                            @*<div class="schedule-col col-md-6 col-sm-8 col-7">
+                                    <div class="form-group schedule-id">
+                                        <label>Mã thẻ khách hàng (nếu có)</label>
+                                        <input value="" class="form-control" type="text" />
+                                    </div>
+                                </div>
+                                <div class="schedule-col col-md-6 col-sm-4 col-5">
+                                    <div class="schedule-btn" onclick="">Lấy thông tin</div>
+                                </div>*@
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-name">
+                                    <label>Họ và tên <i style="color:red;">(*)</i></label>
+                                    @Html.TextBoxFor(m => m.Hoten, new { @class = "form-control", placeholder = "Họ và tên (*)", type = "text" })
+
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-phone">
+                                    <label>Số điện thoại <i style="color:red;">(*)</i></label>
+                                    @Html.TextBoxFor(m => m.Sdt, new { @class = "form-control", placeholder = "Số điện thoại (*)", type = "number" })
+
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-birthday">
+                                    <label>Ngày sinh <span class="hidden-desktop">DD/MM/YY</span> <i style="color:red;">(*)</i></label>
+                                    @Html.TextBoxFor(m => m.Namsinh1, new { @class = "form-control schedule-date", placeholder = "DD/MM/YY", type = "text" })
+
+                                    @*<input name="txtngaysinh" class="form-control schedule-date" placeholder="DD/MM/YY" type="text" />*@
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-email">
+                                    <label>Email</label>
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email", type = "email" })
+
+
+
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-sex">
+                                    <label>Giới tính  <i style="color:red;">(*)</i></label>
+                                    @Html.DropDownListFor(m => m.Gioitinh, this.ViewBag.GetDichvu as List<SelectListItem>, new { @class = "form-control" })
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-address">
+                                    <label>Địa chỉ</label>
+                                    @Html.TextBoxFor(m => m.Diachi, new { @class = "form-control", placeholder = "Địa chỉ", type = "text" })
+
+                                </div>
+                            </div>
+                            <div class="schedule-col col-xl-12">
+                                <div class="form-group schedule-comment">
+                                    <label>Ghi chú khác  </label>
+                                    @Html.TextAreaFor(m => m.Ghichu, new { @class = "form-control", placeholder = "Ghi chú", type = "text" })
+
+                                    @Html.TextBoxFor(m => m.Manv, new { Type = "hidden" })
+                                    @Html.TextBoxFor(m => m.Nguogioithieu, new { Type = "hidden" })
+
+
+                                </div>
+                            </div>
+
+                            <div class="schedule-col col-xl-12">
+                                <div class="form-group schedule-row--btn">
+                                    <button type="submit" name="submit" value="SaveAdd">Đặt lịch khám</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule-link"><a href="https://medlatec.vn/tin-tuc/cac-buoc-dat-lich-lay-mau-xet-nghiem-tan-noi-s2-n6662" title="Các bước lấy mẫu và trả kết quả tại nhà"><img src="/Content/images/schedule-link.png" alt="" />Các bước lấy mẫu và trả kết quả tại nhà</a></div>
+
+        </div>
+    </div>
+
+
+}
+
+

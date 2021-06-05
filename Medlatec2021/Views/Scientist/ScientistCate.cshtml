@@ -1,0 +1,251 @@
+﻿
+@model  MEDLATEC2019.Models.ScientistViewModel
+@using CMS_Core.Entity;
+@using MEDLATEC2019.Entity;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Tongso = Model.tongso;
+
+    var page = Model.page;
+
+}
+
+
+@if (Model.Scientist_Cates != null)
+{
+    if (Model.Scientist_Cates.Count > 0)
+    {
+
+
+        @section Note {
+            @{
+                /**/
+
+                string pageview = "";
+                string urlpage = "";
+                if (page == 1)
+                {
+
+                }
+                else
+                {
+                    pageview = " | Trang " + page.ToString();
+                    urlpage = "/" + page.ToString();
+                }
+            }
+
+
+            @if (Model.Scientist_Cates[0].ScientistTitle != null)
+            {
+                <title>@Html.Raw(Model.Scientist_Cates[0].ScientistTitle.ToString().TrimStart().TrimEnd()) | Medlatec @pageview</title>
+            }
+
+            @if (Model.Scientist_Cates[0].ScientistDesc != null)
+            {
+                <meta name="description" content="@Html.Raw(Model.Scientist_Cates[0].ScientistDesc.ToString().TrimStart().TrimEnd()) @pageview" />
+            }
+            @if (Model.Scientist_Cates[0].ScientistTitle != null)
+            {
+                <meta name="title" content="@Html.Raw(Model.Scientist_Cates[0].ScientistTitle.ToString().TrimStart().TrimEnd()) @pageview" />
+            }
+            @if (Model.Scientist_Cates[0].ScientistDesc != null)
+            {
+                <meta name="keywords" content="@Html.Raw(Model.Scientist_Cates[0].ScientistDesc.ToString().TrimStart().TrimEnd()) @pageview" />
+            }
+
+
+            <meta name="robots" content="index,follow,all">
+            <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByCate("cong-trinh-nghien-cuu",Model.Scientist_Cates[0].ScientistTitle.ToString().ToLower() ,"s"+ Model.Scientist_Cates[0].ID.ToString())@urlpage" />
+        }
+
+
+        using (Html.BeginForm("ScientistCate", "Scientist", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+
+            <div class="breadcrumb-container container">
+                <ul class="clearfix">
+                    <li><a href="https://medlatec.vn/">Trang chủ</a></li>
+
+                    <li><span>@Model.Scientist_Cates[0].ScientistTitle.ToString()</span></li>
+                </ul>
+            </div>
+
+            <div class="archive-news container">
+                <div class="archive-news--row row">
+                    <div class="archive-news--col col-xl-9 col-lg-8 col-md-7">
+                        <div class="archive-news--container">
+                            <h1><span>@Model.Scientist_Cates[0].ScientistTitle.ToString()</span></h1>
+                            <div class="archive-news--list">
+
+                                @foreach (var data in Model.Scientist)
+                                {
+
+                                    <div class="archive-news--item">
+                                        <div class="archive-item--row row">
+                                            <div class="archive-item-col col-lg-5">
+                                                <div class="archive-item--img">
+                                                    @if (data.newsImages != null)
+                                                    {
+                                                        string abc = data.newsImages.ToString();
+                                                        abc = abc.Replace("\"", "/");
+                                                        abc = abc.Replace("\\", "/");
+                                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", data.ScientistTitle.ToString().ToLower(), "s" + data.ScientistCae.ToString(), "n" + data.ID.ToString())" title="@data.ScientistTitle.ToString()">
+                                                            <img src="@Html.Raw(abc.Replace("https://login.medlatec.vn","https://img.medlatec.vn"))" alt="@data.ScientistTitle.ToString().TrimStart().TrimEnd()" />
+                                                        </a>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            <div class="archive-item-col col-lg-7">
+                                                <div class="archive-item--content">
+                                                    @if (data.ScientistTitle != null)
+                                                    {
+                                                        <h3>
+                                                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", data.ScientistTitle.ToString().ToLower(), "s" + data.ScientistCae.ToString(), "n" + data.ID.ToString())" title="@data.ScientistTitle.ToString()">
+                                                                @data.ScientistTitle.ToString().TrimStart().TrimEnd()
+                                                            </a>
+                                                        </h3>
+                                                    }
+
+                                                    <div class="archive-item--info clearfix">
+                                                        @if (data.datepub != null)
+                                                        {
+                                                            <span class="archive-item--date">Ngày @data.datepub.ToString("dd/MM/yyyy")</span>
+                                                        }
+                                                        @if (data.PersionPerform != null)
+                                                        {
+                                                            <span class="archive-item--cat">@data.PersionPerform.ToString()</span>
+                                                        }
+
+                                                    </div>
+                                                    @if (data.scientistDesc != null)
+                                                    {
+                                                        <div class="archive-item--desc d-none d-xl-block">@data.scientistDesc.ToString()</div>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+                            @if (Model.tongso > 15)
+                            {
+                                <div class="container" style="margin:25px 0 25px;">
+                                    @Html.Raw(CMS_Core.Common.Common.buildUrl("/" + @CMS_Core.Common.Common.GetURLDetailByCate("cong-trinh-nghien-cuu", Model.Scientist[0].ScientistCateName.ToString().ToLower(), "s" + Model.Scientist[0].ScientistCae.ToString()), page, Model.tongso, 15))
+
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                    @Html.AntiForgeryToken()
+                    <div class="archive-news--col col-xl-3 col-lg-4 col-md-5">
+                        <div class="sidebar-container">
+                            @if (Model.ScientistNew != null)
+                            {
+                                <div class="news-post">
+                                    <h2>Tin mới nhất</h2>
+                                    <div class="news-post--list">
+
+                                        @foreach (var data in Model.ScientistNew)
+                                        {
+                                            <div class="news-post--item">
+                                                <div class="news-post--row row">
+                                                    <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                        <div class="news-post--img">
+                                                            @if (data.newsImages != null)
+                                                            {
+                                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", data.ScientistTitle.ToString().ToLower(), "s" + data.ScientistCae.ToString(), "n" + data.ID.ToString())" title="@data.ScientistTitle.ToString()">
+                                                                    <img src="@data.newsImages.ToString().Replace("https://login.medlatec.vn", "https://img.medlatec.vn")" alt="@data.ScientistTitle.ToString()" />
+                                                                </a>
+
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                        <div class="news-post--content">
+                                                            @if (data.ScientistTitle != null)
+                                                            {
+                                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", data.ScientistTitle.ToString().ToLower(), "s" + data.ScientistCae.ToString(), "n" + data.ID.ToString())" title="@data.ScientistTitle.ToString()">@data.ScientistTitle.ToString()</a></h3>
+                                                            }
+
+                                                            <div class="news-post--info clearfix">
+                                                                @if (data.datepub != null)
+                                                                {
+                                                                    <span class="news-post--date">Ngày @data.datepub.ToString("dd/MM/yyyy")</span>
+                                                                }
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="register-form d-none d-md-block">
+                                <h2>Đăng ký khám, tư vấn</h2>
+
+                                <div class="form">
+
+                                    <style type="text/css">
+                                        input[name='CaptchaInputText'] {
+                                            width: 100% !important;
+                                            line-height: 28px;
+                                            background: rgba(255, 255, 255, .8) none;
+                                            padding: 10px;
+                                            height: 50px;
+                                            display: block;
+                                            width: 100%;
+                                            font-size: 1rem;
+                                            font-weight: 400;
+                                            line-height: 1.5;
+                                            color: #495057;
+                                            border: 1px solid #ced4da;
+                                            border-radius: .25rem;
+                                            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                        }
+                                    </style>
+
+                                    <div class="form-group register-name">
+                                        <label>Họ và tên <i>(*)</i></label>
+                                        <input value="" name="txthoten" class="form-control" type="text" />
+                                    </div>
+                                    <div class="form-group register-phone">
+                                        <label>Số điện thoại <i>(*)</i></label>
+                                        <input value="" name="txtsdt" class="form-control" type="text" />
+                                    </div>
+                                    <div class="form-group register-email">
+                                        <label>Email</label>
+                                        <input value="" name="txtemail" class="form-control" type="email" />
+                                    </div>
+                                    <div class="form-group register-comment">
+                                        <label>Ghi chú khác</label>
+                                        <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                                    </div>
+
+
+                                    <div class="form-group form-group--btn">
+                                        <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+
+
+

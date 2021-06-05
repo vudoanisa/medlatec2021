@@ -1,0 +1,467 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@model  MEDLATEC2019.Models.HoiNghiViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+    <title>Hội nghị Y học công nghệ 4.0 - những bước tiến vượt bậc trong chuẩn đoán và điều trị - Medlatec.vn </title>
+
+    <meta name="description" content="@Html.Raw("Hội nghị Y học công nghệ 4.0 - những bước tiến vượt bậc trong chuẩn đoán và điều trị - Medlatec.vn")" />
+    <meta name="title" content="@Html.Raw("Hội nghị Y học công nghệ 4.0 - những bước tiến vượt bậc trong chuẩn đoán và điều trị - Medlatec.vn")" />
+    <meta name="keywords" content="@Html.Raw("Hội nghị Y học công nghệ 4.0 - những bước tiến vượt bậc trong chuẩn đoán và điều trị - Medlatec.vn")" />
+    <meta property="og:description" content="@Html.Raw("Hội nghị Y học công nghệ 4.0 - những bước tiến vượt bậc trong chuẩn đoán và điều trị - Medlatec.vn")" />
+    <meta property="og:title" content="@Html.Raw("Hội nghị Y học công nghệ 4.0 - những bước tiến vượt bậc trong chuẩn đoán và điều trị - Medlatec.vn")" />
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/LandingHNKH2020/img/banner.png" />
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/LandingHNKH2020/img/banner.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/hoi-nghi-y-hoc-4-0" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/hoi-nghi-y-hoc-4-0" />
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="/Content/images/LandingHNKH2020/lib/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/Content/images/LandingHNKH2020/lib/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/Content/images/LandingHNKH2020/reset.css">
+    <link rel="stylesheet" href="/Content/images/LandingHNKH2020/home.css">
+    <link rel="stylesheet" href="/Content/images/LandingHNKH2020/responsive.css">
+
+
+
+
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://static.subiz.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+    <!-- End Google Tag Manager -->
+    @*<script type="text/javascript">
+            if (window.location.protocol == "http:") {
+                var restOfUrl = window.location.href.substr(5);
+                restOfUrl = restOfUrl.replace("www.", "");
+                window.location = "https:" + restOfUrl;[w]
+            }
+        </script>*@
+
+
+
+</head>
+<body>
+    @using (Html.BeginForm("LandingHNKH2020", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post   ))
+    {
+        @Html.AntiForgeryToken()
+        <section class="home-page--content">
+            <section class="content-nav-box">
+                <div class="slider-header">
+                    <div class="owl-carousel" id="headerNav">
+                        <div class="item">
+                            <div class="thumb">
+                                <div class="box-content pc">
+                                    <img src="/Content/images/LandingHNKH2020/img/banner.png" alt="">
+                                </div>
+                                <div class="box-content mb">
+                                    <img src="/Content/images/LandingHNKH2020/img/banner1.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sec02 pc" id="human">
+                    <div class="container fix-container">
+                        <div class="img_rp">
+                            <img src="/Content/images/LandingHNKH2020/img/chutoa.png">
+                        </div>
+                        <div class="img_human ">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sec02 mb" id="human">
+                    <div class="container fix-container">
+                        <div class="img_rp">
+                            <img src="/Content/images/LandingHNKH2020/img/chutoa.png">
+                        </div>
+                        <div class="img_human">
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <div class="sec03">
+                    <div class="container fix-container">
+                        <div class="row">
+                            <div class="img_rp">
+                                <img src="/Content/images/LandingHNKH2020/img/bc.png">
+                            </div>
+
+                            <div class="report">
+                                <div class="col-md-9 col-lg-9">
+                                    <img src="/Content/images/LandingHNKH2020/img/medon.png">
+                                </div>
+                                <a href="/Content/images/LandingHNKH2020/file/medon.pptx" download="Báo cáo của MEDON" class="col-md-3 col-lg-3 ">
+                                    <img src="/Content/images/LandingHNKH2020/img/icondown.png">
+                                </a>
+                            </div>
+                            <div class="report">
+                                <div class="col-md-9 col-lg-9">
+                                    <img src="/Content/images/LandingHNKH2020/img/sangloc.png">
+                                </div>
+                                <a href="/Content/images/LandingHNKH2020/file/gslan.ppt" download="Bài báo cáo của PGS Lan" class="col-md-3 col-lg-3 ">
+                                    <img src="/Content/images/LandingHNKH2020/img/icondown.png">
+                                </a>
+                            </div>
+                            <div class="report">
+                                <div class="col-md-9 col-lg-9">
+                                    <img src="/Content/images/LandingHNKH2020/img/vichat.png">
+                                </div>
+                                <a href="/Content/images/LandingHNKH2020/file/vcdd.ppt" download="Báo cáo medlatec_VCDD" class="col-md-3 col-lg-3 ">
+                                    <img src="/Content/images/LandingHNKH2020/img/icondown.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="sec51" id="sick">
+                    <div class="container">
+                        <div class="img_rp">
+                            <img src="/Content/images/LandingHNKH2020/img/quest.png">
+                        </div>
+                        <div class="question">
+
+                            @Html.TextAreaFor(m => m.hoinghi.Content, new { @class = "form-control", placeholder = "Quý đại biểu vui lòng đặt câu hỏi/thắc mắc về các bài báo cáo của hội nghị tại đây", type = "text" })
+
+                            @if (!string.IsNullOrEmpty(Model.txtError))
+                            {
+                                if (Model.txtError.Length > 0)
+                                {
+                                    <p style="width: 80%;margin-left:10%; text-align: center;margin-top: 10px;">
+                                        <span style="margin-bottom:10px;color:white;text-align:center; ">
+                                            @Model.txtError
+                                        </span>
+                                    </p>
+
+                                }
+                            }
+
+
+                            <button type="submit" class="question" name="submit" value="question">Gửi câu hỏi</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- sec4 -->
+
+                <div class="sec61">
+                    <div class="container">
+                        <div class="row">
+                            <div class="title_ks">
+                                <p> KHẢO SÁT ĐÁNH GIÁ CỦA KHÁCH HÀNG VỀ HỘI NGHỊ</p>
+                            </div>
+                            <div class="des_ks">
+                                <p>Xin Quý vị vui lòng trả lời một số câu hỏi dưới đây:</p>
+                            </div>
+                            <div class="form_ks">
+                                <div class="entry-content border-radius">
+                                    <div class="contact-form">
+
+                                        <div class="form-group clearfix">
+                                            <div class="row">
+                                                <div class="col-12 col-md-4 ">
+                                                    <label class="control-label">1.Họ và tên <span>*</span></label>
+                                                    @Html.TextBoxFor(m => m.hoinghiCauHoi.hoten, new { @class = "form-control name ", placeholder = "Nhập họ và tên:", type = "text" })
+                                                    <p id="hoinghiCauHoi_hoten" class="error"></p>
+                                                </div>
+                                                <div class="col-12 col-md-4 ">
+                                                    <label class="control-label">2.Số điện thoại <span>*</span></label>
+                                                    @Html.TextBoxFor(m => m.hoinghiCauHoi.mobile, new { @class = "form-control  phone", placeholder = "Số điện thoại", type = "number" })
+                                                    <p id="hoinghiCauHoi_mobile" class="error"></p>
+
+
+                                                </div>
+                                                <div class="col-12 col-md-4">
+                                                    <label class="control-label ">3.Năm sinh <span>*</span></label>
+                                                    @Html.TextBoxFor(m => m.hoinghiCauHoi.namsinh, new { @class = "form-control ", placeholder = "Năm sinh", type = "number" })
+                                                    <p id="hoinghiCauHoi_namsinh" class="error"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label">4.Email<span>*</span></label>
+                                                    @Html.TextBoxFor(m => m.hoinghiCauHoi.email, new { @class = "form-control  phone", placeholder = "Email", type = "email" })
+                                                    <p id="hoinghiCauHoi_email" class="error"></p>
+
+                                                </div>
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label">5.Nghề nghiệp<span>*</span></label>
+                                                    @Html.TextBoxFor(m => m.hoinghiCauHoi.nghenghiep, new { @class = "form-control ", placeholder = "Nhập công việc", type = "text" })
+                                                    <p id="hoinghiCauHoi_email" class="error"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label">6.Đơn vị công tác<span>*</span></label>
+                                                    @Html.TextBoxFor(m => m.hoinghiCauHoi.donvi, new { @class = "form-control ", placeholder = "Nhập đơn vị công tác", type = "text" })
+
+
+                                                </div>
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label">7.Chuyên khoa chính<span>*</span></label>
+                                                    @Html.TextBoxFor(m => m.hoinghiCauHoi.chuyenkhoa, new { @class = "form-control ", placeholder = "Nhập chuyên khoa", type = "text" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label ">8.Quý vị đánh giá như thế nào về hình thức tổ chức của Hội nghị?<span>*</span></label>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau8, 1, new { @class = "md-check border-checkbox check-select", GroupName = "cau8" })
+                                                        <label for="Prognostic0">Rất hài lòng </label>
+
+
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau8, 2, new { @class = "md-check border-checkbox check-select", GroupName = "cau8" })
+
+                                                        <label for="Prognostic1">Hài lòng</label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau8, 3, new { @class = "md-check border-checkbox check-select", GroupName = "cau8" })
+
+                                                        <label for="Prognostic2">Bình thường</label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau8, 4, new { @class = "md-check border-checkbox check-select", GroupName = "cau8" })
+
+                                                        <label for="Prognostic3">Không hài lòng</label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau8, 5, new { @class = "md-check border-checkbox check-select", GroupName = "cau8" })
+
+                                                        <label for="Prognostic4">Rất không hài lòng</label>
+                                                    </div>
+                                                    <p class="error"></p>
+                                                </div>
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label"><p>9.Vui lòng nêu lý do Quý vị cảm thấy hài lòng hoặc không hài lòng về công tác tổ chức hội nghị <span>*</span></p></label>
+                                                    @Html.TextAreaFor(m => m.hoinghiCauHoi.cau9, new { @class = "form-control", placeholder = "Quý vị vui lòng cho biết lý do", type = "text", maxlength = "4000" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label "><p>10.Quý vị đánh giá như thế nào về nội dung tổ chức của Hội nghị?<span>*</span></p></label>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau10, 1, new { @class = "md-check border-checkbox check-select", GroupName = "cau10" })
+
+                                                        <label for="Prognostic9">Rất hài lòng </label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau10, 2, new { @class = "md-check border-checkbox check-select", GroupName = "cau10" })
+
+                                                        <label for="Prognostic10">Hài lòng</label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau10, 3, new { @class = "md-check border-checkbox check-select", GroupName = "cau10" })
+                                                        <label for="Prognostic11">Bình thường</label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau10, 4, new { @class = "md-check border-checkbox check-select", GroupName = "cau10" })
+
+                                                        <label for="Prognostic12">Không hài lòng</label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.RadioButtonFor(m => m.hoinghiCauHoi.cau10, 5, new { @class = "md-check border-checkbox check-select", GroupName = "cau10" })
+
+                                                        <label for="Prognostic13">Rất không hài lòng</label>
+                                                    </div>
+                                                    <p class="error"></p>
+                                                </div>
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label"><p>11.Vui lòng nêu lý do Quý vị cảm thấy hài lòng hoặc không hài lòng về nội dung tổ chức hội nghị <span>*</span></p></label>
+                                                    @Html.TextAreaFor(m => m.hoinghiCauHoi.cau11, new { @class = "form-control", placeholder = "Quý vị vui lòng cho biết lý do", type = "text", maxlength = "4000" })
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 check1">
+                                                    <label class="control-label "><p>12.Nội dung báo cáo chuyên môn Quý vị quan tâm trong buổi hôm nay là gì? (có thể chọn nhiều đáp án)<span>*</span></p></label>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.CheckBoxFor(m => m.hoinghiCauHoi.cau121, new { @class = "md-check border-checkbox check-select", GroupName = "cau12" })
+
+
+                                                        <label for="Prognostic5">MedOn - Giải pháp Y tế số cho Bác sĩ và người bệnh </label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.CheckBoxFor(m => m.hoinghiCauHoi.cau122, new { @class = "md-check border-checkbox check-select", GroupName = "cau12" })
+
+                                                        <label for="Prognostic6">Nền tảng công nghệ giúp tăng tốc hành trình chuyển đổi số trong lĩnh vực y tế</label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.CheckBoxFor(m => m.hoinghiCauHoi.cau123, new { @class = "md-check border-checkbox check-select", GroupName = "cau12" })
+
+                                                        <label for="Prognostic7">Sàng lọc, chẩn đoán trước sinh và sau sinh: vì 1 tương lai khỏe mạnh</label>
+                                                    </div>
+                                                    <div class="md-checkbox" data-toggle="tooltip" data-placement="bottom" data-original-title="Click để chọn hoặc bỏ chọn">
+                                                        @Html.CheckBoxFor(m => m.hoinghiCauHoi.cau124, new { @class = "md-check border-checkbox check-select", GroupName = "cau12" })
+
+                                                        <label for="Prognostic8">Vi chất dinh dưỡng với sức khỏe</label>
+                                                    </div>
+                                                    <p class="error"></p>
+                                                </div>
+                                                <div class="col-12 col-md-6 ">
+                                                    <label class="control-label" style="text-align:left;"><p>13.Quý vị quan tâm, mong muốn trao đổi dịch vụ nào với MEDLATEC trong thời gian tới?<span>*</span></p></label>
+                                                    @Html.TextAreaFor(m => m.hoinghiCauHoi.cau13, new { @class = "form-control", placeholder = "Dịch vụ Quý vị quan tâm, mong muốn trao đổi là:", type = "text", maxlength = "4000" })
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="row">
+                                                <div class="col-12 col-md-12">
+                                                    <label class="control-label"><p>14.Quý vị có thêm những góp ý như thế nào để MEDLATEC tổ chức hội nghị tốt hơn<span>*</span></p></label>
+                                                    @Html.TextAreaFor(m => m.hoinghiCauHoi.cau14, new { @class = "form-control", placeholder = "Góp ý của quý vị", type = "text", maxlength = "4000" })
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        @if (!string.IsNullOrEmpty(Model.txtError2))
+                                        {
+                                            if (Model.txtError2.Length > 0)
+                                            {
+                                                <div class="form-group clearfix">
+                                                    <div class="row">
+                                                        <p style="width: 80%; text-align: center;margin-top: 10px;">
+                                                            <span style="color:red;text-align:center; ">
+                                                                @Model.txtError2
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+
+
+                                            }
+                                        }
+
+
+                                        <div class="form-submit form-group clearfix">
+                                            <label class="control-label col-md-5"></label>
+                                            <div class="col-md-4">
+                                               
+
+                                                <button type="submit" class="adr button bg-blue register_form_post" style="padding: 7.5px 15px;float: left;border-radius: 2px; background-color: #EBA324; color: #ffffff; border: none; outline: none;" name="submit" value="answer">Gửi câu trả lời</button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- sec5 -->
+                <footer>
+                    <div class="container fix-container">
+                    </div>
+                </footer>
+            </section>
+        </section>
+
+    }
+
+    <!-- CDN JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js "></script>
+    <!--lib js-->
+    <script src="/Content/images/LandingHNKH2020/lib/js/owl.carousel.min.js "></script>
+    <script src="/Content/images/LandingHNKH2020/home.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    ViewBag.Title = "LandingXNTSUTGan";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Xét nghiệm tầm soát ung thu gan | Medlatec</title>
+
+    <meta name="description" content="Dịch vụ khám sức khỏe doanh nghiệp, cơ quan của MEDLATEC được Bộ Y tế cho phép tổ chức. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn" />
+
+
+    <meta name="title" content="Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec" />
+
+    <meta name="keywords" content="khám sức khỏe định kỳ doanh nghiệp, gói khám sức khỏe định kỳ cho nhân viên, khám sức khỏe định kỳ cho cbcnv, khám sức khỏe định kỳ" />
+
+    <meta property="og:description" content="Dịch vụ khám sức khỏe doanh nghiệp, cơ quan của MEDLATEC được Bộ Y tế cho phép tổ chức. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn" />
+    <meta property="og:title" content="Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec" />
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/afp/banner.png" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/afp/banner.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/xet-nghiem-tam-soat-nguy-co-ung-thu-gan" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/xet-nghiem-tam-soat-nguy-co-ung-thu-gan" />
+ <script type="text/javascript">
+            if (window.location.protocol == "http:") {
+                var restOfUrl = window.location.href.substr(5);
+                restOfUrl = restOfUrl.replace("www.", "");
+                window.location = "https:" + restOfUrl;[w]
+            }
+        </script> 
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/Content/css/styles-landingutgan.css" />
+    <link rel="stylesheet" href="/Content/css/responsive-utgan.css" />
+    <script src="/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/Content/js/default.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+    <meta name="google-site-verification" content="ccIfgcSBv7UttiBiE_C4LQuIJr1be5vwhE1f5mPY3lg" />
+
+
+
+</head>
+
+<body>
+    <header>
+        <div class="container container1 nav-menu--wrapper">
+            <ol>
+                <li class="menu-active"><a href="https://medlatec.vn" style="padding-top:10px;"><img src="/content/images/icon/logochuan-01.png" style="" alt="trang chủ" /></a></li>
+
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color:#F9E484; text-decoration: none;" href="#formInput" id="regSubmit6" title="Đăng ký ngay">Đăng ký ngay</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="#dichvu" title="Dịch vụ">Dịch vụ</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="#uudai" title="Ưu đãi">Ưu đãi</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="#doituong" title="Đối tượng">Đối tượng</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="#chuyengia" title="Chuyên gia">Chuyên gia</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="http://medlatec.vn/">Trang chủ</a>
+
+                </li>
+            </ol>
+        </div>
+    </header>
+
+
+    @using (Html.BeginForm("LandingXNTSUTGan", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+
+        <div class="">
+            <div class="register-main">
+                @Html.AntiForgeryToken()
+                <div class="feedback-customer-3" id="formInput">
+                    <div class="row justify-content-center" style="margin-left:0px;margin-right:0px;">
+                        <div class="regis">
+                            @Html.Raw(TempData["msg"])
+                            <div class="register-form" style="">
+                                <h2>Đăng ký nhận ưu đãi</h2>
+                                <div class="form-group col-md-12 col-sm-12 col-12">
+                                    <input value="" name="Name" placeholder="Họ và Tên:(*)" class="form-control" type="text" />
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-12">
+                                    <input value="" name="Phone" class="form-control" type="text" placeholder="Số điện thoại:(*)" />
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-12">
+                                    <input value="" name="Date" class="form-control" type="text" onfocus="this.type='date'" placeholder="Ngày xét nghiệm" />
+                                </div>
+                                <input type="hidden" value="" id="magoi" name="Magoi" />
+                                <div class="form-group col-md-12 col-sm-12 col-12">
+                                    <select class="form-control inputtext" name="idGoi" id="place" placeholder="Chọn địa điểm (*)">
+                                        <option data-magoi="21KDTT3" value="3303">MP AFP tại Huế</option>
+                                        <option data-magoi="21KDTT4" value="3304">MP AFP tại Đà Nẵng</option>
+                                        <option data-magoi="21KDTT5" value="3305">MP AFP tại Hồ Chí Minh hoặc Cần Thơ</option>
+                                        <option data-magoi="21KDTT6" value="3306">MP AFP tại Hà Nội và các tỉnh/thành còn lại</option>
+                                        <option value="0" disabled selected hidden="">Chọn địa điểm (*)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group form-group--btn" style="margin-bottom:20px;">
+                                    <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ NGAY</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+        <div class="body-skdn">
+
+            <div class="chuyengia" id="chuyengia">
+                <h3 class="title-qh">ĐỘI NGŨ CHUYÊN GIA GAN MẬT HÀNG ĐẦU TẠI MEDLATEC</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="service-list">
+                            <div class="service-row row">
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <div class=""><img src="/content/images/afp/s11.png" alt="Khám sức khoẻ cho doanh nghiệp"></div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <div class=""><img src="/content/images/afp/s12.png" alt="Lấy mẫu xét nghiệm tận nơi"></div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <div class=""><img src="/content/images/afp/s13.png" alt="Bảo hiểm y tế"></div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <div class=""><img src="/content/images/afp/s14.png" alt="Bác sĩ gia đình"></div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <div class=""><img src="/content/images/afp/s15.png" alt="Khám chữa bệnh chủ động"></div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <div class=""><img src="/content/images/afp/s16.png" alt="Hội chẩn chuyên gia trong và ngoài nước"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solieu">
+                <h3 class="title-h3">SỐ LIỆU BÁO ĐỘNG VỀ UNG THƯ GAN</h3>
+                <div class="container" style="padding-bottom:25px;padding-top:15px;">
+                    <div class="pc">
+                        <div class="img-sec2">
+                            <img src="/content/images/afp/sec2.png" alt="bác sĩ khám bệnh">
+                        </div>
+                    </div>
+                    <div class="mb">
+                        <div class="img-sec2">
+                            <img src="/content/images/afp/sec2_mb.png" alt="bác sĩ khám bệnh">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doituong" id="doituong">
+                <h3 class="title-qh">NHỮNG AI NÊN XÉT NGHIỆM TẦM SOÁT UNG THƯ GAN</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="service-list">
+                            <div class="service-row row">
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <img src="/content/images/afp/sec31.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Người mắc viêm gan B, C;</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <img src="/content/images/afp/sec32.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Người sử dụng rượu bia và đồ uống có cồn;</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <img src="/content/images/afp/sec33.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Người thừa cân béo phì</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <img src="/content/images/afp/sec34.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Người tăng men gan kéo dài hoặc có tăng Bilirubin</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <img src="/content/images/afp/sec35.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Người có biểu hiện vàng da, vàng mắt;</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item box">
+                                        <img src="/content/images/afp/sec36.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Người có nghi ngờ bệnh lý gan mật khác</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nguyco" id="uudai">
+                <h3 class="title-h3">ƯU ĐÃI TẦM SOÁT NGUY CƠ UNG THƯ GAN (AFP)</h3>
+                <div class="container">
+                    <div class="row">
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec40.png"></div>
+
+                        <div class="col-lg-12" style="display: flex;flex-wrap: wrap; margin-bottom: 40px;">
+                            <div class="col-lg-6 col-md-12 col-sm-12 pc">
+                                <img src="/content/images/afp/sec41.png">
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <img src="/content/images/afp/sec42.png">
+                            </div>
+                        </div>
+                        <div class="col-lg-12" style="display: flex;flex-wrap: wrap;">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <img src="/content/images/afp/sec43.png">
+                                <a class="dk-ngay" href="#formInput">
+                                    <button type="submit" name="dangky" value="dangky">Đăng ký ngay</button>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 pc">
+                                <img src="/content/images/afp/sec44.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hethong">
+                <h3 class="title-qh">HỆ THỐNG TRANG THIẾT BỊ TẦM SOÁT CÁC BỆNH LÝ VỀ GAN MẬT TẠI MEDLATEC</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="service-list">
+                            <div class="service-row row">
+                                <div class="service-col col-6 col-lg-3">
+                                    <div class="service-item box">
+                                        <img src="/Content/images/afp/sev1.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Hệ thống máy xét nghiệm hiện đại, đạt tiêu chuẩn quốc tế</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-3">
+                                    <div class="service-item box">
+                                        <img src="/Content/images/afp/sv2.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Máy siêu âm đo độ đàn hồi Gan</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-3">
+                                    <div class="service-item box">
+                                        <img src="/Content/images/afp/sv3.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Máy đo độ xơ hóa gan và gan nhiễm mỡ (fibroscan)</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-3">
+                                    <div class="service-item box">
+                                        <img src="/Content/images/afp/sv4.png" alt="khám sức khỏe doanh nghiệp">
+                                        <div class="box-content">
+                                            <h4 class="title">
+                                                <a href="">Máy chụp cộng hưởng từ, cắt lớp vi tính đa dãy</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="dk-ngay col-lg-12" style="margin-bottom: 10px;" href="#formInput">
+                            <button type="submit" name="dangky" value="dangky">Đăng ký ngay</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tainha" id="dichvu">
+                <div class="container">
+                    <h3 class="title-h3">DỊCH VỤ LẤY MẪU XÉT NGHIỆM TẬN NƠI CỦA MEDLATEC TRÊN TOÀN QUỐC</h3>
+                    <div class="row pc">
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec51.png"></div>
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec52.png"></div>
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec53.png"></div>
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec54.png"></div>
+                    </div>
+                    <div class="row mb">
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec51.png"></div>
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec52_mb.png"></div>
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec521_mb.png"></div>
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec53.png"></div>
+                        <div style="margin-left: auto;margin-right: auto; display: block; margin-bottom: 50px;"><img src="/content/images/afp/sec53_mb.png"></div>
+                    </div>
+                    <a class="dk-ngay col-lg-12" style="margin-bottom: 10px; margin-top: 0px;" href="#formInput">
+                        <button type="submit" name="dangky" value="dangky">Đăng ký ngay</button>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    <div class="register-main2">
+
+    </div>
+
+    <div class="call-hotline">
+        <a href="tel:1900 565656"><img src="/content/images/icon/call.png" alt="hotline 1900 565656">1900 565656</a>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $('#place').on('change', function () {
+                var magoi = $(this).find(':selected').data('magoi');
+                if (magoi != '') {
+                    $('#magoi').val(magoi);
+                }
+
+            });
+        });
+    </script>
+
+    <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd")</script>
+
+
+</body>
+</html>

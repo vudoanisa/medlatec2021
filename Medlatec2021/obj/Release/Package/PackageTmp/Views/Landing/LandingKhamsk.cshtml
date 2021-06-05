@@ -1,0 +1,656 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@model  MEDLATEC2019.Entity.DatLich
+
+@{
+    Layout = null;
+    var News = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+<html>
+<head>
+    <title>Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec</title>
+
+    <meta name="description" content="@Html.Raw("Dịch vụ khám sức khỏe doanh nghiệp, cơ quan của MEDLATEC được Bộ Y tế cho phép tổ chức. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn")" />
+
+
+    <meta name="title" content="@Html.Raw("Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec")" />
+
+    <meta name="keywords" content="@Html.Raw("khám sức khỏe định kỳ doanh nghiệp, gói khám sức khỏe định kỳ cho nhân viên, khám sức khỏe định kỳ cho cbcnv, khám sức khỏe định kỳ")" />
+
+    <meta property="og:description" content="@Html.Raw("Dịch vụ khám sức khỏe doanh nghiệp, cơ quan của MEDLATEC được Bộ Y tế cho phép tổ chức. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn")" />
+    <meta property="og:title" content="@Html.Raw("Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec")" />
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/banner/khamsuckhoedoanhnghiep.jpg" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/banner/khamsuckhoedoanhnghiep.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/images/suckhoadoanhnghiep/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/images/suckhoadoanhnghiep/lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Content/images/suckhoadoanhnghiep/css/styles.css" />
+    <link rel="stylesheet" href="/Content/images/suckhoadoanhnghiep/css/responsive.css" />
+    <script src="~/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="~/Content/images/suckhoadoanhnghiep/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/images/suckhoadoanhnghiep/js/default.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+    <meta name="google-site-verification" content="ccIfgcSBv7UttiBiE_C4LQuIJr1be5vwhE1f5mPY3lg" />
+
+    @*<script type="text/javascript">
+        if (window.location.protocol == "http:") {
+            var restOfUrl = window.location.href.substr(5);
+            restOfUrl = restOfUrl.replace("www.", "");
+            window.location = "https:" + restOfUrl;[w]
+        }
+    </script>*@
+
+
+    <meta charset="utf-8" />
+
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://static.subiz.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+
+
+
+</head>
+<body>
+
+    <header>
+        <div class="container container1 nav-menu--wrapper">
+            <ol>
+                <li class="menu-active">
+                    <a href="https://medlatec.vn" style="padding-top:10px;">
+                        <img src="/Content/images/icon/logochuan-01.png" style="" alt="trang chủ" />
+                    </a>
+                </li>
+
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color:#F9E484; text-decoration: none;" href="#register-form" id="regSubmit6" title="Đăng ký ngay">Đăng ký ngay</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="#doitac" title="Ý kiến khách hàng">Ý kiến khách hàng</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="#quytrinh" title="Quy trình">Quy trình</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="#uudiem" title="Ưu điểm">Ưu điểm</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="#tamquantrong" title="Tầm quan trọng">Tầm quan trọng</a>
+
+                </li>
+                <li class="has-children d-none d-xl-block" style="float:right;">
+                    <a style="color: white; text-decoration: none;" href="https://medlatec.vn">Trang chủ</a>
+
+                </li>
+            </ol>
+        </div>
+    </header>
+
+
+    @using (Html.BeginForm("LandingKhamsk", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="col-lg-12 banner ">
+            <div class="container container-fix">
+                <div class="row ">
+                    <div class="col-12 col-md-12">
+                        <h1 class="d-block title-h1">KHÁM SỨC KHỎE ĐỊNH KỲ</h1>
+                    </div>
+                    <div class="col-12 col-md-12">
+                        <h2 class="d-block title-h2">Chìa khóa thành công của mọi doanh nghiệp</h2>
+                    </div>
+
+                    <div class="col-6 col-md-4 detail_header">
+                        <li class="col-12 col-md-12" style="list-style: none;">
+                            <img style="max-width: 40px;" src="/Content/images/icon/iconheader.png" alt="cơ sở vật chất hiện đại">&ensp;Cơ sở vật chất hiện đại
+                        </li>
+                        <li class="col-12 col-md-12" style="list-style: none;">
+                            <img style="max-width: 40px;" src="/Content/images/icon/iconheader.png" alt="Gói khám linh động">&ensp;Gói khám linh động
+                        </li>
+                    </div>
+                    <div class="col-6 col-md-6 detail_header">
+                        <li class="col-12 col-md-12" style="list-style: none;">
+                            <img style="max-width: 40px;" src="/Content/images/icon/iconheader.png" alt="Đội ngũ chuyên gia đầu ngành">&ensp;Đội ngũ chuyên gia đầu ngành
+                        </li>
+                        <li class="col-12 col-md-12" style="list-style: none;">
+                            <img style="max-width: 40px;" src="/Content/images/icon/iconheader.png" alt="Quy trình nhanh chóng - Chính xác">&ensp;Quy trình nhanh chóng - Chính xác
+                        </li>
+                    </div>
+                    <div class="col-4 col-md-4 dk-header">
+                        <a style="padding: 11px 35px 9px;line-height: 20px;    border: none;    -webkit-border-radius: 25px;    -moz-border-radius: 25px;    border-radius: 25px;    font-size: 18px;    color: #fff;    font-weight: 700;    background: red none;    text-transform: uppercase" href="#register-form" id="regSubmit6" title="Đăng ký ngay">Đăng ký ngay</a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body-skdn" id="tamquantrong">
+            <div class="container">
+                <h2 class="title d-none d-sm-block">TẦM QUAN TRỌNG CỦA KHÁM SỨC KHỎE ĐỊNH KỲ VỚI DOANH NGHIỆP VÀ NGƯỜI LAO ĐỘNG</h2>
+                <div class="sapo-subtitle d-none d-xl-block">Theo quy định của Luật lao động, hàng năm, người sử dụng lao động phải tổ chức khám sức khỏe ít nhất 01 lần cho người lao động; đối với người lao động làm nghề, công việc nặng nhọc, độc hại…. được khám sức khỏe ít nhất 06 tháng/lần. Vì vậy khám sức khỏe định kỳ không chỉ là nghĩa vụ của mỗi doanh nghiệp cần phải thực hiện và còn mang lại những lợi ích cho cả doanh nghiệp và người lao động.</div>
+
+            </div>
+
+
+            <div style="background-image:url(/Content/images/ksk/bg-01.png);background-size: cover;margin-top:25px;background-position:center; margin-bottom: 25px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="box">
+                                <img src="/Content/images/ksk/Asset1.png" alt="khám sức khỏe doanh nghiệp">
+                                <div class="box-content">
+                                    <h4 class="title">
+                                        <a href="">LỢI ÍCH VỚI NGƯỜI LAO ĐỘNG</a>
+                                    </h4>
+                                    <li class="description" style="list-style: none;">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp đối với cá nhân">&ensp;Phát hiện kịp thời nguy cơ mắc các bệnh nguy hiểm như tim mạch, huyết áp, ung thư,…
+                                    </li>
+                                    <li class="description" style="list-style: none;">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp đối với cá nhân">&ensp;Có kế hoạch chăm sóc sức khỏe phù hợp, được tư vấn và đưa ra lời khuyên điều trị phù hợp nếu phát hiện bệnh.
+                                    </li>
+                                    <li class="description" style="list-style: none;">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp đối với cá nhân">&ensp;Tạo sự tin tưởng của nhân viên đối với doanh nghiệp.
+                                    </li>
+                                    <li class="description" style="list-style: none;">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp đối với cá nhân">&ensp;Cải thiện và nâng cao chất lượng sống, hiệu quả làm việc.
+                                    </li>
+                                </div>
+                                <div class="heading">
+                                    <h3>LỢI ÍCH VỚI NGƯỜI LAO ĐỘNG</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <div class="box">
+                                <img src="/Content/images/ksk/Asset2.png" alt="Lợi ích của việc khám sức khỏe cho doanh nghiệp">
+                                <div class="box-content">
+                                    <h4 class="title">
+                                        <a href="">LỢI ÍCH VỚI DOANH NGHIỆP</a>
+                                    </h4>
+                                    <li class="description" style="list-style: none;">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp">&ensp;Thể hiện trách nhiệm đối với người lao động.
+                                    </li>
+                                    <li class="description">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp">&ensp;Thông qua kết quả khám sức khỏe doanh nghiệp, ban lãnh đạo sẽ biết được thông tin sức khỏe nhân viên của mình và xem xét, bố trí công việc phù hợp.
+                                    <li class="description">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp">&ensp;Có kế hoạch cho nhân viên điều trị bệnh hiệu quả để có đủ sức khỏe làm việc với công suất cao nhất.
+                                    </li>
+                                    <li class="description">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp">&ensp;Thu hút nguồn nhân lực dồi dào và chất lượng.
+                                    <li class="description">
+                                        <img style="max-width: 30px;" src="/Content/images/icon/Asset 3.png" alt="Lợi ích của việc khám sức khỏe doanh nghiệp">&ensp;Giúp doanh nghiệp phát triển ổn định.
+                                    </li>
+                                </div>
+                                <div class="heading">
+                                    <h3>LỢI ÍCH VỚI DOANH NGHIỆP</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uudiem" id="uudiem">
+                <h3 class="title-h3">Những ưu điểm khi khám sức khoẻ Doanh nghiệp tại MEDLATEC</h3>
+                <div class="container" style="padding-bottom:25px;padding-top:15px;">
+                    <div class="row">
+                        <div class="col-left d-none d-xl-block">
+                            <img src="/Content/images/ksk/bacsi.png" alt="bác sĩ khám bệnh">
+                        </div>
+                        <div class=" col-right">
+                            <div class="col-12 ud1">
+                                <h4>Đáp ứng đủ các mục khám theo thông tư 14/2013/TT-BYT:</h4>
+                                <p>Khám lâm sàng (khám nội chung, tim phổi, tiêu hóa, tiết niệu, khám ngoại, khám da liễu, tai mũi họng, răng hàm mặt, mắt,...); Khám cận lâm sàng (chụp X-Quang tim phổi thẳng, xét nghiệm nước tiểu, xét nghiệm công thức máu, đường máu,...</p>
+                            </div>
+                            <div class="col-12 ud2">
+                                <h4>Đội ngũ chuyên gia, bác sĩ giỏi, giàu kinh nghiệm, tận tâm:</h4>
+                                <p>Bệnh viện Đa khoa MEDLATEC quy tụ đội ngũ chuyên gia đầu ngành là các giáo sư, tiến sĩ tại nhiều chuyên khoa: Ung bướu, Gan mật, Tiêu hóa, Hô hấp, Cơ-Xương-Khớp, Mắt, Dị ứng Miễn dịch, Di truyền, Hóa sinh,... Với nhiều năm kinh nghiệm, các chuyên gia, bác sĩ đã điều trị thành công hàng ngàn khách hàng trên cả nước.</p>
+                            </div>
+                            <div class="col-12 ud3">
+                                <h4>Cơ sở vật chất & trang thiết bị tiên tiến, hiện đại, nhập khẩu tại các nước Nhật Bản, Hàn Quốc, Mỹ,...</h4>
+                                <p>Bệnh viện đầu tư máy móc phục vụ chẩn đoán như: MRI, CT Scaner, X-quang, FibroScan, siêu âm, điện não đồ,.... Hệ thống xét nghiệm tự động đạt tiêu chuẩn quốc tế ISO 15189:2012.</p>
+                            </div>
+                            <div class="col-12 ud4">
+                                <h4>Linh động cung cấp gói khám theo nhu cầu từng doanh nghiệp:</h4>
+                                <p>Tùy thuộc chi phí mỗi đơn vị, Bệnh viện Đa khoa MEDLATEC sẽ xây dựng gói khám phù hợp, đầy đủ theo danh mục khám của thông tư 14/2013/TT-BYT.</p>
+                            </div>
+                            <div class="col-12 ud5">
+                                <h4>Quy trình khép kín, khoa học:</h4>
+                                <p>Khách hàng được hướng dẫn từ khâu lấy hồ sơ đến nhận kết quả, sắp xếp theo thứ tự, thuận tiện trong quá trình khám</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quytrinh" id="quytrinh">
+                <h3 class="title-qh">QUY TRÌNH KHÁM TẠI MEDLATEC</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="service-list">
+                            <div class="service-row row">
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item">
+                                        <div class=""><img src="/Content/images/ksk/qt1.png" alt="Khám sức khoẻ cho doanh nghiệp"></div>
+                                        <div class="step">
+                                            <div class="step_num"><span>1</span></div>
+                                            <p style="color: white">Làm thủ tục, nhận hồ sơ khám</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item">
+                                        <div class=""><img src="/Content/images/ksk/qt2.png" alt="Lấy mẫu xét nghiệm tận nơi"></div>
+                                        <div class="step">
+                                            <div class="step_num"><span>2</span></div>
+                                            <p style="color: white">Lấy mẫu xét nghiệm gồm mẫu máu hoặc nước tiểu</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item">
+                                        <div class=""><img src="/Content/images/ksk/qt3.png" alt="Bảo hiểm y tế"></div>
+                                        <div class="step">
+                                            <div class="step_num"><span>3</span></div>
+                                            <p style="color: white">Khám thể lực: Đo chiều cao, cân nặng, huyết áp,...</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item">
+                                        <div class=""><img src="/Content/images/ksk/qt4.png" alt="Bác sĩ gia đình"></div>
+                                        <div class="step">
+                                            <div class="step_num"><span>4</span></div>
+                                            <p style="color: white">Khám các chuyên khoa lâm sàng: Tai - mũi họng, răng hàm mặt, mắt, da liễu, khám phụ khoa(nữ),...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item">
+                                        <div class=""><img src="/Content/images/ksk/qt5.png" alt="Khám chữa bệnh chủ động"></div>
+                                        <div class="step">
+                                            <div class="step_num"><span>5</span></div>
+                                            <p style="color: white">Thực hiện chuẩn đoán hình ảnh</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-col col-6 col-lg-4">
+                                    <div class="service-item">
+                                        <div class=""><img src="/Content/images/ksk/qt6.png" alt="Hội chẩn chuyên gia trong và ngoài nước"></div>
+                                        <div class="step">
+                                            <div class="step_num"><span>6</span></div>
+                                            <p style="color: white">Trả hồ sơ, tư vấn kết quả, phương pháp điều trị bệnh nếu có</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doitac" id="doitac">
+                <h3 class="title-h3">CÁC KHÁCH HÀNG DOANH NGHIỆP TIÊU BIỂU CỦA MEDLATEC</h3>
+                <div class="container">
+                    <div class="row">
+                        <div class="owl-carousel doitac-slider">
+                            <div class="item">
+                                <img src="/Content/images/doitac/toyota.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 8.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 9.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 10.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 11.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 12.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 13.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 14.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 15.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 16.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 17.png">
+                            </div>
+                            <div class="item">
+                                <img src="/Content/images/doitac/Asset 18.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback">
+                    <h3 class="title-h3">Ý KIẾN KHÁCH HÀNG VỀ DỊCH VỤ KHÁM SỰC KHỎE TẠI MEDLATEC</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="owl-carousel feedback_slider">
+                                <div class="item">
+                                    <div class="img_box">
+                                        <img src="/Content/images/ksk/cus1.png">
+                                    </div>
+                                    <div class="content-box">
+                                        <p class="text-des">Công ty mình đã khám sức khỏe tại MEDLATEC 3 năm nay, mình rất hài lòng về chất lượng dịch vụ tại đây, cơ sở vật chất khang trang, quy trình khám khoa học và tiết kiệm thời gian</p>
+                                    </div>
+                                    <div class="content-box">
+                                        <span class="name_cus"> Quyên Đặng</span>
+                                        <p class="company"> Nhân viên may mặc</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_box">
+                                        <img src="/Content/images/ksk/cus2.png">
+                                    </div>
+                                    <div class="content-box">
+                                        <p class="text-des">Mình thấy khám sức khỏe định kỳ ở đây rất tiện lợi, không cần chờ đợi xếp hàng chờ kết quả, thủ tục nhanh gọn, bác sĩ tư vấn rất kỹ, đặc biệt về phần bệnh nghề nghiệp. Mình rất yên tâm, mong rằng những năm sau công ty tiếp tục tổ chức khám tại đây</p>
+                                    </div>
+                                    <div class="content-box">
+                                        <span class="name_cus">Quỳnh Trâm</span>
+                                        <p class="company">Marketing</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_box">
+                                        <img src="/Content/images/ksk/cus3.png">
+                                    </div>
+                                    <div class="content-box">
+                                        <p class="text-des">Năm ngoái, tôi khám sức khỏe định kỳ theo chế độ công ty tại MEDLATEC  phát hiện bị u tuyến giáp, được bác sĩ tại đây tư vấn điều trị, tôi đã cắt bỏ khối u và hiện tại sức khỏe ổn định, sinh hoạt bình thường, cảm ơn đội ngũ bác sĩ tại MEDLATEC nhiều.</p>
+                                    </div>
+                                    <div class="content-box">
+                                        <span class="name_cus">Hoàng Dược</span>
+                                        <p class="company">Giáo Viên</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="img_box">
+                                        <img src="/Content/images/ksk/cus4.png">
+                                    </div>
+                                    <div class="content-box">
+                                        <p class="text-des">Tôi rất sợ đến bệnh viện, sợ tiêm, sợ nhìn thấy máu, cho đến khi tới MEDLATEC khám, tôi đã yên tâm hơn vì các bạn lấy máu không đau, bác sĩ tư vấn ân cần, nhân viên thân thiện hướng dẫn tận tình. Tôi rất ấn tượng và sẽ tiếp tục sử dụng dịch vụ tại đây.</p>
+                                    </div>
+                                    <div class="content-box">
+                                        <span class="name_cus">Hoàng Dũng</span>
+                                        <p class="company">Nhân viên Kinh doanh</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            @Html.Raw(TempData["msg"])
+
+            @Html.AntiForgeryToken()
+            <div class="register-main" id="register-form">
+                <div class="feedback-customer-3" id="dangkyngay">
+                    <div class="row justify-content-center" style="margin-left:0px;margin-right:0px;">
+                        <div class="regis">
+                            <div class="register-form" style="">
+                                <h2 style="">ĐĂNG KÝ NHẬN TƯ VẤN</h2>
+                                <div class="form-group col-md-12 col-sm-12 col-12">
+                                    @Html.TextBoxFor(m => m.Hoten, new { @class = "form-control", placeholder = "Tên công ty(*)", type = "text" })
+
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-12">
+                                    @Html.TextBoxFor(m => m.Tennguoilienhe, new { @class = "form-control", placeholder = "Tên người liên hệ (*)", type = "text" })
+
+
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-12">
+                                    @Html.TextBoxFor(m => m.Sdt, new { @class = "form-control", placeholder = "Điện thoại(*)", type = "number" })
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-6">
+                                        @Html.TextBoxFor(m => m.Diachi, new { @class = "form-control", placeholder = "Địa chỉ công ty(*)", type = "text" })
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-6">
+                                        @Html.TextBoxFor(m => m.Soluong, new { @class = "form-control", placeholder = "Số lượng(*)", type = "number" })
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-12">
+                                    @Html.TextBoxFor(m => m.Ghichudv, new { @class = "form-control", placeholder = "Nội dung yêu cầu", type = "text" })
+                                </div>
+
+                                <div class="form-group form-group--btn" style="margin-bottom:20px;">
+                                    <button type="submit" name="submit" value="SaveAdd">Gửi yêu cầu</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    }
+
+
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-row row">
+                <div class="footer-col col-lg-4">
+                    <div class="contact-info">
+                        <p class="contac-p1">Bệnh viện Đa khoa MEDLATEC</p>
+                        <p class="contac-p2">Trực thuộc Công ty TNHH Công nghệ và Xét nghiệm Y học</p>
+                        <p>Mã số thuế : 0101234974 do Sở Kế hoạch và Đầu tư thành phố Hà Nội cấp ngày 22/04/2002.</p>
+                        <p>Chịu trách nhiệm nội dung</p>
+                        <p>GĐ.ThS.BS Nguyễn Thị  Kim Len</p>
+                    </div>
+
+                    <div class="social-main">
+                        <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/"><img src="/Content/images/icon/fb.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>
+                        <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q"><img src="/Content/images/icon/yt.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>
+                        <a href="https://www.linkedin.com/company/bệnh-viện-đa-khoa-medlatec/"><img src="/Content/images/icon/lk.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>
+                        <a href="https://zalo.me/2830811318419977487"><img src="/Content/images/icon/tw.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>
+
+                    </div>
+                    <div class="contact-info">
+                        <a class="contac-a1" href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=12640" target="_blank"><img class="contact-img1" src="/Content/images/icon/bct.jpeg" /></a>
+                    </div>
+                </div>
+                <div class="footer-col col-lg-4">
+                    <div class="contact-main">
+                        <p class="footer-title d-none d-lg-block">Liên hệ</p>
+                        <ul>
+                            <li class="contact-phone"><img src="/Content/images/icon/phone.png" alt="hotline 1900 565656" />1900 565656</li>
+                            <li class="contact-mail"><img src="/Content/images/icon/mail.png" alt="email" />info@medlatec.com</li>
+                            <li class="contact-address">
+                                <img src="/Content/images/icon/maker.png" alt="Địa chỉ cơ sở" />
+                                <p>1. Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình, Hà Nội, Việt Nam</p>
+                                <p>2. Số 99 Trích Sài, Tây Hồ, Hà Nội</p>
+                                <p>3. Số 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội.</p>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-col col-lg-4 d-none d-lg-block">
+                    <div class="footer-service">
+                        <p class="footer-title">Dịch vụ</p>
+                        <ul>
+
+                            <li><a href="/dich-vu/kham-suc-khoe-doanh-nghiep" title="Khám sức khỏe">Khám sức khỏe</a></li>
+
+                            <li><a href="/dich-vu/xet-nghiem-lay-mau-tai-nha" title="Lấy mẫu xét nghiệm tận nơi">Lấy mẫu xét nghiệm tận nơi</a></li>
+                            <li><a href="/dich-vu/bao-hiem-y-te" title="Bảo hiểm y tế">Bảo hiểm y tế</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-service">
+                        <p class="footer-title">Quy chế hoạt động</p>
+                        <ul>
+
+                            <li><a href="/quy-che-hoat-dong">Quy chế hoạt động</a></li>
+                            <li><a href="/chinh-sach-bao-mat">Chính sách bảo mật & Điều khoản sử dụng</a></li>
+                            <li><a href="/trach-nhiem-va-cam-ket">Trách nhiệm và cam kết</a></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <div class="call-hotline">
+        <a href="tel:1900 565656"><img src="/Content/images/icon/call.png" alt="hotline 1900 565656">1900 565656</a>
+    </div>
+
+    <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd")</script>
+
+
+</body>
+</html>
+
+
+
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+    },
+
+    {
+    "@@type": "ListItem",
+    "position": 2,
+    "item": { "@@id": "https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep", "name": "@Html.Raw("Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec")" }
+    }
+
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>

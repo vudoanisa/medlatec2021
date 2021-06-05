@@ -1,0 +1,519 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    /**/
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Note {
+
+    <title>@Html.Raw("Chương trình Miễn phí xét nghiệm kiêm tra tổng phân tích máu và men gan | Bệnh viện đa khoa Medlatec")</title>
+    <meta name="description" content="@Html.Raw("Bệnh viện Đa khoa MEDLATEC tổ chức chương trình: Miễn phí xét nghiệm kiêm tra tổng phân tích máu và men gan")" />
+    <meta property="og:description" content="@Html.Raw("Với mong muốn giúp người dân nâng cao ý thức phòng bệnh, cũng như cơ hội kiểm tra và phát hiện sớm bệnh lý tuyến giáp, đặc biệt là ung thư tuyến giáp, Bệnh viện Đa khoa MEDLATEC tổ chức chương trình: Miễn phí Khám và Siêu âm phát hiện bệnh lý tuyến giáp.")" />
+    <meta property="og:title" content="@Html.Raw("Chương trình Miễn phí xét nghiệm kiêm tra tổng phân tích máu và men gan | Bệnh viện đa khoa Medlatec")" />
+    <meta name="keywords" content="@Html.Raw("Bệnh viện Đa khoa MEDLATEC tổ chức chương trình: Miễn phí xét nghiệm kiêm tra tổng phân tích máu và men gan")" />
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/banner/mien-phi-tong-phan-tich.jpg" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/banner/mien-phi-tong-phan-tich.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/mien-phi-tong-phan-tich-mau" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/mien-phi-tong-phan-tich-mau" />
+}
+@using (Html.BeginForm("LandingMPXNMauT9", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><span>Chương trình Miễn phí xét nghiệm kiểm tra tổng phân tích máu và men gan</span></li>
+        </ul>
+    </div>
+
+    <div class="banner-skdn container">
+        <div class="banner-main">
+            <div class="banner-slider owl-carousel">
+                <div class="item">
+                    <div class="banner-item">
+                        <a href="#dangkyngay"> <img src="https://medlatec.vn/Content/images/banner/mien-phi-tong-phan-tich.jpg" alt="Miễn phí xét nghiệm kiểm tra tổng phân tích máu và men gan" /></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="xntn-main">
+        <div class="xntn-service container">
+            <h3 class="title-plus title-plus-first">Xét nghiệm kiểm tra tổng phân tích máu và men gan phát hiện nguy cơ mắc bệnh gì</h3>
+            <div class="sub-content">
+                <ul>
+                    <li>Xét nghiệm tổng phân tích máu 18 thông số: xác định các chỉ số về hồng cầu, bạch cầu, tiểu cầu từ đó giúp chẩn đoán sớm các bệnh lý của hệ tạo máu như:  thiếu máu, suy tủy, ung thư máu, giảm tiểu cầu, sàng lọc mang gen bệnh thiếu máu huyết tán di truyền – ( Thalassemia )  hay cảnh báo sớm các bệnh lý viêm nhiễm khác.</li>
+                    <li>Xét nghiệm men gan: bao gồm men ALT (còn gọi là SGPT) và men AST ( còn gọi là SGOT) những enzym được giải phóng khi có tổn thương tế bào gan. ALT có chủ yếu trong gan, còn AST không chỉ trong gan mà còn có ở cơ tim, cơ vân, tụy, thận, não, ..Vì vậy, nồng độ ALT đặc hiệu cho các tổn thương ở gan hơn so với AST</li>
+                </ul>
+            </div>
+            @*<h3 class="title-plus title-plus-first">Xét nghiệm kiểm tra tổng phân tích máu và men gan phát hiện nguy cơ mắc bệnh gì</h3>
+                <div class="sub-content">
+                    <div class="qtk-medlatec row">
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">01</span>
+                                    <span class="qtk-content">Bệnh về máu: thiếu máu, viêm nhiễm, bệnh ký sinh trùng, vấn đề đông máu, ung thư máu,…</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">02</span>
+                                    <span class="qtk-content">Bệnh về gan và thận: gan như viêm gan A, B, C, E, D,.. xơ gan, tăng men gan, ung thư gan, rối loạn chức năng thận,…</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">03</span>
+                                    <span class="qtk-content">Bệnh về đường huyết: đái tháo đường,…</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">04</span>
+                                    <span class="qtk-content">Rối loạn mỡ máu (cholesterol, triglycerid, HDL-C): tắc nghẽn trong lòng mạch máu, gây xơ vữa động mạch</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">05</span>
+                                    <span class="qtk-content">Các bệnh liên quan đến hoạt động của enzym: bệnh tim,…</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">06</span>
+                                    <span class="qtk-content">Các bệnh khác: Gout, HIV, kiểm tra xem thuốc đang dùng có tác dụng không và các bệnh về não như thiếu máu não, nhiễm trùng não,…</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>*@
+        </div>
+
+        <div class="xntn-service container">
+            <h2 class="title" style="text-align:center;">Ai nên làm xét nghiệm kiểm tra tổng phân tích máu và men gan?</h2>
+            <div class="xntn-service-container row">
+                <div class="xntn-service-col col-lg-7">
+                    <div class="xntn-service-img"><img src="~/Content/images/banner/tong-phan-tich.jpg" alt="miễn phí tổng phân tích và men gan" /></div>
+                </div>
+                <div class="xntn-service-col col-lg-5">
+                    <div class="xntn-service-content">
+                        <ul>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-3.png" alt="Người bị viêm gan B, C mạn tính" /></span><span class="xntn-service-text">Những người nhiễm viêm gan virus B và viêm gan virus C;</span></li>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-1.png" alt="Người có tiền sử gia đình bị bệnh lý ung thư gan" /></span><span class="xntn-service-text">Những bệnh nhân viêm gan mãn tính, xơ gan;</span></li>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-4.png" alt="Người nghiện rượu hoặc uống rượu thường xuyên" /></span><span class="xntn-service-text">Người nghiện rượu hoặc uống rượu thường xuyên;</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/banner/su-dung-thuoc.png" alt="Xét nghiệm tầm soát ung thư" /></span><span class="xntn-service-text">Người dùng thường xuyên một số thuốc như thuốc chống trầm cảm , kháng sinh...;</span></li>
+
+
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-2.png" alt="Người bị xơ gan do mọi nguyên nhân, hay gặp do virus, rượu" /></span><span class="xntn-service-text">Những người có tiền sử bệnh gan, xét nghiệm để theo dõi bệnh và đáp ứng trong quá trình điều trị;</span></li>
+
+
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-5.png" alt="Người thừa cân, béo phì" /></span><span class="xntn-service-text">Những người bệnh có các bệnh lý khác như: rối loạn lipid máu, đái tháo đường , tăng huyết áp;</span></li>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-6.png" alt="Có tiền sử tim mạch, tiểu đường" /></span><span class="xntn-service-text">Những người đang điều trị các bệnh lý về máu như: thiếu máu, giảm tiểu cầu vô căn…</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feedback-customer" style="margin-top:25px;">
+            <div class="container">
+                <h2 class="title">Chuyên gia, Phó giáo sư, Tiến sĩ đầu ngành công tác tại MEDLATEC</h2>
+                <div class="feedback-slider owl-carousel">
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="~/Content/images/bac-sy/Gs-Tri.jpg" alt="GS.TS Nguyễn Anh Trí" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>GS.TS Nguyễn Anh Trí</h3>
+
+                                <div class="feedback-customer-text">Chủ tịch Hội đồng cố vấn - Bệnh viện Đa khoa MEDLATEC, Chủ tịch Hội tan máu bẩm sinh Việt Nam, Chủ tịch Hội Huyết học Việt Nam, nguyên Viện trưởng Viện Huyết học - Truyền máu Trung ương.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="~/Content/images/bac-sy/PGS-hoa.jpg" alt="PGS.TS Bạch Khánh Hòa" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>PGS.TS Bạch Khánh Hòa</h3>
+
+                                <div class="feedback-customer-text">Chuyên gia Huyết học - Sinh học phân tử, nguyên Trưởng khoa Xét nghiệm Sàng lọc - Viện Huyết học - Truyền máu Trung ương; Được nhận Giải thưởng Kovalevskaia (2012) - Giải thưởng danh giá duy nhất giành cho những nhà khoa học nữ tại Việt Nam</div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="item">
+                            <div class="feedback-customer-item">
+                                <div class="feedback-customer-avatar"><img src="~/Content/images/bsha.jpg" alt=" Thạc sỹ Nguyễn Hồng Hà, Nguyên Phó Giám đốc Bệnh viện Bệnh Nhiệt đới Trung ương" /></div>
+                                <div class="feedback-customer-info">
+                                    <h3>PGS.TS Phạm Thiện Ngọc</h3>
+
+                                    <div class="feedback-customer-text">Chuyên gia Hóa sinh, Trưởng Bộ môn Hóa sinh Đại học Y Hà Nội;</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="feedback-customer-item">
+                                <div class="feedback-customer-avatar"><img src="~/Content/images/thshuong.jpg" alt="Bác sĩ chuyên khoa Truyền nhiễm: ThS. Nguyễn Thu Hương" /></div>
+                                <div class="feedback-customer-info">
+                                    <h3>PGS.TS Phan Thị Hoan</h3>
+
+                                    <div class="feedback-customer-text">Chuyên gia Y sinh học – Di truyền, Phó Trưởng bộ môn Y sinh học - Di truyền Trường Đại học Y Hà Nội</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="feedback-customer-item">
+                                <div class="feedback-customer-avatar"><img src="~/Content/images/thshuong.jpg" alt="Bác sĩ chuyên khoa Truyền nhiễm: ThS. Nguyễn Thu Hương" /></div>
+                                <div class="feedback-customer-info">
+                                    <h3>PGS.TS Bạch Khánh Hòa</h3>
+
+                                    <div class="feedback-customer-text">Chuyên gia Huyết học - Sinh học phân tử, nguyên Trưởng khoa Xét nghiệm Sàng lọc - Viện Huyết học - Truyền máu Trung ương</div>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+
+
+        <div class="xntn-why-choose">
+            <div class="container">
+                <h2 class="title">Vì sao chọn dịch vụ xét nghiệm kiểm tra tổng phân tích máu và men gan của MEDLATEC</h2>
+                <div class="xntn-why-container row">
+
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-3.png" alt="Đội ngũ lấy mẫu chuyên nghiệp, ân cần, có chứng chỉ hành nghề" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Nhân lực</h3>
+                                <p>Đội ngũ chuyên gia giàu kinh nghiệm;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-2.png" alt="Mạng lưới labo xét nghiệm đạt tiêu chuẩn quốc tế, rộng khắp các tỉnh thành trên cả nước" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Quy mô</h3>
+                                <p>Hệ thống thiết bị hiện đại đồng bộ;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-4.png" alt="Phục vụ hơn 500 loại xét nghiệm từ cơ bản đến chuyên sâu" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Dịch vụ</h3>
+                                <p>Đa dạng dịch vụ tiện ích;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-6.png" alt="Phục vụ tất cả các ngày trong tuần, <b>kể cả thứ 7, chủ nhật và lễ Tết</b> từ 6:00-22:00 hàng ngày" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Giờ giấc phục vụ</h3>
+                                <p>Khám chữa bệnh tất cả các ngày trong tuần kể cả Lễ, Tết;</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-5.png" alt="Đơn giá theo giá niêm yết tại bệnh viện, chỉ  thêm 10.000 đồng phí đi lại" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Chi phí</h3>
+                                <p>Chi phí hợp lý;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-8.png" alt="Lưu trữ trực tuyến toàn bộ hồ sơ, khách hàng có thể tra cứu mọi lúc, mọi nơi. Thông tin được bảo mật tuyệt đối" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Lưu trữ hồ sơ</h3>
+                                <p>Lưu trữ hồ sơ khám chữa bệnh.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+                <div class="xntn-register"><a href="#dangkyngay">Đăng ký ngay</a></div>
+            </div>
+        </div>
+
+        <div class="register-main qtk-main container" style="margin-bottom:25px;">
+
+            <h2 class="title" style="padding-bottom:25px;text-transform:none;color:#1576C4;">Đăng ký Xét nghiệm kiểm tra tổng phân tích máu và men gan miễn phí</h2>
+            <div class="container" id="dangkyngay">
+                <div class="row">
+                    <div class="col-xl-5">
+
+                        <div class="register-form">
+                            <h2>Nhanh tay lên ! <br />Bạn muốn nhận được ưu đãi</h2>
+                            <div class="col-xl-12" style="padding-left:15px; padding-right:15px;padding-top:10px;padding-bottom:15px;">
+                                <div class="qtk-medlatec row">
+                                    <div class="col-md-3 col-xl-3 col-3" style="padding-left:5px; padding-right:5px;">
+                                        <div class="qtk-row">
+                                            <h6 style="text-align:center;color:white;">Ngày</h6>
+                                            <span class="qtk-number" style="display:block;padding-top:15px;padding-bottom:15px;width:70px;color:#1576C4;background-color:white;border-radius:6px;"><b id="ngay"></b></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-3 col-xl-3 col-3" style="padding-left:5px; padding-right:5px;">
+                                        <div class="qtk-row">
+                                            <div class="qtk-row">
+                                                <h6 style="text-align:center;color:white;">Giờ</h6>
+                                                <span class="qtk-number" style="display:block;padding-top:15px;padding-bottom:15px;width:70px;color:#1576C4;background-color:white;border-radius:6px;"><b id="gio"></b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-xl-3 col-3" style="padding-left:5px; padding-right:5px;">
+                                        <div class="qtk-row">
+                                            <div class="qtk-row">
+                                                <h6 style="text-align:center;color:white;">Phút</h6>
+                                                <span class="qtk-number" style="display:block;padding-top:15px;padding-bottom:15px;width:70px;color:#1576C4;background-color:white;border-radius:6px;"><b id="phut"></b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-xl-3 col-3" style="padding-left:5px; padding-right:5px;">
+                                        <div class="qtk-row">
+                                            <div class="qtk-row">
+                                                <h6 style="text-align:center;color:white;">Giây</h6>
+                                                <span class="qtk-number" style="display:block;padding-top:15px;padding-bottom:15px;width:70px;color:#1576C4;background-color:white;border-radius:6px;"><b id="giay"></b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group register-name">
+
+                                <input placeholder="Họ tên (bắt buộc)" name="txtHoten" type="text" class="form-control" />
+                            </div>
+                            <div class="form-group register-phone">
+
+                                <input placeholder="Số điện thoại (bắt buộc)" name="txtdt" type="text" class="form-control" />
+                            </div>
+                            <div class="form-group register-phone">
+                                <h6 style="text-align:center;color:white;">Bạn chọn nơi khám ở đâu?</h6>
+                                <select id="locationCustomer" name="dllNoihen" class="form-control tab-customer--location" style="text-align-last:center;">
+                                    <option value="ND">BVĐK MEDLATEC-42 Nghĩa Dũng</option>
+                                    <option value="TS">PKĐK MEDLATEC-99 Trích Sài</option>
+                                    <option value="TX">PKĐK MEDLATEC-05 Khuất Duy Tiến, Thanh Xuân</option>
+
+
+                                </select>
+                            </div>
+                            <div class="form-group register-email">
+
+                                <h6 style="text-align:center;color:white;">Bạn chọn đi khám vào ngày?</h6>
+                                <select id="locationCustomer" name="dllNgayhen" class="form-control tab-customer--location" style="text-align-last:center;">
+
+
+
+
+
+
+
+
+                                </select>
+
+                            </div>
+                            <div class="form-group register-phone">
+
+                                <h6 style="text-align:center;color:white;">Bạn chọn khung giờ?</h6>
+                                <select id="locationCustomer" name="dllGiohen" class="form-control tab-customer--location" style="text-align-last:center;">
+
+                             
+
+
+                                </select>
+                            </div>
+                            @*<div class="form-group register-comment">
+                                    <label>Ghi chú khác</label>
+                                    <textarea class="form-control" name="txtghichu" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                                </div>*@
+                            @*<div class="form-group form-group--btn">
+                                    <button type="submit" name="submit" class="btn-form--submit" value="SaveAdd">Đăng ký ngay</button>
+                                </div>*@
+
+                        </div>
+                    </div>
+                    <div class="col-xl-7">
+                        @*<div class="choose-main-new">*@
+                        <div class="col-xl-12">
+                            <h3 class="title-plus title-plus-first" style="margin-bottom:10px;margin-top:25px;">Ngoài ra có thể đăng ký qua App iCNM</h3>
+                        </div>
+
+                        <div class="col-xl-12" style="padding-top:25px;">
+
+                            <div class="sub-content">
+                                <ul class="content-step">
+                                    <li>Bước 1: Khách hàng tải App iCNM (nếu chưa có)</li>
+                                    <li>Bước 2: Click vào banner chương trình tại trang chủ</li>
+                                    <li>Bước 3: Đăng ký thông tin tham gia chương trình và nhận mã ưu đãi</li>
+                                    <li>
+                                        <div class="xntn-register"><a href="http://icnm.vn/app">Tải ứng dụng</a></div>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+
+
+                            <div class="sub-content">
+                                <ul class="content-step">
+                                    <li>
+                                        <div class="xntn-register"><a href="#" style="background-color:#1667c4;background-image:none;padding:15px 34px 15px 30px;">Lưu ý</a></div>
+                                    </li>
+                                    <li> - Địa điểm sử dụng: Khách hàng cần đến trực tiếp 1 trong 3 cơ sở khám chữa bệnh của MEDLATEC để nhận được ưu đãi;</li>
+                                    <li> - Khách hàng đăng ký ít nhất 04 giờ trước khi sử dụng dịch vụ;</li>
+                                    <li> - Với mỗi tài khoản đăng ký, khách hàng được nhận 01 mã khuyến mại, 01 mã chỉ áp dụng cho 01 người.</li>
+
+
+
+                                </ul>
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        @*</div>*@
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("September 30, 2019 13:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("ngay").innerHTML = days;
+        document.getElementById("gio").innerHTML = hours;
+        document.getElementById("phut").innerHTML = minutes;
+        document.getElementById("giay").innerHTML = seconds;
+        //  document.getElementById("ngay").innerHTML = days + "d " + hours + "h "
+        //   + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+
+    }, 1000);
+</script>
+
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "email":"info@medlatec.com",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>
+

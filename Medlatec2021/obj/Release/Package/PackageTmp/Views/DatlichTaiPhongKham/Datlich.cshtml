@@ -1,0 +1,142 @@
+﻿@using MEDLATEC2019.Controllers;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var _bacsi = ViewBag.Data as DatlichTaiPhongKhamController.LichKham;
+    var _model = ViewBag.Model as DatlichTaiPhongKhamController.DatLichModel;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đặt lịch</title>
+</head>
+<body>
+    <div>
+        <div class="schedule-main schedule-2">
+            <div class="container">
+                <div class="schedule-container">
+                    @Html.Raw(TempData["msg"])
+                    <div class="schedule-form">
+                        <h2>Đặt lịch khám tại @_bacsi.tenpk</h2>
+                        <div class="schedule-note">Quý khách vui lòng điền đầy đủ thông tin. Chúng tôi sẽ liên hệ lại sớm nhất</div>
+                        <div class="schedule-title">Thông tin bệnh nhân</div>
+                        @using (@Html.BeginForm("Datlich", "DatlichTaiPhongKham", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            
+                            <div class="schedule-row row">
+                                <div class="schedule-col col-lg-6">
+                                    <div class="form-group schedule-name">
+                                        <label>Họ và tên <i>(*)</i></label>
+                                        <input value="@_model.Name" class="form-control" name="Name" type="text" />
+                                    </div>
+                                </div>
+                                <div class="schedule-col col-lg-3">
+                                    <div class="form-group schedule-birthday">
+                                        <label>Ngày sinh <span class="hidden-desktop">DD/MM/YY</span> <i>(*)</i></label>
+                                        <input value="@(string.Format("{0:dd/MM/yy}", _model.BirthYear))" class="form-control schedule-date" placeholder="DD/MM/YY" name="BirthYear" type="text" />
+                                    </div>
+                                </div>
+                                <div class="schedule-col col-lg-3">
+                                    <div class="form-group schedule-sex">
+                                        <label>Giới tính <i>(*)</i></label>
+                                        <select class="form-control" name="Gender">
+                                            <option @(_model.Gender == "M" ? "selected" : "") value="M">Nam</option>
+                                            <option @(_model.Gender == "F" ? "selected" : "") value="F">Nữ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="schedule-col col-lg-6">
+                                    <div class="form-group schedule-phone">
+                                        <label>Số điện thoại <i>(*)</i></label>
+                                        <input value="@_model.Phone" class="form-control" name="Phone" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="schedule-col col-xl-3">
+                                    <div class="schedule-text">Dịch vụ</div>
+                                </div>
+                                <div class="schedule-col col-xl-3">
+                                    <div class="schedule-service">
+                                        <div class="schedule-radio row">
+
+                                            <div class="schedule-radio--item col-12">
+                                                <label>
+                                                    <input name="schedule_service" data-show="hospital" value="hospital" checked="checked" type="radio" />Khám tại bệnh viện
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-show="hospital" class="schedule-col-check schedule-col col-xl-12">
+                                    <div class="form-group schedule-address">
+                                        <label>Địa chỉ <i>(*)</i></label>
+                                        <input value="@_model.Address" class="form-control" name="Address" type="text" />
+                                    </div>
+                                </div>
+                                <div data-show="hospital" class="schedule-col-check schedule-col col-xl-12">
+                                    <div class="form-group schedule-comment">
+                                        <label>Ghi chú</label>
+                                        <textarea class="form-control" name="LydoKham" placeholder="Nhu cầu khám của bạn là gì?">@_model.LydoKham</textarea>
+                                    </div>
+                                </div>
+                                <div data-show="hospital" class="schedule-col-check schedule-col col-lg-6">
+                                    <div class="form-group schedule-select">
+                                        <label>Cơ sở khám</label>
+                                        <select class="form-control" name="OrganizeID">
+                                            <option selected value="@_bacsi.idpk">@_bacsi.tenpk</option>
+                                        </select>
+                                        <input type="hidden" name="OrganizeCode" value="@_bacsi.mapk" />
+                                    </div>
+                                </div>
+                                <div data-show="hospital" class="schedule-col-check schedule-col col-lg-6">
+                                    <div class="form-group schedule-select">
+                                        <label>Chuyên khoa</label>
+                                        <select class="form-control" name="SpecialistID">
+                                            <option selected value="@_bacsi.chuyenkhoa">@_bacsi.tenchuyenkhoa</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div data-show="hospital" class="schedule-col-check schedule-col col-lg-6">
+                                    <div class="form-group schedule-select">
+                                        <label>Bác sĩ khám</label>
+                                        <select class="form-control" name="DoctorID">
+                                            <option selected value="@_bacsi.idbacsi">@_bacsi.bacsi</option>
+                                        </select>
+                                        <input type="hidden" name="DoctorIDCode" value="@_bacsi.mabacsi" />
+                                    </div>
+                                </div>
+                                <div data-show="hospital" class="schedule-col-check schedule-col col-lg-3">
+                                    <div class="form-group schedule-choose-date">
+                                        <label>Ngày khám <span class="hidden-desktop">DD/MM/YY <i>(*)</i></span></label>
+                                        <input value="@string.Format("{0:dd/MM/yyyy}", _bacsi.ngaykham)" class="form-control schedule-date" name="NgayKham" placeholder="DD/MM/YY" type="text" />
+                                        <input type="hidden" name="DateSchedule" value="@_bacsi.ngaykham" />
+                                    </div>
+                                </div>
+                                <div data-show="hospital" class="schedule-col-check schedule-col col-lg-3">
+                                    <div class="form-group schedule-select">
+                                        <label>Giờ khám</label>
+                                        <select class="form-control" name="GioHen">
+                                            <option selected value="@_bacsi.giokham">@_bacsi.giokham</option>
+                                        </select>
+                                        <input type="hidden" name="ScheduleTimeID" value="@_bacsi.timeid" />
+                                    </div>
+                                </div>
+                                <div class="schedule-col col-xl-12">
+                                    <div class="form-group schedule-row--btn">
+                                        <button type="submit">Đặt lịch</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

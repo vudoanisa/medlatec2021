@@ -1,0 +1,620 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@model  MEDLATEC2019.Models.MPTXViewModel
+@{
+    Layout = null;
+    var News = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+<html>
+<head>
+    <title>Miễn phí xét nghiệm tầm soát bệnh Tiểu đường</title>
+
+    <meta name="description" content="@Html.Raw("Miễn phí xét nghiệm tầm soát bệnh Tiểu đường tại bệnh viện Medlatec. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn")" />
+
+
+    <meta name="title" content="@Html.Raw("Miễn phí xét nghiệm tầm soát bệnh Tiểu đường tại bệnh viện Medlatec")" />
+
+    <meta name="keywords" content="@Html.Raw("Miễn phí xét nghiệm tầm soát bệnh Tiểu đường tại bệnh viện Medlatec")" />
+
+    <meta property="og:description" content="@Html.Raw("Miễn phí xét nghiệm tầm soát bệnh Tiểu đường tại bệnh viện Medlatec. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn")" />
+    <meta property="og:title" content="@Html.Raw("Miễn phí xét nghiệm tầm soát bệnh Tiểu đường tại bệnh viện Medlatec")" />
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/365ngay/banner-mien-phi-xet-nghiem-tieu-duong-pc.png" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/365ngay/banner-mien-phi-xet-nghiem-tieu-duong-pc.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/mien-phi-xet-nghiem-tieu-duong" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/mien-phi-xet-nghiem-tieu-duong" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Content/css/styles.css" />
+    <script src="~/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/js/default.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+    <meta name="google-site-verification" content="ccIfgcSBv7UttiBiE_C4LQuIJr1be5vwhE1f5mPY3lg" />
+
+
+    <script type="text/javascript">
+        if (window.location.protocol == "http:") {
+            var restOfUrl = window.location.href.substr(5);
+            restOfUrl = restOfUrl.replace("www.", "");
+            window.location = "https:" + restOfUrl;[w]
+        }
+    </script>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://static.subiz.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+
+
+
+    <style>
+        .body-skdn .title {
+            text-align: center;
+            color: #052A66;
+            font-size: 26px;
+        }
+
+        .body-skdn .sapo-subtitle {
+            color: #052A66;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .body-skdn {
+            padding-top: 0px;
+        }
+
+            .body-skdn .title-h3 {
+                text-align: center;
+                color: #0066AE;
+                font-size: 26px;
+                margin-top: 15px;
+                background: transparent url(/Content/images/ksk/line.png) no-repeat center bottom;
+                padding: 0 0 30px;
+                text-align: center;
+                display: block;
+                margin: 0;
+                text-transform: uppercase;
+            }
+
+        .register-form input.form-control {
+            height: 40px;
+        }
+
+        .register-form .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    @using (Html.BeginForm("LandingSongkhoe", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+
+        <div class="banner-skdn">
+
+            <div class="col-12 d-block d-xl-none" style="padding-left:0px;padding-right:0px;">
+                <a href="#dangkyngay">
+                    <img src="/Content/images/365ngay/Mobile/banner-mien-phi-xet-nghiem-tieu-duong-mb.png" alt="Miễn phí xét nghiệm tầm soát bệnh Tiểu đường tại bệnh viện Medlatec" />
+                </a>
+            </div>
+            <div class="col-lg-12 d-none d-sm-block" style="padding-left:0px;padding-right:0px;">
+                <a href="#dangkyngay">
+                    <img src="/Content/images/365ngay/banner-mien-phi-xet-nghiem-tieu-duong-pc.png" alt="Miễn phí xét nghiệm tầm soát bệnh Tiểu đường tại bệnh viện Medlatec" />
+                </a>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="body-skdn">
+            <div style="background-image:url(/Content/images/365ngay/banner-bg.png);background-size: cover;padding-top:25px;padding-bottom:25px; background-position:center;">
+                <div class="container">
+
+
+                    <div class="row">
+
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <a href="#dangkyngay">   <img src="/Content/images/365ngay/suc-khoe.png" alt="Sức khỏe là món quà quý giá" /></a>
+
+                        </div>
+
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/Mobile/suc-khoe.png" alt="Sức khỏe là món quà quý giá" />
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="background-image:url(/Content/images/365ngay/banner-bg-2.png);background-size: cover;margin-top:25px;background-position:center;">
+                <div class="container" style="padding-bottom:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;margin-bottom:15px;">
+                            <img src="/Content/images/365ngay/chuyen-gia.png" alt="Chuyên gia của bạn" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;margin-bottom:15px;">
+                            <img src="/Content/images/365ngay/mobile/chuyen-gia-tai-nha.png" alt="Chuyên gia của bạn" />
+
+                        </div>
+                        <div class="col-6 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/bs-ngoc.png" alt="pgs-trinh-thi-ngoc" />
+
+                        </div>
+                        <div class="col-6 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/bs-hoa.png" alt="pgs-hoa" />
+
+                        </div>
+                        <div class="col-6 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/bs-tu.png" alt="pgs-tran-viet-tu" />
+
+                        </div>
+                        <div class="col-6 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/bs-doan.png" alt="pgs-doan" />
+
+                        </div>
+                        <div class="col-6 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/bs-thuy.png" alt="pgđ-thuy" />
+
+                        </div>
+                        <div class="col-6 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/bs-chuong.png" alt="pgs-chuong" />
+
+                        </div>
+
+                        <div class="col-1 d-none d-sm-block" style="text-align:right;">
+
+
+                        </div>
+                        <div class="col-10 d-none d-sm-block" style="text-align:right;">
+                            <div class="feature-main">
+
+                                <div class="row">
+                                    <div class="col-3 d-none d-sm-block" style="text-align:right;">
+
+                                        <img src="/Content/images/365ngay/bs-ngoc.png" alt="pgs-trinh-thi-ngoc" />
+                                    </div>
+                                    <div class="col-3 d-none d-sm-block" style="text-align:right;">
+                                        <img src="/Content/images/365ngay/bs-hoa.png" alt="pgs-hoa" />
+
+                                    </div>
+                                    <div class="col-3 d-none d-sm-block" style="text-align:right;">
+                                        <img src="/Content/images/365ngay/bs-tu.png" alt="pgs-tran-viet-tu" />
+
+                                    </div>
+                                    <div class="col-3 d-none d-sm-block" style="text-align:right;">
+                                        <img src="/Content/images/365ngay/bs-doan.png" alt="bs-doan" />
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-1 d-none d-sm-block" style="text-align:right;">
+
+
+                        </div>
+
+                        <div class="col-1 d-none d-sm-block" style="text-align:right;">
+
+
+                        </div>
+                        <div class="col-10 d-none d-sm-block" style="text-align:right;">
+                            <div class="feature-main">
+
+                                <div class="row">
+                                    <div class="col-3 d-none d-sm-block" style="text-align:right;">
+
+                                        <img src="/Content/images/365ngay/bs-chuong.png" alt="pgs-chương" />
+                                    </div>
+                                    <div class="col-3 d-none d-sm-block" style="text-align:right;">
+                                        <img src="/Content/images/365ngay/bs-nang.png" alt="pgđ-năng" />
+
+                                    </div>
+                                    <div class="col-3 d-none d-sm-block" style="text-align:right;">
+                                        <img src="/Content/images/365ngay/bs-minh.png" alt="bác sỹ minh" />
+
+                                    </div>
+                                    <div class="col-3 d-none d-sm-block" style="text-align:right;">
+                                        <img src="/Content/images/365ngay/bs-hai.png" alt="bác sỹ hải" />
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-1 d-none d-sm-block" style="text-align:right;">
+
+
+                        </div>
+
+
+                        @*<div class="col-12 d-block d-xl-none">
+                                <img src="/Content/images/rfa/Mobile/list-uu-diem.png" alt="Ưu điểm vượt trội của phương pháp rfa" />
+                            </div>
+                            <div class="col-6 d-none d-sm-block">
+                                <img src="/Content/images/rfa/list-uu-diem.png" alt="Ưu điểm vượt trội của phương pháp rfa" />
+                            </div>
+                            <div class="col-6 d-none d-sm-block my-auto">
+                                <div class="justify-content-center">
+                                    <img src="/Content/images/rfa/bs-uu-diem.png" style="max-width:450px;" alt="Ưu điểm vượt trội của phương pháp rfa" />
+                                </div>
+
+
+
+                            </div>*@
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="background-image:url(/Content/images/365ngay/bg-3.png);background-size: cover;margin-top:25px;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;margin-bottom:15px;">
+                            <img src="/Content/images/365ngay/gui-cau-hoi.png" style="max-width:900px" alt="Gửi câu hỏi cho chuyên gia" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;margin-bottom:15px;">
+                            <img src="/Content/images/365ngay/gui-cau-hoi.png" alt="Gửi câu hỏi cho chuyên gia" />
+
+                        </div>
+                        @*<div class="col-12 d-block d-xl-none" style="text-align:center;">
+                                <img style="margin-bottom:10px;" src="/Content/images/rfa/Mobile/doi-tuong.png" alt="Đối tượng chỉ định dùng phương pháp rfa" />
+                                <img style="margin-bottom:10px;" src="/Content/images/rfa/Mobile/doi-tuong-2.png" alt="Đối tượng chỉ định dùng phương pháp rfa" />
+                            </div>*@
+                        <div class="col-2 d-none d-sm-block" style="text-align:right;">
+
+                        </div>
+                        <div class="col-12 col-lg-8 col-md-8 my-auto">
+                            <div class="justify-content-center">
+                                <div class="register-form" style="border-radius:10px;background-color:#0a6bb0;">
+
+                                    <div class="form-group">
+                                        <input value="" name="txthoten1" placeholder="Họ tên (*)" class="form-control" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input value="" name="txtsdt1" class="form-control" type="text" placeholder="Điện thoại (*)" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input value="" name="txtemail1" class="form-control" type="text" placeholder="Email" />
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="txtGhichu" placeholder="Nội dung câu hỏi"></textarea>
+                                    </div>
+                                    <div class="form-group form-group--btn" style="margin-bottom:20px;padding-bottom:10px;">
+                                        <button style="border:1px solid #1576C4;" type="submit" name="submit" value="Question">Gửi yêu cầu</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-2 d-none d-sm-block" style="text-align:right;">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="background-image:url(/Content/images/365ngay/bg-4.png);background-size: cover;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;margin-bottom:20px;margin-top:20px;">
+                            <a href="https://medlatec.vn/tin-tuc/xet-nghiem-mo-mau-la-gi-va-y-nghia-cac-chi-so-trong-xet-nghiem-s58-n16596">
+                                <img src="/Content/images/momau/Asset91.png" alt="Xét nghiệm mỡ máu là gì và ý nghĩa các chỉ số trong xét nghiệm" />
+
+                            </a>
+                        </div>
+
+                        @*<div class="col-6 d-none d-sm-block" style="text-align:center;margin-bottom:20px;margin-top:20px;">
+                            <a href="https://medlatec.vn/tin-tuc/chuyen-gia-chia-se-ve-y-nghia-xet-nghiem-ast-alt-s159-n18754">
+                                <img src="/Content/images/ALT/Asset80.png" alt="Chuyên gia chia sẻ về ý nghĩa xét nghiệm AST ALT" />
+                            </a>
+                        </div>*@
+
+
+                        <div class="col-6 d-none d-sm-block" style="text-align:center;margin-bottom:20px;margin-top:20px;">
+
+                            <a href="#dangkyngay">
+                                <img src="/Content/images/momau/Asset92.png" alt="Xét nghiệm mỡ máu là gì và ý nghĩa các chỉ số trong xét nghiệm" />
+
+                            </a>
+                        </div>
+
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <a href="https://medlatec.vn/tin-tuc/chuyen-gia-chia-se-ve-y-nghia-xet-nghiem-ast-alt-s159-n18754">
+                                <img src="/Content/images/momau/mobile/Asset83.png" style="margin-top: 10px;margin-bottom: 10px;" alt="Xét nghiệm mỡ máu là gì và ý nghĩa các chỉ số trong xét nghiệm" />
+                                <img src="/Content/images/momau/mobile/Asset84.png" style="margin-top: 10px;margin-bottom: 10px;" alt="Xét nghiệm mỡ máu là gì và ý nghĩa các chỉ số trong xét nghiệm" />
+                                
+                            </a>
+
+                            <a href="#dangkyngay">  <img src="/Content/images/momau/mobile/Asset85.png" alt="Xét nghiệm mỡ máu là gì và ý nghĩa các chỉ số trong xét nghiệm" /></a>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="background-image:url(/Content/images/365ngay/bg-5.png);background-size: cover;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/365ngay/uu-diem-lay-mau.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/365ngay/uu-diem-10.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/mobile/uu-diem.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/mobile/uu-diem-5.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="background-image:url(/Content/images/365ngay/bg-4.png);background-size: cover;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;margin-bottom:25px;">
+                            <img src="/Content/images/365ngay/an-tam-su-dung.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/mobile/an-tam.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+
+
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/365ngay/an-tam.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/mobile/an-tam-1.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/365ngay/mobile/an-tam-2.png" alt="Ưu điểm của dịch vụ lấy mẫu tận nơi" />
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+        
+
+        @Html.AntiForgeryToken()
+        <div id="dangkyngay" style="background-image:url(/Content/images/365ngay/banner-bg-4.png);background-size: cover;background-position:center;">
+            <div class="container">
+                <div class="row">
+                  
+
+
+                    <div class="col-xl-6">
+                    </div>
+
+
+                    <div class="col-xl-6" style="padding:45px;">
+                        <div class="register-form" style="width:100%;background:transparent;background-image:url(/Content/images/365ngay/footer-1.png);background-size: cover;padding:18%;border:none;background-repeat:round;">
+
+
+                            <div class="form-group" style="text-align:center;">
+                                <img src="/Content/images/365ngay/text-form.png" alt="" />
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.txthoten, new { @class = "form-control", placeholder = "Họ tên (*)", type = "text" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.txtdt, new { @class = "form-control", placeholder = "Điện thoại (*)", type = "text" })
+
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.txtEmail, new { @class = "form-control", placeholder = "Email", type = "email" })
+
+                            </div>
+
+
+                            <div class="form-group">
+                                @Html.TextAreaFor(m => m.noidung, new { @class = "form-control", placeholder = "Nội dung yêu cầu", type = "text" })
+
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(Model.txtError))
+                            {
+                                if (Model.txtError.Length > 0)
+                                {
+                                    <div class="form-group">
+                                        <span class="text-danger" >
+                                            @Model.txtError
+                                        </span>
+                                    </div>
+                                }
+                            }
+
+                            <div class="form-group form-group--btn" style="padding-top:10px;">
+                                <button style="border:1px solid #1576C4;" type="submit" name="submit" value="SaveAdd">Gửi yêu cầu</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</body>
+</html>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+    },
+
+    {
+    "@@type": "ListItem",
+    "position": 2,
+    "item": { "@@id": "https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep", "name": "@Html.Raw("Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec")" }
+    }
+
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>

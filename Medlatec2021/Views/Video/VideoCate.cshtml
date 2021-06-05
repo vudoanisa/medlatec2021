@@ -1,0 +1,182 @@
+﻿@model  MEDLATEC2019.Models.VideoHomeViewModel
+@using CMS_Core.Entity;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Note {
+
+
+
+    <title>@Html.Raw(Model.VideoTop.vName)</title>
+
+
+    <meta name="description" content="@Html.Raw(Model.VideoTop.vDescription) " />
+    <meta name="og:description" content="@Html.Raw(Model.VideoTop.vDescription) " />
+
+    <meta name="title" content="@Html.Raw(Model.VideoTop.vName) " />
+    <meta name="og:title" content="@Html.Raw(Model.VideoTop.vName) " />
+
+    <meta name="keywords" content="@Html.Raw(Model.VideoTop.vKeyword) " />
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <meta property="og:url" content="https://medlatec.vn/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.VideoTop.vName,Model.VideoTop.vId.ToString())" />
+
+
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.VideoTop.vName,Model.VideoTop.vId.ToString())" />
+
+    <meta name="robots" content="index,follow,all">
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+
+
+    @*<link rel="stylesheet" href="~/Content/css/reset.css">*@
+    <link rel="stylesheet" href="~/Content/css/global.css">
+    <link rel="stylesheet" href="~/Content/css/global.respomsive.css">
+
+
+}
+
+@if (Model.VideoTop != null)
+{
+    <section class="pvm-content-data">
+        <section class="pvm-content pvm-conent-row1">
+            <div class="container pvm-fix-container">
+                <div class="wrap">
+                    <div class="sec32_row1">
+                        <p id="breadcrumbs">
+                            <span>
+                                <span>
+                                    <a href="https://medlatec.vn/">Trang chủ</a> »
+                                    <a href="https://medlatec.vn/video">Videos</a> »
+                                    <span class="breadcrumb_last" aria-current="page">
+                                        @Model.VideoTop.vName
+                                    </span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="video-big">
+
+                        <div class="video-content removeClass" id="iframerow1">
+                            @Html.Raw(Model.VideoTop.Linkvideo)
+
+                        </div>
+                        <div class="text-title">
+
+                            <h4>@Model.VideoTop.VideoTitle</h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--//-->
+        <section class="pvm-category-content">
+            <div class="container container-pvm-fix">
+                <div class="sec32_row3">
+                    <h1 class="archive_title_h1">
+                        <span>
+                            @Model.VideoTop.vName
+                        </span>
+                    </h1>
+                </div>
+                <div class="sec32_row4 archive_list_post">
+                    <ul class="d_flex" id="dataContentAdd">
+                        @foreach (var item in Model.videoCate1)
+                        {
+
+                            <li>
+                                <div class="thumb">
+                                    <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())" title="@item.VideoName">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2>
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                            @item.VideoName
+                                        </a>
+                                    </h2>
+                                    <div class="post_info d_flex">
+                                        <span><i class="fa fa-eye"></i> 99</span>
+                                        <span><i class="fa fa-clock"></i> @item.dateCreate.ToString("dd/MM/yyyy")</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        }
+
+
+                    </ul>
+
+                    @if (Model.videoCate1.Count > 11)
+                    {
+                        <div class="btn-view" id="btn_view">
+                            <p class="btn btn-default btn-show" id="btnAdd" onclick="ClickAdd();">xem thêm</p>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+}
+
+<script>
+        var count = 1;
+
+    function ClickAdd() {
+
+
+
+            count = count + 1;
+            console.log(count);
+            var countClick = $('#countClick').val();
+
+            var post_url = "";
+            var request_method = "post";
+            var form_data = { "countClick": countClick }
+
+
+
+            $.ajax({
+                  url: "/video/VideoCateLoad?cid=" + @Model.VideoTop.vId +"&page=" + count,
+                    type: request_method,
+                    data: '{cid:' + JSON.stringify(@Model.VideoTop.vId) + ',page:' + JSON.stringify(count) + '}',
+
+                }).done(function (data) {
+                    if (data != null) {
+                        for (item of data) {
+
+                            var html = '<li> <div class="thumb"> '
+                            html = html + '<a href="/' + item.linkUrl + '" title="' + item.VideoName + ' ">'
+                            html = html + '<img src="https://img.medlatec.vn/' + item.VideoImageThumb + '" alt="' + item.VideoName + '">'
+                            html = html + '</a> </div><div class="text">'
+                            html = html + '<h2><a href="/'+ item.linkUrl +'">' + item.VideoName + '</a></h2>'
+                            html = html + '<div class="post_info d_flex">'
+                            html = html + '<span><i class="fa fa-eye"></i> 100</span>'
+                            html = html + ' <span><i class="fa fa-clock"></i> 05/05/2020</span>'
+                            html = html + '</div> </div>  </li>'
+                            $("#dataContentAdd").append(html);
+                        }
+
+                    }
+                });
+
+        }
+
+</script>
+
+<script src="~/Content/js/owl.carousel.min.js"></script>
+<script src="~/Content/js/global.js"></script>

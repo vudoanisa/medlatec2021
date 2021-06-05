@@ -1,0 +1,1331 @@
+@media screen and (min-device-width:1850px) and (max-device-width: 1921px){
+	.mb{
+		display: none;
+	}
+	.register-main{
+		min-height: 1100px;
+	}
+	.regis {
+	    width: 25%;
+	    margin-top:20%;
+	}
+	.register-form input.form-control{
+		height: 60px;
+	}
+	.register-form select.form-control{
+		height: 60px;
+	}
+	.chuyengia {
+	    height: 1400px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 80px;
+		font-size: 45px;
+	}
+	.chuyengia .box img {
+	    width: 90%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 1360px;
+	}
+	.solieu .title-h3{
+		font-size: 55px;
+		padding-top: 10%;
+	}
+	.solieu .img-sec2 img {
+	    width: 80%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 900px;
+	}
+	.doituong .title-qh{
+		font-size: 55px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 500px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1400px;
+	}
+	.nguyco .title-h3{
+		font-size: 45px;
+    	padding-top: 10%;
+	}
+	.nguyco div img{
+		width: 95%;
+	}
+	.register-main2{
+		min-height: 100px;
+	}
+}
+
+@media screen and (min-device-width:1620px) and (max-device-width: 1680px){
+	.mb{
+		display: none;
+	}
+	.register-main{
+		min-height: 960px;
+	}
+	.regis {
+	    width: 25%;
+	    margin-top:20%;
+	}
+	.register-form input.form-control{
+		height: 60px;
+	}
+	.register-form select.form-control{
+		height: 60px;
+	}
+	.chuyengia {
+	    height: 1400px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 80px;
+		font-size: 45px;
+	}
+	.chuyengia .box img {
+	    width: 90%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 1160px;
+	}
+	.solieu .title-h3{
+		font-size: 55px;
+		padding-top: 10%;
+	}
+	.solieu .img-sec2 img {
+	    width: 73%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 900px;
+	}
+	.doituong .title-qh{
+		font-size: 55px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 500px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+	}
+	.nguyco .title-h3{
+		font-size: 45px;
+    	padding-top: 10%;
+	}
+	.nguyco div img{
+		width: 80%;
+	}
+	.register-main2{
+		min-height: 900px;
+	}
+}
+
+@media screen and (min-device-width:1500px) and (max-device-width: 1600px){
+	.mb{
+		display: none;
+	}
+	.register-main{
+		min-height: 900px;
+	}
+	.regis {
+	    width: 25%;
+	    margin-top:20%;
+	}
+	.register-form input.form-control{
+		height: 60px;
+	}
+	.register-form select.form-control{
+		height: 60px;
+	}
+	.chuyengia {
+	    height: 1400px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 80px;
+		font-size: 45px;
+	}
+	.chuyengia .box img {
+	    width: 90%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 1160px;
+	}
+	.solieu .title-h3{
+		font-size: 55px;
+		padding-top: 10%;
+	}
+	.solieu .img-sec2 img {
+	    width: 73%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 900px;
+	}
+	.doituong .title-qh{
+		font-size: 55px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 500px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+	}
+	.nguyco .title-h3{
+		font-size: 45px;
+    	padding-top: 10%;
+	}
+	.nguyco div img{
+		width: 80%;
+	}
+	.register-main2{
+		min-height: 850px;
+	}
+}
+
+@media screen and (min-device-width:1300px) and (max-device-width: 1400px){
+	.mb{
+		display: none;
+	}
+	.register-main{
+		min-height: 780px;
+	}
+
+	.register-form h2{
+		font-size: 25px;
+	}
+	.register-form input.form-control{
+		height:40px; 
+	}
+	.register-form select.form-control{
+		height: 40px;
+	}
+	.regis {
+	    width: 25%;
+	    margin-top:20%;
+	}
+	.chuyengia {
+	    height: 1300px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 100px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 90%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 1000px;
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 10%;
+	}
+	.solieu .img-sec2 img {
+	    width: 60%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 850px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 450px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1000px;
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 10%;
+	}
+	.nguyco div img{
+		width: 65%;
+	}
+	.register-main2{
+		min-height: 750px;
+	}
+	.tainha {
+		height: 1100px;
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 5%;
+	}
+	.tainha div img{
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:1100px) and (max-device-width: 1280px){
+	.mb{
+		display: none;
+	}
+	.register-main{
+		min-height: 600px;
+	}
+
+	.register-form h2{
+		font-size: 25px;
+	}
+	.register-form input.form-control{
+		height:40px; 
+	}
+	.register-form select.form-control{
+		height: 40px;
+	}
+	.regis {
+	    width: 25%;
+	    margin-top:20%;
+	}
+	.chuyengia {
+	    height: 1260px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 100px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 90%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 900px;
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 10%;
+	}
+	.solieu .img-sec2 img {
+	    width: 60%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 850px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 450px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 950px;
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 10%;
+	}
+	.nguyco div img{
+		width: 65%;
+	}
+	.register-main2{
+		min-height: 700px;
+	}
+	.tainha {
+		height: 1100px;
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 5%;
+	}
+	.tainha div img{
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:1000px) and (max-device-width: 1024px){
+	.mb{
+		display: none;
+	}
+	.register-main{
+		min-height: 600px;
+	}
+
+	.register-form h2{
+		font-size: 18px;
+		margin: 0 0 15px;
+	}
+	.register-form input.form-control{
+		height:40px; 
+	}
+	.register-form select.form-control{
+		height: 40px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 20px;
+	}
+	.regis {
+	    width: 25%;
+	    margin-top:18%; 
+	}
+	.chuyengia {
+	    height: 1120px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 100px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 90%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 600px;
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 10%;
+	}
+	.solieu .img-sec2 img {
+	    width: 55%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 450px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 800px;
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 10%;
+	}
+	.nguyco div img{
+		width: 55%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 950px;
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 5%;
+	}
+	.tainha div img{
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+
+/*Mobile responsive*/
+
+@media screen and (min-device-width:320px) and (max-device-width:360px){  
+	.pc{
+		display: none;
+	}
+  .register-main{
+	background-image: url(../images/afp/banner_mb.png);
+	width: 100%;
+	height: auto;
+	min-height: 1200px
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+
+	.register-form h2{
+		font-size: 40px;
+		margin-top:40px;
+	}
+	.register-form input.form-control{
+		height:55px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form select.form-control{
+		height:55px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 40px;
+		margin-top: 30px;
+		font-size: 30px;
+	}
+	.regis {
+	    width: 80%;
+	    margin-top:200%; 
+	    margin-right: auto;
+	    margin-left: auto;
+	    display: block;
+	}
+	.chuyengia {
+	    height: 1700px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 50px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 120%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 700px;
+		background-image: url(../images/afp/banner_sec2mb.png);
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 25%;
+	}
+	.solieu .img-sec2 img {
+	    width: 100%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 850px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+		background-image: url(../images/afp/nguyco_mb.png);
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 20%;
+	}
+	.nguyco div img{
+		width: 100%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 1800px;
+		background-image: url(../images/afp/tainha_mb.png);
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 10%;
+	}
+	.tainha div img{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:361px) and (max-device-width:375px){  
+	.pc{
+		display: none;
+	}
+  .register-main{
+	background-image: url(../images/afp/banner_mb.png);
+	width: 100%;
+	height: auto;
+	min-height: 1200px
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+
+	.register-form h2{
+		font-size: 40px;
+		margin-top:40px;
+	}
+	.register-form input.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form select.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 40px;
+		margin-top: 30px;
+		font-size: 30px;
+	}
+	.regis {
+	    width: 80%;
+	    margin-top:200%; 
+	    margin-right: auto;
+	    margin-left: auto;
+	    display: block;
+	}
+	.chuyengia {
+	    height: 1700px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 50px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 120%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 700px;
+		background-image: url(../images/afp/banner_sec2mb.png);
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 25%;
+	}
+	.solieu .img-sec2 img {
+	    width: 100%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 850px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+		background-image: url(../images/afp/nguyco_mb.png);
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 20%;
+	}
+	.nguyco div img{
+		width: 100%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 1800px;
+		background-image: url(../images/afp/tainha_mb.png);
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 10%;
+	}
+	.tainha div img{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:376px) and (max-device-width:412px){  
+	.pc{
+		display: none;
+	}
+  .register-main{
+	background-image: url(../images/afp/banner_mb.png);
+	width: 100%;
+	height: auto;
+	min-height: 1200px
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+
+	.register-form h2{
+		font-size: 40px;
+		margin-top:40px;
+	}
+	.register-form input.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form select.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 40px;
+		margin-top: 30px;
+		font-size: 30px;
+	}
+	.regis {
+	    width: 80%;
+	    margin-top:200%; 
+	    margin-right: auto;
+	    margin-left: auto;
+	    display: block;
+	}
+	.chuyengia {
+	    height: 1700px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 50px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 120%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 700px;
+		background-image: url(../images/afp/banner_sec2mb.png);
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 25%;
+	}
+	.solieu .img-sec2 img {
+	    width: 100%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 850px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+		background-image: url(../images/afp/nguyco_mb.png);
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 20%;
+	}
+	.nguyco div img{
+		width: 100%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 1800px;
+		background-image: url(../images/afp/tainha_mb.png);
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 10%;
+	}
+	.tainha div img{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:413px) and (max-device-width:422px){  
+	.pc{
+		display: none;
+	}
+  .register-main{
+	background-image: url(../images/afp/banner_mb.png);
+	width: 100%;
+	height: auto;
+	min-height: 1200px
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+
+	.register-form h2{
+		font-size: 40px;
+		margin-top:40px;
+	}
+	.register-form input.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form select.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 40px;
+		margin-top: 30px;
+		font-size: 30px;
+	}
+	.regis {
+	    width: 80%;
+	    margin-top:200%; 
+	    margin-right: auto;
+	    margin-left: auto;
+	    display: block;
+	}
+	.chuyengia {
+	    height: 1700px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 50px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 120%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 700px;
+		background-image: url(../images/afp/banner_sec2mb.png);
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 25%;
+	}
+	.solieu .img-sec2 img {
+	    width: 100%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 850px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+		background-image: url(../images/afp/nguyco_mb.png);
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 20%;
+	}
+	.nguyco div img{
+		width: 100%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 1800px;
+		background-image: url(../images/afp/tainha_mb.png);
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 10%;
+	}
+	.tainha div img{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:423px) and (max-device-width:450px){  
+	.pc{
+		display: none;
+	}
+  .register-main{
+	background-image: url(../images/afp/banner_mb.png);
+	width: 100%;
+	height: auto;
+	min-height: 1200px
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+
+	.register-form h2{
+		font-size: 40px;
+		margin-top:40px;
+	}
+	.register-form input.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form select.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 40px;
+		margin-top: 30px;
+		font-size: 30px;
+	}
+	.regis {
+	    width: 80%;
+	    margin-top:200%; 
+	    margin-right: auto;
+	    margin-left: auto;
+	    display: block;
+	}
+	.chuyengia {
+	    height: 1700px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 50px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 120%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 700px;
+		background-image: url(../images/afp/banner_sec2mb.png);
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 25%;
+	}
+	.solieu .img-sec2 img {
+	    width: 100%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 850px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+		background-image: url(../images/afp/nguyco_mb.png);
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 20%;
+	}
+	.nguyco div img{
+		width: 100%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 1800px;
+		background-image: url(../images/afp/tainha_mb.png);
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 10%;
+	}
+	.tainha div img{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:451px) and (max-device-width:501px){  
+	.pc{
+		display: none;
+	}
+  .register-main{
+	background-image: url(../images/afp/banner_mb.png);
+	width: 100%;
+	height: auto;
+	min-height: 1200px
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+
+	.register-form h2{
+		font-size: 40px;
+		margin-top:40px;
+	}
+	.register-form input.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form select.form-control{
+		height:60px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 40px;
+		margin-top: 30px;
+		font-size: 30px;
+	}
+	.regis {
+	    width: 80%;
+	    margin-top:200%; 
+	    margin-right: auto;
+	    margin-left: auto;
+	    display: block;
+	}
+	.chuyengia {
+	    height: 1700px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 50px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 120%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 700px;
+		background-image: url(../images/afp/banner_sec2mb.png);
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 25%;
+	}
+	.solieu .img-sec2 img {
+	    width: 100%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 850px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+		background-image: url(../images/afp/nguyco_mb.png);
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 20%;
+	}
+	.nguyco div img{
+		width: 100%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 1800px;
+		background-image: url(../images/afp/tainha_mb.png);
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 10%;
+	}
+	.tainha div img{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:502px) and (max-device-width:591px){  
+	.pc{
+		display: none;
+	}
+  .register-main{
+	background-image: url(../images/afp/banner_mb.png);
+	width: 100%;
+	height: auto;
+	min-height: 1200px
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+
+	.register-form h2{
+		font-size: 40px;
+		margin-top:40px;
+	}
+	.register-form input.form-control{
+		height:65px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form select.form-control{
+		height:65px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 40px;
+		margin-top: 30px;
+		font-size: 30px;
+	}
+	.regis {
+	    width: 80%;
+	    margin-top:200%; 
+	    margin-right: auto;
+	    margin-left: auto;
+	    display: block;
+	}
+	.chuyengia {
+	    height: 1700px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 50px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 120%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 700px;
+		background-image: url(../images/afp/banner_sec2mb.png);
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 25%;
+	}
+	.solieu .img-sec2 img {
+	    width: 100%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 850px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+		background-image: url(../images/afp/nguyco_mb.png);
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 20%;
+	}
+	.nguyco div img{
+		width: 100%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 1800px;
+		background-image: url(../images/afp/tainha_mb.png);
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 10%;
+	}
+	.tainha div img{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}
+@media screen and (min-device-width:768px) and (max-device-width:820px){  
+	.pc{
+		display: none;
+	}
+  .register-main{
+	background-image: url(../images/afp/banner_mb.png);
+	width: 100%;
+	height: auto;
+	min-height: 1200px
+	background-repeat: no-repeat;
+	background-size: 100%;
+	}
+
+	.register-form h2{
+		font-size: 40px;
+		margin-top:40px;
+	}
+	.register-form input.form-control{
+		height:65px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form select.form-control{
+		height:65px; 
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.register-form .form-group.form-group--btn button {
+		line-height: 40px;
+		margin-top: 30px;
+		font-size: 30px;
+	}
+	.regis {
+	    width: 80%;
+	    margin-top:200%; 
+	    margin-right: auto;
+	    margin-left: auto;
+	    display: block;
+	}
+	.chuyengia {
+	    height: 1700px;
+	}
+	.chuyengia .title-qh{
+		padding-top: 50px;
+		font-size: 35px;
+	}
+	.chuyengia .box img {
+	    width: 120%;
+	    height: auto;
+	    margin-bottom: 50px;
+	}
+	.solieu {
+		min-height: 700px;
+		background-image: url(../images/afp/banner_sec2mb.png);
+	}
+	.solieu .title-h3{
+		font-size: 35px;
+		padding-top: 25%;
+	}
+	.solieu .img-sec2 img {
+	    width: 100%;
+	    display: block;
+	    margin-right: auto;
+	    margin-left: auto;
+	}
+	.doituong{
+		min-height: 800px;
+	}
+	.doituong .title-qh{
+		font-size: 35px;
+		margin-top: 30px;
+	}
+	.hethong{
+		height: 850px;
+	}
+	.hethong .container{
+		max-width: 1600px;
+	}
+	.nguyco{
+		min-height: 1200px;
+		background-image: url(../images/afp/nguyco_mb.png);
+	}
+	.nguyco .title-h3{
+		font-size: 35px;
+		padding-top: 20%;
+	}
+	.nguyco div img{
+		width: 100%;
+	}
+	.register-main2{
+		min-height: 550px;
+	}
+	.tainha {
+		height: 1800px;
+		background-image: url(../images/afp/tainha_mb.png);
+	}
+	.tainha .title-h3 {
+		font-size: 30px;
+		padding-top: 10%;
+	}
+	.tainha div img{
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+}

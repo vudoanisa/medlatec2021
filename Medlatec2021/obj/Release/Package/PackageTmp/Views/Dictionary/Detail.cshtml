@@ -1,0 +1,359 @@
+﻿@using MEDLATEC2019.Entity;
+@using MEDLATEC.BusinessLayer;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var item = (Cms_DictionaryEntity)ViewBag.Data;
+    if (item == null) { return; }
+    var listViews = (List<Cms_News>)ViewBag.RelateNews;
+    var listKeyword = (List<Cms_News>)ViewBag.Keyword;
+    var doctor = (Cms_Doctor)ViewBag.Doctor ?? new Cms_Doctor();
+}
+
+@section Note {
+    <meta name="viewport" content="width=device-width" />
+
+
+
+    <title>@item.Name: Nguyên nhân, triệu chứng, chẩn đoán và điều trị</title>
+    @if (!string.IsNullOrEmpty(item.Description))
+    {
+        <meta name="description" content="@Html.Raw(item.Description.TrimStart().TrimEnd().Replace("\"", ""))" />
+        <meta property="og:description" content="@Html.Raw(item.Description.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+        <meta name="keywords" content="@Html.Raw(item.Keyword.ToString().TrimStart().TrimEnd())" />
+    }
+
+
+
+    <meta name="title" content="@Html.Raw(item.Name.ToString().TrimStart().TrimEnd().Replace("\"", "")): Nguyên nhân, triệu chứng, chẩn đoán và điều trị" />
+    <meta property="og:title" content="@Html.Raw(item.Name.ToString().TrimStart().TrimEnd().Replace("\"", "")): Nguyên nhân, triệu chứng, chẩn đoán và điều trị" />
+
+    <meta property="og:url" content="https://medlatec.vn/tu-dien-benh-ly/@item.Url" />
+    <link rel="canonical" href="https://medlatec.vn/tu-dien-benh-ly/@item.Url" />
+
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="preload" href="https://medlatec.vn/Content/build/baseLegacy.css" as="style" onload="this.rel='stylesheet'">
+}
+
+@using (Html.BeginForm("Detail", "Dictionary", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="" id="main">
+        <div class="breadcrumb-container container">
+            <ul class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="https://medlatec.vn/" itemprop="item"><span itemprop="name">Trang chủ</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="https://medlatec.vn/tu-dien-benh-ly/" title="Từ điển bệnh lý" itemprop="item"><span itemprop="name">Từ điển bệnh lý</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+
+                <li>
+                    <a href="https://medlatec.vn/tu-dien-benh-ly/@item.Url" title="@item.Name" itemprop="item"><span itemprop="name">@item.Name</span></a>
+                    <meta itemprop="position" content="3" />
+                </li>
+            </ul>
+        </div>
+        <div id="disease-detail-page-title">
+            <div class="background"></div>
+
+            <div class="mask">
+                <div class="container">
+
+                    <h1 style="margin-top: 30px; font-weight: bold;">
+                        @item.Name: Nguyên nhân, triệu chứng, chẩn đoán và điều trị
+
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <div class="position">
+            <div id="disease-list">
+                <div class="content">
+                    <section class="disease-index smooth-scroll-link">
+                        <ul class="menu2">
+                            <li>
+                                <a href="#disease-description">Tổng quan</a>
+                            </li>
+                            <li>
+                                <a href="#disease-causes">Nguyên nhân</a>
+                            </li>
+                            <li>
+                                <a href="#disease-symptoms_free">Triệu chứng</a>
+                            </li>
+                            <li>
+                                <a href="#disease-spread">Đường lây truyền</a>
+                            </li>
+                            <li>
+                                <a href="#disease-overview">Đối tượng nguy cơ</a>
+                            </li>
+                            <li>
+                                <a href="#disease-prevention">Phòng ngừa</a>
+                            </li>
+                            <li>
+                                <a href="#disease-diagnosis">Biện pháp chẩn đoán</a>
+                            </li>
+                            <li>
+                                <a href="#disease-diagnosis">Biện pháp điều trị</a>
+                            </li>
+                            <li>
+                                <a href="#disease-symptoms">Biến chứng</a>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <div>
+
+                <div id="disease-detail">
+                    <div class="container">
+                        <div class="col-sm-12 col-md-8">
+                            <div class="content">
+                                @if (!string.IsNullOrEmpty(item.Content))
+                                {
+                                    <section id="disease-description" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 onclick="show_content('disease-description')" class="header collapse-trigger"><span class="title-step">Tổng quan bệnh @item.Name</span></h2>
+                                        <div class="body collapsible-target content-show">
+                                            @Html.Raw(item.Content)
+                                        </div>
+                                    </section> <hr>}
+
+                                @if (!string.IsNullOrEmpty(item.Cause))
+                                {
+                                    <section id="disease-causes" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 class="header collapse-trigger" onclick="show_content('disease-causes')"><span class="title-step">Nguyên nhân bệnh @item.Name</span></h2>
+                                        <div class="body collapsible-target content-show">
+                                            @Html.Raw(item.Cause)
+
+                                        </div>
+                                    </section> <hr>}
+
+                                @if (!string.IsNullOrEmpty(item.Symptom))
+                                {
+                                    <section id="disease-symptoms_free" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 onclick="show_content('disease-symptoms_free')" class="header collapse-trigger"><span class="title-step">Triệu chứng bệnh @item.Name</span></h2>
+                                        <div class="body collapsible-target content-show">
+                                            @Html.Raw(item.Symptom)
+                                        </div>
+                                    </section> <hr>}
+
+
+
+                                @if (!string.IsNullOrEmpty(item.PathOfInfection))
+                                {
+                                    <section id="disease-spread" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 onclick="show_content('disease-spread')" class="header collapse-trigger"><span class="title-step">Đường lây truyền của bệnh</span></h2>
+                                        <div class="body collapsible-target content-show">
+                                            @Html.Raw(item.PathOfInfection)
+                                        </div>
+                                    </section> <hr>}
+
+                                @if (!string.IsNullOrEmpty(item.ObjectGravity))
+                                {
+                                    <section id="disease-overview" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 onclick="show_content('disease-overview')" class="header collapse-trigger"><span class="title-step">Đối tượng nguy cơ bệnh @item.Name</span></h2>
+                                        <div class="body collapsible-target content-show">
+                                            @Html.Raw(item.ObjectGravity)
+                                        </div>
+                                    </section> <hr>
+                                }
+
+
+                                @if (!string.IsNullOrEmpty(item.Prevent))
+                                {
+                                    <section id="disease-prevention" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 onclick="show_content('disease-prevention')" class="header collapse-trigger"><span class="title-step">Phòng ngừa bệnh @item.Name</span></h2>
+                                        <div class="body collapsible-target content-show">
+                                            @Html.Raw(item.Prevent)
+                                        </div>
+                                    </section>
+                                    <hr>
+                                }
+
+                                @if (!string.IsNullOrEmpty(item.Diagnostic))
+                                {
+                                    <section id="disease-diagnostic" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 onclick="show_content('disease-diagnostic')" class="header collapse-trigger"><span class="title-step">Các biện pháp chuẩn đoán bệnh @item.Name</span></h2>
+                                        <div class="body collapsible-target content-show">
+
+                                            @Html.Raw(item.Diagnostic)
+
+                                        </div>
+                                    </section>
+                                    <hr>
+                                }
+
+
+                                @if (!string.IsNullOrEmpty(item.Treatment))
+                                {
+                                    <section id="disease-treatment" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 onclick="show_content('disease-treatment')" class="header collapse-trigger"><span class="title-step">Các biện pháp điều trị bệnh @item.Name</span></h2>
+                                        <div class="body collapsible-target content-show">
+
+                                            @Html.Raw(item.Treatment)
+
+
+
+                                        </div>
+                                    </section>
+                                    <hr>
+                                }
+
+                                @if (!string.IsNullOrEmpty(item.Symptoms))
+                                {
+                                    <section id="disease-symptoms" class="collapsible-container collapsible-block collapsed screen-sm">
+                                        <h2 onclick="show_content('disease-symptoms')" class="header collapse-trigger"><span class="title-step">Các biến chứng bệnh @item.Name</span></h2>
+                                        <div class="body collapsible-target content-show">
+                                            @Html.Raw(item.Symptoms)
+                                        </div>
+                                    </section>
+                                    <hr>
+                                }
+
+                                <section class="collapsible-container collapsible-block collapsed screen-sm">
+
+                                    <div class="body collapsible-target">
+
+                                        <p style="text-align:justify"> </p>
+                                        <p style="float: right;">
+                                            @if (!string.IsNullOrEmpty(item.Authour))
+                                            {
+                                                <strong>Tác giả: <a href="javascrpit:void(0)">@item.Authour</a></strong>
+                                            }
+
+
+                                        </p>
+                                        <p style="text-align:justify"> </p>
+                                        <div class="fb-like" data-href="https://medlactec.vn/tu-dien-benh-ly/@item.Url" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+                                        <div class="share-social clearfix">
+                                            <a href="https://www.facebook.com/sharer.php?u=https://medlactec.vn/tu-dien-benh-ly/@item.Url" target="_blank" title="Chia sẻ link tới facebook" class="share-social--facebook"><img src="https://medlatec.vn/Content/images/facebook-share.png" alt=""></a>
+                                            <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q" class="share-social--youtube"><img src="https://medlatec.vn/Content/images/youtube-share.png" alt=""></a>
+                                            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://medlactec.vn/tu-dien-benh-ly/@item.Url/&amp;title=@item.Name&amp;summary=@item.Description&amp;source=" target="_blank" title="chia sẻ link tới linkedin" class="share-social--linkin"><img src="https://medlatec.vn/Content/images/linkedin-share.png" alt=""></a>
+                                            <a href="https://twitter.com/intent/tweet?text=https://medlactec.vn/tu-dien-benh-ly/@item.Url" title="chia sẻ link tới twitter" class="share-social--twitter"><img src="https://medlatec.vn/Content/images/twitter-share.png" alt=""></a>
+                                        </div>
+
+                                        <p style="text-align:justify"> </p>
+
+                                        <p style="text-align:justify"><strong>Xem thêm:</strong></p>
+
+                                        <ul class="more">
+                                            @for (int i = 0; listViews != null && i < listViews.Count; i++)
+                                            {
+                                                <li style="text-align:justify">
+                                                    <p><strong><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",listViews[i].NewsName.ToString().ToLower(),"s"+ listViews[i].CateId.ToString() , "n"+listViews[i].NewsId.ToString())" title="@listViews[i].NewsName.ToString()">@listViews[i].NewsName</a></strong></p>
+                                                </li>
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </section>
+
+                                @*<div class="tags">
+
+            <strong>Chủ đề:</strong>
+            <a href="/chu-de/than-kinh/" data-track-tag="Thần kinh">Thần kinh</a>
+
+            <a href="/chu-de/u-tai/" data-track-tag="Ù tai">Ù tai</a>
+
+            <a href="/chu-de/chong-mat/" data-track-tag="Chóng mặt">Chóng mặt</a>
+
+            <a href="/chu-de/roi-loan-tien-dinh/" data-track-tag="Rối loạn tiền đình">Rối loạn tiền đình</a>
+
+            <a href="/chu-de/hoa-mat/" data-track-tag="Hoa mắt">Hoa mắt</a>
+
+            <a href="/chu-de/dieu-tri-roi-loan-tien-dinh/" data-track-tag="Điều trị rối loạn tiền đình">Điều trị rối loạn tiền đình</a>
+        </div>*@
+
+                            </div>
+
+                        </div>
+
+                        <aside class="col-sm-12 col-md-4">
+
+                            <section class="top-list">
+                                <h3>Nội dung được viết & kiểm duyệt bởi</h3>
+                                @if (doctor != null)
+                                {
+                                    if (!string.IsNullOrEmpty(doctor.DoctorName))
+                                    {
+                                        <ul>
+                                            <li>
+                                                <a class="image circle" href="@CMS_Core.Common.Common.GetURLDetailByCate("/doi-ngu-bac-sy",doctor.DoctorName.ToString().ToLower().TrimStart().TrimEnd() ,"d"+doctor.id.ToString())" style="background-image: url('https://login.medlatec.vn/@doctor.DoctorImage.ToString()');" title="@doctor.DoctorName"></a>
+
+                                                <div class="body">
+                                                    <p>
+                                                        <strong>
+                                                            <a href="@CMS_Core.Common.Common.GetURLDetailByCate("/doi-ngu-bac-sy",doctor.DoctorName.ToString().ToLower().TrimStart().TrimEnd() ,"d"+doctor.id.ToString())" title="@doctor.DoctorName"> Bác sĩ: @doctor.DoctorName</a>
+                                                        </strong>
+                                                    <p>
+                                                    <p> Trình độ: @doctor.DoctorLever</p>
+                                                    <p> Chuyên khoa: @doctor.cateIdListName</p>
+                                                    <p> Năm kinh nghiệm: @(!string.IsNullOrEmpty(doctor.DoctorExperience)?doctor.DoctorExperience:"1 năm")</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    }
+
+                                }
+
+                            </section>
+                            <section class="top-list">
+                                <h3>Danh sách các bài viết liên quan</h3>
+                                <ul class="recent-list">
+                                    @for (int i = 0; listKeyword != null && i < listKeyword.Count; i++)
+                                    {
+                                        <li style="padding-left:unset!important">
+                                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",listKeyword[i].NewsName.ToString().ToLower(),"s"+ listKeyword[i].CateId.ToString() , "n"+listKeyword[i].NewsId.ToString())" title="@listKeyword[i].NewsName.ToString()">@listKeyword[i].NewsName</a>
+                                        </li>
+                                    }
+
+                                </ul>
+                            </section>
+
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<style>
+    .fix-pd-head {
+        background: #fff;
+        z-index: 9999;
+    }
+</style>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=374830993795949&autoLogAppEvents=1" nonce="UUr1dmGL"></script>
+<script src="~/Content/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        stick('.fix-pd-head', 'fixed-fix-pd-head', 0, '', '');
+        function stick(id, el_class, offset_top, stick, unstick) {
+            if ($(id).length > 0) {
+                $(id).sticky({
+                    sticky_class: el_class,
+                    offset_top: offset_top
+                }).on("sticky_kit:stick", function (e) {
+                    $(stick).hide();
+                }).on("sticky_kit:unstick", function (e) {
+                    $(unstick).show();
+                });
+            }
+        };
+
+    });
+    function show_content(id) {
+        $('.content-show').slideUp();
+        $('#' + id).find('.content-show').slideDown();
+        var elmnt = document.getElementById(id);
+        elmnt.scrollIntoView();
+    }
+</script>
+
+

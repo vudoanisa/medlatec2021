@@ -1,0 +1,243 @@
+﻿@using MEDLATEC2019.Models;
+@using MEDLATEC2019.Entity;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var item = (CustomerServiceModel)ViewBag.Data ?? new CustomerServiceModel();
+    var listUnit = (List<ModUnitEntity>)ViewBag.Unit;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp">
+    <meta name="title" content="HÒM THƯ GÓP Ý ONLINE | Medlatec" />
+
+    <meta name="keywords" content="Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp" />
+    <link rel="preload" href="~/Content/build/baseLegacy.css" as="style" onload="this.rel='stylesheet'">
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn" />
+    <title>HÒM THƯ GÓP Ý ONLINE | Medlatec</title>
+
+    <link rel="stylesheet" href="~/Content/css/stylesfeedback.css" />
+    <link rel="stylesheet" href="~/Content/css/extend-style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/css/custom.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/css/responsive.css" type="text/css" media="all">
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+    <link href="~/Content/lib/sweetalerts/sweetalert.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="turn-up container">
+        <section class="main-pd mt20 mb20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-12 header">
+                        <div class="row">
+                            <div class="col-3 col-md-3 ">
+                                <div class="logo-khaibao">
+                                    <img src="~/Content/images/logo2.png" class="logo1">
+                                </div>
+                            </div>
+                            <div class="col-9 col-md-9">
+                                <div class="h1-phieukhaibao">
+                                    <h1>HÒM THƯ GÓP Ý ONLINE</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-box col-12 col-md-12 header">
+                        <div class="row">
+                            <div class="col-12 col-md-6 ">
+                                <span style="font-weight: 600">HỆ THỐNG DỊCH VỤ Y TẾ MED GROUP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="static-page">
+                        <div class="entry-content border-radius">
+                            <div class="contact-form">
+                                <form method="post" name="feedback_form" id="contactForm">
+                                    <div class="form-group clearfix">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 ">
+                                                <label class="control-label ">Đơn vị khám bệnh<span>*</span></label>
+                                                <input type="hidden" name="UnitID" id="UnitID" class="form-control pull-left" value="0" hidden="hidden" />
+                                                <input type="hidden" id="organize" class="form-control pull-left" value="0" hidden="hidden" />
+                                                <select name="UnitCode" class="form-control organize">
+                                                    <option value="0">- Chọn đơn vị khám bệnh -</option>
+                                                    @for (int i = 0; listUnit != null && i < listUnit.Count; i++)
+                                                    {
+                                                        <option value="@listUnit[i].Code" @(listUnit[i].Code.ToUpper() == item.LocationID ? "selected" : "") data-id="@listUnit[i].ID" data-phone="@listUnit[i].Hotline"> @listUnit[i].Name </option>
+                                                    }
+                                                </select>
+                                                <p class="error"></p>
+                                            </div>
+                                            <div class="col-12 col-md-6 ">
+                                                <label class="control-label ">Hotline</label>
+                                                <input type="number" name="Hotline" class="form-control hotline" value="" required="required" placeholder="Hotline" maxlength="15" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6 ">
+                                                <label class="control-label">Họ và tên <span>*</span></label>
+                                                <input type="text" name="Name" class="form-control name pull-left" value="@item.PatientName" required="required" placeholder="Nhập họ và tên" maxlength="50" />
+
+                                                <p id="name" class="error"></p>
+                                            </div>
+                                            <div class="col-12 col-md-6 ">
+                                                <label class="control-label">Số điện thoại <span>*</span></label>
+                                                <input type="text" name="Phone" class="form-control pull-left phone-fm" value="@item.Phone" required="required" placeholder="Số điện thoại" maxlength="12" />
+
+                                                <p id="phone" class="error"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <label class="control-label ">Ngày sinh <span>*</span></label>
+                                                <input type="text" onfocus="this.type='date'" name="BirthDate" class="form-control pull-left" value="" required="required" placeholder="Nhập ngày sinh" />
+
+                                                <p class="error"></p>
+                                            </div>
+                                            <div class="col-12 col-md-6 ">
+                                                <label class="control-label ">Giới tính<span>*</span></label>
+                                                <select name="Gender" class="form-control gender" id="Gender">
+                                                    <option value="">- Chọn giới tính -</option>
+                                                    <option value="1" @(item.Sex == "M" ? "selected" : "")>- Nam -</option>
+                                                    <option value="0" @(item.Sex == "F" ? "selected" : "")>- Nữ -</option>
+                                                </select>
+                                                <p class="error"></p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <div class="row">
+                                            <div class="col-12 col-md-12 ">
+                                                <h5>Quý khách vui lòng đánh giá chất lượng dịch vụ của MEDLATEC</h5>
+                                                <div class="stars">
+                                                    <input class="star star-5" id="star-5" type="radio" value="5" name="star" />
+                                                    <label class="star star-5" for="star-5"></label>
+                                                    <input class="star star-4" id="star-4" type="radio" value="4" name="star" />
+                                                    <label class="star star-4" for="star-4"></label>
+                                                    <input class="star star-3" id="star-3" type="radio" value="3" name="star" />
+                                                    <label class="star star-3" for="star-3"></label>
+                                                    <input class="star star-2" id="star-2" type="radio" value="2" name="star" />
+                                                    <label class="star star-2" for="star-2"></label>
+                                                    <input class="star star-1" id="star-1" type="radio" value="1" name="star" />
+                                                    <label class="star star-1" for="star-1"></label>
+                                                    <input type="hidden" id="point" name="Point" value="0">
+                                                </div>
+                                                <p class="error"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <div class="row">
+                                            <div class="col-12 col-md-12 ">
+                                                <label class="control-label">Xin vui lòng cho biết chi tiết trải nghiệm của Quý khách tại MEDLATEC<span>*</span></label>
+                                                <textarea name="ContentFeedback" class="form-control pull-left" placeholder="Xin vui lòng cho biết chi tiết trải nghiệm của Quý khách tại Medlatec" rows="5" maxlength="8000"></textarea>
+                                                <p class="error"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="g-recaptcha" id="r-cap" data-sitekey="6LcC9cYaAAAAAMIikyDoamViD2q18BAHBf_iUn1S"></div>
+                                                <input type="hidden" id="foo_recap" name="foo" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-submit form-group clearfix">
+                                        <div class="col-xs-4">
+                                            <input type="button" style="padding: 7.5px 15px; border-radius: 2px; background-color: #1576C4; color: #ffffff; border: none; outline: none;" class="adr button bg-blue register_form_post" value="Gửi đánh giá" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"async defer>
+        </script>
+        <script src='~/Content/js/loaddata.js'></script>
+        <script src='~/Content/lib/sweetalerts/sweetalert.min.js'></script>
+        <link rel="stylesheet" href="~/Content/lib/chosen/chosen.css" type="text/css" media="all" />
+        <script type="text/javascript" src="~/Content/lib/chosen/chosenadd.js"></script>
+        <script type="text/javascript">
+            $('.organize').chosen({
+                create_option: true,
+                display_selected_options: true,
+                placeholder_text_multiple: 'Nhập tên hoặc mã cb',
+                no_results_text: 'Không có kết quả',
+                enable_split_word_search: true,
+                search_contains: true,
+                display_disabled_options: false,
+                single_backstroke_delete: false,
+                inherit_select_classes: true,
+                persistent_create_option: true,
+                skip_no_results: true
+
+            });
+            $(".organize").on('change', function () {
+                var phone = $(this).find(':selected').data('phone');
+                var unit = $(this).find(':selected').data('id');
+                $('.hotline').val(phone);
+                $('#UnitID').val(unit);
+                $('#organize').val($(this).val());
+            });
+
+
+            var verifyCallback = function (response) {
+                document.getElementById("foo_recap").value = response;
+            };
+           
+            var onloadCallback = function () {
+              
+                grecaptcha.render('r-cap', {
+                    'sitekey': '6LcC9cYaAAAAAMIikyDoamViD2q18BAHBf_iUn1S',
+                    'callback': verifyCallback
+                });
+            };
+
+
+            $('.star').on('click', function () {
+                $('#point').val($(this).val());
+            });
+
+            $('.register_form_post').on('click', function () {
+                if (check_input() != 0) {
+                    alert_swee('Thông báo!', 'Quý khách cần nhập đủ thông tin.');
+                }
+                else {
+                    order_post();
+                }
+            });
+
+            $(document).ready(function () {
+                var phone = $(".organize").find(':selected').data('phone');
+                var unit = $(".organize").find(':selected').data('id');
+                $('.hotline').val(phone);
+                $('#UnitID').val(unit);
+                $('#organize').val($(".organize").val());
+            });
+        </script>
+
+    </div>
+</body>
+</html>

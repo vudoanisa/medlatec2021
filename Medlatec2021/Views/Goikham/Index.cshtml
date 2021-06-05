@@ -1,0 +1,197 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Service = (List<RootObject>)ViewBag.Service;
+    var ServiceGroup = (List<ServiceGroup>)ViewBag.ServiceGroup;
+    <style>
+        .archive-item--desc {
+            margin-top: 20px;
+        }
+
+        .giamgia {
+            width: 100%;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        .spangiamgia {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 20px;
+            padding: 6px;
+            border-radius: 2px;
+            background-color: #c63829;
+            vertical-align: top;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .nguyengia {
+            color: red;
+            font-size: 16px;
+            font-weight: 700;
+            color: #c63829;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .trugia {
+            font-size: 13px;
+            color: #666;
+            text-decoration: line-through;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
+}
+@section Note {
+    <title>Gói khám sức khỏe tại Bệnh viện MEDLATEC | Medlatec</title>
+   
+        <meta name="description" content="Các gói kiểm tra sức khỏe từ cơ bản, nâng cao tại nhà, tại viện với nhiều ưu đãi giúp khách hàng trải nghiệm dịch vụ y tế chất lượng cao với chi phí hợp lý" />
+        <meta property="og:description" content="Các gói kiểm tra sức khỏe từ cơ bản, nâng cao tại nhà, tại viện với nhiều ưu đãi giúp khách hàng trải nghiệm dịch vụ y tế chất lượng cao với chi phí hợp lý" />
+    
+   
+        <meta name="title" content="Gói khám sức khỏe tại Bệnh viện MEDLATEC | Medlatec" />
+        <meta property="og:title" content="Gói khám sức khỏe tại Bệnh viện MEDLATEC | Medlatec" />
+   
+        <meta name="keywords" content="Gói khám sức khỏe tại Bệnh viện MEDLATEC | Medlatec" />
+   
+    
+
+
+
+   
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <meta property="og:url" content="https://medlatec.vn/goi-kham" />
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/goi-kham" />
+   
+
+}
+@Html.Raw(TempData["msg"])
+@if (Service != null)
+{
+    if (Service.Count > 0)
+    {
+
+
+    }
+
+
+    using (Html.BeginForm("NewsCate", "News", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+        <div class="breadcrumb-container container">
+            <ul class="clearfix">
+                <li><a href="https://medlatec.vn/">Trang chủ</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="archive-news container">
+            <div class="archive-news--row row">
+                <div class="archive-news--col col-xl-9 col-lg-8 col-md-7">
+                    <div class="archive-news--container">
+                        <h1><span>Danh sách gói khám sức khỏe</span></h1>
+                        <div class="archive-news--list">
+
+                            @for (int i = 0; i < Service.Count; i++)
+                            {
+                              
+
+                                <div class="archive-news--item">
+                                    <div class="archive-item--row row">
+                                        <div class="archive-item-col col-lg-5">
+                                            <div class="archive-item--img">
+                                                @if (Service[i].Service.Img != null)
+                                                {
+
+                                                    string abc = "http://imgservice.icnm.vn/iCNMImage/ServiceImage/" + Service[i].Service.ServiceID + "/" + Service[i].Service.Img.ToString();
+                                                    abc = abc.Replace("\"", "/");
+                                                    abc = abc.Replace("\\", "/");
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("goi-kham", Service[i].Service.ServiceName.ToString().ToLower(),"r"+Service[i].Service.ServiceID.ToString(),"g"+Service[i].Service.ServiceID.ToString())"><img src="@Html.Raw(abc)" alt="@Service[i].Service.ServiceName.TrimStart().TrimEnd()" /></a>
+                                                }
+
+                                            </div>
+                                        </div>
+                                        <div class="archive-item-col col-lg-7">
+                                            <div class="archive-item--content">
+                                                @if (@Service[i].Service.ServiceName != null)
+                                                {
+
+                                                    <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("goi-kham", Service[i].Service.ServiceName.ToString().ToLower(),"r"+Service[i].Service.ServiceID.ToString(),"g"+Service[i].Service.ServiceID.ToString())" title="@Service[i].Service.ServiceName.ToString()">@Service[i].Service.ServiceName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                    
+                                                }
+
+                                                
+                                                @if (@Service[i].Service.ServiceDes != null)
+                                                {
+                                                    <div class="archive-item--desc d-none d-xl-block">
+                                                 @Common.FormatTitleNews(@Service[i].Service.ServiceDes.ToString(), 300)
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+
+                      
+
+
+                    </div>
+                </div>
+                @Html.AntiForgeryToken()
+                <div class="archive-news--col col-xl-3 col-lg-4 col-md-5">
+                    <div class="sidebar-container">
+                        <div class="news-post">
+                            <h2>Danh mục gói khám</h2>
+                            <div class="news-post--list">
+
+                                @for (int i = 0; i < ServiceGroup.Count; i++)
+                                {
+
+
+
+                                    <div class="news-post--item">
+                                        <div class="news-post--row row">
+
+                                            <div class="news-post--col col-12">
+                                                <div class="news-post--content">
+                                                    @if (ServiceGroup[i].Name != null)
+                                                    {
+                                                        <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByCate("goi-kham", @ServiceGroup[i].Name.ToString().ToLower(),"r"+@ServiceGroup[i].ServiceGroupID.ToString())">@ServiceGroup[i].Name.ToString()</a></h3>
+                                                    }
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+}
+

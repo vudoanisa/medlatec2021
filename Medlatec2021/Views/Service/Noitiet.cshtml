@@ -1,0 +1,351 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    var NewsCate = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+@section Note {
+    <title>Nội tiết | Bệnh viện đa khoa Medlatec</title>
+
+    <meta name="description" content="Nội tiết | Bệnh viện đa khoa Medlatec" />
+    <meta property="og:description" content="Nội tiết | Bệnh viện đa khoa Medlatec" />
+    <meta name="title" content="Nội tiết | Bệnh viện đa khoa Medlatec" />
+    <meta property="og:title" content="Nội tiết | Bệnh viện đa khoa Medlatec" />
+    <meta name="keywords" content="Nội tiết | Bệnh viện đa khoa Medlatec" />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/Chuyen-khoa/anh-chinh-noi-tiet.jpg" />
+
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <meta property="og:url" content="https://medlatec.vn/chuyen-khoa/noi-tiet" />
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/chuyen-khoa/noi-tiet" />
+}
+
+@using (Html.BeginForm("Noitiet", "Service", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+ 
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="https://medlatec.vn/chuyen-khoa">Chuyên khoa y tế</a></li>
+            <li><a href="#">Chuyên khoa Nội tiết</a></li>
+
+        </ul>
+    </div>
+
+    <div class="specialist specialist-child container">
+        <div class="specialist-child--row row">
+            <div class="specialist-child--col col-xl-9 col-lg-8">
+                <h1>Nội tiết</h1>
+                <div class="specialist-child--desc">Lối sống của xã hội hiện đại là nguyên nhân chính gây nên các bệnh nội tiết, bệnh không ngừng gia tăng trong xã hội hiện nay. Nếu không được chẩn đoán và điều trị kịp thời, người bệnh phải sống chúng với bệnh suốt đời như bệnh tiểu đường, cao huyết áp, tuyến giáp,... Với uy tín chẩn đoán và điều trị bệnh chính xác, cùng sự phục vụ tận tâm, tận tụy, chuyên khoa Nội tiết – Bệnh viện Đa khoa không ngừng chiếm được niềm tưởng của khách hàng là địa chỉ thăm khám, kiểm tra và điều trị bệnh lý nội tiết tin cậy.</div>
+                <div class="specialist-child--img"><img src="/Content/images/Chuyen-khoa/anh-chinh-noi-tiet.jpg" alt="Chuyên khoa nội tiết" /></div>
+                <div class="specialist-service">
+                    <h2 class="main-title">Dịch vụ chính</h2>
+                    <div class="specialist-service--wrapper">
+                        <div class="specialist-service--list row">
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Đái tháo đường</h3>
+                                    <p>(type 1, type 2, thai kỳ...), rối loạn chuyển hóa lipid;</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Các bệnh lý tuyến giáp</h3>
+                                    <p>Basedow, nhân tuyến giáp, suy giáp, viêm tuyến giáp, bệnh lý tuyến thượng thận...</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Đề án quản lý bệnh mạn tính theo chế độ BHYT</h3>
+                                    <p>Quản lý và điều trị đái tháo đường, tăng huyết áp, bệnh baradow. </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="specialist-material" style="margin-top:15px;">
+                    <h2 class="main-title">Cơ sở vật chất - Trang thiết bị</h2>
+                    <div class="specialist-material-desc">Chuyên khoa hiện đáp ứng đầy đủ, đồng bộ các kỹ thuật hiện đại, từ đó giúp thầy thuốc có cơ sở tư vấn, theo dõi và điều trị chính xác các bệnh lý nội tiết, gồm:</div>
+                    <div class="specialist-material-wrapper">
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/may-rfa.jpg" alt="Máy đốt sóng cao tần (RFA)" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy đốt sóng cao tần (RFA)</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Máy đốt sóng cao tần (RFA) là phương pháp hủy khối u bằng nhiệt, có những ưu điểm vượt trội trong điều trị u lành tuyến giáp lành tính, u gan không cần phẫu thuật, không để lại sẹo, ra viện trong ngày.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/may-chup-cat-lop-ct.jpg" alt="Máy chụp cắt lớp vi tính (CT-scanner) của hãng Siemens, Đức" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy chụp cắt lớp vi tính (CT-scanner) của hãng Siemens, Đức</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Là kỹ thuật dùng nhiều tia X quang quét lên một khu vực của cơ thể theo lát cắt ngang phối hợp với xử lý bằng máy vi tính để được một hình ảnh 2 chiều hoặc 3 chiều bộ phận cần chụp. So với kỹ thuật chụp X quang trước đây, chụp CT là một thành tựu vượt bậc trong chẩn đoán hình ảnh giúp ích đắc lực cho thầy thuốc trong chẩn đoán, tiên lượng bệnh.</p>
+                                        <p>Kỹ thuật giúp hẩn đoán các khối u của các tuyến nội tiết, các rối loạn nội tiết gây ảnh hưởng đến toàn cơ thể và đến các bộ phận khác, đánh giá tình trạng tưới máu của các tuyến nội tiết.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/chup-cong-huong-tu-MRI.jpg" alt="Máy chụp cộng hưởng từ (viết tắt theo tiếng Anh là MRI)" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy chụp cộng hưởng từ (viết tắt theo tiếng Anh là MRI)</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Máy chụp cộng hưởng từ (viết tắt theo tiếng Anh là MRI): Là kỹ thuật hình ảnh hiện đại, ngày càng được sử dụng rộng rãi bởi độ chính xác, an toàn, không xâm nhập và không dùng tia X. Hình ảnh có độ phân giải cao, khảo sát đa mặt cắt, cho hình ảnh sắc nét về bộ phận cần chụp, đồng thời đánh giá được các tính chất của mô cần khảo sát.</p>
+                                        <p>Kỹ thuật này ngày càng được chỉ định rộng rãi cho các chuyên khoa như nội tiết, thần kinh, cơ xương khớp, tim mạch, gan mật,…</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="single-news--col col-xl-3 col-lg-4 d-none d-lg-block">
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin cùng chuyên mục</p>
+                        <div class="news-post--list">
+                            @if (NewsCate != null)
+                            {
+                                for (int i = 0; i < NewsCate.Count; i++)
+                                {
+
+                                    if (i < 5)
+                                    {
+                                        <div class="news-post--item">
+                                            <div class="news-post--row row">
+                                                <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                    <div class="news-post--img">
+
+                                                        @if (NewsCate[i].NewsImages != null)
+                                                        {
+                                                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@NewsCate[i].NewsImages.ToString()" alt="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                        }
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                    <div class="news-post--content">
+
+                                                        @if (@NewsCate[i].NewsName != null)
+                                                        {
+                                                            <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()">@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                        }
+
+                                                        <div class="news-post--info clearfix">
+                                                            @if (@NewsCate[i].DateCreate != null)
+                                                            {
+                                                                <span class="news-post--date">Ngày @NewsCate[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin nổi bật</p>
+                        <div class="news-post--list">
+
+                            @for (int i = 0; i < 5; i++)
+                            {
+
+
+
+                                <div class="news-post--item">
+                                    <div class="news-post--row row">
+                                        <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                            <div class="news-post--img">
+
+                                                @if (@TinNoiBat[i].NewsImages != null)
+                                                {
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@TinNoiBat[i].NewsImages.ToString()" alt="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                        <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                            <div class="news-post--content">
+
+                                                @if (@TinNoiBat[i].NewsName != null)
+                                                {
+                                                    <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                }
+
+                                                <div class="news-post--info clearfix">
+                                                    @if (@TinNoiBat[i].DateCreate != null)
+                                                    {
+                                                        <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                    }
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+    <div class="register-main single-register-main container">
+        <div class="register-wrapper">
+            <div class="register-row row">
+                <div class="register-col col-lg-6">
+                    <div class="register-form">
+                        <p style="font-size: 21px;line-height: 21px;color:white;text-align:center;text-transform:uppercase;">Đăng ký khám, tư vấn</p>
+                        <div class="form">
+
+                            <style type="text/css">
+                                input[name='CaptchaInputText'] {
+                                    width: 100% !important;
+                                    line-height: 28px;
+                                    background: rgba(255, 255, 255, .8) none;
+                                    padding: 10px;
+                                    height: 50px;
+                                    display: block;
+                                    width: 100%;
+                                    font-size: 1rem;
+                                    font-weight: 400;
+                                    line-height: 1.5;
+                                    color: #495057;
+                                    border: 1px solid #ced4da;
+                                    border-radius: .25rem;
+                                    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                }
+                            </style>
+
+                            <div class="form-group register-name">
+                                <label>Họ và tên <i>(*)</i></label>
+                                <input value="" name="txthoten" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-phone">
+                                <label>Số điện thoại <i>(*)</i></label>
+                                <input value="" name="txtsdt" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-email">
+                                <label>Email</label>
+                                <input value="" name="txtemail" class="form-control" type="email" />
+                            </div>
+                            <div class="form-group register-comment">
+                                <label>Ghi chú khác</label>
+                                <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                            </div>
+
+
+                            <div class="form-group form-group--btn">
+                                <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-col col-lg-6 d-none d-lg-block">
+                    <div class="choose-main">
+                        <p class="line-title">Tại sao nên chọn bệnh viện đa khoa MEDLATEC</p>
+                        <div class="choose-main--row row">
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/hospital.png" alt="" /></div>
+                                    <div class="choose-main--desc">Bệnh viện đa khoa với nhiều năm kinh nghiệm trong lĩnh vực y tế.</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/doctors.png" alt="" /></div>
+                                    <div class="choose-main--desc">Thăm khám bởi đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/infrastructure.png" alt="" /></div>
+                                    <div class="choose-main--desc">Cơ sở vật chất, máy móc trang thiết bị hiện đại</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/bill.png" alt="" /></div>
+                                    <div class="choose-main--desc">Áp dụng thanh toán bảo hiểm y tế và các bảo hiểm khác lên tới 100%</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/fast.png" alt="" /></div>
+                                    <div class="choose-main--desc">Quy trình khám chữa bệnh nhanh chóng, thuận tiện</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/dollar.png" alt="" /></div>
+                                    <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

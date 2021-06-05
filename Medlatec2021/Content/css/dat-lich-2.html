@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+    <link rel="stylesheet" href="lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="js/default.js"></script>
+
+    <title>Medlatec</title>
+</head>
+<body>
+    <!--- Header --->
+    <header class="header-main">
+        <!-- Logo -->
+        <div class="logo">
+            <div class="container">
+                <a href="homepage.html" title="">
+                    <img class="logo-desktop d-none d-md-block" src="images/logo.jpg" alt="" />
+                    <img class="logo-mobile d-block d-md-none" src="images/logo.png" alt="" />
+                </a>
+            </div>
+        </div>
+        <!-- End Logo -->
+
+        <!-- Navigation -->
+        <div class="nav-main">
+            <div class="container clearfix">
+                <!-- Hotline -->
+                <div class="nav-hotline d-none d-xl-block">
+                    <a href="tel:1900 565656"><img src="images/hotline.png" alt="" />1900 565656</a>
+                </div>
+                <!-- End Hotline -->
+
+
+                <!-- Language -->
+                <div class="language-main">
+                    <select>
+                        <option value="vn">Tiếng Việt</option>
+                        <option value="en">Tiếng Anh</option>
+                    </select>
+
+                    <div class="language-flag"><img src="images/vn.png" alt="" /></div>
+                </div>
+                <!-- End Language -->
+
+                <!-- Menu Button -->
+                <div class="nav-button d-block d-xl-none">
+                    <img src="images/bar.png" alt="" />
+                </div>
+                <!-- End Menu Button -->
+
+                <!-- Search Button -->
+                <div class="search-button d-block d-xl-none">
+                    <img src="images/search.png" alt="" />
+                </div>
+                <!-- End Search Button -->
+            </div>
+
+            <!-- Search Form -->
+            <div class="search-form">
+                <div class="container">
+                    <form method="" action="" class="clearfix">
+                        <input type="text" name="search" placeholder="Tìm kiếm" />
+                        <button><img src="images/find.png" alt="" /></button>
+                    </form>
+                </div>
+            </div>
+            <!-- End Search Form -->
+        </div>
+        <!-- End Navigation -->
+    </header>
+    <!--- End Header --->
+
+    <!--- Menu --->
+    <div class="nav-menu">
+        <div class="container nav-menu--wrapper">
+            <div class="nav-menu--header">Danh mục</div>
+            <ul>
+                <li class="menu-active"><a href="#"><img src="images/home.png" alt="" /></a></li>
+                <li><a href="#">Giới thiệu</a></li>
+                <li class="has-children">
+                    <a href="#">Dịch vụ <i class="arrow-children"></i></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Dịch vụ 1</a></li>
+                        <li><a href="#">Dịch vụ 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Hướng dẫn khách hàng</a></li>
+                <li><a href="#">Tuyển dụng</a></li>
+                <li class="has-children">
+                    <a href="#">Tin tức <i class="arrow-children"></i></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Tin tức 1</a></li>
+                        <li><a href="#">Tin tức 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">MEDLATEC Group</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--- End Menu --->
+
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="#">Trang chủ</a></li>
+            <li><span>Đặt lịch lấy mẫu</span></li>
+        </ul>
+    </div>
+
+    <div class="schedule-main schedule-2">
+        <div class="container">
+            <div class="schedule-container">
+                <div class="schedule-form">
+                    <h2>Đặt lịch khám, lấy mẫu</h2>
+                    <div class="schedule-note">Quý khách vui lòng điền đầy đủ thông tin. Chúng tôi sẽ liên hệ lại sớm nhất</div>
+                    <div class="schedule-title">Thông tin bệnh nhân</div>
+                    <form action="" method="">
+                        <div class="schedule-row row">
+                            <div class="schedule-col col-lg-6">
+                                <div class="form-group schedule-name">
+                                    <label>Họ và tên <i>(*)</i></label>
+                                    <input value="" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-lg-3">
+                                <div class="form-group schedule-birthday">
+                                    <label>Ngày sinh <span class="hidden-desktop">DD/MM/YY</span> <i>(*)</i></label>
+                                    <input value="" class="form-control schedule-date" placeholder="DD/MM/YY" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-lg-3">
+                                <div class="form-group schedule-sex">
+                                    <label>Giới tính <i>(*)</i></label>
+                                    <select class="form-control">
+                                        <option value="male">Nam</option>
+                                        <option value="female">Nữ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule-col col-lg-6">
+                                <div class="form-group schedule-phone">
+                                    <label>Số điện thoại <i>(*)</i></label>
+                                    <input value="" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-lg-6">
+                                <div class="form-group schedule-email">
+                                    <label>Email</label>
+                                    <input value="" class="form-control" type="email" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-xl-12">
+                                <div class="schedule-text">Dịch vụ</div>
+                            </div>
+                            <div class="schedule-col col-xl-12">
+                                <div class="schedule-service">
+                                    <div class="schedule-radio row">
+                                        <div class="schedule-radio--item col-6">
+                                            <label>
+                                                <input name="schedule_service" data-show="home" value="home" type="radio" checked="checked" />Xét nghiệm tại nhà
+                                            </label>
+                                        </div>
+                                        <div class="schedule-radio--item col-6">
+                                            <label>
+                                                <input name="schedule_service" data-show="hospital" value="hospital" type="radio" />Khám tại bệnh viện
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-show="home" class="schedule-col-check schedule-col col-xl-12">
+                                <div class="form-group schedule-address">
+                                    <label>Địa chỉ <i>(*)</i></label>
+                                    <input value="" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div data-show="home" class="schedule-col-check schedule-col col-xl-12">
+                                <div class="form-group schedule-comment">
+                                    <label>Ghi chú</label>
+                                    <textarea class="form-control" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                                </div>
+                            </div>
+                            <div data-show="hospital" class="schedule-col-check schedule-col col-lg-6">
+                                <div class="form-group schedule-select">
+                                    <label>Chọn cơ sở khám</label>
+                                    <select class="form-control">
+                                        <option value="">Hà Nội</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div data-show="hospital" class="schedule-col-check schedule-col col-lg-6">
+                                <div class="form-group schedule-select">
+                                    <label>Chọn chuyên khoa</label>
+                                    <select class="form-control">
+                                        <option value="">Chọn chuyên khoa</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div data-show="hospital" class="schedule-col-check schedule-col col-lg-6">
+                                <div class="form-group schedule-select">
+                                    <label>Chọn bác sĩ khám</label>
+                                    <select class="form-control">
+                                        <option value="">Chọn bác sĩ khám</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div data-show="hospital" class="schedule-col-check schedule-col col-lg-3">
+                                <div class="form-group schedule-choose-date">
+                                    <label>Ngày khám <span class="hidden-desktop">DD/MM/YY <i>(*)</i></span></label>
+                                    <input value="" class="form-control schedule-date" placeholder="DD/MM/YY" type="text" />
+                                </div>
+                            </div>
+                            <div data-show="hospital" class="schedule-col-check schedule-col col-lg-3">
+                                <div class="form-group schedule-select">
+                                    <label>Giờ khám</label>
+                                    <select class="form-control">
+                                        <option value="">Giờ khám</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule-col col-xl-12">
+                                <div class="form-group schedule-row--btn">
+                                    <button>Đặt lịch</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--- News --->
+    <div class="news-main container news-schedule">
+        <h2 class="main-title">Tin xét nghiệm</h2>
+        <div class="news-list">
+            <div class="news-list--row row">
+                <div class="news-list--col col-lg-6">
+                    <div class="news-item row">
+                        <div class="news-col col-6">
+                            <div class="news-item--img">
+                                <a href="#" title=""><img src="images/news.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="news-col col-6">
+                            <div class="news-content">
+                                <h3 class="news-title"><a href="#" title="">Thanh toán đúng tuyến với mọi thẻ bảo hiểm y tế ...</a></h3>
+                                <div class="new-desc d-none d-xl-block">Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện tại Nhật, Singapore, Mỹ, Hàn Quốc,… trong việc hỗ trợ phát triển công nghệ khám chữa bệnh</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày 28/03/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-list--col col-lg-6">
+                    <div class="news-item row">
+                        <div class="news-col col-6">
+                            <div class="news-item--img">
+                                <a href="#" title=""><img src="images/news.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="news-col col-6">
+                            <div class="news-content">
+                                <h3 class="news-title"><a href="#" title="">Thanh toán đúng tuyến với mọi thẻ bảo hiểm y tế ...</a></h3>
+                                <div class="new-desc d-none d-xl-block">Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện tại Nhật, Singapore, Mỹ, Hàn Quốc,… trong việc hỗ trợ phát triển công nghệ khám chữa bệnh</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày 28/03/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-list--col col-lg-6">
+                    <div class="news-item row">
+                        <div class="news-col col-6">
+                            <div class="news-item--img">
+                                <a href="#" title=""><img src="images/news.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="news-col col-6">
+                            <div class="news-content">
+                                <h3 class="news-title"><a href="#" title="">Thanh toán đúng tuyến với mọi thẻ bảo hiểm y tế ...</a></h3>
+                                <div class="new-desc d-none d-xl-block">Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện tại Nhật, Singapore, Mỹ, Hàn Quốc,… trong việc hỗ trợ phát triển công nghệ khám chữa bệnh</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày 28/03/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-list--col col-lg-6">
+                    <div class="news-item row">
+                        <div class="news-col col-6">
+                            <div class="news-item--img">
+                                <a href="#" title=""><img src="images/news.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="news-col col-6">
+                            <div class="news-content">
+                                <h3 class="news-title"><a href="#" title="">Thanh toán đúng tuyến với mọi thẻ bảo hiểm y tế ...</a></h3>
+                                <div class="new-desc d-none d-xl-block">Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện tại Nhật, Singapore, Mỹ, Hàn Quốc,… trong việc hỗ trợ phát triển công nghệ khám chữa bệnh</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày 28/03/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news-more">
+            <a href="#">Xem tất cả</a>
+        </div>
+    </div>
+    <!--- End News --->
+
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-row row">
+                <div class="footer-col col-lg-4">
+                    <div class="contact-info">
+                        <h3>Bệnh viện đa khoa MEDLATEC</h3>
+                        <h4>Trực thuộc Công ty TNHH Công nghệ và Xét nghiệm Y học</h4>
+                        <p>0101234974 do Sở Kế hoạch và Đầu tư thành phố Hà Nội cấp ngày 22/04/2002.</p>
+                    </div>
+
+                    <div class="social-main">
+                        <a href="#"><img src="images/facebook.png" alt="" /></a>
+                        <a href="#"><img src="images/youtube.png" alt="" /></a>
+                        <a href="#"><img src="images/linkin.png" alt="" /></a>
+                        <a href="#"><img src="images/twitter.png" alt="" /></a>
+                    </div>
+                </div>
+                <div class="footer-col col-lg-4">
+                    <div class="contact-main">
+                        <h3 class="footer-title d-none d-lg-block">Liên hệ</h3>
+                        <ul>
+                            <li class="contact-phone"><img src="images/phone.png" alt="" />1900 565656</li>
+                            <li class="contact-mail"><img src="images/mail.png" alt="" />info@medlatec.com</li>
+                            <li class="contact-address">
+                                <img src="images/maker.png" alt="" />
+                                <p>1. Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình, Hà Nội, Việt Nam</p>
+                                <p>2. Số 99 Trích Sài, Tây Hồ, Hà Nội</p>
+                                <p>3. Số 05 Khuất Duy Tiến, Thanh Xuân, Hà Nội.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-col col-lg-4 d-none d-lg-block">
+                    <div class="footer-service">
+                        <h3 class="footer-title">Dịch vụ</h3>
+                        <ul>
+                            <li><a href="#">Chuyên khoa MEDLATEC</a></li>
+                            <li><a href="#">Khám sức khỏe</a></li>
+                            <li><a href="#">Bác sĩ gia đình</a></li>
+                            <li><a href="#">Lấy mẫu xét nghiệm tận nơi</a></li>
+                            <li><a href="#">Bảo hiểm y tế</a></li>
+                            <li><a href="#">Dịch vụ mới</a></li>
+                            <li><a href="#">Gói dịch vụ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--- Hotline --->
+    <div class="call-hotline d-block d-xl-none">
+        <a href="tel:1900 565656"><img src="images/call.png" alt="" />1900 565656</a>
+    </div>
+    <!--- End Hotline --->
+
+    <!--- Messenger --->
+    <div class="messenger">
+        <a href="#"><img src="images/comment.png" alt="" />Chat với chúng tôi</a>
+    </div>
+    <!--- End Messenger --->
+</body>
+</html>

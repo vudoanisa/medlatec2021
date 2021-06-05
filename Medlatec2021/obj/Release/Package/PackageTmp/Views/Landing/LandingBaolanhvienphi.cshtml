@@ -1,0 +1,539 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var News = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+@section Note {
+
+    <title>Dịch vụ khám bảo lãnh viện phí | Bệnh viện đa khoa Medlatec</title>
+
+    <meta name="description" content="@Html.Raw("Khách hàng có thẻ Bảo hiểm sức khỏe khi đi khám chữa bệnh sử dụng dịch vụ Bảo lãnh viện phí thanh toán, Hoặc các khách hàng tham gia Bảo hiểm nhân thọ trong danh sách đối tác của MEDLATEC sẽ được hưởng nhiều ưu đãi đặc biệt")" />
+
+
+    <meta name="title" content="@Html.Raw("Dịch vụ khám bảo lãnh viện phí | Bệnh viện đa khoa Medlatec")" />
+
+    <meta name="keywords" content="@Html.Raw("bảo lãnh viện phí, bảo lãnh viện phí là gì, bảo lãnh viện phí bảo việt, thẻ bảo lãnh viện phí manulife, thẻ bảo lãnh viện phí bảo việt, bảo lãnh viện phí pvi, thẻ bảo lãnh viện phí aia")" />
+
+    <meta property="og:description" content="@Html.Raw("Khách hàng có thẻ Bảo hiểm sức khỏe khi đi khám chữa bệnh sử dụng dịch vụ Bảo lãnh viện phí thanh toán, Hoặc các khách hàng tham gia Bảo hiểm nhân thọ trong danh sách đối tác của MEDLATEC sẽ được hưởng nhiều ưu đãi đặc biệt")" />
+    <meta property="og:title" content="@Html.Raw("Dịch vụ khám bảo lãnh viện phí | Bệnh viện đa khoa Medlatec")" />
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/banner/baolanhvienphi.jpg" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/banner/baolanhvienphi.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/bao-lanh-vien-phi" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/bao-lanh-vien-phi" />
+    <script type="text/javascript">
+            if (window.location.protocol == "http:") {
+                var restOfUrl = window.location.href.substr(5);
+                restOfUrl = restOfUrl.replace("www.", "");
+                window.location = "https:" + restOfUrl;[w]
+            }
+    </script>
+
+}
+@using (Html.BeginForm("LandingBaolanhvienphi", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><span>Bảo lãnh viện phí</span></li>
+        </ul>
+    </div>
+
+    <div class="banner-skdn container">
+        <div class="banner-main">
+            <div class="banner-slider owl-carousel">
+
+                <div class="item">
+                    <div class="banner-item">
+                        <a href="#dangkyngay"> <img src="/Content/images/banner/bao-hiem-2.jpg" alt="Dịch vụ khám bảo lãnh viện phí | Bệnh viện đa khoa Medlatec" /></a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="banner-item">
+                        <img src="https://medlatec.vn/Content/images/banner/baolanhvienphi.jpg" alt="Dịch vụ khám bảo lãnh viện phí | Bệnh viện đa khoa Medlatec" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="xntn-service container">
+
+        <div class="banner-feature--row row">
+            <div class="banner-feature--col col-xl-6">
+
+                <div class="banner-main">
+                    <div class="banner-slider owl-carousel">
+
+
+
+
+                        <div class="item">
+                            <div class="banner-item">
+                                <a href="#dangkyngay"> <img src="/Content/images/banner/bao-hiem-1.png" alt="ưu đãi giảm 20% gói xét nghiệm tại gia" /></a>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="news-box--col col-lg-6">
+                <div class="news-box--list">
+                    <h3 class="news-ud">
+                        Ưu đãi hấp dẫn cho khách hàng khám Bảo lãnh viện phí tại MEDLATEC:
+                    </h3>
+                    Từ 1/9/2019 đến hết 30/06/2020, các khách hàng có thẻ Bảo hiểm sức khỏe khi đi khám chữa bệnh sử dụng dịch vụ Bảo lãnh viện phí thanh toán sẽ nhận được nhiều ưu đãi hấp dẫn như sau:<br />
+
+                    + Tích điểm vào thẻ PID lên tới 10% chi phí dịch vụ khách hàng thanh toán (sau khi đã trừ bảo hiểm thanh toán)<br />
+                    + Mã giảm giá trị giá 100.000 VNĐ áp dụng cho lần khám sau.<br />
+                    Lưu ý: Mã giảm giá có hiệu lực trong vòng 03 tháng kể từ ngày khách hàng nhận được tin nhắn, không áp dụng thanh toán thuốc và vật tư y tế.<br />
+                    - Đối tượng:<br />
+                    Khách hàng có thẻ bảo hiểm sức khỏe khám chữa bệnh sử dụng dịch vụ bảo lãnh viện phí tại MEDLATEC.<br />
+                    - Địa điểm áp dụng:<br />
+                    Bệnh viện Đa khoa MEDLATEC: 42 Nghĩa Dũng, Ba Đình, Hà Nội;<br />
+                    Phòng khám Đa khoa MEDLATEC Tây Hồ: số 99 Trích Sài, Tây Hồ, Hà Nội;<br />
+                    Phòng khám Đa khoa MEDLATEC Thanh Xuân: số 5 Khuất Duy Tiến, Thanh Xuân, Hà Nội<br />
+                    <div class="news-more">
+                        <a href="#dangkyngay">Đăng ký ngay</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-skdn body-qtk body-blvp container">
+        <h1 class="title">Bảo lãnh viện phí</h1>
+        <div class="sapo-subtitle">Khách hàng có thẻ Bảo hiểm sức khỏe của các công ty Bảo hiểm Nhân thọ/ Phi nhân thọ khi khám chữa bệnh tại MEDLATEC sẽ được giảm trừ trực tiếp các chi phí y tế theo quyền lợi được bảo hiểm quy định thông qua dịch vụ Bảo lãnh viện phí.</div>
+        <div class="line">&nbsp;</div>
+        <h3 class="title-plus title-plus-first">Quyền lợi bảo lãnh viện phí của các công ty bảo hiểm tại MEDLATEC</h3>
+        <div class="sub-content">
+            <div class="logo-bh row">
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-baoviet.png" alt="Bảo hiểm Bảo Việt" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Bảo Việt</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-bic.png" alt="Bảo hiểm BIC" /></div>
+                        <div class="logo-bh-title">Bảo hiểm BIC</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-vbi.png" alt="Bảo hiểm VBI" /></div>
+                        <div class="logo-bh-title">Bảo hiểm VBI</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-manulife.png" alt="Bảo hiểm Manulife" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Manulife</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-insmart.png" alt="Bảo hiểm Insmart" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Insmart</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-baominh.png" alt="Bảo hiểm Bảo Minh" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Bảo Minh</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-pvi.png" alt="Bảo hiểm PVI" /></div>
+                        <div class="logo-bh-title">Bảo hiểm PVI</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-pti.png" alt="Bảo hiểm Bưu điện (PTI)" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Bưu điện (PTI)</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-uic.png" alt="Bảo hiểm liên hiệp (UIC)" /></div>
+                        <div class="logo-bh-title">Bảo hiểm liên hiệp (UIC)</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-dai-ichi-life.png" alt="Bảo hiểm Dai-ichi Life" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Dai-ichi Life</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-pacific-cross.png" alt="Bảo hiểm Pacific Cross" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Pacific Cross</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-aia.png" alt="Bảo hiểm AIA" /></div>
+                        <div class="logo-bh-title">Bảo hiểm AIA</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-liberty.png" alt="Bảo hiểm Liberty" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Liberty</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-generali.png" alt="Bảo hiểm Generali" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Generali</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-baoviet-tokio-marine.png" alt="Bảo hiểm Baoviet Tokio Marine" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Baoviet Tokio Marine</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-sas.png" alt="Bảo hiểm Nam Á (SAS)" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Nam Á (SAS)</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-pjico.png" alt="Bảo hiểm PJICO" /></div>
+                        <div class="logo-bh-title">Bảo hiểm PJICO</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-mic.png" alt="Bảo hiểm quân đội MIC" /></div>
+                        <div class="logo-bh-title">Bảo hiểm quân đội MIC</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-prudential.png" alt="Bảo hiểm Prudential" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Prudential</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-fwd.png" alt="Bảo hiểm FWD" /></div>
+                        <div class="logo-bh-title">Bảo hiểm FWD</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-athena.png" alt="Bảo hiểm Athena" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Athena</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-ftcclaims.png" alt="Bảo hiểm FTCClaims" /></div>
+                        <div class="logo-bh-title">Bảo hiểm FTCClaims</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-atacc.png" alt="Bảo hiểm ATACC" /></div>
+                        <div class="logo-bh-title">Bảo hiểm ATACC</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-bakco.png" alt="Bảo hiểm Bảo An Khang (Bakco)" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Bảo An Khang (Bakco)</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-bsh.png" alt="Bảo hiểm BSH" /></div>
+                        <div class="logo-bh-title">Bảo hiểm BSH</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-ins-link.png" alt="Bảo hiểm Ins-link" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Ins-link</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-korea-life-insurance.png" alt="Bảo hiểm Korea Life Insurance" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Korea Life Insurance</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-msig.png" alt="Bảo hiểm MSIG" /></div>
+                        <div class="logo-bh-title">Bảo hiểm MSIG</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-aplus.png" alt="Bảo hiểm A+" /></div>
+                        <div class="logo-bh-title">Bảo hiểm A+</div>
+                    </div>
+                </div>
+                <div class="logo-bh-col col-6 col-lg-4">
+                    <div class="logo-bh-item">
+                        <div class="logo-bh-img"><img src="https://medlatec.vn/Content/images/logo-donga.png" alt="Bảo hiểm Đông Á" /></div>
+                        <div class="logo-bh-title">Bảo hiểm Đông Á</div>
+                    </div>
+                </div>
+            </div>
+            <div class="see-more"><a href="">Xem thêm</a></div>
+        </div>
+        <h3 class="title-plus">Quy trình khám bảo lãnh viện phí</h3>
+        <div class="sub-content">
+            <p class="font-16">Tổng thời gian thực hiện từ khi bệnh viện xác nhận thông tin đến khi hoàn tất thủ tục thanh toán bảo lãnh với công ty bảo hiểm <b>chỉ từ 15-30 phút</b></p>
+            <ul class="content-step">
+                <li><b>Bước 1:</b> Khách hàng xuất trình thẻ bảo hiểm sức khỏe và Giấy tờ tùy thân khi đăng ký khám</li>
+                <li><b>Bước 2:</b> Bệnh viện xác nhận thông tin bảo hiểm của khách hàng với Công ty Bảo hiểm</li>
+                <li><b>Bước 3:</b> Khách hàng thanh toán viện phí nếu tổng chi phí khám chữa bệnh vượt quá hạn mức chi phí bảo hiểm chấp nhận thanh toán</li>
+                <li><b>Bước 4:</b> Khách hàng ký xác nhận các giấy tờ liên quan để Bệnh viện hoàn thiện Hồ sơ bảo lãnh và yêu cầu trả tiền bảo hiểm gửi Công ty bảo hiểm.</li>
+            </ul>
+            <p class="note-sub-content"><b>Lưu ý:</b>Đối với bệnh nhân nội trú, khi nhập viện, MEDLATEC sẽ yêu cầu khách hàng tạm ứng theo quy định và số tiền này sẽ được hoàn trả khi khách hàng làm thủ tục ra viện.</p>
+        </div>
+        <h3 class="title-plus">Hỗ trợ khách hàng khi không được bảo lãnh trực tiếp tại MEDLATEC</h3>
+        <div class="sub-content">
+            <p class="font-16">Đối với những trường hợp không được bảo lãnh trực tiếp tại MEDLATEC bao gồm cả những bảo hiểm không ký kết thỏa thuận thanh toán trực tiếp với bệnh viện MEDLATEC hoặc quyền lợi của khách hàng không được bảo lãnh trực tiếp. Chúng tôi sẵn sàng hỗ trợ bạn chuẩn bị đầy đủ giấy tờ để công việc thanh toán của bạn với công ty bảo hiểm thuận lợi, nhanh chóng. Những giấy tờ bệnh viện MEDLATEC sẽ hỗ trợ bạn bao gồm:</p>
+            <p class="title-sub-content">Những giấy tờ bệnh viện sẽ hỗ trợ đối với khách hàng ngoại trú</p>
+            <ul class="list-content-step">
+                <li><span>1</span>Sổ khám bệnh/giấy chỉ định có xác nhận của bệnh viện</li>
+                <li><span>4</span>Bảng kê/Phiếu thu tiền dịch vụ, thuốc</li>
+                <li><span>2</span>Kết quả những dịch vụ khách hàng thực hiện có xác nhận của bệnh viện</li>
+                <li><span>5</span>Hóa đơn VAT tiền dịch vụ, thuốc</li>
+                <li><span>3</span>Đơn thuốc</li>
+                <li><span>6</span>Giấy chứng nhận phẫu thuật(với trường hợp có phẫu thuật), giấy ra viện (với trường hợp năm viện)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="news-main container">
+        <h2 class="main-title">Tin tức</h2>
+
+
+
+        <div class="news-list">
+            <div class="news-list--row row">
+                @if (@News.Count > 0)
+                {
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        <div class="news-list--col col-lg-6">
+                            <div class="news-item row">
+                                <div class="news-col col-6">
+                                    <div class="news-item--img">
+                                        @*<a href="News/NewsDetails?cateid=@News[i].CateId.ToString()&newsid=@News[i].NewsId.ToString()" title=""><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>*@
+
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+ @News[i].CateId.ToString() , "n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()"><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>
+                                    </div>
+                                </div>
+                                <div class="news-col col-6">
+                                    <div class="news-content">
+                                        <h3 class="news-title"> <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+@News[i].CateId.ToString(),"n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()">@News[i].NewsName.ToString()</a></h3>
+                                        <div class="new-desc d-none d-xl-block">@News[i].NewsDescription.ToString()</div>
+                                        <div class="news-date"><i class="news-calendar"></i>Ngày @News[i].DateCreate.ToString("dd/MM/yyyy")   </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="news-more">
+            <a href="https://medlatec.vn/tin-tuc">Xem tất cả</a>
+        </div>
+    </div>
+
+
+    @Html.Raw(TempData["msg"])
+    <div class="register-main qtk-main blvp-main container" id="dangkyngay">
+        <div class="register-wrapper">
+            <div class="register-row row">
+                <div class="register-col col-lg-4">
+                    <div class="register-form">
+                        @Html.AntiForgeryToken()
+                        <h2>Đăng ký khám, tư vấn</h2>
+
+                        <div class="form-group register-name">
+                            <label>Họ và tên <i>(*)</i></label>
+                            <input placeholder="Họ tên" name="txtHoten" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group register-phone">
+                            <label>Số điện thoại <i>(*)</i></label>
+                            <input placeholder="Số điện thoại" name="txtdt" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group register-email">
+                            <label>Email </label>
+                            <input placeholder="Email" type="email" name="txtemail" class="form-control" />
+                        </div>
+                        <div class="form-group register-comment">
+                            <label>Ghi chú khác</label>
+                            <textarea class="form-control" name="txtghichu" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                        </div>
+                        <div class="form-group form-group--btn">
+                            <button type="submit" name="submit" class="btn-form--submit" value="SaveAdd">Đăng ký ngay</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="register-col col-lg-8">
+                    <div class="choose-main-new">
+                        <h2>Tiện ích khi thanh toán bảo lãnh viện phí tại MEDLATEC</h2>
+                        <div class="choose-main-item row">
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="https://medlatec.vn/Content/images/register-health.png" alt="Không phải thanh toán cho những chi phí thuộc phạm vi bảo hiểm chi trả" /></div>
+                                    <div class="choose-item-text"><b>Không phải thanh toán</b> cho những chi phí thuộc phạm vi bảo hiểm chi trả</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="https://medlatec.vn/Content/images/register-dollar.png" alt="Miễn trừ lên tới 100% viện phí khi kết hợp sử dụng đồng thời thẻ BHYT đăng ký tại MEDLATEC" /></div>
+                                    <div class="choose-item-text"><b>Miễn trừ lên tới 100%</b> viện phí khi kết hợp sử dụng đồng thời thẻ BHYT đăng ký tại MEDLATEC</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="https://medlatec.vn/Content/images/register-guarantee.png" alt="Bảo lãnh viện phí trực tiếp cho khách hàng của trên 30 hãng bảo hiểm uy tín" /></div>
+                                    <div class="choose-item-text"><b>Bảo lãnh viện phí trực tiếp</b> cho khách hàng của trên 30 hãng bảo hiểm uy tín</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="https://medlatec.vn/Content/images/register-care.png" alt="Được hưởng dịch vụ y tế đa dạng, tiện ích tại MEDLATEC" /></div>
+                                    <div class="choose-item-text"><b>Được hưởng dịch vụ y tế</b> đa dạng, tiện ích tại MEDLATEC</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="https://medlatec.vn/Content/images/register-time.png" alt="Rút ngắn thời gian và thủ tục thanh toán, chỉ còn 5-7 phút" /></div>
+                                    <div class="choose-item-text"><b>Rút ngắn thời gian</b> và thủ tục thanh toán, chỉ còn 5-7 phút</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="https://medlatec.vn/Content/images/register-file.png" alt="Hỗ trợ cung cấp hồ sơ khám chữa bệnh" /></div>
+                                    <div class="choose-item-text"><b>Hỗ trợ cung cấp hồ sơ khám chữa bệnh</b> cho khách hàng sử dụng thẻ bảo hiểm của các Công ty Bảo hiểm mà MEDLATEC chưa hợp tác để khách hàng chủ động thanh toán với công ty bảo hiểm</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+    },
+
+    {
+    "@@type": "ListItem",
+    "position": 2,
+    "item": { "@@id": "https://medlatec.vn/dich-vu/bao-lanh-vien-phi", "name": "@Html.Raw("Bảo lãnh viện phí | Bệnh viện đa khoa Medlatec")" }
+    }
+
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>

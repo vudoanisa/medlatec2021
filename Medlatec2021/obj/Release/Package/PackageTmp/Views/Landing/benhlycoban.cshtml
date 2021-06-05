@@ -1,0 +1,299 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@model  MEDLATEC2019.Models.MPTXViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Kiểm tra bệnh lý cơ bản máu và men gan - Bệnh viện Medlatec </title>
+
+    <meta name="description" content="@Html.Raw("Làm xét nghiệm kiểm tra tổng phân tích máu và mem gan, dịch vụ lấy mẫu xét nghiệm tận nơi toàn quốc - Bệnh viện Medlatec")" />
+    <meta name="title" content="@Html.Raw("Kiểm tra bệnh lý cơ bản máu và men gan - Bệnh viện Medlatec")" />
+    <meta name="keywords" content="@Html.Raw("Làm xét nghiệm kiểm tra tổng phân tích máu và mem gan, dịch vụ lấy mẫu xét nghiệm tận nơi toàn quốc - Bệnh viện Medlatec")" />
+    <meta property="og:description" content="@Html.Raw("Làm xét nghiệm kiểm tra tổng phân tích máu và mem gan, dịch vụ lấy mẫu xét nghiệm tận nơi toàn quốc - Bệnh viện Medlatec")" />
+    <meta property="og:title" content="@Html.Raw("Kiểm tra bệnh lý cơ bản máu và men gan - Bệnh viện Medlatec")" />
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/benhlycoban/img/Asset25.png" />
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/benhlycoban/img/Asset25.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/benh-ly-co-ban-mau-va-mem-gan" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/benh-ly-co-ban-mau-va-mem-gan" />
+
+    <link rel="stylesheet" href="/Content/images/benhlycoban/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi">
+    <link rel="stylesheet" href="/Content/images/benhlycoban/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/Content/images/benhlycoban/css/styles.css">
+    <link rel="stylesheet" href="/Content/images/benhlycoban/css/untitled.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/js/default.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+
+
+   
+    <link rel="stylesheet" href="/Content/css/bootstrap-datepicker.standalone.min.css" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://static.subiz.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+    <!-- End Google Tag Manager -->
+ <script type="text/javascript">
+            if (window.location.protocol == "http:") {
+                var restOfUrl = window.location.href.substr(5);
+                restOfUrl = restOfUrl.replace("www.", "");
+                window.location = "https:" + restOfUrl;[w]
+            }
+        </script>
+
+
+
+
+</head>
+<body>
+    @using (Html.BeginForm("benhlycoban", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        <section class="d-block" id="hero">
+            <div class="container d-xl-flex">
+                <div class="d-block d-xl-flex" id="bt-banner"><a class="btn btn-primary" role="button" style="background: linear-gradient(162deg, rgb(150,19,2), rgb(212,0,59)), #d4003b;border-radius: 14px;border-width: 2px;border-color: rgb(250,175,64);box-shadow: 4px 4px 7px rgba(0,0,0,0.56);" href="#sec7">ĐĂNG KÝ NGAY</a></div>
+            </div>
+        </section>
+        <section id="sec1">
+            <div class="container">
+                <div class="row d-flex">
+                    <div class="col" id="sec1-1"><img class="img-fluid" id="sec1-img" src="/Content/images/benhlycoban/img/Asseti2.png"></div>
+                    <div class="col">
+                        <h2 style="text-align: center;font-size: 25px;padding-top: 20px;color: rgb(16,72,119);">ƯU ĐÃI DÀNH CHO KHÁCH HÀNG</h2>
+                        <div id="sec1-2"><img class="img-fluid" src="/Content/images/benhlycoban/img/Asset28.png" style="/*width: 408px;*//*margin-top: 20px;*/"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container-fluid" id="sec2">
+            <div class="row no-gutters row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-3 row-cols-xl-3 justify-content-center" style="margin: auto;">
+                <div class="col" style="text-align: center;"><img class="img-sec3" src="/Content/images/benhlycoban/img/Asset30.png"></div>
+                <div class="col text-center"><img class="img-sec3" src="/Content/images/benhlycoban/img/Asset31.png"></div>
+                <div class="col text-center"><img class="img-sec3" src="/Content/images/benhlycoban/img/Asseti29.png"></div>
+            </div>
+        </div>
+        <div id="sec3" style="text-align: center;">
+            <div class="container">
+                <h2 class="text-break text-center" style="font-size: 25px;color: rgb(255,255,255);"><br><strong>AI LÊN LÀM XÉT NGHIỆM KIỂM TRA TỔNG PHÂN TÍCH MÁU VÀ MEN GAN</strong><br><br></h2>
+            </div><img class="img-fluid" id="sec3-img" src="/Content/images/benhlycoban/img/Asset11.png">
+        </div>
+        <section class="text-center d-block" id="sec4-5" style="background: url(&quot;/Content/images/benhlycoban/img/Asset18.png&quot;) center / cover no-repeat;">
+            <div class="container">
+                <h2 id="sec4-heading" style="color: rgb(16,72,119);padding-top: 33px;">DỊCH VỤ LẤY MẪU XÉT NGHIỆM TẬN NƠI TOÀN QUỐC&nbsp;</h2>
+            </div>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2" id="sec4-img">
+                    <div class="col"><img class="img-fluid" id="sec4-img1" src="/Content/images/benhlycoban/img/Asset12.png" style="padding-top: 60px;"></div>
+                    <div class="col"><img class="img-fluid" src="/Content/images/benhlycoban/img/Asset13.png"></div>
+                </div>
+                <div class="row" id="sec5-img">
+                    <div class="col"><img class="img-fluid" id="sec5-img-heading" src="/Content/images/benhlycoban/img/Asset14.png"></div>
+                </div>
+                <div class="row row-cols-1 row-cols-lg-3 row-cols-xl-3 text-left">
+                    <div class="col">
+                        <div>
+                            <i class="fa fa-circle" style="font-size: 27px;color: rgb(7,100,234);"></i>
+                            <p class="sec5-p">Trả kết quả tận nơi<br> Hoặc trả kết quả <span style="color: rgb(214,76,0);">online</span></p>
+
+                        </div>
+                        <div>
+                            <i class="fa fa-circle" style="font-size: 27px;color: rgb(7,100,234);"></i>
+                            <p class="sec5-p">Tư vấn kết quả bởi các <br><span style="color: rgb(214,76,0);">bác sĩ, chuyên khoa</span></p>
+
+                        </div>
+                    </div>
+                    <div class="col"><img class="img-fluid" id="sec5-img" src="/Content/images/benhlycoban/img/Asset15.png"></div>
+                    <div class="col">
+                        <div>
+                            <i class="fa fa-circle d-xl-flex justify-content-xl-end sec5-icon"></i>
+                            <p class="sec5-p1">Đánh giá theo giá niêm yết của bệnh viện, chỉ thêm 10.000 đồng phí đi lại</p>
+                        </div>
+                        <div>
+                            <i class="fa fa-circle d-xl-flex justify-content-xl-end sec5-icon"></i>
+                            <p class="sec5-p1">Phục vụ hơn <span style="color: rgb(214,76,0);">500 loại xét nghiệm</span></p>
+                            <p class="sec5-p1">từ cơ bản đến chuyên sâu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <img class="img-fluid" src="/Content/images/benhlycoban/img/Asset16.png" style="padding-top: 60px;">
+                        <div><img class="img-fluid" id="sec6-img" src="/Content/images/benhlycoban/img/Asset17.png" style="padding-top: 40px;padding-bottom: 40px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="sec6">
+            <div class="container">
+                <h2 style="text-align: center;padding-top: 32%;color: rgb(255,255,255);font-size: 25PX;">ĐỘI NGŨ CHUYÊN GIA</h2>
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2" style="padding-bottom: 20PX;padding-top: 60px;">
+                    <div class="col" style="text-align: center;padding-bottom: 20px;"><img class="img-fluid" src="/Content/images/benhlycoban/img/Asset21.png"></div>
+                    <div class="col" style="text-align: center;"><img class="img-fluid" src="/Content/images/benhlycoban/img/Asset22.png"></div>
+                </div>
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-2">
+                    <div class="col" style="text-align: center;"><img class="img-fluid" src="/Content/images/benhlycoban/img/Asset23.png" style="padding-bottom: 20px;"></div>
+                    <div class="col" style="text-align: center;"><img class="img-fluid" src="/Content/images/benhlycoban/img/Asset24.png" style="padding-bottom: 5%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sec7" style="position: relative;">
+            <!--        <div class="container">-->
+
+            <div class="row position-relative1" id="sec7-row">
+                <div>
+                    <h2 class="text-center" style="padding-top: 60px;color: rgb(255,255,255);font-size: 25px;">ĐĂNG KÝ NHẬN TƯ VẤN</h2>
+                    <div class="form-group form__register_input" style="background: rgba(255,255,255,0);text-align: center;">
+                        @Html.TextBoxFor(m => m.txthoten, new { @class = "form-control-sm", placeholder = "Họ tên (*)", type = "text" })
+                        @Html.TextBoxFor(m => m.txtdt, new { @class = "form-control-sm", placeholder = "Số điện thoại (*)", type = "number" })
+
+                        @Html.TextBoxFor(m => m.txtnote, new { @class = "form-control-sm schedule-date", placeholder = "Ngày xét nghiệm: DD/MM/YY(*)", type = "text" })
+                        @Html.DropDownListFor(m => m.Dichvu, this.ViewBag.GetDichvu as List<SelectListItem>, new { @class = "form-control-sm" })
+                        @if (!string.IsNullOrEmpty(Model.txtError))
+                        {
+                            if (Model.txtError.Length > 0)
+                            {
+                                <div style="text-align: center;">
+                                    <span style="margin-bottom:15px; color:white;text-align:center;font-size:18px; ">
+                                        @Model.txtError
+                                    </span>
+                                </div>
+                            }
+                        }
+
+
+                        <div style="text-align: center;">
+                            <button type="submit" name="submit" class="btn btn-primary" style="border-radius: 26px;font-weight: bold;background: linear-gradient(rgb(252,235,2), rgb(251,152,50));color: rgb(0,100,175);margin-bottom: 17px;margin-top: 25px;" id="guiYeuCau" value="SaveAdd">ĐĂNG KÝ NGAY</button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--        </div>-->
+        </section>
+
+    }
+	
+	
+	
+    <style>
+        .call-hotline {
+            position: fixed;
+            left: 5px;
+            bottom: 0;
+            z-index: 999;
+        }
+            .call-hotline a {
+                display: block;
+                height: 36px;
+                color: #f9e484;
+                padding: 8px 15px 8px 46px;
+                line-height: 20px;
+                font-size: 18px;
+                background: #1576c4 none;
+                -webkit-border-radius: 8px 8px 0 0;
+                -moz-border-radius: 8px 8px 0 0;
+                border-radius: 8px 8px 0 0;
+                position: relative;
+                font-weight: 700;
+            }
+    </style>
+    <!--- Hotline --->
+    <div class="call-hotline">
+        <a href="tel:1900 565656"><img src="/Content/images/call.png" alt="hotline 1900 565656" />1900 565656</a>
+
+
+    </div>
+    <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd")</script>
+
+
+
+ 
+    <script>
+
+        $(document).ready(function () {
+           
+
+            //single date
+            $('#txtnote').datepicker({
+                singleDatePicker: true,
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            });
+            
+
+            
+        });
+
+    </script>
+
+
+    <script src="/Content/images/benhlycoban/js/jquery.min.js"></script>
+    <script src="/Content/images/benhlycoban/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

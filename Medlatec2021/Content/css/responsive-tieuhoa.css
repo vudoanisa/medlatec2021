@@ -1,0 +1,580 @@
+@media screen and (min-device-width:1850px) and (max-device-width: 1921px){
+  .feedback-customer-3 {
+    min-height: 770px;
+  }
+  .reason div img {
+    margin-top: 10%;
+  }
+  .feedback-customer-2 {
+    height:620px;
+  }
+  .regis{
+    margin-top: 8%;
+  }
+}
+
+@media screen and (min-device-width:1620px) and (max-device-width: 1680px){
+  .feedback-customer-3 {
+    min-height: 670px;
+  }
+  .reason div img {
+    margin-top: 10%;
+  }
+  .feedback-customer-2 {
+    height:540px;
+  }
+  .regis{
+    margin-top: 6%;
+  }
+}
+
+@media screen and (min-device-width:1500px) and (max-device-width: 1600px){
+  .feedback-customer-3 {
+    min-height: 640px;
+  }
+  .reason div img {
+    margin-top: 10%;
+  }
+  .feedback-customer-2 {
+    height:518px;
+  }
+  .regis{
+    margin-top: 5%;
+  }
+}
+
+@media screen and (min-device-width:1300px) and (max-device-width: 1400px){
+  .feedback-customer-3 {
+    min-height: 540px;
+  }
+  .reason div img {
+    margin-top: 10%;
+  }
+  .feedback-customer-2 {
+    height: 440px;
+  }
+}
+@media screen and (min-device-width:1100px) and (max-device-width: 1280px){
+  .feedback-customer-3 {
+    min-height: 510px;
+  }
+  .reason div img {
+    margin-top: 10%;
+  }
+  .feedback-customer-2 {
+    height: 410px;
+  }
+}
+@media screen and (min-width:1000px) and (max-width: 1024px){
+  .feedback-customer-3 {
+    min-height: 370px;
+  }
+  .register-form{
+    width: 90%;
+  }
+  .ct_form {
+    padding-top: 25%;
+  }
+  .register-form input.form-control {
+    height: 38px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 9px 11px 8px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 12px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 0px;
+}
+.register-form select.form-control{
+  height: 38px;
+}
+
+  .reason div img {
+    margin-top: 10%;
+  }
+  .feedback-customer-2 {
+    height:320px;
+  }
+  .regis{
+    margin-top: 2%;
+    margin-left: 38%;
+  }
+  .feedback-customer-1 {
+    margin-top: -100px;
+  }
+}
+
+/*Mobile responsive*/
+
+@media screen and (min-device-width:320px) and (max-device-width:360px){
+  .feedback-customer-3{
+    background-image: url(../images/tieuhoa/banner-mb.png);
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+    background-size: 100%;
+    width: 100%;
+    /*height: auto;*/
+  }
+  .register-form{
+    width: 100%;
+    height: 280px;
+  }
+  .regis{
+    margin-left: 0%;
+    margin-top: 72%;
+  }
+  .register-form input.form-control {
+    height: 20px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 6px 10px 4px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 10px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .ct_form {
+    padding-top: 28%;
+  }
+  .title_sec1{
+    font-size: 18px;
+  }
+  .sec05.feedback-customer-1{
+    margin-bottom: -20px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .sec05 h2.title_sec{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .reason{
+    margin-bottom: 5px;
+  } 
+  .feedback-customer-2 {
+    height: 120px;
+  }
+}
+@media screen and (min-device-width:361px) and (max-device-width:375px){
+  .feedback-customer-3{
+    background-image: url(../images/tieuhoa/banner-mb.png);
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+    background-size: 100%;
+    width: 100%;
+    /*height: auto;*/
+  }
+  .register-form{
+    width: 100%;
+    height: 420px;
+  }
+  .regis{
+    margin-left: 0%;
+    margin-top: 72%;
+  }
+  .register-form input.form-control {
+    height: 40px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 9px 10px 8px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 10px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .ct_form {
+    padding-top: 20%;
+  }
+  .title_sec1{
+    font-size: 18px;
+  }
+  .sec05.feedback-customer-1{
+    margin-bottom: -20px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .sec05 h2.title_sec{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .reason{
+    margin-bottom: 5px;
+  } 
+  .feedback-customer-2 {
+    height: 120px;
+  }  
+}
+@media screen and (min-device-width:376px) and (max-device-width:412px){ 
+  .feedback-customer-3{
+    background-image: url(../images/tieuhoa/banner-mb.png);
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+    background-size: 100%;
+    width: 100%;
+    /*height: auto;*/
+  }
+  .register-form{
+    width: 100%;
+    height: 430px;
+  }
+  .regis{
+    margin-left: 0%;
+    margin-top: 72%;
+  }
+  .register-form input.form-control {
+    height: 40px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 9px 12px 8px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .register-form .form-group.form-group--btn{
+    margin-top: 10px;
+  }
+  .ct_form {
+    padding-top: 28%;
+  }
+  .title_sec1{
+    font-size: 18px;
+  }
+  .sec05.feedback-customer-1{
+    margin-bottom: -20px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .sec05 h2.title_sec{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .reason{
+    margin-bottom: 5px;
+  } 
+  .feedback-customer-2 {
+    height: 140px;
+  }   
+}
+@media screen and (min-device-width:413px) and (max-device-width:422px){
+  .feedback-customer-3{
+    background-image: url(../images/tieuhoa/banner-mb.png);
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+    background-size: 100%;
+    width: 100%;
+    /*height: auto;*/
+  }
+  .register-form{
+    width: 100%;
+    height: 430px;
+  }
+  .regis{
+    margin-left: 0%;
+    margin-top: 72%;
+  }
+  .register-form input.form-control {
+    height: 40px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 9px 12px 8px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .register-form .form-group.form-group--btn{
+    margin-top: 10px;
+  }
+  .ct_form {
+    padding-top: 28%;
+  }
+  .title_sec1{
+    font-size: 18px;
+  }
+  .sec05.feedback-customer-1{
+    margin-bottom: -20px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .sec05 h2.title_sec{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .reason{
+    margin-bottom: 5px;
+  } 
+  .feedback-customer-2 {
+    height: 140px;
+  }  
+}
+@media screen and (min-device-width:423px) and (max-device-width:450px){ 
+   .feedback-customer-3{
+    background-image: url(../images/tieuhoa/banner-mb.png);
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+    background-size: 100%;
+    width: 100%;
+    /*height: auto;*/
+  }
+  .register-form{
+    width: 100%;
+    height: 430px;
+  }
+  .regis{
+    margin-left: 0%;
+    margin-top: 72%;
+  }
+  .register-form input.form-control {
+    height: 40px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 9px 12px 8px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .register-form .form-group.form-group--btn{
+    margin-top: 10px;
+  }
+  .ct_form {
+    padding-top: 28%;
+  }
+  .title_sec1{
+    font-size: 18px;
+  }
+  .sec05.feedback-customer-1{
+    margin-bottom: -20px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .sec05 h2.title_sec{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .reason{
+    margin-bottom: 5px;
+  } 
+  .feedback-customer-2 {
+    height: 140px;
+  }   
+}
+@media screen and (min-device-width:451px) and (max-device-width:501px){
+   .feedback-customer-3{
+    background-image: url(../images/tieuhoa/banner-mb.png);
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+    background-size: 100%;
+    width: 100%;
+    /*height: auto;*/
+  }
+  .register-form{
+    width: 100%;
+    height: 430px;
+  }
+  .regis{
+    margin-left: 0%;
+    margin-top: 72%;
+  }
+  .register-form input.form-control {
+    height: 40px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 9px 12px 8px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .register-form .form-group.form-group--btn{
+    margin-top: 10px;
+  }
+  .ct_form {
+    padding-top: 28%;
+  }
+  .title_sec1{
+    font-size: 18px;
+  }
+  .sec05.feedback-customer-1{
+    margin-bottom: -20px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .sec05 h2.title_sec{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .reason{
+    margin-bottom: 5px;
+  } 
+  .feedback-customer-2 {
+    height: 150px;
+  }  
+}
+@media screen and (min-device-width:502px) and (max-device-width:591px){  
+   .feedback-customer-3{
+    background-image: url(../images/tieuhoa/banner-mb.png);
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+    background-size: 100%;
+    width: 100%;
+    /*height: auto;*/
+  }
+  .register-form{
+    width: 100%;
+    height: 430px;
+  }
+  .regis{
+    margin-left: 0%;
+    margin-top: 72%;
+  }
+  .register-form input.form-control {
+    height: 40px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 9px 12px 8px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .register-form .form-group.form-group--btn{
+    margin-top: 10px;
+  }
+  .ct_form {
+    padding-top: 28%;
+  }
+  .title_sec1{
+    font-size: 18px;
+  }
+  .sec05.feedback-customer-1{
+    margin-bottom: -20px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .sec05 h2.title_sec{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .reason{
+    margin-bottom: 5px;
+  } 
+  .feedback-customer-2 {
+    height: 190px;
+  }  
+}
+@media screen and (min-device-width:768px) and (max-device-width:820px){  
+   .feedback-customer-3{
+    background-image: url(../images/tieuhoa/banner-mb.png);
+    background-repeat: no-repeat;
+    padding-bottom: 25px;
+    background-size: 100%;
+    width: 100%;
+    /*height: auto;*/
+  }
+  .register-form{
+    width: 120%;
+    height: 470px;
+  }
+  .regis{
+    margin-left: 0%;
+    margin-top: 72%;
+  }
+  .register-form input.form-control {
+    height: 40px;
+  }
+  .register-form .form-group.form-group--btn button {
+    padding: 9px 12px 8px;
+    line-height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #1576C4;
+    font-weight: 700;
+    background: #fff none;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .register-form .form-group.form-group--btn{
+    margin-top: 10px;
+  }
+  .ct_form {
+    padding-top: 38%;
+  }
+  .title_sec1{
+    font-size: 18px;
+  }
+  .sec05.feedback-customer-1{
+    margin-bottom: -20px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .sec05 h2.title_sec{
+    margin-top: -20px;
+    margin-bottom: 0px;
+  }
+  .reason{
+    margin-bottom: 5px;
+  } 
+  .feedback-customer-2 {
+    height: 280px;
+  }  
+
+}

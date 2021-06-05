@@ -1,0 +1,1481 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using System.Text.RegularExpressions;
+@{
+    Layout = null;
+    var NewsDichvu = (List<Cms_News>)ViewBag.NewsDichVu;
+    var NewsCate = (List<Cms_News>)ViewBag.NewsCate;
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    var TinLienQuan = (List<Cms_News>)ViewBag.TinLienQuan;
+    var NewsTags = (List<Cms_NewsTags>)ViewBag.Tag;
+}
+<!doctype html>
+<html amp lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1" />
+
+
+
+
+    <title>@Html.Raw(@NewsDichvu[0].NewsName.ToString().TrimStart().TrimEnd().Replace("\"", "")) | Medlatec</title>
+    @if (NewsDichvu[0].NewsDescription != null)
+    {
+        <meta name="description" content="@Html.Raw(@NewsDichvu[0].NewsDescription.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+
+    }
+    @if (NewsDichvu[0].NewsName != null)
+    {
+        <meta name="title" content="@Html.Raw(@NewsDichvu[0].NewsName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+
+    }
+    @if (NewsDichvu[0].NewsKeyword != null)
+    {
+        <meta name="keywords" content="@Html.Raw(@NewsDichvu[0].NewsKeyword.ToString().TrimStart().TrimEnd())" />
+    }
+    else
+    {
+        <meta name="keywords" content="@Html.Raw(@NewsDichvu[0].NewsDescription.ToString().TrimStart().TrimEnd())" />
+    }
+
+    @if (@NewsDichvu[0].NewsImages != null)
+    {
+        <meta property="og:image" content="@NewsDichvu[0].NewsImages" />
+    }
+    else
+    {
+        <meta property="og:image" content="https://medlatec.vn/Content/images/logo.jpg" />
+    }
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",CMS_Core.Common.Common.removeCharEncode(NewsDichvu[0].NewsName.ToLower().TrimEnd().TrimStart().ToString()), "s" + NewsDichvu[0].CateId.ToString(), "n" + NewsDichvu[0].NewsId.ToString())" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js" />
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+
+
+
+
+
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+
+
+
+
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1,end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1,end) 0s 1 normal both
+        }
+
+        @@-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @@keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style>
+    <noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+
+
+
+    <style amp-custom>
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+            min-width: inherit;
+            width: 288pt;
+            right: 29px;
+        }
+
+        .chatbuttonmobi {
+            position: fixed;
+            z-index: 99;
+            right: 10px;
+            bottom: 0px;
+        }
+
+        .news-more {
+            text-align: center;
+        }
+
+            .news-more a {
+                display: inline-block;
+                padding: 14px 35px;
+                line-height: 22px;
+                background: #fff none;
+                color: #1576C4;
+                font-size: 17px;
+                text-transform: uppercase;
+                font-weight: 700;
+                -webkit-border-radius: 25px;
+                -moz-border-radius: 25px;
+                border-radius: 25px;
+            }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        p {
+            margin: 0 0 1rem;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .ul-clear {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+
+        .navigation-main {
+            background: #DEECFF none;
+            padding: 7px 0;
+            position: relative;
+        }
+
+        .search-button {
+            width: 40px;
+            height: 32px;
+            background: #1576C4 url('/content/amp/images/search.png') no-repeat center;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            float: right;
+        }
+
+        .navigation-button {
+            width: 24px;
+            height: 32px;
+            background: transparent url('/content/amp/images/bar.png') no-repeat center;
+            float: right;
+            margin: 0 0 0 15px;
+        }
+
+        .language-main {
+            float: left;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+            .language-main select {
+                height: 32px;
+                border: none;
+                padding: 0 15px 0 0;
+                background: transparent url('/content/amp/images/drop-down.png') no-repeat right center;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                text-indent: 1px;
+                text-overflow: '';
+                font-family: 'Roboto', sans-serif;
+                font-size: 14px;
+            }
+
+            .language-main .language-flag {
+                width: 24px;
+                height: 32px;
+                background: transparent url('/content/amp/images/vn.png') no-repeat center;
+                margin: 0 0 0 5px;
+            }
+
+        .footer-main {
+            background: #183661 none;
+            padding: 40px 0 30px;
+            color: #fff;
+        }
+
+        .company-info h3 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 500;
+            color: #1D93E3;
+            text-align: center;
+            line-height: 32px;
+        }
+
+        .company-info p {
+            text-align: center;
+            line-height: 20px;
+        }
+
+            .company-info p:last-child {
+                margin-bottom: 0;
+            }
+
+            .company-info p b {
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+        .social-main {
+            margin: 30px 0 0;
+        }
+
+        .social-item {
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+            .social-item a {
+                width: 44px;
+                height: 44px;
+                display: block;
+                float: left;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+                margin: 0 25px 0 0;
+            }
+
+                .social-item a:last-child {
+                    margin-right: 0;
+                }
+
+        .social-facebook {
+            background: #1D93E3 url('/content/amp/images/facebook.png') no-repeat center;
+        }
+
+        .social-youtube {
+            background: #1D93E3 url('/content/amp/images/youtube.png') no-repeat center;
+        }
+
+        .social-linkin {
+            background: #1D93E3 url('/content/amp/images/linkin.png') no-repeat center;
+        }
+
+        .social-twitter {
+            background: #1D93E3 url('/content/amp/images/twitter.png') no-repeat center;
+        }
+
+        .company-contact {
+            margin: 25px 0 0;
+        }
+
+            .company-contact li {
+                border-top: 1px solid #365A8F;
+                color: #BEBEBE;
+                padding: 15px 0 15px 40px;
+                font-size: 16px;
+            }
+
+            .company-contact .company-phone {
+                background: transparent url('/content/amp/images/phone.png') no-repeat left top 11px;
+            }
+
+            .company-contact .company-mail {
+                background: transparent url('/content/amp/images/mail.png') no-repeat left top 12px;
+            }
+
+            .company-contact .company-address {
+                background: transparent url('/content/amp/images/maker.png') no-repeat left top 15px;
+            }
+
+            .company-contact a {
+                line-height: 20px;
+                color: #BEBEBE;
+            }
+
+            .company-contact p {
+                line-height: 20px;
+            }
+
+                .company-contact p:last-child {
+                    margin-bottom: 0;
+                }
+
+        .call-hotline {
+            position: fixed;
+            left: 5px;
+            bottom: 10px;
+            z-index: 99;
+        }
+
+            .call-hotline a {
+                display: block;
+                height: 36px;
+                color: #F9E484;
+                padding: 10px 15px 8px 45px;
+                line-height: 19px;
+                font-size: 18px;
+                background: #1576C4 url('/content/amp/images/call.png') no-repeat left 10px center;
+                -webkit-border-radius: 8px 8px 0 0;
+                -moz-border-radius: 8px 8px 0 0;
+                border-radius: 8px 8px 0 0;
+                position: relative;
+                font-weight: 700;
+            }
+
+        .search-form {
+            width: 100%;
+            background: #F1EAEA none;
+            top: 45px;
+            left: 0;
+            display: block;
+            position: absolute;
+            z-index: -1;
+            max-height: 0;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+            overflow: hidden;
+        }
+
+            .search-form .container {
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+
+            .search-form.open {
+                max-height: 56px;
+                z-index: 99;
+            }
+
+            .search-form input[type="text"] {
+                background: #fff none;
+                height: 40px;
+                padding: 10px 40px 10px 13px;
+                font-size: 14px;
+                line-height: 20px;
+                border: none;
+                -webkit-border-radius: 5px 0 0 5px;
+                -moz-border-radius: 5px 0 0 5px;
+                border-radius: 5px 0 0 5px;
+                display: block;
+                color: #333;
+                float: left;
+                width: -webkit-calc(100% - 40px);
+                width: -moz-calc(100% - 40px);
+                width: calc(100% - 40px);
+            }
+
+            .search-form button {
+                float: right;
+                width: 40px;
+                height: 40px;
+                border: none;
+                background: #1576C4 url('/content/amp/images/find.png') no-repeat center;
+                ;
+                -webkit-border-radius: 0 5px 5px 0;
+                -moz-border-radius: 0 5px 5px 0;
+                border-radius: 0 5px 5px 0;
+            }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100%;
+            z-index: 999;
+            opacity: 0;
+            transition: .2s ease-in-out;
+            -moz-transition: .2s ease-in-out;
+            -webkit-transition: .2s ease-in-out;
+            -o-transition: .2s ease-in-out;
+            width: 100%;
+        }
+
+            .nav-menu::after {
+                content: '';
+                display: table;
+                clear: both;
+            }
+
+            .nav-menu.open {
+                right: 0;
+                opacity: 1;
+            }
+
+        .nav-menu-wrapper {
+            position: relative;
+            overflow-y: scroll;
+            height: 100%;
+            width: 100%;
+            max-width: 260px;
+            -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+            box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+            background: #fff none;
+            float: right;
+        }
+
+        .nav-menu-header {
+            line-height: 70px;
+            background: #1576C4 none;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: center;
+            margin: 0 0 5px;
+            display: block;
+        }
+
+        .nav-menu-wrapper ul {
+            margin: 0 0 0 15px;
+            padding: 0;
+            list-style: none;
+            display: block;
+        }
+
+        .nav-menu-wrapper li {
+            display: block;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+            .nav-menu-wrapper li a {
+                display: block;
+                position: relative;
+                font-size: 16px;
+                color: #333;
+                padding: 12px 0;
+                border-bottom: 1px solid #EFEFEF;
+                line-height: 22px;
+                height: auto;
+                font-weight: 400;
+            }
+
+        .arrow-children {
+            background: transparent url('/content/amp/images/arrrow-down.png') no-repeat center;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            display: block;
+            right: 10px;
+            top: 14px;
+            text-align: center;
+        }
+
+            .arrow-children.open {
+                background-image: url('/content/amp/images/arrrow-up.png');
+            }
+
+        .nav-menu-wrapper .sub-menu {
+            position: relative;
+            width: 100%;
+            top: 0;
+            opacity: 1;
+            z-index: 1;
+            background: transparent;
+            margin-left: 0;
+            display: block;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            max-height: 0;
+            overflow: hidden;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+        }
+
+            .nav-menu-wrapper .sub-menu.open {
+                max-height: 645px;
+            }
+
+            .nav-menu-wrapper .sub-menu li a {
+                line-height: 20px;
+                height: auto;
+                color: #333;
+                background: #fff none;
+                padding: 12px 20px 10px 15px;
+                font-weight: 400;
+                font-size: 15px;
+            }
+
+            .nav-menu-wrapper .sub-menu .sub-menu li a {
+                padding-left: 30px;
+            }
+
+        .breadcrumb-main {
+            padding: 15px 0;
+        }
+
+            .breadcrumb-main li {
+                margin: 0;
+                padding: 0 15px 0 0;
+                float: left;
+                background: transparent url('/content/amp/images/breadcrumb.png') no-repeat right 5px bottom 5px;
+                font-size: 13px;
+                color: #898787;
+                line-height: 18px;
+            }
+
+                .breadcrumb-main li:last-child {
+                    background: transparent none;
+                    padding-right: 0;
+                }
+
+            .breadcrumb-main a {
+                color: #898787;
+            }
+
+        .page-main {
+            margin: 15px 0 35px;
+        }
+
+        .page-title {
+            font-size: 30px;
+            line-height: 35px;
+            font-weight: 700;
+            margin: 0;
+            color: #333;
+        }
+
+        .post-main {
+            margin: 10px 0 0;
+        }
+
+        .post-meta {
+            padding-bottom: 6px;
+            border-bottom: 1px solid #DEDEDE;
+        }
+
+        .post-meta-date,
+        .aside-post-date {
+            color: #B3B3B3;
+            font-style: italic;
+            font-size: 12px;
+            line-height: 17px;
+            padding: 5px 0 4px 20px;
+            background: transparent url('/content/amp/images/calendar-gray.png') no-repeat left top 6px/auto 14px;
+            display: block;
+        }
+
+        .post-meta-author {
+            color: #368AD0;
+            font-style: italic;
+            padding: 5px 8px 4px 28px;
+            font-size: 12px;
+            line-height: 17px;
+            background: #EAF5FF url('/content/amp/images/post-editor.png') no-repeat left 8px top 6px/auto 13px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .share-box {
+            margin: 10px 0 0;
+        }
+
+        .share-box-container a {
+            width: 32px;
+            height: 32px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            overflow: hidden;
+            display: block;
+            float: left;
+            margin: 0 15px 0 0;
+        }
+
+            .share-box-container a:last-child {
+                margin-right: 0;
+            }
+
+        .share-box-facebook {
+            background: transparent url('/content/amp/images/facebook-share.png') no-repeat center/100% 100%;
+        }
+
+        .share-box-youtube {
+            background: transparent url('/content/amp/images/youtube-share.png') no-repeat center/100% 100%;
+        }
+
+        .share-box-linkin {
+            background: transparent url('/content/amp/images/linkedin-share.png') no-repeat center/100% 100%;
+        }
+
+        .share-box-twitter {
+            background: transparent url('/content/amp/images/twitter-share.png') no-repeat center/100% 100%;
+        }
+
+        .post-content {
+            margin: 20px 0 0;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+            .post-content h2,
+            .post-content h3,
+            .post-content h4,
+            .post-content h5,
+            .post-content h6 {
+                margin: 0 0 .5rem;
+                font-weight: 500;
+                line-height: 1.2;
+                text-align: left;
+            }
+
+            .post-content h2 {
+                font-size: 1.25rem;
+            }
+
+            .post-content h3,
+            .post-content h4,
+            .post-content h5,
+            .post-content h6 {
+                font-size: 1rem;
+            }
+
+            .post-content p em {
+                text-align: center;
+                display: block;
+            }
+
+        .post-related,
+        .post-new,
+        .post-same-category {
+            margin: 30px 0 0;
+        }
+
+        .aside-title {
+            font-size: 18px;
+            line-height: 22px;
+            color: #333;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .post-related ul,
+        .post-new ul,
+        .post-same-category ul {
+            margin-top: 15px;
+        }
+
+        .post-related li,
+        .post-new li,
+        .post-same-category li {
+            padding: 15px 0;
+            border-bottom: 1px solid #DEDEDE;
+        }
+
+        .post-related h3 {
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+            margin: 0;
+        }
+
+            .post-related h3 a,
+            .aside-post-content h3 a {
+                color: #333;
+            }
+
+        .aside-post-item {
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .aside-post-img {
+            margin-right: 10px;
+            max-width: 140px;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 140px;
+            flex: 0 0 140px;
+        }
+
+        .aside-post-content h3 {
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 18px;
+            margin: 0;
+        }
+
+        .aside-post-date {
+            margin: 3px 0 0;
+        }
+
+        .register-main {
+            margin: 0 -15px;
+        }
+
+        .register-form {
+            padding: 25px 15px 30px;
+            background: #25ACF8 none;
+        }
+
+            .register-form h3 {
+                font-size: 18px;
+                margin: 0 0 15px;
+                text-transform: uppercase;
+                color: #fff;
+                text-align: center;
+                font-weight: 700;
+            }
+
+        .register-form-row {
+            margin: 0 0 10px;
+        }
+
+            .register-form-row input.form-control {
+                height: 40px;
+                padding: 5px 10px 5px 40px;
+                line-height: 28px;
+                border: 1px solid #ced4da;
+                -webkit-border-radius: .25rem;
+                -moz-border-radius: .25rem;
+                border-radius: .25rem;
+                display: block;
+                width: 100%;
+                font-family: inherit;
+                font-size: 15px;
+                color: #000;
+            }
+
+            .register-form-row.register-name input.form-control {
+                background: rgba(255, 255, 255, .8) url('/content/amp/images/human-black.png') no-repeat left 10px center;
+            }
+
+            .register-form-row.register-phone input.form-control {
+                background: rgba(255, 255, 255, .8) url('/content/amp/images/phone-black.png') no-repeat left 12px center;
+            }
+
+            .register-form-row.register-email input.form-control {
+                background: rgba(255, 255, 255, .8) url('/content/amp/images/mail-black.png') no-repeat left 12px center;
+            }
+
+            .register-form-row textarea.form-control {
+                height: 170px;
+                padding: 10px;
+                line-height: 1.5;
+                border: 1px solid #ced4da;
+                -webkit-border-radius: .25rem;
+                -moz-border-radius: .25rem;
+                border-radius: .25rem;
+                display: block;
+                width: 100%;
+                font-family: inherit;
+                font-size: inherit;
+                color: #000;
+                background: rgba(255, 255, 255, .8) none;
+            }
+
+            .register-form-row.register-form-button {
+                margin: 20px 0 0;
+                text-align: center;
+            }
+
+        .register-form-button button {
+            padding: 6px 35px 4px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            font-weight: 500;
+            line-height: 30px;
+            border: none;
+            background: #fff none;
+            text-transform: uppercase;
+            font-size: 18px;
+            color: #1576C4;
+            font-family: inherit;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .img-amp {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-main">
+        <div class="logo">
+            <a href="https://medlatec.vn" title="Bệnh viện đa khoa Medlatec">
+                <amp-img width="375" height="70" src="/content/amp/images/logo.png" layout="responsive" alt="Bệnh viện đa khoa Medlatec"></amp-img>
+            </a>
+        </div>
+    </header>
+
+    <section class="navigation-main">
+        <div class="container clearfix">
+            <div class="language-main">
+                <select>
+                    <option value="vn">Tiếng Việt</option>
+                    <option value="en">Tiếng Anh</option>
+                </select>
+                <span class="language-flag"></span>
+            </div>
+            <div role="button" tabindex="0" class="navigation-button" on="tap:AMP.setState({menuExpand: !menuExpand})"></div>
+            <div role="button" tabindex="0" class="search-button" on="tap:AMP.setState({searchForm: !searchForm})"></div>
+        </div>
+
+        <div class="search-form" [class]="searchForm ? 'search-form open' : 'search-form'">
+            <div class="container clearfix">
+                <input type="text" name="timkiem" id="timkiem" placeholder="Tìm kiếm" />
+                <button id="nuttimkiem" name="nuttimkiem" class="btn-search"></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="breadcrumb-main">
+        <div class="container">
+            <ul class="ul-clear clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="https://medlatec.vn" itemprop="item"><span itemprop="name">Trang chủ</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a href="/@CMS_Core.Common.Common.GetURLDetailByCate("tin-tuc",@NewsDichvu[0].ParentName.ToString().ToLower() ,"s"+ @NewsDichvu[0].CateId.ToString())" title="@NewsDichvu[0].ParentName.ToString()" itemprop="item"><span itemprop="name">@NewsDichvu[0].ParentName.ToString()</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+                <li><span>@NewsDichvu[0].NewsName.ToString().TrimStart().TrimEnd()</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="page-main">
+        <div class="container">
+            @{
+                string urlschema = "";
+                string ngaydang = "";
+                string sapo = "";
+                if (@NewsDichvu[0].NewsImages != null)
+                {
+                    urlschema = @NewsDichvu[0].NewsImages.Replace("\"", "/").Replace("\\", "/");
+                }
+            }
+
+            <h1 class="page-title">@Html.Raw(CMS_Core.Common.Common.removeCharEncode(NewsDichvu[0].NewsName.ToString().TrimStart().TrimEnd()))</h1>
+            <div class="post-main">
+                <div class="post-meta">
+
+                    @if (@NewsDichvu[0].DateCreate != null)
+                    {
+                        ngaydang = @NewsDichvu[0].DateCreate.ToString("dd/MM/yyyy");
+                        <div class="post-meta-date">Ngày @NewsDichvu[0].DateCreate.ToString("dd/MM/yyyy")</div>
+
+                    }
+                    @if (@NewsDichvu[0].NewsAuthor != null)
+                    {
+
+                        <div class="post-meta-author">@NewsDichvu[0].NewsAuthor.ToString()</div>
+                    }
+
+
+
+
+
+                </div>
+                <div class="share-box">
+                    <div class="share-box-container clearfix">
+                        <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/" class="share-box-facebook"></a>
+                        <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q" class="share-box-youtube"></a>
+                        <a href="#" class="share-box-linkin"></a>
+                        <a href="#" class="share-box-twitter"></a>
+                    </div>
+                </div>
+                <div class="post-content">
+                    @if (@NewsDichvu[0].NewsDescription != null)
+                    {
+                        sapo = @NewsDichvu[0].NewsDescription.ToString().TrimStart().TrimEnd().Replace("\"", "");
+                        <p><b> @NewsDichvu[0].NewsDescription.ToString().TrimStart().TrimEnd().Replace("\"", "")</b></p>
+
+
+
+                    }
+                    @if (@NewsDichvu[0].newsContentAutoLink != null)
+                    {
+                        string noidung = CMS_Core.Common.Common.CleanHtml(NewsDichvu[0].newsContentAutoLink.ToString());
+
+
+                        noidung = CMS_Core.Common.Common.StripStyleTags(noidung);
+                        // noidung = CMS_Core.Common.Common.removeCharEncode(noidung);
+                        noidung = noidung.Replace("&nbsp;", " ");
+                        noidung = noidung.Replace("<br />", "");
+                        noidung = noidung.Replace("<br/>", "");
+                        noidung = noidung.Replace("<br>", "");
+                        noidung = noidung.Replace("<u1:p>", "");
+                        noidung = noidung.Replace("</u1:p>", "");
+
+
+                        noidung = noidung.Replace("<st1:place >", "");
+                        noidung = noidung.Replace("<st1:city >", "");
+                        noidung = noidung.Replace("</st1:city>", "");
+                        noidung = noidung.Replace("</st1:place>", "");
+
+
+                        noidung = noidung.Replace("<td  v >", "<td>");
+                        noidung = noidung.Replace("<td v >", "<td>");
+
+                        noidung = noidung.Replace("<br type=\"_moz\">", "");
+                        noidung = noidung.Replace("<br type=\"_moz\" />", "");
+                        noidung = noidung.Replace("<br type=\"_moz\"/>", "");
+                        noidung = noidung.Replace("type=\"Photo\"", "");
+                        noidung = noidung.Replace("<p><meta charset='utf - 8' /></p>", "");
+
+                        noidung = noidung.Replace("<p><meta charset=\"utf - 8\" /></p>", "");
+                        noidung = noidung.Replace("<meta charset=\"utf-8\" />", "");
+
+                        noidung = CMS_Core.Common.Common.Removevspace(noidung);
+                        noidung = CMS_Core.Common.Common.RemoveHeight(noidung);
+                        noidung = CMS_Core.Common.Common.RemoveWidth(noidung);
+
+
+                        noidung = CMS_Core.Common.Common.StripAttributesTags("align|valign|bgcolor|nowrap|cellpadding|cellspacing", noidung);
+
+                        //noidung = Regex.Replace(noidung, "align=\"(.*?)\"", "", RegexOptions.Singleline | RegexOptions.IgnoreCase);
+
+                        noidung = noidung.Replace("<td  v >", "<td>");
+                        noidung = noidung.Replace("<td v >", "<td>");
+
+                        <p>@Html.Raw(noidung.Replace("<img", "<amp-img layout='responsive' width='700' height='400' "))</p>
+                        // @CMS_Core.Common.Common.RemoveStyleAttributes()
+                    }
+                    @*<a href="https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep" target="_blank">
+                            <amp-img width="400" height="150" src="/Content/images/ksk/banner-ngang-ksk.jpg" alt="Khám sức khỏe doanh nghiệp" layout="responsive"></amp-img>
+                        </a>*@
+                </div>
+                <div class="register-main">
+                    <div class="register-form">
+                        <h3>Đăng ký khám, tư vấn</h3>
+
+                        @*<div class="register-form-row register-name">
+                                <input class="form-control" name="txthoten" value="" placeholder="Họ và tên (*)" type="text" />
+                            </div>
+                            <div class="register-form-row register-phone">
+                                <input class="form-control" name="txtsdt" value="" placeholder="Số điện thoại (*)" type="text" />
+                            </div>
+                            <div class="register-form-row register-email">
+                                <input class="form-control" name="txtemail" value="" placeholder="Email (*)" type="email" />
+                            </div>
+                            <div class="register-form-row">
+                                <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                            </div>*@
+                        <div class="news-more">
+                            <a href="https://medlatec.vn/dat-lich-lay-mau" title="Đăng ký khám, tư vấn">
+                                Đăng ký
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-related">
+                <div class="aside-title">Có thể bạn quan tâm</div>
+                <ul class="ul-clear">
+                    @if (NewsTags != null)
+                    {
+                        if (NewsTags.Count > 0)
+                        {
+                            int check = 0;
+                            for (int j = 0; j < NewsTags.Count; j++)
+                            {
+
+                                var tinquantam = CMS_Core.Common.Common.GetNewsidByTags(NewsTags[j].Tagid, NewsTags[j].NewsId);
+                                if (tinquantam.Count > 0)
+                                {
+                                    for (int a = 0; a < tinquantam.Count; a++)
+                                    {
+                                        check = check + 1;
+                                        if (check < 10)
+                                        {
+
+
+
+
+                                            if (tinquantam[a].NewsName != null)
+                                            {
+
+
+                                                <li><h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",tinquantam[a].NewsName.ToString().ToLower(),"s"+tinquantam[a].CateId.ToString() ,"n"+tinquantam[a].NewsId.ToString())" title="@tinquantam[a].NewsName.ToString().TrimStart().TrimEnd()">@tinquantam[a].NewsName.ToString().TrimStart().TrimEnd()</a></h3></li>
+                                            }
+
+
+
+
+                                        }
+                                    }
+                                }
+                            }
+
+
+
+                        }
+                    }
+
+
+
+                </ul>
+            </div>
+            <div class="post-new">
+                <div class="aside-title">Tin mới nhất</div>
+                <ul class="ul-clear">
+
+                    @for (int i = 0; i < 6; i++)
+                    {
+
+                        <li>
+                            <div class="aside-post-item">
+                                <div class="aside-post-img">
+
+                                    @if (@TinNoiBat[i].NewsImages != null)
+                                    {
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">
+
+                                            <amp-img width="700" height="466" src="@TinNoiBat[i].newsImagesweb.ToString().Replace("https://login.medlatec.vn","https://img.medlatec.vn")" layout="responsive" alt="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()"></amp-img>
+                                        </a>
+                                    }
+
+
+                                </div>
+                                <div class="aside-post-content">
+
+                                    @if (@TinNoiBat[i].NewsName != null)
+                                    {
+                                        <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                    }
+
+                                    @if (@TinNoiBat[i].DateCreate != null)
+                                    {
+                                        <div class="aside-post-date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</div>
+                                    }
+
+                                </div>
+                            </div>
+                        </li>
+
+
+                    }
+
+
+
+
+
+                </ul>
+            </div>
+
+
+            @*@using (Html.BeginForm("NewsDetails", "News", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data", @target = "_top" }))
+                {*@
+
+
+            @*}*@
+
+            <div class="post-same-category">
+                <div class="aside-title">Tin cùng chuyên mục</div>
+                <ul class="ul-clear">
+
+
+                    @if (NewsCate != null)
+                    {
+
+                        if (NewsCate.Count > 0)
+                        {
+
+                            for (int i = 0; i < NewsCate.Count; i++)
+                            {
+
+
+                                <li>
+                                    <div class="aside-post-item">
+                                        <div class="aside-post-img">
+                                            @if (@NewsCate[i].NewsImages != null)
+                                            {
+                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",NewsCate[i].NewsName.ToString().ToLower(),"s"+NewsCate[i].CateId.ToString() ,"n"+NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()">
+                                                    <amp-img width="700" height="466" src="@NewsCate[i].newsImagesweb.ToString().Replace("https://login.medlatec.vn","https://img.medlatec.vn")" alt="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()" layout="responsive"></amp-img>
+                                                </a>
+                                            }
+
+
+                                        </div>
+                                        <div class="aside-post-content">
+                                            @if (@NewsCate[i].NewsName != null)
+                                            {
+                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",NewsCate[i].NewsName.ToString().ToLower() ,"s"+NewsCate[i].CateId.ToString(),"n"+NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()">@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                            }
+
+                                            @if (@NewsCate[i].DateCreate != null)
+                                            {
+                                                <div class="aside-post-date">Ngày @NewsCate[i].DateCreate.ToString("dd/MM/yyyy")</div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+                            }
+                        }
+                    }
+
+
+
+
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-main">
+        <div class="container">
+            <div class="company-info">
+                <h3>Bệnh viện đa khoa MEDLATEC</h3>
+                <p><b>Trực thuộc Công ty TNHH Công nghệ và Xét nghiệm Y học</b></p>
+                <p>Mã số thuế : 0101234974 do Sở Kế hoạch và Đầu tư thành phố Hà Nội cấp ngày 22/04/2002.</p>
+            </div>
+            <div class="social-main">
+                <div class="social-item clearfix">
+                    <a class="social-facebook" href=""></a>
+                    <a class="social-youtube" href=""></a>
+                    <a class="social-linkin" href=""></a>
+                    <a class="social-twitter" href=""></a>
+                </div>
+            </div>
+            <div class="company-contact">
+                <ul class="ul-clear">
+                    <li class="company-phone"><a href="tel:1900 565656">1900 565656</a></li>
+                    <li class="company-mail"><a href="mailto:info@medlatec.com">info@medlatec.com</a></li>
+                    <li class="company-address">
+                        <p>1. Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình, Hà Nội, Việt Nam</p>
+                        <p>2. Số 99 Trích Sài, Tây Hồ, Hà Nội</p>
+                        <p>3. Số 05 Khuất Duy Tiến, Thanh Xuân, Hà Nội.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="call-hotline" id="call-hotline">
+        <a href="tel:1900 565656">1900 565656</a>
+    </div>
+    @*<div class="call-hotline">
+            <a href="tel:1900 565656">1900 565656</a>
+        </div>*@
+
+    <div role="button" tabindex="0" class="nav-menu" [class]="menuExpand ? 'nav-menu open' : 'nav-menu'" on="tap:AMP.setState({menuExpand: !menuExpand})">
+        <div class="nav-menu-wrapper">
+            <div class="nav-menu-header">Danh mục</div>
+            <ul>
+                <li class="has-children">
+                    <a href="#">Giới thiệu<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand1: !menuExpand1})" [class]="menuExpand1 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                    <ul class="sub-menu" [class]="menuExpand1 ? 'sub-menu open' : 'sub-menu'">
+                        <li><a href="https://medlatec.vn/tin-tuc/medlatec-no-luc-khong-ngung-vi-suc-khoe-cong-dong-s5-n11033">Lịch sử hình thành và phát triển</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/medlatec--noi-quy-tu-doi-ngu-chuyen-gia-dau-nganh-s1-n10653">Đội ngũ chuyên gia</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/medlatec-tay-ho--co-so-uy-tin-phuc-vu-cham-soc-suc-khoe-nguoi-dan-doanh-nghiep-s1-n10805">Cơ sở vật chất &amp; trang thiết bị</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/-phong-xet-nghiem-benh-vien-da-khoa-medlatec-nhan-chung-chi-iso-151892012-s1-n6746">Chứng chỉ, chứng nhận</a></li>
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <a href="#">Dịch vụ y tế<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand2: !menuExpand2})" [class]="menuExpand2 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                    <ul class="sub-menu" [class]="menuExpand2 ? 'sub-menu open' : 'sub-menu'">
+                        <li><a href="https://medlatec.vn/dich-vu/xet-nghiem-lay-mau-tai-nha">Lấy mẫu xét nghiệm tận nơi</a></li>
+                        <li><a href="https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep">Khám sức khỏe doanh nghiệp</a></li>
+                        <li class="has-children">
+                            <a href="#" title="Dịch vụ bảo hiểm">Dịch vụ bảo hiểm<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpandSub1: !menuExpandSub1})" [class]="menuExpandSub1 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpandSub1 ? 'sub-menu open' : 'sub-menu'">
+                                <li><a href="https://medlatec.vn/dich-vu/bao-hiem-y-te" title="Dịch vụ khám và điều trị cho bệnh nhân với Bảo Hiểm Y Tế | Medlatec">Bảo hiểm y tế</a></li>
+                                <li><a href="https://medlatec.vn/dich-vu/bao-lanh-vien-phi" title="Bảo hiểm thương mại">Bảo hiểm thương mại</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" title="Dịch vụ mới">Dịch vụ mới</a></li>
+                        <li><a href="#" title="Gói dịch vụ">Gói dịch vụ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="Chuyên khoa y tế">Chuyên khoa y tế<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand3: !menuExpand3})" [class]="menuExpand3 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                    <ul class="sub-menu" [class]="menuExpand3 ? 'sub-menu open' : 'sub-menu'">
+                        <li><a href="https://medlatec.vn/chuyen-khoa/san-khoa" title="Sản khoa">Sản khoa</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/truyen-nhiem" title="Truyền nhiễm">Truyền nhiễm</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/noi-tiet" title="Nội tiết">Nội tiết</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/nam-khoa" title="Nam khoa">Nam khoa</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/tai-mui-hong" title="Tai mũi họng">Tai mũi họng</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/ngoai-khoa" title="Tai mũi họng">Ngoại khoa</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/chuyen-khoa-mat" title="Tai mũi họng">Mắt</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/tim-mach" title="Tai mũi họng">Tim mạch</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/than-kinh" title="Tai mũi họng">Thần kinh</a></li>
+                        <li><a href="https://medlatec.vn/chuyen-khoa/ung-buou" title="Tai mũi họng">Ung bướu</a></li>
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <a href="#" title="Hướng dẫn khách hàng">Hướng dẫn khách hàng<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand4: !menuExpand4})" [class]="menuExpand4 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                    <ul class="sub-menu" [class]="menuExpand4 ? 'sub-menu open' : 'sub-menu'">
+                        <li><a href="https://medlatec.vn/tra-cuu-ket-qua" title="Tra cứu kết quả">Tra cứu kết quả</a></li>
+                        <li><a href="/hoi-dap" title="Tư vấn Online">Tư vấn Online</a></li>
+                        <li><a href="#" title="Đặt lịch lấy mẫu, khám tại viện">Đặt lịch lấy mẫu, khám tại viện</a></li>
+                        <li><a href="https://medlatec.vn/bang-gia-dich-vu" title="Bảng giá dịch vụ chung">Bảng giá dịch vụ chung</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/uu-dai-dac-biet-s120" title="Chương trình ưu đãi">Chương trình ưu đãi</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/den-medlatec-kham-benh-thu-7-chu-nhat-va-ngay-le-s2-n10340" title="Giờ làm việc">Giờ làm việc</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/quy-trinh-kham-benh-chua-benh-noi-tru-bhyt-tai-medlatec-s2-n10545" title="Quy trình khám chữa bệnh">Quy trình khám chữa bệnh</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/the-khach-hang-the-pid-su-dung-cang-nhieu-gia-tri-cang-lon--s120-n7003" title="Thẻ bệnh án điện tử (PID)">Thẻ bệnh án điện tử (PID)</a></li>
+                        <li><a href="#" title="Đấu thầu">Đấu thầu</a></li>
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <a href="#" title="Tin tức">Tin tức<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand5: !menuExpand5})" [class]="menuExpand5 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                    <ul class="sub-menu" [class]="menuExpand5 ? 'sub-menu open' : 'sub-menu'">
+                        <li class="has-children">
+                            <a href="#" title="Tin tức y học">Tin tức y học<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpandSub2: !menuExpandSub2})" [class]="menuExpandSub2 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpandSub2 ? 'sub-menu open' : 'sub-menu'">
+                                <li><a href="https://medlatec.vn/tin-tuc/benh-truyen-nhiem-s94" title="Bệnh truyền nhiễm">Bệnh truyền nhiễm</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/xuong-khop-s68" title="Xương khớp">Xương khớp</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/da-lieu-s107" title="Da liễu">Da liễu</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/tieu-hoa-s67" title="Tiêu hóa">Tiêu hóa</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/ho-hap-s64" title="Hô hấp">Hô hấp</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/noi-tiet-s62" title="Nội tiết">Nội tiết</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/san-khoa-s74" title="Sản phụ khoa">Sản phụ khoa</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/tim-mach-s63" title="Tim mạch">Tim mạch</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/benh-ung-thu-s91" title="Ung thư">Ung thư</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/benh-tre-em-s75" title="Bệnh trẻ em">Bệnh trẻ em</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-children">
+                            <a href="#" title="Hoạt động bệnh viện">Hoạt động bệnh viện<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpandSub3: !menuExpandSub3})" [class]="menuExpandSub3 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                            <ul class="sub-menu" [class]="menuExpandSub3 ? 'sub-menu open' : 'sub-menu'">
+                                <li><a href="https://medlatec.vn/tin-tuc/tin-hoat-dong-s1" title="Tin tức nội bộ">Tin tức nội bộ</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/bao-chi-khach-hang-noi-ve-medlatec-s135" title="Báo chí nói về chúng tôi">Báo chí nói về chúng tôi</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/tin-tuc/dinh-duong-s51" title="Dinh Dưỡng">Dinh Dưỡng</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/tin-tuc/xet-nghiem-s58" title="Xét nghiệm">Xét nghiệm</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/tin-tuc/thuoc--suc-khoe-s18" title="Thuốc và TPCN">Thuốc và TPCN</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <a href="#" title="Hệ thống MEDLATEC">Hệ thống MEDLATEC<i role="button" tabindex="0" class="arrow-children" on="tap:AMP.setState({menuExpand6: !menuExpand6})" [class]="menuExpand6 ? 'arrow-children open' : 'arrow-children'"></i></a>
+                    <ul class="sub-menu" [class]="menuExpand6 ? 'sub-menu open' : 'sub-menu'">
+                        <li><a href="https://medlatec.vn/he-thong-medlatec-group" title="Bệnh viện và Phòng khám">Bệnh viện và Phòng khám</a></li>
+                        <li><a href="#" title="Đối tác MEDLATEC">Đối tác MEDLATEC</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://medlatec.vn/tin-tuc/tuyen-dung-s15" title="Tin tuyển dụng">Tuyển dụng</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="chatbuttonmobi">
+
+        <a href="https://m.me/BenhVienDaKhoaMedlatec">
+            <amp-img class="img-amp" width="60" height="60" layout="responsive" src="/content/images/face-messenger-min.png" alt="Chat facebook"></amp-img>
+
+        </a>
+    </div>
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "NewsArticle",
+        "mainEntityOfPage": {
+        "@@type": "WebPage",
+        "@@id": "https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @NewsDichvu[0].NewsName.ToString().ToLower(), "s" + NewsDichvu[0].CateId.ToString(), "n" + NewsDichvu[0].NewsId.ToString())"
+        },
+        "url": "https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @NewsDichvu[0].NewsName.ToString().ToLower(), "s" + NewsDichvu[0].CateId.ToString(), "n" + NewsDichvu[0].NewsId.ToString())",
+        "headline": "@NewsDichvu[0].NewsName.ToString().Replace("\"", "").ToLower()",
+        "image": {
+        "@@type": "ImageObject",
+        "url": "@urlschema",
+        "height": 1280,
+        "width": 628
+        },
+        "datePublished": "@ngaydang",
+        "dateModified": "@ngaydang",
+        "author": {
+        "@@type": "Person",
+        "name": "MEDLATEC"
+        },
+        "publisher": {
+        "@@type": "Organization",
+        "name": "MEDLATEC",
+        "logo": {
+        "@@type": "ImageObject",
+        "url": "https://medlatec.vn/Content/images/logo.jpg",
+        "width": 600,
+        "height": 60
+        }
+        },
+        "description": "@sapo"
+        }
+    </script>
+
+
+
+
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "LocalBusiness",
+        "@@id":"https://medlatec.vn",
+        "priceRange":"$$",
+        "image":"https://medlatec.vn/Content/images/logo.jpg",
+        "name" : "Bệnh Viện Đa Khoa Medlatec",
+        "telephone": "+841900565656",
+        "address": {
+        "@@type": "PostalAddress",
+        "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+        "addressLocality": "Hà Nội"
+        },
+        "potentialAction": {
+        "@@type": "OrderAction",
+        "target": {
+        "@@type": "EntryPoint",
+        "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+        "inLanguage": "vi-VN",
+        "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+        }}}
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Hospital",
+        "priceRange":"$$",
+        "@@id":"https://medlatec.vn",
+        "image":"https://medlatec.vn/Content/images/logo.jpg",
+        "name" : "Bệnh Viện Đa Khoa Medlatec",
+        "telephone": "+841900565656",
+        "openingHours": "Mo-Su 00:00-24:00",
+        "ContactPoint": {
+        "telephone": "+841900565656",
+        "contactType": "sales",
+        "contactOption": "TollFree",
+        "areaServed": "VN"},
+        "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+        "slogan":"Dịch vụ tốt, công nghệ cao",
+        "founder":[{
+        "@@type":"Person",
+        "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+        "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+        "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+        "sameAs":["https://www.facebook.com/tri.1957"]
+        }]
+        }
+
+    </script>
+    <!-- Google Tag Manager -->
+    <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-5J5C6LT&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
+
+</body>
+
+</html>
+
+<amp-analytics type="googleanalytics">
+    <script type="application/json">
+
+        {
+        "vars": {
+        "account": "UA-20501699-10"
+        },
+        "triggers": {
+        "trackPageview": {
+        "on": "visible",
+        "request": "pageview"
+        }
+        },
+        "click on AMP trigger": {
+        "on": "click",
+        "selector": "div.call-hotline > a",
+        "request": "event",
+        "vars": {
+        "eventCategory": "Call-Hotline-AMP",
+        "eventAction": "call-hotline"
+        }
+        }
+        }
+    </script>
+</amp-analytics>

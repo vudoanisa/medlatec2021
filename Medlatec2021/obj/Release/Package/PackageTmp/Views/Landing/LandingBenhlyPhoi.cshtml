@@ -1,0 +1,496 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+    /**/
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Note {
+
+<title>Miễn phí khám chuyên khoa hô hấp, ưu đãi riêng giảm 50% chụp X-quang tim phổi | Bệnh viện đa khoa Medlatec</title>
+
+    <meta name="description" content="@Html.Raw("Miễn phí khám chuyên khoa hô hấp, ưu đãi riêng giảm 50% chụp X-quang tim phổi | Medlatec")" />
+
+
+    <meta name="title" content="@Html.Raw("Miễn phí khám chuyên khoa hô hấp, ưu đãi riêng giảm 50% chụp X-quang tim phổi | Bệnh viện đa khoa Medlatec")" />
+
+    <meta name="keywords" content="@Html.Raw("bệnh lý về phổi, khám bệnh,bệnh phổi tắc nghẽn mạn tính,Mắc phế cầu khuẩn,bệnh lao")" />
+
+    <meta property="og:description" content="@Html.Raw("Khám phát hiện bệnh lý về phổi | Bệnh viện đa khoa Medlatec")" />
+    <meta property="og:title" content="@Html.Raw("Miễn phí khám chuyên khoa hô hấp, ưu đãi riêng giảm 50% chụp X-quang tim phổi | Medlatec")" />
+
+
+
+
+
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/banner/landing-kham-phoi.jpg" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/banner/landing-kham-phoi.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/kham-phat-hien-benh-ly-phoi" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/kham-phat-hien-benh-ly-phoi" />
+
+    <style>
+        .feedback-customer-text {
+            height: 68px;
+        }
+
+        .xntn-service {
+            margin-bottom: 25px;
+        }
+
+        .xntn-service-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .xntn-step {
+            margin-top: 20px;
+        }
+
+        .giamgia {
+            font-size: 16px;
+            color: red;
+            text-decoration: line-through;
+            display: contents;
+        }
+    </style>
+}
+
+
+@using (Html.BeginForm("LandingBenhlyPhoi", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+
+            <li><span>Miễn phí khám chuyên khoa hô hấp, ưu đãi riêng giảm 50% chụp X-quang tim phổ</span></li>
+        </ul>
+    </div>
+
+    <div class="banner-skdn container">
+        <div class="banner-main">
+            <div class="banner-slider owl-carousel">
+                <div class="item">
+                    <div class="banner-item">
+                        <a href="#dangkyngay"> <img src="/Content/images/banner/landing-kham-phoi.jpg" alt="Khám phát hiện bệnh lý về phổi" /></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="xntn-main">
+        <div class="xntn-why-choose">
+            <div class="container">
+                <h2 class="title">Các bệnh về phổi và những con số “giật mình”</h2>
+                <div class="xntn-why-container row">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/65-trieu-nguoi.png" alt="Mắc bệnh phổi tắc nghẽn mạn tính mỗi năm, trong số đó có 3 triệu người tử vong" /></div>
+                            <div class="xntn-why-text">
+                                <h3>65 triệu người</h3>
+                                <p>Mắc bệnh phổi tắc nghẽn mạn tính mỗi năm, trong số đó có 3 triệu người tử vong;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/hen-suyen.png" alt="Mắc hen suyễn – căn bệnh gây ảnh hưởng hơn 14% trẻ em toàn cầu" /></div>
+                            <div class="xntn-why-text">
+                                <h3>334 triệu người</h3>
+                                <p>Mắc hen suyễn – căn bệnh gây ảnh hưởng hơn 14% trẻ em toàn cầu;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/phe-khuan-cau.png" alt="Mắc phế cầu khuẩn – nguyên nhân hàng đầu gây tử vong ở trẻ dưới 5 tuổi" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Hàng triệu người</h3>
+                                <p>Mắc phế cầu khuẩn – nguyên nhân hàng đầu gây tử vong ở trẻ dưới 5 tuổi;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/tu-vong.png" alt="Mắc bệnh lao và 1,4 triệu người tử vong vì nó mỗi năm" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Trên 10 triệu người</h3>
+                                <p>Mắc bệnh lao và 1,4 triệu người tử vong vì nó mỗi năm;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/mac-ung-thu-phoi.png" alt="Mắc ung thư phổi, trong đó hơn 20.000 người Việt Nam" /></div>
+                            <div class="xntn-why-text">
+                                <h3>1,6 triệu người</h3>
+                                <p>Mắc ung thư phổi, trong đó hơn 20.000 người Việt Nam;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/khoi-doc.png" alt="Bị phơi nhiễm khói độc trong nhà;" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Hơn 2 tỷ người</h3>
+                                <p>Bị phơi nhiễm khói độc trong nhà;</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="xntn-register"><a href="#dangkyngay">Đăng ký nhận ưu đãi ngay</a></div>
+            </div>
+        </div>
+        <div class="xntn-service container">
+            <h2 class="title">Lý do nên đi kiểm tra phổi định kỳ</h2>
+            <div class="xntn-service-container row">
+                <div class="xntn-service-col col-lg-7">
+                    <div class="xntn-service-img"><img src="~/Content/images/banner/kham-phoi-t10.png" alt="Lý do nên đi kiểm tra phổi định kỳ" /></div>
+                </div>
+                <div class="xntn-service-col col-lg-5">
+                    <div class="xntn-service-content">
+                        <ul>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/o-nhiem.png" alt="Ô nhiễm không khí đang ở mức báo động" /></span><span class="xntn-service-text">Ô nhiễm không khí đang ở mức báo động, đặc biệt tại Hà Nội chất lượng không khí đạt tới ngưỡng gây hại sức khỏe con người, nồng độ bụi mịn PM2.5 rất cao;</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/thoi-tiet.png" alt="Thời tiết thay đổi đột ngột" /></span><span class="xntn-service-text">Thời tiết thay đổi đột ngột, đặc biệt đang vào mùa lạnh ảnh hưởng lớn tới hệ hô hấp;</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/Smoke.png" alt="Thuốc lá: Những người hút thuốc lá và hít khói thuốc lá có nguy cơ mắc ung thư phổi rất cao" /></span><span class="xntn-service-text">Thuốc lá: Những người hút thuốc lá và hít khói thuốc lá có nguy cơ mắc ung thư phổi rất cao;</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/gen.png" alt="Gen di truyền" /></span><span class="xntn-service-text">Gen di truyền: Các bệnh về phổi có khả năng lây nhiễm và lây truyền từ thế hệ này sang thế hệ khác, đặc biệt lao và ung thư phổi;</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/tuoi-tac.png" alt="Tuổi tác" /></span><span class="xntn-service-text">Tuổi tác: Người già và trẻ em hệ miễn dịch kém, do đó, phổi rất dễ suy yếu khi gặp tác nhân gây hại bên ngoài môi trường.</span></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="xntn-service-col col-lg-12" style="margin-top:15px;">
+                    <div class="xntn-register"><a href="#dangkyngay">Đăng ký nhận ưu đãi ngay</a></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="feedback-customer">
+            <div class="container">
+                <h2 class="title">Đội ngũ chuyên gia</h2>
+                <div class="feedback-slider owl-carousel">
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="/Content/images/feedback-avatar.png" alt="PGS.TS Hoàng Thị Phượng" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>PGS.TS Hoàng Thị Phượng</h3>
+
+                                <div class="feedback-customer-text">Chuyên gia Nội Hô hấp, Nguyên Trưởng Khoa Lao và bệnh phổi - Bệnh viện Phổi Trung ương; Chủ nhiệm bộ môn Nội khoa Y Dược, Trường Đại học Y - ĐH Quốc Gia Hà Nội;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="/Content/images/bac-sy/bsnang.jpg" alt="ThS.BS Hoàng Thị Năng" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>ThS.BS Hoàng Thị Năng</h3>
+
+                                <div class="feedback-customer-text">Phó Giám đốc Bệnh viện Đa khoa MEDLATEC;</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="/Content/images/bac-sy/bslinh.jpg" alt="ThS.BS Đỗ Đức Linh" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>ThS.BS Đỗ Đức Linh</h3>
+
+                                <div class="feedback-customer-text">Chuyên khoa Chẩn đoán hình ảnh, Phó Giám đốc BVĐK MEDLATEC;</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="/Content/images/bac-sy/bsanh.jpg" alt="ThS. BS Phạm Như Ánh" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>ThS. BS Phạm Như Ánh</h3>
+
+                                <div class="feedback-customer-text">Trưởng khoa Chẩn đoán hình ảnh;</div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="/Content/images/bac-sy/bstuan.png" alt="BSCKI. Vũ Thanh Tuấn" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>BSCKI. Vũ Thanh Tuấn</h3>
+
+                                <div class="feedback-customer-text">Chuyên khoa Nội Hô hấp;</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="xntn-hatt container">
+
+            <div class="choose-main">
+                <h2 class="title">Tại sao nên sử dụng dịch vụ tại Bệnh viện Đa khoa MEDLATEC</h2>
+                <div class="choose-main--row row">
+                    <div class="choose-main--col col-lg-4">
+                        <div class="choose-main--item">
+                            <div class="choose-main--icon"><img src="/Content/images/hospital.png" alt="" /></div>
+                            <div class="choose-main--desc">Bệnh viện đa khoa nhiều năm kinh nghiệm.</div>
+                        </div>
+                    </div>
+                    <div class="choose-main--col col-lg-4">
+                        <div class="choose-main--item">
+                            <div class="choose-main--icon"><img src="/Content/images/doctors.png" alt="Đội ngũ giáo sư, bác sĩ đầu ngành" /></div>
+                            <div class="choose-main--desc">Đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                        </div>
+                    </div>
+                    <div class="choose-main--col col-lg-4">
+                        <div class="choose-main--item">
+                            <div class="choose-main--icon"><img src="/Content/images/infrastructure.png" alt="" /></div>
+                            <div class="choose-main--desc">Cơ sở vật chất hiện đại</div>
+                        </div>
+                    </div>
+                    <div class="choose-main--col col-lg-4">
+                        <div class="choose-main--item">
+                            <div class="choose-main--icon"><img src="/Content/images/bill.png" alt="" /></div>
+                            <div class="choose-main--desc">Lưu trữ hồ sơ khám chữa bệnh;</div>
+                        </div>
+                    </div>
+                    <div class="choose-main--col col-lg-4">
+                        <div class="choose-main--item">
+                            <div class="choose-main--icon"><img src="/Content/images/fast.png" alt="" /></div>
+                            <div class="choose-main--desc">Đặt lịch nhanh chóng</div>
+                        </div>
+                    </div>
+                    <div class="choose-main--col col-lg-4">
+                        <div class="choose-main--item">
+                            <div class="choose-main--icon"><img src="/Content/images/dollar.png" alt="" /></div>
+                            <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                        </div>
+                    </div>
+                    <div class="xntn-service-col col-lg-12" style="margin-top:45px;">
+                        <div class="xntn-register"><a href="#dangkyngay">Đăng ký nhận ưu đãi ngay</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="xntn-step container">
+            <h2 class="title">CÁCH THỨC ĐĂNG KÝ</h2>
+            <div class="sub-content">
+                <ul class="content-step">
+                    <li><b>Cách 1:</b> Đăng ký qua trên Website/Fanpage của chương trình</li>
+                    <li><b>Cách 2:</b> Đăng ký qua app iCNM</li>
+                    <li> Bước 1: Khách hàng tải App iCNM (nếu chưa có)</li>
+                    <li> Bước 2: Click vào banner chương trình tại trang chủ</li>
+                    <li> Bước 3: Đăng ký thông tin tham gia chương trình và nhận mã ưu đãi</li>
+                    <li><b style="color:red;">Lưu ý (*)</b></li>
+                    <li> Mã chỉ có có hiệu lực sau ít nhất 4 giờ kể từ khi khách hàng nhận được mã;</li>
+                    <li> Mỗi khách hàng chỉ được lựa chọn thực hiện một trong hai gói dịch vụ dưới đây.</li>
+                    <li>
+                        <div class="xntn-register"><a href="http://icnm.vn/app">Tải ứng dụng</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @Html.Raw(TempData["msg"])
+        <div class="register-main qtk-main container" style="margin-bottom:25px;">
+
+
+            <div class="container" id="dangkyngay">
+                <h2 class="title">Ưu đãi chương trình</h2>
+                <div class="row">
+
+                    <div class="col-xl-7">
+                        @*<div class="choose-main-new">*@
+                        <div class="col-xl-12">
+                            <h3 class="title-plus title-plus-first" style="margin-bottom:10px;">Gói 1</h3>
+                        </div>
+                        <div class="col-xl-12" style="padding-top:25px;">
+                            <div class="sub-content">
+                                <ul class="content-step">
+                                    <li> - Khám chuyên khoa hô hấp miễn phí</li>
+                                    <li> - GIẢM <b>50%</b> chi phí chụp X-quang tim phổi thẳng nghiêng</li>
+                                    <li> - Giá ưu đãi: <b> 89.500 VNĐ </b> <p class="giamgia">278,000 vnđ</p> </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-12">
+                            <h3 class="title-plus title-plus-first" style="margin-bottom:10px;">Gói 2</h3>
+                        </div>
+                        <div class="col-xl-12" style="padding-top:25px;">
+                            <div class="sub-content">
+                                <ul class="content-step">
+                                    <li> - Khám chuyên khoa hô hấp miễn phí</li>
+                                    <li> - GIẢM <b>50%</b> chi phí chụp CT lồng ngực liều thấp </li>
+                                    <li> - Giá ưu đãi: <b> 349.500 VNĐ </b> <p class="giamgia">798.000 vnđ</p> </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+                        @*</div>*@
+                    </div>
+
+                    <div class="col-xl-5" style="margin-top:15px;">
+
+                        <div class="register-form">
+                            <h2>Nhanh tay lên ! <br />Bạn muốn nhận được ưu đãi</h2>
+                            <p style="color:white;text-align:center;">Lưu ý : Địa điểm sử dụng tại BVĐK MEDLATEC 42 Nghĩa Dũng - Ba Đình - Hà Nội</p>
+
+                            <div class="form-group register-name">
+
+                                <input placeholder="Họ tên (bắt buộc)" name="txtHoten" type="text" class="form-control" />
+                            </div>
+                            <div class="form-group register-phone">
+
+                                <input placeholder="Số điện thoại (bắt buộc)" name="txtdt" type="text" class="form-control" />
+                            </div>
+                            <div class="form-group register-phone">
+
+                                <h6 style="text-align:center;color:white;">Bạn chọn gói khám nào?</h6>
+                                <select id="locationCustomer" name="dllGoikham" class="form-control tab-customer--location" style="text-align-last:center;">
+
+                                    <option value="1">Gói 1 (Giá ưu đãi 89.500 vnđ)</option>
+                                    <option value="2">Gói 2 (Giá ưu đãi 349.500 vnđ)</option>
+
+
+                                </select>
+                            </div>
+                            <div class="form-group register-email">
+
+                                <h6 style="text-align:center;color:white;">Bạn chọn đi khám vào ngày?</h6>
+                                <select id="locationCustomer" name="dllNgayhen" class="form-control tab-customer--location" style="text-align-last:center;">
+                           
+                                
+                                  
+                              
+
+
+
+                                </select>
+
+                            </div>
+                            <div class="form-group register-phone">
+
+                                <h6 style="text-align:center;color:white;">Bạn chọn khung giờ?</h6>
+                                <select id="locationCustomer" name="dllGiohen" class="form-control tab-customer--location" style="text-align-last:center;">
+
+
+
+                                </select>
+                            </div>
+                            @*<div class="form-group register-comment">
+                                    <label>Ghi chú khác</label>
+                                    <textarea class="form-control" name="txtghichu" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                                </div>*@
+                       
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+    },
+
+    {
+    "@@type": "ListItem",
+    "position": 2,
+    "item": { "@@id": "https://medlatec.vn/dich-vu/xet-nghiem-lay-mau-tai-nha", "name": "@Html.Raw("Đặt lịch lấy mẫu tại nhà tin cậy nhất | Bệnh viện đa khoa Medlatec")" }
+    }
+
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>
+

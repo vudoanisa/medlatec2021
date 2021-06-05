@@ -1,0 +1,477 @@
+﻿@using MEDLATEC.BusinessLayer;
+
+@using System.Data;
+@{
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var News = (List<Cms_News>)ViewBag.News;
+    var NewsDichvu = (List<Cms_News>)ViewBag.NewsDichVu;
+    var Video = (List<Cms_Video>)ViewBag.Video;
+    var slider = (List<MEDLATEC2019.Entity.tbl_slider>)ViewBag.slider;
+}
+@section Note {
+    <title>Bệnh viện đa khoa MEDLATEC | Lấy mẫu xét nghiệm tại nhà</title>
+
+    <meta name="description" content="@Html.Raw("Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp")" />
+
+
+    <meta name="title" content="@Html.Raw("Bệnh viện đa khoa MEDLATEC | Lấy mẫu xét nghiệm tại nhà")" />
+
+    <meta name="keywords" content="@Html.Raw("Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp")" />
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn" />
+}
+
+
+
+
+<div class="banner-feature container">
+    <!--- Notice --->
+    <!--- <div class="notice-main">
+         <div class="notice-text"><a href="#" style="color:#FF0000;">NHIỆT LIỆT CHÀO MỪNG ĐẠI HỘI ĐẢNG BỘ MED GROUP LẦN THỨ NHẤT - NHIỆM KỲ 2020 - 2025</a></div>
+     </div>--->
+    <!--- End Notice --->
+
+    <div class="banner-feature--row row">
+        <div class="banner-feature--col col-xl-7">
+            <!--- Banner --->
+            <div class="banner-main">
+                <div class="banner-slider owl-carousel">
+
+                    @if (slider != null)
+                    {
+                        if (slider.Count > 0)
+                        {
+                            foreach (var data in slider)
+                            {
+                                <div class="item">
+                                    <div class="banner-item">
+                                        <a href="@data.sliderUrl"> <img class="lazyload" data-src="https://img.medlatec.vn/@data.sliderImageWeb" alt="@data.sliderTitle" /></a>
+
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+
+
+
+
+
+                </div>
+            </div>
+            <!--- End Banner --->
+        </div>
+        <div class="banner-feature--col col-xl-5">
+            <!--- Feature --->
+            <div class="feature-main container">
+                <div class="row">
+                    <div class="feature-col col-6">
+                        <div class="feature-item feature-calendar">
+                            <a href="/dat-lich-lay-mau" title="">
+
+                                <i class="feature-icon feature-icon--calendar"></i>
+                                <span class="feature-name">Đặt lịch khám, lấy mẫu</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="feature-col col-6">
+                        <div class="feature-item feature-search">
+                            <a href="/tra-cuu-ket-qua" title="Tra cứu kết quả">
+                                <i class="feature-icon feature-icon--search"></i>
+                                <span class="feature-name">Tra cứu kết quả</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="feature-col col-6">
+                        <div class="feature-item feature-currency">
+                            <a href="/bang-gia-dich-vu" title="">
+                                <i class="feature-icon feature-icon--currency"></i>
+                                <span class="feature-name">Bảng giá dịch vụ</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="feature-col col-6">
+                        <div class="feature-item feature-faq">
+                            <a href="/dat-cau-hoi" title="">
+                                <i class="feature-icon feature-icon--faq"></i>
+                                <span class="feature-name">Đặt câu hỏi</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--- End Feature --->
+        </div>
+    </div>
+</div>
+
+<div class="news-box">
+    <div class="container">
+        <div class="news-box--wrapper">
+            <div class="news-box--row row">
+                <div class="news-box--col col-lg-4">
+                    <div class="news-box--left row">
+                        <div class="news-box--img col-6 col-lg-12">
+                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsDichvu[0].NewsName.ToString().ToLower(),"s"+@NewsDichvu[0].CateId.ToString() ,"n"+@NewsDichvu[0].NewsId.ToString())" title="@NewsDichvu[0].NewsName.ToString()">
+                                <img   class="lazyload" data-src="@CMS_Core.Common.Common.GetPathImage(NewsDichvu[0].newsImagesweb.ToString()) " alt="@NewsDichvu[0].NewsName.ToString()" />
+                            </a>
+                        </div>
+                        <div class="news-box--content col-6 d-block d-lg-none">
+                            <h3>
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsDichvu[0].NewsName.ToString().ToLower() ,"s"+@NewsDichvu[0].CateId.ToString() ,"n"+@NewsDichvu[0].NewsId.ToString())" title="@NewsDichvu[0].NewsName.ToString()">
+                                    @NewsDichvu[0].NewsName.ToString()
+                                </a>
+                            </h3>
+                            <div class="news-date"><i class="news-calendar"></i>Ngày @NewsDichvu[0].DateCreate.ToString("dd/MM/yyyy")</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-box--col col-lg-8">
+                    <div class="news-box--list">
+                        @if (NewsDichvu.Count > 0)
+                        {
+                            <div class="news-box--item news-box--first d-none d-lg-block">
+                                <h3 class="news-ud">
+                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsDichvu[0].NewsName.ToString().ToLower(),"s"+@NewsDichvu[0].CateId.ToString() ,"n"+@NewsDichvu[0].NewsId.ToString())" title="@NewsDichvu[0].NewsName.ToString()">
+                                        @NewsDichvu[0].NewsName.ToString()
+                                    </a>
+                                </h3>
+                                <div class="new-desc">@NewsDichvu[0].NewsDescription.ToString()</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày @NewsDichvu[0].DateCreate.ToString("dd/MM/yyyy")</div>
+                            </div>
+
+
+
+                            for (int i = 1; i < 5; i++)
+                            {
+                                <div class="news-box--item">
+                                    <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsDichvu[i].NewsName.ToString().ToLower(),"s"+@NewsDichvu[i].CateId.ToString(),"n"+@NewsDichvu[i].NewsId.ToString())" title="@NewsDichvu[i].NewsName.ToString()">@NewsDichvu[i].NewsName.ToString()</a></h3>
+                                </div>
+                            }
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--- Service -->
+<div class="service-main container">
+    <h2 class="line-title">Các dịch vụ y tế MEDLATEC cung cấp</h2>
+    <div class="service-list">
+        <div class="service-row row">
+            <div class="service-col col-6 col-lg-4">
+                <div class="service-item">
+                    <a href="https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep" title="Khám sức khẻo doanh nghiệp">
+
+                        <div class="service-icon"><img src="/Content/images/service-1.png" alt="Khám sức khoẻ cho doanh nghiệp" /></div>
+                        <h3 class="service-title">Khám sức khoẻ cho doanh nghiệp</h3>
+                        <p>Trung tâm xét nghiệm đạt tiêu chuẩn quốc tế ISO 15189:2012...</p>
+                    </a>
+                </div>
+            </div>
+            <div class="service-col col-6 col-lg-4">
+                <div class="service-item">
+                    <a href="https://medlatec.vn/dich-vu/xet-nghiem-lay-mau-tai-nha" title="Lấy mẫu xét nghiệm tận nơi">
+                        <div class="service-icon"><img src="/Content/images/service-2.png" alt="Lấy mẫu xét nghiệm tận nơi" /></div>
+                        <h3 class="service-title">Lấy mẫu xét nghiệm tận nơi</h3>
+                        <p>Giúp tiết kiệm thời gian, chi phí, không phải chờ đợi, không phải lo ...</p>
+                    </a>
+                </div>
+            </div>
+            <div class="service-col col-6 col-lg-4">
+                <div class="service-item">
+                    <a href="https://medlatec.vn/dich-vu/bao-hiem-y-te" title="Bảo hiểm y tế">
+                        <div class="service-icon"><img src="/Content/images/service-3.png" alt="Bảo hiểm y tế" /></div>
+                        <h3 class="service-title">Bảo hiểm y tế</h3>
+                        <p>Giảm gánh nặng chi phí cho người dân mỗi lần đi khám chữa...</p>
+                    </a>
+                </div>
+            </div>
+            <div class="service-col col-6 col-lg-4">
+                <div class="service-item">
+                    <div class="service-icon"><img src="/Content/images/service-4.png" alt="Bác sĩ gia đình" /></div>
+                    <h3 class="service-title">Bác sĩ gia đình</h3>
+                    <p>Cung cấp dịch vụ Bác sĩ gia đình khám bệnh tại nhà</p>
+                </div>
+            </div>
+            <div class="service-col col-6 col-lg-4">
+                <div class="service-item">
+                    <div class="service-icon"><img src="/Content/images/service-5.png" alt="Khám chữa bệnh chủ động" /></div>
+                    <h3 class="service-title">Khám chữa bệnh chủ động</h3>
+                    <p>MEDLATEC phát triển đầy đủ các chuyên khoa: Nội, ngoại, sản, nhi, Gan mật...</p>
+                </div>
+            </div>
+            <div class="service-col col-6 col-lg-4">
+                <div class="service-item">
+                    <div class="service-icon"><img src="/Content/images/service-6.png" alt="Hội chẩn chuyên gia trong và ngoài nước" /></div>
+                    <h3 class="service-title">Hội chẩn chuyên gia trong và ngoài nước</h3>
+                    <p>Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--- End Service -->
+<!--- Specialist --->
+<div class="specialist-main">
+    <div class="container">
+        <h2 class="line-title">Các chuyên khoa y tế tại MEDLATEC</h2>
+        <div class="specialist-list">
+            <div class="specialist-list--row row">
+                <div class="specialist-list--col col-lg-4">
+                    <ul>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/chuyen-khoa-noi"><span class="specialist-icon"><img src="/Content/images/specialist-1.png" alt="Chuyên khoa nội" /></span>Chuyên khoa nội</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/ung-buou"><span class="specialist-icon"><img src="/Content/images/specialist-2.png" alt="Ung bướu" /></span>Ung bướu</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/san-khoa"><span class="specialist-icon"><img src="/Content/images/specialist-3.png" alt="Sản khoa" /></span>Sản khoa</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/trung-tam-xet-nghiem"><span class="specialist-icon"><img src="/Content/images/specialist-4.png" alt="Xét nghiệm" /></span>Xét nghiệm</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/chan-doan-hinh-anh"><span class="specialist-icon"><img src="/Content/images/specialist-5.png" alt="Chẩn đoán hình ảnh" /></span>Chẩn đoán hình ảnh</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/ngoai-khoa"><span class="specialist-icon"><img src="/Content/images/specialist-6.png" alt="Khoa ngoại" /></span>Khoa ngoại</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="specialist-list--col col-lg-4">
+                    <ul>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/tieu-hoa"><span class="specialist-icon"><img src="/Content/images/specialist-7.png" alt="Tiêu hóa" /></span>Tiêu hóa</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/tim-mach"><span class="specialist-icon"><img src="/Content/images/specialist-8.png" alt="Tim mạch" /></span>Tim mạch</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/noi-tiet"><span class="specialist-icon"><img src="/Content/images/specialist-9.png" alt="Nội tiết" /></span>Nội tiết</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/nam-khoa"><span class="specialist-icon"><img src="/Content/images/specialist-10.png" alt="Nam khoa" /></span>Nam khoa</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/co-xuong-khop"><span class="specialist-icon"><img src="/Content/images/specialist-11.png" alt="Xương khớp" /></span>Xương khớp</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/truyen-nhiem"><span class="specialist-icon"><img src="/Content/images/specialist-12.png" alt="Truyền nhiễm" /></span>Truyền nhiễm</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="specialist-list--col col-lg-4">
+                    <ul>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/than-kinh"><span class="specialist-icon"><img src="/Content/images/specialist-13.png" alt="Thần kinh" /></span>Thần kinh</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/nhi-khoa"><span class="specialist-icon"><img src="/Content/images/specialist-14.png" alt="Khoa nhi" /></span>Khoa nhi</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/chuyen-khoa-mat"><span class="specialist-icon"><img src="/Content/images/specialist-15.png" alt="Chuyên khoa mắt" /></span>Chuyên khoa mắt</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/tai-mui-hong"><span class="specialist-icon"><img src="/Content/images/specialist-16.png" alt="Tai mũi họng" /></span>Tai mũi họng</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/da-lieu"><span class="specialist-icon"><img src="/Content/images/specialist-17.png" alt="Da liễu" /></span>Da liễu</a>
+                        </li>
+                        <li>
+                            <a href="https://medlatec.vn/chuyen-khoa/rang-ham-mat"><span class="specialist-icon"><img src="/Content/images/specialist-18.png" alt="Răng hàm mặt" /></span>Răng hàm mặt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="specialist-more news-more d-block d-lg-none">
+            <a href="https://medlatec.vn/chuyen-khoa">Xem tất cả</a>
+        </div>
+    </div>
+</div>
+<!--- End Specialist --->
+<!--- Doctor --->
+<!--- End Doctor --->
+<!--- FAQ --->
+<!--- End FAQ --->
+<!--- Video --->
+<!--- End Video --->
+<!--- News --->
+<div class="news-main container">
+    <h2 class="main-title">Tin tức</h2>
+
+
+
+    <div class="news-list">
+        <div class="news-list--row row">
+            @if (News != null)
+            {
+                if (News.Count > 0)
+                {
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        <div class="news-list--col col-lg-6">
+                            <div class="news-item row">
+                                <div class="news-col col-6">
+                                    <div class="news-item--img">
+                                        @*<a href="News/NewsDetails?cateid=@News[i].CateId.ToString()&newsid=@News[i].NewsId.ToString()" title=""><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>*@
+
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", News[i].NewsName.ToString().ToLower(), "s" + @News[i].CateId.ToString(), "n" + @News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()">
+                                        <img class="lazyload" data-src="@CMS_Core.Common.Common.GetPathImage(News[i].newsImagesweb.ToString())" alt="@News[i].NewsName.ToString()" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="news-col col-6">
+                                    <div class="news-content">
+                                        <h3 class="news-title"> <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", News[i].NewsName.ToString().ToLower(), "s" + @News[i].CateId.ToString(), "n" + @News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()">@News[i].NewsName.ToString()</a></h3>
+                                        <div class="new-desc d-none d-xl-block">@News[i].NewsDescription.ToString()</div>
+                                        <div class="news-date"><i class="news-calendar"></i>Ngày @News[i].DateCreate.ToString("dd/MM/yyyy")   </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="news-more">
+        <a href="https://medlatec.vn/tin-tuc">Xem tất cả</a>
+    </div>
+</div>
+
+
+
+<div class="news-main container">
+    <h2 class="main-title">Video</h2>
+
+
+
+    <div class="news-list">
+        <div class="news-list--row row">
+            @if (Video.Count > 0)
+            {
+
+                for (int i = 0; i < 4; i++)
+                {
+
+                    <div class="news-list--col col-lg-6">
+                        <div class="news-item row">
+                            <div class="news-col col-6">
+                                <div class="news-item--img">
+                                  
+                                    @if (Video[i].VideoImageThumb != null)
+                                    {
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",Video[i].VideoName,Video[i].vId.ToString(),Video[i].videoId.ToString())">
+
+                                            <img class="lazyload" data-src="@CMS_Core.Common.Common.GetPathImage(Video[i].VideoFileWeb.ToString()) " alt="@Video[i].VideoName"   style="height:140px;">
+                                        </a>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="news-col col-6">
+                                <div class="news-content">
+                                    <h3 class="news-title">
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",Video[i].VideoName,Video[i].vId.ToString(),Video[i].videoId.ToString())">
+                                            
+                                            @Video[i].VideoName.ToString()
+                                        </a>
+                                    </h3>
+                                    <div class="new-desc d-none d-xl-block">@Video[i].VideoDescription.ToString()</div>
+                                    <div class="news-date"><i class="news-calendar"></i>Ngày @Video[i].dateCreate.ToString("dd/MM/yyyy")</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div class="news-more">
+        <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q">Khám phá kênh Youtube của MEDLATEC</a>
+    </div>
+</div>
+
+
+<script type="application/ld+json">
+    {
+    "@@context": "https://schema.org",
+    "@@type": "FAQPage",
+    "Name": "Bệnh viện đa Khoa Medlatec - Câu hỏi thường gặp",
+    "mainEntity": [{
+    "@@type": "Question",
+    "name": "Địa chỉ Bệnh viện hoặc phòng khám Medlatec ở đâu? ",
+    "answerCount": 1,
+    "acceptedAnswer": {
+    "@@type": "Answer",
+    "text": "Danh sách các Bệnh viện, Phòng khám của Medlatec:
+    <ul>
+        <li>Bệnh viện Đa khoa MEDLATEC: 42 Nghĩa Dũng, Ba Đình, Hà Nội</li>
+        <li>Phòng khám Đa khoa MEDLATEC Tây Hồ: 99 Trích Sài, Tây Hồ, Hà Nội</li>
+        <li>Phòng khám Đa khoa MEDLATEC Thanh Xuân: Số 5 Khuất Duy Tiến, Thanh Xuân Bắc, Thanh Xuân, Hà Nội</li>
+        <li>Phòng khám Đa khoa MEDLATEC Thành phố Hồ Chí Minh: 98 Thích Quảng Đức, Phường 05, Quận Phú Nhuận, Thành phố Hồ Chí Minh</li>
+    </ul>
+    <p>Ngoài các cơ sở khám chữa bệnh trực tiếp trên. Bệnh viện Đa khoa Meldatec còn có hệ thống hơn 30 văn phòng lấy mẫu tại Hà Nội và các tỉnh. Xem chi tiết <a href='https://medlatec.vn/tin-tuc/cap-nhat-thong-tin-chuoi-chi-nhanh-cac-tinh-cua-medlatec-s1-n10961'>Tại đây</a> </p>
+    "
+    }
+    }, {
+    "@@type": "Question",
+    "name": "Bệnh viện đa khoa Medlatec có khám bảo hiểm không?",
+    "answerCount": 2,
+    "acceptedAnswer": {
+    "@@type": "Answer",
+    "text": "Bệnh viện đa khoa Medlatec có khám chữa bệnh thông tuyến bằng bảo hiểm y tế tại địa chỉ: 42 Nghĩa Dũng, Ba Đình, Hà Nội.</br> Bạn có thể tham khảo thông tin chi tiết
+    <a href='https://medlatec.vn/dich-vu/bao-hiem-y-te'>Khám bảo hiểm y tế</a> Tại Medlatec"
+    }
+    }, {
+    "@@type": "Question",
+    "name": "Tôi muốn đăng ký khám tại bệnh viện đa khoa Medlatec?",
+    "answerCount": 3,
+    "acceptedAnswer": {
+    "@@type": "Answer",
+    "text": "Bạn có thể đăng ký khám tại bệnh viện đa khoa Medlatec qua website của bệnh viện hoặc gọi điện đặt lịch theo số hotline: 1900565656."
+    }
+    },{
+    "@@type": "Question",
+    "name": "Tôi muốn lấy mẫu xét nghiệm tại nhà thì làm sao?",
+    "answerCount": 4,
+    "acceptedAnswer": {
+    "@@type": "Answer",
+    "text": "Bạn có thể điền thông đăng ký
+    <a href='https://medlatec.vn/dat-lich-lay-mau'>đặt lịch lấy mẫu xét nghiệm</a> tại nhà, nhân viên Medlatec sẽ liên hệ để đến nhà lấy mẫu xét nghiệm </br>
+    Hoặc gọi điện đặt lịch theo số hotline: 1900565656"
+    }
+    }, {
+    "@@type": "Question",
+    "name": "Giờ làm việc của bệnh viện đa khoa Medlatec?",
+    "answerCount": 5,
+    "acceptedAnswer": {
+    "@@type": "Answer",
+    "text": "Bệnh viện đa khoa Medlatec khám chữa bệnh từ 7h đến 17h các ngày trong tuần.
+    Ngoài ra còn trực cấp cứu 24/7."
+    }
+    }, {
+    "@@type": "Question",
+    "name": "Có ưu đãi gì khi đến khám tại bệnh viện đa khoa Medlatec?",
+    "answerCount": 6,
+    "acceptedAnswer": {
+    "@@type": "Answer",
+    "text": "Bệnh viện đa khoa Medlatec có nhiều chương trình ưu đãi khác nhau. Bạn có thể tham Chi tiết các
+    <a href='https://medlatec.vn/tin-tuc/uu-dai-dac-biet-s120'>chương trình khuyến mãi</a>"
+    }
+    }]
+    }
+</script>
+<!--- End News --->

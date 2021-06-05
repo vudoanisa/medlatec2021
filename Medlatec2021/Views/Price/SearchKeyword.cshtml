@@ -1,0 +1,212 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@model  MEDLATEC2019.Models.MPTXViewModel
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Price = (List<Cms_Price>)ViewBag.Price;
+    var page = (int)ViewBag.page;
+    var News = (List<Cms_News>)ViewBag.News;
+
+    var Total = (List<Cms_Price>)ViewBag.Total;
+
+    var Tukhoa = (string)ViewBag.Tukhoa;
+    var TukhoaLink = (string)ViewBag.TukhoaLink;
+
+
+
+}
+
+
+<link href="/Content/css/bootstrap-select.css" rel="stylesheet" />
+<link rel="stylesheet" href="/Content/css/select2.css" />
+
+
+<script src="/Content/js/jquery-3.3.1.min.js"></script>
+<script src="/Content/js/bootstrap.min.js"></script>
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('.select2').select2()
+    });
+
+
+</script>
+
+<script src="/Content/js/bootstrap-select.js"></script>
+
+
+
+@using (Html.BeginForm("SearchKeyword", "Price", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @section Note {
+
+
+        @{
+            string pageview = "";
+            string urlpage = "";
+            string tukhoa = "";
+            string urltukhoa = "";
+            if (Tukhoa != null)
+            {
+                tukhoa = "" + Tukhoa;
+                urltukhoa = TukhoaLink;
+
+            }
+            if (page == 1)
+            {
+
+            }
+            else
+            {
+                pageview = " | Trang " + page.ToString();
+                urlpage = "/" + page.ToString();
+            }
+        }
+
+
+        <title>BẢNG GIÁ DỊCH VỤ @Html.Raw(tukhoa.ToUpper()) | BỆNH VIỆN ĐA KHOA MEDLATEC  @pageview</title>
+
+
+
+        <meta name="description" content="@Html.Raw("Bảng giá dịch vụ "+ @Html.Raw(tukhoa)+" năm 2019 tại Meldatec là thông tin chi tiết về giá khám các dịch vụ tại Bệnh viện đa khoa Medlatec để Quý khách hàng có thể tham khảo. Với tiêu chí lấy khách hàng là trung tâm, Medlatec luôn mong muốn mang đến cho người dân Việt Nam một địa chỉ chăm sóc sức khỏe uy tín, với mức giá hợp lý."+ pageview + tukhoa)" />
+
+
+        <meta name="title" content="Bảng giá dịch vụ @Html.Raw(tukhoa) | Medlatec @pageview " />
+
+
+        <meta name="keywords" content="@Html.Raw("Bảng giá dịch vụ "+@Html.Raw(tukhoa)+" năm 2019 tại Meldatec là thông tin chi tiết về giá khám các dịch vụ tại Bệnh viện đa khoa Medlatec để Quý khách hàng có thể tham khảo. Với tiêu chí lấy khách hàng là trung tâm, Medlatec luôn mong muốn mang đến cho người dân Việt Nam một địa chỉ chăm sóc sức khỏe uy tín, với mức giá hợp lý."+ pageview + tukhoa)" />
+
+
+
+        <meta name="robots" content="index,follow,all">
+        <link rel="canonical" href="@Html.Raw("https://medlatec.vn/bang-gia-dich-vu/s/"+@urltukhoa + @urlpage)" />
+    }
+
+
+    @Html.Raw(TempData["msg"])
+
+    if (Price != null)
+    {
+        <div class="breadcrumb-container container">
+            <ul class="clearfix">
+                <li><a href="https://medlatec.vn">Trang chủ</a></li>
+                <li><span>Bảng giá dịch vụ</span></li>
+            </ul>
+        </div>
+
+        <div class="price-service container">
+            <h2>Bảng giá dịch vụ</h2>
+            <div class="price-service--note">Quý khách gọi hotline 1900 565656 để biết thêm chi tiết</div>
+            <form class="service-search">
+                <div class="service-search--row row">
+                    <div class="service-search--col col-md-12">
+                        <div class="service-search--wrapper clearfix">
+                            @Html.DropDownListFor(m => m.Dichvu, this.ViewBag.GetDichvu as List<SelectListItem>, new { @class = "form-control select2", style = "height: 42px; float: left;border: none;width: -webkit-calc(100% - 90px); width: -moz - calc(100 % -90px); width: calc(100 % -90px);background: 0 0;  padding: 8px 8px 9px; line - height: 22px;  font - size: 16px;  " })
+
+
+                            @*<input type="text" name="txttimkiem" placeholder="Tra cứu dịch vụ" />*@
+                            <button type="submit" name="submit" value="SaveAdd" class="btn-form--submit">Tra cứu</button>
+                        </div>
+                    </div>
+                    <div class="service-search--col col-md-5">
+
+                    </div>
+                </div>
+            </form>
+            <div class="service-table" style="max-height:none;">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Tên dịch vụ</th>
+                            <th scope="col">Giá dịch vụ<br />VNĐ</th>
+                            <th scope="col">Giá BHYT<br />VNĐ</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Price.Count > 0)
+                        {
+                            for (int i = 0; i < Price.Count; i++)
+                            {
+                                <tr>
+                                    <th scope="row">@(i + 1)</th>
+                                    <td>@Price[i].TenCP1.ToString()</td>
+                                    <td>@String.Format("{0:0,0}", float.Parse(Price[i].DG1.ToString()))</td>
+                                    <td style="color: #333;font-weight: 400;">@String.Format("{0:0,0}", float.Parse(Price[i].DGBH.ToString()))</td>
+
+                                </tr>
+                            }
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="container" style="margin:25px 0 25px;">
+                @{
+                    string urltukhoa = "";
+                    if (Tukhoa != null)
+                    {
+
+                        urltukhoa = TukhoaLink;
+                        @Html.Raw(Common.buildUrlbanggia("https://medlatec.vn/bang-gia-dich-vu/s/" + @urltukhoa, page, Total[0].Total, 15))
+                    }
+
+                }
+
+
+
+            </div>
+            @*<div class="price-service--more"><a href="#">Xem thêm dịch vụ</a></div>*@
+        </div>
+    }
+    <div class="news-main container news-schedule">
+        <h2 class="main-title">Tin tức mới</h2>
+        <div class="news-list">
+            <div class="news-list--row row">
+                @if (@News.Count > 0)
+                {
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        <div class="news-list--col col-lg-6">
+                            <div class="news-item row">
+                                <div class="news-col col-6">
+                                    <div class="news-item--img">
+                                        @*<a href="News/NewsDetails?cateid=@News[i].CateId.ToString()&newsid=@News[i].NewsId.ToString()" title=""><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>*@
+
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+ @News[i].CateId.ToString() , "n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()"><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>
+                                    </div>
+                                </div>
+                                <div class="news-col col-6">
+                                    <div class="news-content">
+                                        <h3 class="news-title"> <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+@News[i].CateId.ToString(),"n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()">@News[i].NewsName.ToString()</a></h3>
+                                        <div class="new-desc d-none d-xl-block">@News[i].NewsDescription.ToString()</div>
+                                        <div class="news-date"><i class="news-calendar"></i>Ngày @News[i].DateCreate.ToString("dd/MM/yyyy")   </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            </div>
+        </div>
+
+        <div class="news-more">
+            <a href="https://medlatec.vn/tin-tuc/y-khoa-medlatec-s28">Xem tất cả</a>
+        </div>
+    </div>
+
+
+}

@@ -1,0 +1,300 @@
+﻿
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>@ViewBag.Title BẢNG GIÁ DỊCH VỤ | BỆNH VIỆN ĐA KHOA MEDLATEC</title>
+
+<div class="breadcrumb-container container">
+    <ul class="clearfix">
+        <li><a href="https://medlatec.vn">Trang chủ</a></li>
+        <li><span>Bảng giá dịch vụ</span></li>
+    </ul>
+</div>
+
+<div class="price-service container">
+    <h2>Bảng giá dịch vụ</h2>
+    <div class="price-service--note">Quý khách gọi hotline 1900 565656 để biết thêm chi tiết</div>
+    @*<form class="service-search">
+        <div class="service-search--row row">
+            <div class="service-search--col col-md-7">
+                <div class="service-search--wrapper clearfix">
+                    <input type="text" placeholder="Tra cứu dịch vụ" />
+                    <button>Tra cứu</button>
+                </div>
+            </div>
+            <div class="service-search--col col-md-5">
+                <select class="service-search--select">
+                    <option value="">AFB trực tiếp nhuộm Ziehl-Neelsen</option>
+                </select>
+            </div>
+        </div>
+    </form>*@
+    <div class="service-table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên dịch vụ</th>
+                    <th scope="col">Giá tiền<br />VNĐ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">10</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">11</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">12</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>AMH DxI800</td>
+                    <td>99.000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="price-service--more"><a href="#">Xem thêm dịch vụ</a></div>
+</div>
+
+<!--- Service --->
+@*<div class="doctor-main service-main container">
+    <h2 class="main-title">Các gói dịch vụ</h2>
+    <div class="doctor-slider owl-carousel">
+        <div class="item">
+            <div class="doctor-item">
+                <div class="doctor-img">
+                    <a href="#"><img src="images/service.png" alt="" /></a>
+                </div>
+                <h3 class="doctor-title">
+                    <a href="#">Gói khám thai</a>
+                </h3>
+                <p>Hướng tới việc chăm sóc, tư vấn đầy đủ và toàn diện cho sức khỏe của...</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="doctor-item">
+                <div class="doctor-img">
+                    <a href="#"><img src="images/service.png" alt="" /></a>
+                </div>
+                <h3 class="doctor-title">
+                    <a href="#">Gói khám thai</a>
+                </h3>
+                <p>Hướng tới việc chăm sóc, tư vấn đầy đủ và toàn diện cho sức khỏe của...</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="doctor-item">
+                <div class="doctor-img">
+                    <a href="#"><img src="images/service.png" alt="" /></a>
+                </div>
+                <h3 class="doctor-title">
+                    <a href="#">Gói khám thai</a>
+                </h3>
+                <p>Hướng tới việc chăm sóc, tư vấn đầy đủ và toàn diện cho sức khỏe của...</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="doctor-item">
+                <div class="doctor-img">
+                    <a href="#"><img src="images/service.png" alt="" /></a>
+                </div>
+                <h3 class="doctor-title">
+                    <a href="#">Gói khám thai</a>
+                </h3>
+                <p>Hướng tới việc chăm sóc, tư vấn đầy đủ và toàn diện cho sức khỏe của...</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="doctor-item">
+                <div class="doctor-img">
+                    <a href="#"><img src="images/service.png" alt="" /></a>
+                </div>
+                <h3 class="doctor-title">
+                    <a href="#">Gói khám thai</a>
+                </h3>
+                <p>Hướng tới việc chăm sóc, tư vấn đầy đủ và toàn diện cho sức khỏe của...</p>
+            </div>
+        </div>
+    </div>
+</div>*@
+<!--- End Service --->
+
+@*<div class="register-main container">
+    <div class="register-wrapper">
+        <div class="register-row row">
+            <div class="register-col col-lg-6">
+                <div class="register-form">
+                    <h2>Đăng ký khám, tư vấn</h2>
+                    <form method="" action="">
+                        <div class="form-group register-name">
+                            <label>Họ và tên <i>(*)</i></label>
+                            <input value="" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group register-phone">
+                            <label>Số điện thoại <i>(*)</i></label>
+                            <input value="" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group register-email">
+                            <label>Email</label>
+                            <input value="" class="form-control" type="email" />
+                        </div>
+                        <div class="form-group register-comment">
+                            <label>Ghi chú khác</label>
+                            <textarea class="form-control" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                        </div>
+                        <div class="form-group form-group--btn">
+                            <button>Đăng ký</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="register-col col-lg-6 d-none d-lg-block">
+                <div class="choose-main">
+                    <h2 class="line-title">Tại sao nên chọn bệnh viện đa khoa MEDLATEC</h2>
+                    <div class="choose-main--row row">
+                        <div class="choose-main--col col-lg-6">
+                            <div class="choose-main--item">
+                                <div class="choose-main--icon"><img src="images/hospital.png" alt="" /></div>
+                                <div class="choose-main--desc">Bệnh viện đa khoa với nhiều năm kinh nghiệm trong lĩnh vực y tế.</div>
+                            </div>
+                        </div>
+                        <div class="choose-main--col col-lg-6">
+                            <div class="choose-main--item">
+                                <div class="choose-main--icon"><img src="images/doctors.png" alt="" /></div>
+                                <div class="choose-main--desc">Thăm khám bởi đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                            </div>
+                        </div>
+                        <div class="choose-main--col col-lg-6">
+                            <div class="choose-main--item">
+                                <div class="choose-main--icon"><img src="images/infrastructure.png" alt="" /></div>
+                                <div class="choose-main--desc">Cơ sở vật chất, máy móc trang thiết bị hiện đại</div>
+                            </div>
+                        </div>
+                        <div class="choose-main--col col-lg-6">
+                            <div class="choose-main--item">
+                                <div class="choose-main--icon"><img src="images/bill.png" alt="" /></div>
+                                <div class="choose-main--desc">Áp dụng thanh toán bảo hiểm y tế và các bảo hiểm khác lên tới 100%</div>
+                            </div>
+                        </div>
+                        <div class="choose-main--col col-lg-6">
+                            <div class="choose-main--item">
+                                <div class="choose-main--icon"><img src="images/fast.png" alt="" /></div>
+                                <div class="choose-main--desc">Quy trình khám chữa bệnh nhanh chóng, thuận tiện</div>
+                            </div>
+                        </div>
+                        <div class="choose-main--col col-lg-6">
+                            <div class="choose-main--item">
+                                <div class="choose-main--icon"><img src="images/dollar.png" alt="" /></div>
+                                <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<!--- FAQ --->
+@*<div class="faq-main service-faq">
+    <div class="container clearfix">
+        <div class="faq-wrapper">
+            <h2 class="faq-title">Nhận tư vấn miễn phí từ các bác sĩ, chuyên gia y tế</h2>
+            <div class="faq-quest"><a href="#">Đặt câu hỏi</a></div>
+            <div class="faq-list">
+                <ul>
+                    <li><a href="#">Hỏi đáp chỉ số xét nghiệm máu</a></li>
+                    <li><a href="#">Đọc kết quả siêu âm</a></li>
+                    <li><a href="#">Hiếm muộn</a></li>
+                </ul>
+                <div class="faq-more"><a href="#">Xem thêm</a></div>
+            </div>
+        </div>
+    </div>
+</div>*@
+<!--- End FAQ --->

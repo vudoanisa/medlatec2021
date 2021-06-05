@@ -1,0 +1,499 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    /**/
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Note {
+
+    <title>@Html.Raw("Chương trình miễn phí Khám và Siêu âm phát hiện bệnh lý tuyến giáp | Bệnh viện đa khoa Medlatec")</title>
+    <meta name="description" content="@Html.Raw("Với mong muốn giúp người dân nâng cao ý thức phòng bệnh, cũng như cơ hội kiểm tra và phát hiện sớm bệnh lý tuyến giáp, đặc biệt là ung thư tuyến giáp, Bệnh viện Đa khoa MEDLATEC tổ chức chương trình: Miễn phí Khám và Siêu âm phát hiện bệnh lý tuyến giáp.")" />
+    <meta property="og:description" content="@Html.Raw("Với mong muốn giúp người dân nâng cao ý thức phòng bệnh, cũng như cơ hội kiểm tra và phát hiện sớm bệnh lý tuyến giáp, đặc biệt là ung thư tuyến giáp, Bệnh viện Đa khoa MEDLATEC tổ chức chương trình: Miễn phí Khám và Siêu âm phát hiện bệnh lý tuyến giáp.")" />
+    <meta property="og:title" content="@Html.Raw("Chương trình miễn phí Khám và Siêu âm phát hiện bệnh lý tuyến giáp | Bệnh viện đa khoa Medlatec")" />
+    <meta name="keywords" content="@Html.Raw("tuyến giáp, siêu âm, siêu âm tuyến giáp, medlatec")" />
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/banner/kham-va-sieu-am-benh-ly-tuyen-giap.jpg" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/banner/kham-va-sieu-am-benh-ly-tuyen-giap.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/kham-sieu-am-cac-benh-ly-tuyen-giap" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/kham-sieu-am-cac-benh-ly-tuyen-giap" />
+    <script type="text/javascript">
+        if (window.location.protocol == "http:") {
+            var restOfUrl = window.location.href.substr(5);
+            restOfUrl = restOfUrl.replace("www.", "");
+            window.location = "https:" + restOfUrl;[w]
+        }
+    </script>
+
+}
+@using (Html.BeginForm("LandingTuyengiap", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><span>Chương trình khám và siêu âm bệnh lý tuyến giáp</span></li>
+        </ul>
+    </div>
+
+    <div class="banner-skdn container">
+        <div class="banner-main">
+            <div class="banner-slider owl-carousel">
+                <div class="item">
+                    <div class="banner-item">
+                        <a href="#dangkyngay"> <img src="https://medlatec.vn/Content/images/banner/kham-va-sieu-am-benh-ly-tuyen-giap.jpg" alt="Chương trình khám và siêu âm bệnh lý tuyến giáp" /></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="xntn-main">
+        <div class="xntn-service container">
+            <h3 class="title-plus title-plus-first">Bệnh lý tuyến giáp - Kiểm tra hôm nay, An tâm sức khỏe ngày mai</h3>
+            <div class="sub-content">
+                <ul>
+                    <li>Tuyến giáp có vai trò quan trọng là cơ quan sản xuất ra các hormone giúp điều hòa cơ thể (chuyển hóa dinh dưỡng thành năng lượng), kiểm soát nhịp tim, nhiệt độ cơ thể.</li>
+                    <li>Ung thư tuyến giáp là bệnh lý phổ biến trong các bệnh nội tiết, bệnh thường gặp ở phụ nữ trong độ tuổi từ 20-50 và thường không có biểu hiện rõ ràng, bệnh tiến triển từ từ, thầm lặng, nhưng hoàn toàn có thể điều trị khỏi khi phát hiện sớm qua kiểm tra sức khỏe định kỳ.</li>
+                </ul>
+            </div>
+            <h3 class="title-plus">Lợi ích của siêu âm tuyến giáp trong phát hiện bệnh lý tuyến giáp</h3>
+            <div class="sub-content">
+                <div class="qtk-medlatec row">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="qtk-item">
+                            <div class="qtk-row">
+                                <span class="qtk-number">01</span>
+                                <span class="qtk-content">Xác định chính xác vị trí, hình dạng và kích thước của tuyến giáp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="qtk-item">
+                            <div class="qtk-row">
+                                <span class="qtk-number">02</span>
+                                <span class="qtk-content">Phát hiện các bất thường về cấu trúc của tuyến giáp (nhân giáp, nang giáp,…) mà khám lâm sàng không phát hiện ra</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="qtk-item">
+                            <div class="qtk-row">
+                                <span class="qtk-number">03</span>
+                                <span class="qtk-content">Xác định một khối u ở cổ được phát sinh từ tuyến giáp hay tổ chức lân cận</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="qtk-item">
+                            <div class="qtk-row">
+                                <span class="qtk-number">04</span>
+                                <span class="qtk-content">Đánh giá đặc điểm của nhân tuyến giáp, đánh giá nguy cơ ác tính của nhân tuyến giáp (nguy cơ ung thư)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="qtk-item">
+                            <div class="qtk-row">
+                                <span class="qtk-number">05</span>
+                                <span class="qtk-content">Theo dõi sự tiến triển của u tuyến giáp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="qtk-item">
+                            <div class="qtk-row">
+                                <span class="qtk-number">06</span>
+                                <span class="qtk-content">Hướng dẫn các thủ thuật như chọc hút tế bào bằng kim nhỏ (FNA), chọc hút nang,… khi cần</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="xntn-service container">
+            <h2 class="title" style="text-align:center;">Những ai nên đi khám - siêu âm tuyến giáp</h2>
+            <div class="xntn-service-container row">
+                <div class="xntn-service-col col-lg-7">
+                    <div class="xntn-service-img"><img src="~/Content/images/banner/kham-tuyen-giap.jpg" alt="khám và siêu âm bênh lý tuyến giáp" /></div>
+                </div>
+                <div class="xntn-service-col col-lg-5">
+                    <div class="xntn-service-content">
+                        <ul>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/banner/Family.png" alt="Người có tiền sử bản thân và gia đình có người mắc bệnh lý tuyến giáp" /></span><span class="xntn-service-text">Người có tiền sử bản thân và gia đình có người mắc bệnh lý tuyến giáp, đặc biệt là phụ nữ trên 35 tuổi</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/banner/chemical.png" alt="Người điều trị bằng Iod phóng xạ" /></span><span class="xntn-service-text">Người điều trị bằng Iod phóng xạ, tiếp xúc với phóng xạ hoặc hóa chất độc hại</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/banner/su-dung-thuoc.png" alt="Xét nghiệm tầm soát ung thư" /></span><span class="xntn-service-text">Người dùng thường xuyên một số thuốc như thuốc chống trầm cảm…</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/banner/no-smoking-sign.png" alt="Xét nghiệm kiểm tra các bệnh mãn tính: đái tháo đường, viêm gan B" /></span><span class="xntn-service-text">Khẩu phần ăn thiếu iod, hút thuốc lá, thừa cân, béo phì…</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/banner/thyroid.png" alt="Khẩu phần ăn thiếu iod, hút thuốc lá, thừa cân, béo phì" /></span><span class="xntn-service-text">Những người có biểu hiện lâm sàng: Nuốt khó, khó thở, khản tiếng, đau vùng cổ, sờ thấy khối vùng cổ, sờ thấy hạch vùng cổ…</span></li>
+                            <li><span class="xntn-service-icon"><img src="/Content/images/banner/ba-bau.png" alt="Phụ nữ chuẩn bị mang bầu" /></span><span class="xntn-service-text">Phụ nữ chuẩn bị mang bầu.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="xntn-why-choose">
+            <div class="container">
+                <h2 class="title" style="text-transform:none;color:#1576C4;">Vì sao chọn dịch vụ xét nghiệm tại nhà của MEDLATEC</h2>
+                <div class="xntn-why-container row">
+
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/xntn-why-2.png" alt="Mạng lưới labo xét nghiệm đạt tiêu chuẩn quốc tế, rộng khắp các tỉnh thành trên cả nước" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Quy mô</h3>
+                                <p>Cơ sở vật chất khang trang, hiện đại</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/xntn-why-7.png" alt="Kết quả được trả tận nơi hoặc tra cứu trên website medlatec.vn và ứng dụng iCNM" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Chẩn đoán, điều trị hiệu quả</h3>
+                                <p>Trang thiết bị kỹ thuật chẩn đoán, điều trị và theo dõi bệnh hiệu quả</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="/Content/images/xntn-why-9.png" alt="Được các bác sĩ, chuyên gia hàng đầu tư vấn nếu kết quả có bất thường" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Tư vấn kết quả</h3>
+                                <p>Đội ngũ ngũ chuyên gia đầu ngành, khám và tư vấn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="register-main qtk-main container" style="margin-bottom:25px;">
+
+            <h2 class="title" style="padding-bottom:25px;text-transform:none;color:#1576C4;">Đăng ký khám và siêu âm miễn phí</h2>
+            <div class="container" id="dangkyngay">
+                <div class="row">
+                    <div class="col-xl-5">
+
+                        <div class="register-form">
+                            @*<h2>Nhanh tay lên ! <br />Bạn muốn nhận được ưu đãi</h2>
+                                <div class="col-xl-12" style="padding-left:15px; padding-right:15px;padding-top:10px;padding-bottom:15px;">
+                                    <div class="qtk-medlatec row">
+                                        <div class="col-md-3 col-xl-3 col-3" style="padding-left:5px; padding-right:5px;">
+                                            <div class="qtk-row">
+                                                <h6 style="text-align:center;color:white;">Ngày</h6>
+                                                <span class="qtk-number" style="display:block;padding-top:15px;padding-bottom:15px;width:70px;color:#1576C4;background-color:white;border-radius:6px;"><b id="ngay"></b></span>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-3 col-xl-3 col-3" style="padding-left:5px; padding-right:5px;">
+                                            <div class="qtk-row">
+                                                <div class="qtk-row">
+                                                    <h6 style="text-align:center;color:white;">Giờ</h6>
+                                                    <span class="qtk-number" style="display:block;padding-top:15px;padding-bottom:15px;width:70px;color:#1576C4;background-color:white;border-radius:6px;"><b id="gio"></b></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-xl-3 col-3" style="padding-left:5px; padding-right:5px;">
+                                            <div class="qtk-row">
+                                                <div class="qtk-row">
+                                                    <h6 style="text-align:center;color:white;">Phút</h6>
+                                                    <span class="qtk-number" style="display:block;padding-top:15px;padding-bottom:15px;width:70px;color:#1576C4;background-color:white;border-radius:6px;"><b id="phut"></b></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-xl-3 col-3" style="padding-left:5px; padding-right:5px;">
+                                            <div class="qtk-row">
+                                                <div class="qtk-row">
+                                                    <h6 style="text-align:center;color:white;">Giây</h6>
+                                                    <span class="qtk-number" style="display:block;padding-top:15px;padding-bottom:15px;width:70px;color:#1576C4;background-color:white;border-radius:6px;"><b id="giay"></b></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+
+
+                            <div class="form-group register-name">
+
+                                <input placeholder="Họ tên (bắt buộc)" name="txtHoten" type="text" class="form-control" />
+                            </div>
+                            <div class="form-group register-phone">
+
+                                <input placeholder="Số điện thoại (bắt buộc)" name="txtdt" type="text" class="form-control" />
+                            </div>
+                            <div class="form-group register-phone">
+                                <h6 style="text-align:center;color:white;">Bạn chọn nơi khám ở đâu?</h6>
+                                <select id="locationCustomer" name="dllNoihen" class="form-control tab-customer--location" style="text-align-last:center;">
+                                    <option value="ND">BVĐK MEDLATEC-42 Nghĩa Dũng</option>
+                                    <option value="TS">PKĐK MEDLATEC-99 Trích Sài</option>
+
+
+                                </select>
+                            </div>
+                            <div class="form-group register-email">
+
+                                <h6 style="text-align:center;color:white;">Bạn chọn đi khám vào ngày?</h6>
+                                <select id="locationCustomer" name="dllNgayhen" class="form-control tab-customer--location" style="text-align-last:center;"></select>
+
+                            </div>
+                            <div class="form-group register-phone">
+
+                                <h6 style="text-align:center;color:white;">Bạn chọn khung giờ?</h6>
+                                <select id="locationCustomer" name="dllGiohen" class="form-control tab-customer--location" style="text-align-last:center;"></select>
+                            </div>
+                            @*<div class="form-group register-comment">
+                                    <label>Ghi chú khác</label>
+                                    <textarea class="form-control" name="txtghichu" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                                </div>*@
+                            <div class="form-group form-group--btn">
+                                @*<button type="submit" name="submit" class="btn-form--submit" value="SaveAdd">Đăng ký ngay</button>*@
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-7">
+                        @*<div class="choose-main-new">*@
+                        <div class="col-xl-12">
+                            <h3 class="title-plus title-plus-first" style="margin-bottom:10px;margin-top:25px;">Ngoài ra có thể đăng ký qua App iCNM</h3>
+                        </div>
+
+                        <div class="col-xl-12" style="padding-top:25px;">
+
+                            <div class="sub-content">
+                                <ul class="content-step">
+                                    <li>Bước 1: Khách hàng tải App iCNM (nếu chưa có)</li>
+                                    <li>Bước 2: Click vào banner chương trình tại trang chủ</li>
+                                    <li>Bước 3: Đăng ký thông tin tham gia chương trình và nhận mã ưu đãi</li>
+                                    <li>
+                                        <div class="xntn-register"><a href="http://icnm.vn/app">Tải ứng dụng</a></div>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        @*</div>*@
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("July 31, 2019 17:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("ngay").innerHTML = days;
+        document.getElementById("gio").innerHTML = hours;
+        document.getElementById("phut").innerHTML = minutes;
+        document.getElementById("giay").innerHTML = seconds;
+        //  document.getElementById("ngay").innerHTML = days + "d " + hours + "h "
+        //   + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+
+    }, 1000);
+</script>
+
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "email":"info@medlatec.com",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>
+
+<script type="application/ld+json">
+    {
+
+    "@@context": "https://schema.org",
+
+    "@@type": "FAQPage",
+
+    "name": "Chương trình miễn phí Khám và Siêu âm phát hiện bệnh lý tuyến giáp - Những câu hỏi thường gặp",
+
+    "mainEntity": [{
+
+    "@@type": "Question",
+
+    "name": "Tại sao nên kiểm tra Bệnh lý tuyến giáp hôm nay?",
+
+    "answerCount": 1,
+
+    "acceptedAnswer": {
+
+    "@@type": "Answer",
+
+    "text": "Ung thư tuyến giáp là bệnh lý phổ biến trong các bệnh nội tiết, bệnh thường gặp ở phụ nữ trong độ tuổi từ 20-50 và thường không có biểu hiện rõ ràng, bệnh tiến triển từ từ, thầm lặng, nhưng hoàn toàn có thể điều trị khỏi khi phát hiện sớm qua kiểm tra sức khỏe định kỳ."
+
+    }
+
+    },{
+
+    "@@type": "Question",
+
+    "name": "Lợi ích của siêu âm tuyến giáp, quy trình kỹ thuật siêu âm",
+
+    "answerCount": 2,
+
+    "acceptedAnswer": {
+
+    "@@type": "Answer",
+
+    "text": "
+    <ul>
+        <li>Xác định chính xác vị trí, hình dạng và kích thước của tuyến giáp.</li>
+        <li>Phát hiện các bất thường về cấu trúc của tuyến giáp (nhân giáp, nang giáp,…) mà khám lâm sàng không phát hiện ra</li>
+        <li>Xác định một khối u ở cổ được phát sinh từ tuyến giáp hay tổ chức lân cận</li>
+        <li>Đánh giá đặc điểm của nhân tuyến giáp, đánh giá nguy cơ ác tính của nhân tuyến giáp (nguy cơ ung thư)</li>
+        <li>Theo dõi sự tiến triển của u tuyến giáp</li>
+        <li>Hướng dẫn các thủ thuật như chọc hút tế bào bằng kim nhỏ (FNA), chọc hút nang,… khi cần</li>
+    </ul>
+
+    "
+
+    }
+
+    }, {
+
+    "@@type": "Question",
+
+    "name": "Những ai nên đi khám - siêu âm tuyến giáp?",
+
+    "answerCount": 3,
+
+    "acceptedAnswer": {
+    "@@type": "Answer",
+    "text": "
+    <ul>
+        <li>Người có tiền sử bản thân và gia đình có người mắc bệnh lý tuyến giáp, đặc biệt là phụ nữ trên 35 tuổi</li>
+        <li>Người điều trị bằng Iod phóng xạ, tiếp xúc với phóng xạ hoặc hóa chất độc hại</li>
+        <li>Người dùng thường xuyên một số thuốc như thuốc chống trầm cảm…</li>
+        <li>Khẩu phần ăn thiếu iod, hút thuốc lá, thừa cân, béo phì…</li>
+        <li>Những người có biểu hiện lâm sàng: Nuốt khó, khó thở, khản tiếng, đau vùng cổ, sờ thấy khối vùng cổ, sờ thấy hạch vùng cổ…</li>
+        <li>Phụ nữ chuẩn bị mang bầu.</li>
+    </ul>
+    "
+    }
+
+    },{
+
+    "@@type": "Question",
+
+    "name": "Tôi có đăng ký khám và siêu âm miễn phí ở đâu?",
+
+    "answerCount": 4,
+
+    "acceptedAnswer": {
+
+    "@@type": "Answer",
+
+    "text": "Nhằm hỗ trợ người bệnh phát hiện các bệnh lý liên quan đến tuyến giáp sớm, Bệnh viện đa khoa Medlatec có chương trình khám và siêu âm miễn phí từ nay đến hết tháng 7/2019</br>
+    Bạn có thể tải phần mềm ICNM
+    <a href='http://icnm.vn/app'> tại đây</a> và đăng ký
+    <br />
+    Hoặc có thể đăng ký khám miễn phí
+    <a href='https://medlatec.vn/dich-vu/kham-sieu-am-cac-benh-ly-tuyen-giap#dangkyngay'>Tại Đây</a>"
+    }
+
+    }]
+
+    }
+</script>

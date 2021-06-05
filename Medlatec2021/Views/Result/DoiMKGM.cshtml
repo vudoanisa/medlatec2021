@@ -1,0 +1,86 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@{
+    ViewBag.Title = "Đổi mật khẩu đơn vị gửi mẫu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Thongtin = (List<Cms_Patient>)ViewBag.Thongtin;
+}
+
+@Html.Raw(TempData["msg"])
+@using (Html.BeginForm("DoiMKGM", "Result", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    if (Thongtin != null)
+    {
+        if (Thongtin.Count > 0)
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class="customer-container container">
+                <div class="customer-row row">
+                    <div class="customer-col customer-col-left">
+                        <div class="customer-sidebar">
+                            <div class="customer-info">
+                                <div class="customer-info-row">
+                                    <div class="customer-info-col customer-info-left">
+                                        <div class="customer-info--img"><img src="/Content/images/person-white.png" alt="" /></div>
+                                    </div>
+                                    <div class="customer-info-col customer-info-right">
+                                        <div class="customer-info--wrapper">
+
+                                            <div class="customer-info--name">@Thongtin[0].Tenbs</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="customer-col customer-col-right">
+                        <div class="customer-wrapper customer-wrapper-password">
+                            <h1 class="title">Đổi mật khẩu</h1>
+                            <div class="customer-content">
+                                <div class="customer-password">
+                                   
+                                        <div class="customer-password-row row">
+                                            <div class="customer-password-col col-md-6">
+                                                <div class="form-group">
+                                                    <label>Mật khẩu cũ</label>
+                                                    <input type="password" name="txtMkcu" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="customer-password-col col-md-6">
+                                                <div class="form-group">
+                                                    <label>Mật khẩu mới</label>
+                                                    <input type="password" name="txtmkmoi1" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="customer-password-col col-md-6">
+                                                <div class="form-group">
+                                                    <label>Nhập lại mật khẩu mới</label>
+                                                    <input type="password" name="txtmkmoi2" class="form-control" />
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="customer-password-col col-md-6">
+                                                <div class="form-group form-group--btn clearfix">
+
+                                                    <button type="submit" name="submit" value="SaveAdd" class="btn-form--submit">Đổi mật khẩu</button>
+                                                    <input id="txtmabs" name="txtmabs" value="@Thongtin[0].Mabs" type="hidden" />
+                                                </div>
+                                            </div>
+                                        </div>
+                             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+
+

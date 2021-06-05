@@ -1,0 +1,201 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var TopCauHoi = (List<Question>)ViewBag.TopCauHoi;
+
+    var DanhMucCauHoi = (List<Question>)ViewBag.DanhMucCauHoi;
+
+    var Total = (List<Question>)ViewBag.Tongcauhoi;
+
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+}
+<title>@ViewBag.Title ĐẶT CÂU HỎI | BỆNH VIỆN ĐA KHOA MEDLATEC</title>
+
+<div class="breadcrumb-container container">
+    <ul class="clearfix">
+        <li><a href="/Home/index">Trang chủ</a></li>
+        <li><a href="/hoi-dap">Tư vấn online</a></li>
+        <li><span>Hỏi đáp cùng chuyên gia</span></li>
+    </ul>
+</div>
+@if (DanhMucCauHoi != null)
+{
+    @section Note {
+        <title>Đặt câu hỏi để nhận giải đáp tư vấn về sức khoẻ từ chuyên gia Medlatec</title>
+        <meta name="description" content="Bạn đang băn khoăn về sức khoẻ của mình và người thân? Hãy đặt câu hỏi ngay để nhận được tư vấn từ cách chuyên gia sức khoẻ hàng đầu việt ban tại bệnh viên đa khoa Medlatec" />
+
+
+        <meta name="title" content="@Html.Raw("Đặt câu hỏi để nhận giải đáp tư vấn về sức khoẻ từ chuyên gia Medlatec")" />
+
+
+        <meta name="keywords" content="@Html.Raw("Bạn đang băn khoăn về sức khoẻ của mình và người thân? Hãy đặt câu hỏi ngay để nhận được tư vấn từ cách chuyên gia sức khoẻ hàng đầu việt ban tại bệnh viên đa khoa Medlatec")" />
+
+        <meta name="robots" content="index,follow,all">
+        <link rel="canonical" href="https://medlatec.vn/dat-cau-hoi" />
+
+    }
+
+
+    using (Html.BeginForm("SendQuestion", "Question", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+        @Html.AntiForgeryToken()
+        @Html.Raw(TempData["msg"]);
+        <div class="faq-page faq-form container">
+            <div class="faq-page--row row">
+                <div class="faq-page--col col-xl-3 d-none d-xl-block">
+                    <div class="service-menu">
+                        <div class="service-menu--title">Danh sách chuyên khoa</div>
+                        <ul>
+                            @if (DanhMucCauHoi != null)
+                            {
+                                for (int i = 0; i < DanhMucCauHoi.Count; i++)
+                                {
+                                    <li><a href="/@CMS_Core.Common.Common.GetURLDetailByCate("hoi-dap", @DanhMucCauHoi[i].SpecialName.ToString().ToLower(), "c" + DanhMucCauHoi[i].SpecialistID.ToString())" title="@DanhMucCauHoi[i].SpecialName.ToString().ToLower()"><img src="/Content/images/chuyen-muc-khac.png" alt="" class="service-menu--icon" />@DanhMucCauHoi[i].SpecialName.ToString()</a></li>
+
+                                }
+
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-page--col col-xl-6 col-lg-8">
+                    <div class="faq-form--wrapper">
+                        <h2>Đặt câu hỏi</h2>
+                        <div class="faq-from--note">Quý khách vui lòng điền đầy đủ thông bên dưới</div>
+
+
+                        <div class="form">
+                            <div class="form-group">
+
+                                @if (DanhMucCauHoi != null)
+                                {
+                                    <select class="form-control faq-from--select" name="dllDM">
+                                        @foreach (var danhmucVa in DanhMucCauHoi)
+                                        {
+
+
+                                            <option value="@danhmucVa.SpecialistID"> @danhmucVa.SpecialName</option>
+
+                                        }
+                                    </select>
+                                }
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="text" name="txthoten" class="form-control faq-from--name" placeholder="Họ và tên" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="txttuoi" class="form-control faq-from--age" placeholder="Tuổi" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="txtdiachi" class="form-control faq-from--address" placeholder="Địa chỉ" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="txtphone" class="form-control faq-from--phone" placeholder="Số điện thoại" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="txtemail" class="form-control faq-from--email" placeholder="Email" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="txttieude" class="form-control faq-from--subject" placeholder="Tiêu đề" />
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control faq-from--comment" name="txtcontent" placeholder="Nội dung câu hỏi"></textarea>
+                            </div>
+                         
+                            <div class="form-group form-group--btn text-center">
+                                <button type="submit" name="submit" value="SaveAdd">Đặt câu hỏi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-page--col faq-page--sidebar col-xl-3 col-lg-4">
+                    <div class="faq-sidebar">
+                        <div class="faq-answer">
+                            <img src="/Content/images/answered-question.png" alt="" />
+                            <span class="faq-answer--number">@Total[0].Total.ToString()</span>
+                            <span class="faq-answer--note">Câu hỏi đã được trả lời</span>
+                            <a class="faq-send" href="">Gửi câu hỏi</a>
+                        </div>
+
+                        <div class="faq-rating">
+                            <div class="faq-rating--title">Câu hỏi nổi bật trong tháng</div>
+                            <ul>
+                                @if (TopCauHoi != null)
+                                {
+                                    for (int i = 0; i < TopCauHoi.Count; i++)
+                                    {
+                                        <li data-number="@(i + 1)">
+                                            <div class="faq-rating--item">
+                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", @TopCauHoi[i].QuestionTitle.ToString().ToLower(), "c" + @TopCauHoi[i].SpecialistID.ToString(), "q" + @TopCauHoi[i].QuestionID.ToString())" title="@TopCauHoi[i].QuestionTitle.ToString().ToLower()">@TopCauHoi[i].QuestionTitle.ToString()</a></h3>
+                                                @*<div class="faq-rating--view">1972 lượt xem</div>*@
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-container">
+                        <div class="news-post">
+                            <h2>Tin mới nhất</h2>
+                            <div class="news-post--list">
+
+                                @for (int i = 0; i < 6; i++)
+                                {
+
+
+                                    <div class="news-post--item">
+                                        <div class="news-post--row row">
+                                            <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                <div class="news-post--img">
+                                                    @if (@TinNoiBat[i].NewsImages != null)
+                                                    {
+                                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @TinNoiBat[i].NewsName.ToString().ToLower(), "s" + @TinNoiBat[i].CateId.ToString(), "n" + @TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString()"><img src="@TinNoiBat[i].NewsImages.ToString()" alt="@TinNoiBat[i].NewsName.ToString()" /></a>
+
+                                                    }
+
+
+                                                </div>
+                                            </div>
+                                            <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                <div class="news-post--content">
+                                                    @if (@TinNoiBat[i].NewsName != null)
+                                                    {
+                                                        <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @TinNoiBat[i].NewsName.ToString().ToLower(), "s" + @TinNoiBat[i].CateId.ToString(), "n" + @TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString()">@TinNoiBat[i].NewsName.ToString()</a></h3>
+                                                    }
+
+                                                    <div class="news-post--info clearfix">
+                                                        @if (@TinNoiBat[i].DateCreate != null)
+                                                        {
+                                                            <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+               
+
+
+            </div>
+        </div>
+    }
+}
+

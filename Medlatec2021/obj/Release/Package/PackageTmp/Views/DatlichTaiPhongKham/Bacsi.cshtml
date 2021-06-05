@@ -1,0 +1,201 @@
+﻿@using MEDLATEC2019.BusinessLayer;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listDoctor = (List<DoctorWithPhongKham>)ViewBag.Doctor;
+    var listChuyenkhoa = (List<Chuyenkhoa>)ViewBag.ChuyenKhoa;
+    var param = ViewBag.Param as string;
+
+    string[] _tach = param.Split(',');
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Danh sách bác sĩ</title>
+</head>
+<body>
+    <div>
+        <div class="doctor-list-main container">
+            <div class="doctor-main--row row">
+                <div class="doctor-main-col col-lg-4 col-xl-3">
+                    <div class="find-doctor">
+                        @Html.Raw(TempData["msg"])
+                        <h3 class="find-doctor-title">Tìm</h3>
+                        <div class="form-group">
+                            <label>Tìm chuyên khoa</label>
+                            <select class="form-control find-doctor-select" id="chuyenkhoa" name="chuyenkhoa">
+                                <option value="0">Chọn chuyên khoa</option>
+                                @for (int i = 0; listChuyenkhoa != null && i < listChuyenkhoa.Count; i++)
+                                {
+                                    <option value="@listChuyenkhoa[i].SpecialistID">@listChuyenkhoa[i].SpecialName</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Thời gian</label>
+                            <input class="form-control find-doctor-date" type="text" id="find_day" value="@string.Format("{0:dd/MM/yyyy}", _tach.Length>2?DateTime.Parse(_tach[2]):DateTime.Now)" />
+                        </div>
+                        <div class="form-group form-group--btn">
+                            <input class="btn-form--submit" value="Tìm" onclick="find()" type="button" />
+                            <input type="hidden" value="@(_tach.Length>1?_tach[0]:"1")" id="phongkham" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="doctor-main-col col-lg-8 col-xl-9">
+                    <div class="doctor-main-container">
+                        <h1 class="title">Danh sách bác sỹ</h1>
+                        <div class="doctor-main-subtitle">Có tất cả @(listDoctor != null ? listDoctor.Count : 0) bác sĩ</div>
+                        <div class="doctor-main-list">
+                            @for (int i = 0; listDoctor != null && i < listDoctor.Count; i++)
+                            {
+                                var listTime = listDoctor[i].timeBS;
+
+                                <div class="doctor-main-item clearfix">
+                                    <div class="doctor-item-img"><img src="http://imgservice.icnm.vn/iCNMImage/@listDoctor[i].UserID/@listDoctor[i].Avartar" alt="" /></div>
+                                    <div class="doctor-item-info">
+                                        <div class="doctor-item-name">@listDoctor[i].Name</div>
+                                        <div class="doctor-item-job"> @(string.IsNullOrEmpty(listDoctor[i].SpecialName) ? "Tất cả" : listDoctor[i].SpecialName)</div>
+                                        <div class="doctor-item-price">Giá khám: <span>@MEDLATEC2019.Global.Utils.FormatMoney(listDoctor[i].Price).000 đ/lượt khám</span></div>
+                                        <div class="doctor-item-time clearfix">
+                                            <label>Chọn giờ khám:</label>
+                                            @for (int j = 0; listTime != null && j < listTime.Count; j++)
+                                            {
+                                                <input type="button" class="doctor-time-item " data-doctorid="@listDoctor[i].DoctorID" data-time="@listTime[j].DoctorTime" data-timeid="@listTime[j].ScheduleTimeID" value="@listTime[j].DoctorTime " />
+                                            }
+                                        </div>
+                                        <div class="doctor-item-button">
+                                            <input type="button"
+                                                   id="doc_id_@listDoctor[i].DoctorID"
+                                                   data-organizeid="@listDoctor[i].OrganizeID"
+                                                   data-organizename="@listDoctor[i].OrganizeName"
+                                                   data-doctorname="@listDoctor[i].Name"
+                                                   data-doctorid="@listDoctor[i].DoctorID"
+                                                   data-doctorcode="@listDoctor[i].DoctorIDCode"
+                                                   data-organizecode="@listDoctor[i].OrganizeCode"
+                                                   data-ngaykham="@string.Format("{0:yyyy-MM-dd}", _tach.Length>2?DateTime.Parse(_tach[2]):DateTime.Now)"
+                                                   data-chuyenkhoa="@listDoctor[i].SpecialistID"
+                                                   data-chuyenkhoaname="@listDoctor[i].SpecialName"
+                                                   class="btn btn-form--submit booking " value="Đặt lịch khám" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    $('.doctor-time-item').click(function () {
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+            $('.doctor-time-item').removeClass('disabled');
+            $('.booking').removeClass('disabled');
+            $('.booking').attr('disabled', false);
+            $('.doctor-time-item').attr('disabled', false);
+        }
+        else {
+            $(this).addClass('active');
+            $('.doctor-time-item').addClass('disabled'); $('.doctor-time-item').attr('disabled', true);
+            $(this).removeClass('disabled'); $(this).attr('disabled', false);
+            $('.booking').attr('disabled', true);
+            $('.booking').addClass('disabled');
+            $('#doc_id_' + $(this).data('doctorid')).attr('disabled', false);
+            $('#doc_id_' + $(this).data('doctorid')).removeClass('disabled');
+
+        }
+    })
+
+    function find() {
+        var _chuyenkhoa = $('#chuyenkhoa').val();
+        var _date = $('#find_day').val();
+        var date = _date.split('/');
+        var year = date[2];
+        var mon = date[1];
+        var day = date[0];
+        var date2 = new Date(year, mon, day);
+        if (date2 < Date.now()) {
+            alert('Ngày bạn chọn đã qua, cần chọn ngày kế tiếp.'); return;
+        }
+        if (_chuyenkhoa < 0) { alert('Cần chọn chuyên khoa.'); return; }
+        var _phongkham = $('#phongkham').val();
+        if (_phongkham < 1) { alert('Cần chọn phòng khám.'); return; }
+        _date = year + '-' + mon + '-' + day;
+        location.href = '/dat-lich-bac-si/' + _phongkham + ',' + _chuyenkhoa + ',' + _date;
+
+
+    }
+
+    $('.booking').on('click', function () {
+        var _giokham = $('.doctor-item-time').find('.active');
+        if (_giokham.length > 0) {
+            var giokham = _giokham.val();
+            var idgiokham = _giokham.data('timeid');
+            var _doctorid = $(this).data('doctorid');
+            var _doctorcode = $(this).data('doctorcode');
+            var _doctorname = $(this).data('doctorname');
+            var _organizeid = $(this).data('organizeid');
+            var _organizeCode = $(this).data('organizecode');
+            var _ngaykham = $(this).data('ngaykham');
+            var _chuyenkhoa = $(this).data('chuyenkhoa');
+            var _coso = $(this).data('organizename');
+            var _tenchuyenkhoa = $(this).data('chuyenkhoaname');
+
+            var item = {
+                "giokham": giokham,
+                "bacsi": _doctorname,
+                "mabacsi": _doctorcode,
+                "idbacsi": _doctorid,
+                "idpk": _organizeid,
+                "mapk": _organizeCode,
+                "ngaykham": _ngaykham,
+                "chuyenkhoa": _chuyenkhoa,
+                "tenpk": _coso,
+                "tenchuyenkhoa": _tenchuyenkhoa,
+                "timeid": idgiokham
+            }
+            var _toJsonRange = JSON.stringify(item);
+            createCookie("booking", _toJsonRange, 20);
+            location.href = '/dat-lich/';
+
+        }
+        else alert('Bạn phải chọn 1 giờ khám của bác sĩ ' + $(this).data('doctorname') + ' trước');
+
+    });
+
+
+
+    function createCookie(name, value, minutes) {
+        var expires = "";
+
+        if (minutes) {
+            var date = new Date();
+            date.setTime(date.getTime() + (minutes * 60 * 1000));
+            expires = "; expires=" + date.toGMTString();
+        }
+
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+</script>

@@ -1,0 +1,1055 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@model  MEDLATEC2019.Models.MPTXViewModel
+@{
+    Layout = null;
+}
+
+
+
+<html>
+<head>
+
+    <title>Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui</title>
+
+    <meta name="description" content="@Html.Raw(" Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn")" />
+
+
+    <meta name="title" content="@Html.Raw(" Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui")" />
+
+    <meta name="keywords" content="@Html.Raw(" Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui")" />
+
+    <meta property="og:description" content="@Html.Raw(" Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn")" />
+    <meta property="og:title" content="@Html.Raw(" Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui")" />
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/chuyengia/banner-truyen-thong-chuyen-gia-pc.png" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/chuyengia/banner-truyen-thong-chuyen-gia-pc.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/truyen-thong-chuyen-gia" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/truyen-thong-chuyen-gia" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/Content/css/styles.css" />
+    <script src="/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/Content/js/default.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+                if (window.location.protocol == "http:") {
+                    var restOfUrl = window.location.href.substr(5);
+                    restOfUrl = restOfUrl.replace("www.", "");
+                    window.location = "https:" + restOfUrl;[w]
+                }
+        </script> 
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://static.subiz.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+     
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+
+
+
+    <style>
+
+        .nav-tabs .nav-link.active {
+            background-color: transparent;
+            border-color: transparent;
+            border-bottom: 3px solid #1761ca;
+            border-width: medium;
+        }
+
+        .modal.show .modal-dialog {
+            max-width: 650px;
+        }
+
+        .nav-tabs .nav-link:hover {
+            border-color: transparent;
+        }
+
+        .qua-tang {
+            border: none;
+            background-color: transparent;
+        }
+
+        .user-details {
+            position: relative;
+            padding: 0;
+        }
+
+            .user-details .user-image {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                text-align: center;
+            }
+
+        .user-image img {
+            clear: both;
+            margin: auto;
+            position: relative;
+        }
+
+
+
+        .user-info-block .navigation {
+            float: left;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-bottom: 1px solid #428BCA;
+            border-top: 1px solid #428BCA;
+        }
+
+        .navigation li {
+            float: left;
+            margin: 0;
+            padding: 0;
+        }
+
+            .navigation li a {
+                padding: 20px 30px;
+                float: left;
+            }
+
+            .navigation li.active a {
+                background: #428BCA;
+                color: #fff;
+            }
+
+        .user-info-block .user-body {
+            float: left;
+            padding: 5%;
+            width: 90%;
+        }
+
+        .user-body .tab-content > div {
+            float: left;
+            width: 100%;
+        }
+
+        .user-body .tab-content h4 {
+            width: 100%;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        hr {
+            border-top: 1px solid white;
+        }
+
+        .title {
+            color: #133063;
+            text-align: center !important;
+            text-transform: unset;
+            text-decoration: underline;
+        }
+
+        .nav-menu--wrapper li a {
+            padding: 20px 10px 9px;
+            height: 80px;
+        }
+
+        .nav-menu {
+            border-bottom: 1px solid white;
+        }
+
+        .service-item p {
+            color: #444;
+        }
+
+        .line-title {
+            font-size: 28px;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        .mySlidesSan {
+            display: none;
+        }
+        /* Add a pointer when hovering over the thumbnail images */
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover,
+            .next:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Container for image text */
+        .caption-container {
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Six columns side by side */
+        .column {
+            float: left;
+            width: 16.66%;
+        }
+
+        /* Add a transparency effect for thumnbail images */
+        .demo {
+            opacity: 0.6;
+        }
+
+        .demo1 {
+            opacity: 0.6;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+
+        .active,
+        .demo1:hover {
+            opacity: 1;
+        }
+
+        .feedback-customer-1 {
+            background-image: url(/Content/images/chuyengia/Bg-1.png);
+            background-size: cover;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        .body-skdn1 {
+            background-image: url(/Content/images/chuyengia/Bg-2.png);
+            background-size: cover;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        .khonggian {
+            padding: 3px;
+        }
+
+            .khonggian a {
+                display: block;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .khonggian img {
+                width: 100%;
+                height: auto;
+                -webkit-transition: all 0.5s ease-in-out;
+                -moz-transition: all 0.5s ease-in-out;
+                -o-transition: all 0.5s ease-in-out;
+                -ms-transition: all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .khonggian:hover img {
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+
+        .turn-up--wrapper {
+            max-width: 100%;
+            margin-top: 25px;
+        }
+
+
+
+        @@media only screen and (max-width: 1199px) {
+            .nav-tabs .nav-link.active {
+                max-width: 50%;
+            }
+
+            .nav-tabs .nav-link {
+                max-width: 50%;
+            }
+        }
+
+        @@media only screen and (min-width: 1200px) {
+            .nav-tabs .nav-link.active {
+                max-width: 25%;
+            }
+
+            .nav-tabs .nav-link {
+                max-width: 25%;
+            }
+
+            .banner-skdn {
+                margin-top: 80px;
+            }
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+
+
+    @using (Html.BeginForm("LandingChuyengia", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+
+        <div class="nav-menu fixed-top">
+            <div class="container nav-menu--wrapper">
+                <div class="nav-menu--header">Danh mục</div>
+                <ol>
+                    <li class="menu-active" style="float:left;"><a href="https://medlatec.vn" style="padding-top:10px;"><img src="/Content/images/chuyengia/logo.png" style="max-width:70px;" alt="trang chủ" /></a></li>
+                    <li class="has-children" style="float:right;">
+                        <a style="color:#F9E484;" href="#dangkyngay" title="Đăng ký ngay">Đăng ký ngay</a>
+
+                    </li>
+                    <li class="has-children" style="float:right;">
+                        <a href="#uu-dai" title="Ưu đãi hấp dẫn">Ưu đãi hấp dẫn</a>
+
+                    </li>
+                    <li class="has-children" style="float:right;">
+                        <a href="#tien-ich" title="Tại sao khách hàng chọn MEDLATEC">Tại sao khách hàng chọn MEDLATEC</a>
+
+                    </li>
+                    <li class="has-children" style="float:right;">
+                        <a href="#chuyengia">Chuyên gia - Bác sỹ</a>
+
+                    </li>
+
+
+
+
+
+
+                </ol>
+            </div>
+        </div>
+
+        <div class="banner-skdn">
+
+            <div class="col-12 sm-12 d-block d-md-none d-lg-none d-xl-none" style="padding-left:0px;padding-right:0px;">
+                <div class="banner-slider owl-carousel">
+                    <div class="item">
+                        <div class="banner-item">
+                            <a href="#dangkyngay">
+                                <img src="/Content/images/chuyengia/Mobile/truyen-thong-chuyen-gia-mb.png" alt="Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="banner-item">
+                            <a href="#dangkyngay">
+                                <img src="/Content/images/chuyengia/Mobile/truyen-thong-chuyen-gia-mb-2.png" alt="Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col-12 d-none d-md-block d-lg-block d-xl-block" style="padding-left:0px;padding-right:0px;">
+                <div class="banner-slider owl-carousel">
+                    <div class="item">
+                        <div class="banner-item">
+                            <a href="#dangkyngay">
+                                <img src="/Content/images/chuyengia/banner-truyen-thong-chuyen-gia-pc.png" alt="Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="banner-item">
+                            <a href="#dangkyngay">
+                                <img src="/Content/images/chuyengia/banner-truyen-thong-chuyen-gia-pc-2.png" alt="Chọn chuyên gia gửi sức khỏe - MEDLATEC tặng thẻ, Khách hàng nhận an vui" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class="feedback-customer-1" id="chuyengia">
+            <h2 class="title">
+                <font style="color:#1761ca;">
+                    <img src="/Content/images/chuyengia/Asset87.png" alt=" Sâu Y lý -  Giàu Y đức - Giỏi Y thuật" />
+
+
+                </font>
+            </h2>
+
+
+
+
+
+            <div class="container">
+
+                <section id="tabs" class="project-tab">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav>
+                                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+
+                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><img src="/Content/images/chuyengia/ck-gan-mat.png" alt="Chuyên gia gan mật" /></a>
+
+                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><img src="/Content/images/chuyengia/ck-ho-hap.png" alt="Chuyên gia hô hấp" /></a>
+
+                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><img src="/Content/images/chuyengia/ck-tieu-hoa.png" alt="Chuyên gia tiêu hóa" /></a>
+
+                                        <a class="nav-item nav-link" id="nav-san-tab" data-toggle="tab" href="#nav-san" role="tab" aria-controls="nav-san" aria-selected="false"><img src="/Content/images/chuyengia/ck-san.png" alt="Chuyên gia sản" /></a>
+
+
+
+
+                                    </div>
+                                </nav>
+                                <div class="tab-content" id="nav-tabContent" style="margin-top:10px;">
+                                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                        <div class="row">
+                                            <div class="col-2 d-none d-md-block d-lg-block d-xl-block text-center">
+
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center">
+                                                <img onclick="SelectedValue('1_20KMCG1')" src="/Content/images/chuyengia/Trinh-thi-ngoc.png" alt="trịnh thị ngọc" />
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center ">
+                                                <img onclick="SelectedValue('2_20KMCG1')" src="/Content/images/chuyengia/tran-van-giang.png" alt="trần văn giang" />
+                                            </div>
+                                            <div class="col-2 d-none d-md-block d-lg-block d-xl-block text-center">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                        <div class="row">
+                                            <div class="col-3 d-block d-md-none d-lg-none d-xl-none">
+
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center">
+                                                <img onclick="SelectedValue('1_20KMCG2')" src="/Content/images/chuyengia/hoang-thi-phuong.png" alt="Hoàng thị phượng" />
+                                            </div>
+                                            <div class="col-3 d-block d-md-none d-lg-none d-xl-none">
+
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center ">
+                                                <img onclick="SelectedValue('2_20KMCG2')" src="/Content/images/chuyengia/vu-thanh-tuan.png" alt="Vũ thanh tuấn" />
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center ">
+                                                <img onclick="SelectedValue('3_20KMCG2')" src="/Content/images/chuyengia/le-thi-hoai-thanh.png" alt="Lê thị hoài thanh" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                        <div class="row">
+                                            <div class="col-3 d-block d-md-none d-lg-none d-xl-none">
+
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center">
+                                                <img onclick="SelectedValue('1_20KMCG3')" src="/Content/images/chuyengia/tran-viet-tu.png" alt="trần việt tú" />
+                                            </div>
+                                            <div class="col-3 d-block d-md-none d-lg-none d-xl-none">
+
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center ">
+                                                <img onclick="SelectedValue('3_20KMCG3')" src="/Content/images/chuyengia/le-van-khoa.png" alt="lê văn khoa" />
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center ">
+                                                <img onclick="SelectedValue('2_20KMCG3')" src="/Content/images/chuyengia/bui-van-long.png" alt="bùi văn long" />
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-san" role="tabpanel" aria-labelledby="nav-san-tab">
+                                        <div class="row">
+
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center">
+                                                <img onclick="SelectedValue('2_20KMCG4')" src="/Content/images/chuyengia/duong-ngoc-van.png" alt="Dương ngọc vân" />
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center ">
+                                                <img onclick="SelectedValue('3_20KMCG4')" src="/Content/images/chuyengia/nguyen-thi-thuy.png" alt="Nguyễn thị thủy" />
+                                            </div>
+                                            <div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center">
+                                                <img onclick="SelectedValue('1_20KMCG4')" src="/Content/images/chuyengia/nguyen-thi-hien.png" alt="Nguyễn Thị Hiền" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class="body-skdn">
+            <div class="body-skdn1" id="tien-ich">
+                <div class="container">
+                    <h2 class="title">
+                        <img src="/Content/images/chuyengia/Asset88.png" alt=" Tiện ích khám sức khỏe tại MEDLATEC" />
+
+                    </h2>
+
+                    <div class="row" style="margin-top:25px;">
+                        <div class="col-12 d-none d-md-block d-lg-block d-xl-block" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/Tien-ich-kham-tai-medlatec.png" alt="Tiện ích khám sức khỏe tại MEDLATEC" />
+
+                        </div>
+                        <div class="col-12 d-block d-md-none d-lg-none d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/Mobile/tien-ich.png" alt="Tiện ích khám sức khỏe tại MEDLATEC" />
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-customer-1">
+                <div class="container">
+                    <h2 class="title">
+                        <img src="/Content/images/chuyengia/Asset89.png" alt="Những con số biết nói" />
+
+                    </h2>
+
+                    <div class="row" style="margin-top:25px;">
+                        <div class="col-12 d-none d-md-block d-lg-block d-xl-block" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/nhung-con-so-biet-noi.png" alt="Những con số biết nói về medlatec" />
+
+                        </div>
+                        <div class="col-12 d-block d-md-none  d-lg-none d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/Mobile/con-so.png" alt="Những con số biết nói về medlatec" />
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="body-skdn1">
+                <div class="container">
+                    <h2 class="title">
+
+                        Chuyên gia giải mã các bí ấn bệnh tật
+                    </h2>
+
+                    <div class="row" style="margin-top:25px;">
+                        <div class="col-12 " style="text-align:center;">
+                            <iframe width="80%" height="450" src="https://www.youtube.com/embed/Vcab-RzdGXk?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-customer-1" id="khonggian" style="padding-bottom:0px;">
+
+                <h2 class="title">
+                    <img src="/Content/images/chuyengia/Asset90.png" alt="Không gian khám lý tưởng" />
+
+
+
+                </h2>
+
+                <div class="banner-feature--row row" style="margin-top:15px;">
+
+                    <div class="banner-feature--col col-xl-12">
+
+                        <div class="feature-main">
+
+                            <div class="row" style="background-color:white;">
+                                <div class="feature-col col-6 col-lg-3">
+                                    <div class="khonggian">
+                                        <a href="#" title="">
+                                            <img src="/Content/images/chuyengia/benhvien.jpg">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="feature-col col-6 col-lg-3">
+
+                                    <div class="khonggian">
+
+                                        <a href="#" title="">
+                                            <img src="/Content/images/chuyengia/MED_0038.JPG">
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                                <div class="feature-col col-6 col-lg-3">
+
+                                    <div class="khonggian">
+                                        <a href="#" title="">
+                                            <img src="/Content/images/thanhxuan/3.png">
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                                <div class="feature-col col-6 col-lg-3">
+
+                                    <div class="khonggian">
+                                        <a href="#" title="">
+                                            <img src="/Content/images/thanhxuan/4.png">
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="feature-col col-6 col-lg-3">
+                                    <div class="khonggian">
+                                        <a href="#" title="">
+                                            <img src="/Content/images/thanhxuan/5.png">
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="feature-col col-6 col-lg-3">
+
+                                    <div class="khonggian">
+                                        <a href="#" title="">
+                                            <img src="/Content/images/thanhxuan/6.png">
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                                <div class="feature-col col-6 col-lg-3">
+
+                                    <div class="khonggian">
+                                        <a href="#" title="">
+                                            <img src="/Content/images/thanhxuan/7.png">
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="feature-col col-6 col-lg-3">
+
+                                    <div class="khonggian">
+                                        <a href="#" title="">
+                                            <img src="/Content/images/thanhxuan/8.png">
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="body-skdn1" id="nhanxet" style="padding-bottom:0px;padding-bottom:25px;">
+                <div class="container">
+                    <h2 class="title">
+                        <img src="/Content/images/chuyengia/Asset91.png" alt=" Sự hài lòng của khách hàng" />
+
+
+
+                    </h2>
+
+                    <div class="banner-feature--row row" style="margin-top:25px;">
+                        <div class="banner-feature--col col-md-4 d-none d-md-block d-lg-block d-xl-block">
+
+                            <img src="/Content/images/chuyengia/su-hai-long-cua-khach-hang.png" alt="Sự hài lòng của khách hàng sau khi khám tại medlatec" />
+
+                        </div>
+                        <div class="banner-feature--col col-md-4 d-none d-md-block d-lg-block d-xl-block">
+
+                            <img src="/Content/images/chuyengia/su-hai-long-cua-khach-hang-1.png" alt="Sự hài lòng của khách hàng sau khi khám tại medlatec" />
+
+                        </div>
+                        <div class="banner-feature--col col-md-4 d-none d-md-block d-lg-block d-xl-block">
+
+                            <img src="/Content/images/chuyengia/su-hai-long-cua-khach-hang-2.png" alt="Sự hài lòng của khách hàng sau khi khám tại medlatec" />
+
+                        </div>
+                        <div class="banner-feature--col col-12 d-block  d-md-none d-lg-none d-xl-none">
+
+                            <img src="/Content/images/chuyengia/mobile/su-hai-long-cua-khach-hang-1.png" alt="Sự hài lòng của khách hàng sau khi khám tại medlatec" />
+
+                        </div>
+                        <div class="banner-feature--col col-12 d-block d-md-none   d-lg-none d-xl-none">
+
+                            <img src="/Content/images/chuyengia/Mobile/su-hai-long-cua-khach-hang-2.png" alt="Sự hài lòng của khách hàng sau khi khám tại medlatec" />
+
+                        </div>
+                        <div class="banner-feature--col col-12 d-block  d-md-none  d-lg-none d-xl-none">
+
+                            <img src="/Content/images/chuyengia/Mobile/su-hai-long-cua-khach-hang-3.png" alt="Sự hài lòng của khách hàng sau khi khám tại medlatec" />
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="feedback-customer-1" id="uu-dai">
+                <div class="container">
+                    <h2 class="title">
+                        <img src="/Content/images/chuyengia/Asset93.png" alt="Khám cùng chuyên gia - Nhận ưu đãi thả ga" />
+
+                    </h2>
+                    <p style="color:#1761ca;font-size:20px;text-align:center;">Đến khám tại MEDLATEC, khách hàng được các Chuyên gia sức khỏe hàng đầu tại Việt Nam<br /> <b style="color:#133063;">TẬN TÌNH - TẬN TÂM - TẬN TAY</b> chăm sóc  với ưu đãi : </p>
+                    <div class="row" style="margin-top:25px;">
+                        <div class="col-12 d-none d-md-block d-lg-block d-xl-block" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/uu-dai-chuong-trinh.png" alt="Ưu đãi chương trình khám cùng chuyên gia" />
+
+                        </div>
+                        <div class="col-12 d-block d-md-none d-lg-none d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/Mobile/qua-tang-1.png" alt="Ưu đãi chương trình khám cùng chuyên gia" />
+
+                        </div>
+                        <div class="col-12 d-block d-md-none d-lg-none d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/Mobile/qua-tang-2.png" alt="Ưu đãi chương trình khám cùng chuyên gia" />
+
+                        </div>
+                        <div class="col-12 d-block d-md-none d-lg-none d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/Mobile/qua-tang-3.png" alt="Ưu đãi chương trình khám cùng chuyên gia" />
+
+                        </div>
+                        <div class="col-12 d-block d-md-none d-lg-none d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/chuyengia/Mobile/qua-tang-4.png" alt="Ưu đãi chương trình khám cùng chuyên gia" />
+
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <b style="color:#1761ca;font-size:25px;text-align:center;">Điều kiện sử dụng quà tặng</b><br />
+                            <button type="button" class="qua-tang" data-toggle="modal" data-target="#openEditor">
+                                <img src="/Content/images/chuyengia/dieu-kien-qua-tang.png" alt="" />
+                            </button>
+
+                        </div>
+                        <div class="sub-content" style="margin-top:25px;">
+                            <ul class="content-step">
+                                <li>Trong trường hợp bất khả kháng, lịch chuyên gia có thể thay đổi, Quý khách vui lòng lựa chọn 01 hoặc 02 phương án sau: </li>
+                                <li><b>Phương án 1:</b> Giữ nguyên lịch hẹn, lựa chọn Chuyên gia thay thế.</li>
+                                <li><b>Phương án 2:</b> Thay đổi thời gian sử dụng dịch vụ.</li>
+                                <li><b><i>Khi có thay đổi Medlatec sẽ chủ động liên hệ Quý khách.</i></b></li>
+                            </ul>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="container">
+            <!-- MODAL AREA START -->
+            <div class="modal fade" id="openEditor" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">X</button>
+
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 user-details">
+                                        <img src="/Content/images/chuyengia/Popup.png" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- MODAL AREA END -->
+        </div>
+
+        @Html.Raw(TempData["msg"])
+
+        @Html.AntiForgeryToken()
+
+        <div id="dangkyngay" style="background-image:url(/Content/images/chuyengia/bg-footer.png);background-size: cover;background-position:center;">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-7 col-lg-6 col-xl-6" style="padding:45px;">
+                        <div class="register-form" style="width:100%;background:transparent;background-image:url(/Content/images/chuyengia/form.png);background-size: cover;padding:10%;border:none;background-repeat:round;">
+
+                            <div class="form-group text-center">
+                                <img src="/Content/images/chuyengia/title-form.png" style="max-width:200px;" />
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.txthoten, new { @class = "form-control", placeholder = "Họ tên (*)", type = "text" })
+
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.txtdt, new { @class = "form-control", placeholder = "Điện thoại (*)", type = "text" })
+
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.txtEmail, new { @class = "form-control", placeholder = "Email ", type = "email" })
+                            </div>
+                            <div class="form-group">
+                                @Html.DropDownListFor(m => m.Dichvu, this.ViewBag.GetChuyengia as List<SelectListItem>, new { @class = "form-control tab-customer--location", style = "text-align-last:center;" })
+
+                            </div>
+
+                            <div class="form-group">
+                                @Html.TextAreaFor(m => m.noidung, new { @class = "form-control", placeholder = "Nội dung yêu cầu", type = "text" })
+
+                            </div>
+                            <div class="form-group form-group--btn" style="margin-bottom:20px;padding-bottom:10px;">
+                                <button style="border:1px solid #1576C4;" type="submit" name="submit" value="SaveAdd">Gửi yêu cầu</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-5 col-lg-6 col-xl-6 my-auto d-none d-md-block d-lg-block d-xl-block">
+
+
+                        <img src="/Content/images/chuyengia/bg-ft-2.png" alt="quà tặng với nhiều ưu đãi" />
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</body>
+</html>
+
+<script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd")</script>
+
+<script>
+
+    //To get selected value an text of dropdownlist
+    function SelectedValue(ddlObject) {
+
+        document.getElementById('Dichvu').value = ddlObject;
+
+        var elem = document.getElementById("Dichvu");
+        elem.scrollIntoView();
+
+    }
+
+
+
+</script>
+
+
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+    },
+
+    {
+    "@@type": "ListItem",
+    "position": 2,
+    "item": { "@@id": "https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep", "name": "@Html.Raw("Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec")" }
+    }
+
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>

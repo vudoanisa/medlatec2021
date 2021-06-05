@@ -1,0 +1,345 @@
+﻿@model  MEDLATEC2019.Models.TestcodeViewModel
+@using CMS_Core.Entity;
+
+@{
+    /**/
+
+    ViewBag.Title = "Ý nghĩa xét nghiệm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var index = 1;
+}
+
+@if (!string.IsNullOrEmpty(Model.TestCode.TestName))
+{
+
+    @section Note {
+        <title>@Html.Raw(Model.TestCode.TestName.ToString().TrimStart().TrimEnd().Replace("\"", "")) | Medlatec</title>
+
+        <meta name="description" content="@Html.Raw(Model.TestCode.TestName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+        <meta property="og:description" content="@Html.Raw(Model.TestCode.TestName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+
+
+        <meta name="title" content="@Html.Raw(Model.TestCode.TestName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+        <meta property="og:title" content="@Html.Raw(Model.TestCode.TestName.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+
+        <meta name="keywords" content="@Html.Raw(Model.TestCode.TestName.ToString().TrimStart().TrimEnd())" />
+
+        @*<meta property="og:image" content="@NewsDichvu[0].NewsImages" />*@
+
+        <meta property="og:type" content="article" />
+        <meta property="fb:app_id" content="2092985977431269" />
+        <meta property="og:url" content="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(Model.TestCode.TestName.ToString().ToLower().Replace("\"", "").ToLower(),   Model.TestCode.ID.ToString() )" />
+        <meta name="robots" content="index,follow,all">
+        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(Model.TestCode.TestName.ToString().ToLower().Replace("\"", "").ToLower(),   Model.TestCode.ID.ToString() )" />
+
+        <meta name="theme-color" content="#4285f4">
+        <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+
+    }
+}
+
+<div class="breadcrumb-container container">
+    <ul class="clearfix">
+        <li><a href="https://medlatec.vn/">Trang chủ</a></li>
+
+        <li><span>Kết quả tìm kiếm : @Model.TestCode.TestName</span></li>
+    </ul>
+</div>
+<div class="archive-news container">
+    <div class="archive-news--row row">
+        <div class="archive-news--col col-xl-9 col-lg-8 col-md-7">
+            <div class="archive-news--container">
+                <h2 style="font-size:24px;padding-top:15px;">Ý nghĩa xét nghiệm của danh mục : @Model.TestCode.TestName </h2>
+                <div class="faq-archive--item clearfix">
+
+                    <div class="faq-archive--content">
+
+                        <a style="color:#333;" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(Model.TestCode.TestName.ToString().ToLower().Replace("\"", "").ToLower(),   Model.TestCode.ID.ToString() )" title="@Model.TestCode.TestName">
+                            <h3>Ý nghĩa dành cho khách hàng</h3>
+                        </a>
+                        <div class="faq-archive--desc">
+                            @Html.Raw(Model.TestCode.Conclusion)
+                        </div>
+
+                    </div>
+                </div>
+                <div class="faq-archive--item clearfix">
+
+                    <div class="faq-archive--content">
+
+                        <a style="color:#333;" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(Model.TestCode.TestName.ToString().ToLower().Replace("\"", "").ToLower(),   Model.TestCode.ID.ToString() )" title="@Model.TestCode.TestName">
+                            <h3>Ý nghĩa chuyên sâu dành cho bác sĩ</h3>
+                        </a>
+                        <div class="faq-archive--desc">
+                            @Html.Raw(Model.TestCode.Conclusion1)
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+            @if (Model.News != null)
+            {
+                if (Model.News.Count > 0)
+                {
+                    <div class="archive-news--container">
+                        <h2 style="font-size:24px;padding-top:15px;">Tin tức liên quan đến : @Model.TestCode.TestName </h2>
+                        <div class="archive-news--list">
+
+                            @foreach (var data in Model.News)
+                            {
+                                <div class="archive-news--item">
+                                    <div class="archive-item--row row">
+                                        <div class="archive-item-col col-lg-4">
+                                            <div class="archive-item--img">
+                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",data.NewsName.ToString().ToLower(),"s"+data.CateId.ToString() ,"n"+data.NewsId.ToString())" title="@data.NewsName.ToString().TrimStart().TrimEnd()">
+                                                    <img class="lazyload" data-src="@data.newsImagesweb.ToString().Replace("https://login.medlatec.vn","https://img.medlatec.vn")" alt="@data.NewsName.ToString().TrimStart().TrimEnd()" />
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                        <div class="archive-item-col col-lg-8">
+                                            <div class="archive-item--content">
+                                                <h3>
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",data.NewsName.ToString().ToLower(),"s"+data.CateId.ToString() ,"n"+data.NewsId.ToString())" title="@data.NewsName.ToString().TrimStart().TrimEnd()">
+                                                        @data.NewsName
+                                                    </a>
+                                                </h3>
+
+                                                <div class="archive-item--info clearfix">
+                                                    @if (data.Datepub != null)
+                                                    {
+                                                        <span class="archive-item--date">Ngày @data.Datepub.ToString("dd/MM/yyyy")</span>
+                                                    }
+
+
+
+                                                </div>
+                                                <div class="archive-item--desc d-none d-xl-block">
+                                                    @data.NewsDescription
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="clearfix">
+
+                    </div>
+                }
+            }
+
+
+            @if (Model.QuestionS != null)
+            {
+                if (Model.QuestionS.Count > 0)
+                {
+                    <div class="archive-news--container">
+                        <h2 style="font-size:24px;padding-top:15px;">Những câu hỏi về : @Model.TestCode.TestName </h2>
+
+                        @foreach (var data in Model.QuestionS)
+                        {
+
+                            <div class="faq-archive--item clearfix">
+
+                                <div class="faq-archive--content">
+                                    <div class="faq-archive--info clearfix">
+                                        <div class="faq-archive--author">@data.FullName</div>
+                                        @if (data.NgayHoi != null)
+                                        {
+                                            <div class="faq-archive--date">@data.NgayHoi.ToString("dd/MM/yyyy")</div>
+                                        }
+
+                                    </div>
+                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",data.QuestionTitle.ToString().ToLower(),"c"+data.SpecialistID.ToString() , "q"+data.QuestionID.ToString())" title="@data.QuestionTitle.ToString()">
+                                        <h3>@data.QuestionTitle.ToString() </h3>
+                                    </a>
+                                    <div class="faq-archive--desc">
+                                        @Html.Raw(data.QuestionContent.ToString())
+
+                                    </div>
+                                    <div class="faq-archive--box clearfix">
+
+                                        <div class="faq-archive--cat clearfix">
+
+                                            @if (data.AnswerContentAutoLink != null)
+                                            {
+                                                string noidung = CMS_Core.Common.Common.CleanHtml(data.AnswerContentAutoLink.ToString());
+                                                noidung = CMS_Core.Common.Common.StripStyleTags(noidung);
+                                                <div class="faq-reply--desc">
+                                                    @Html.Raw(noidung)
+                                                </div>
+                                            }
+
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+                    </div>
+
+                }
+            }
+
+
+        </div>
+
+
+        <div class="faq-page--col faq-page--sidebar col-xl-3 col-lg-4">
+
+            @if (Model.Questionnew != null)
+            {
+                if (Model.Questionnew.Count > 0)
+                {
+                    <div class="faq-sidebar">
+                        <div class="faq-rating">
+                            <div class="faq-rating--title">Câu hỏi nổi bật trong tháng</div>
+                            <ul>
+
+                                @foreach (var data in Model.Questionnew)
+                                {
+                                    <li data-number="@(index++)">
+                                        <div class="faq-rating--item">
+                                            <h3>
+                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",data.QuestionTitle.ToString().ToLower(),"c"+data.SpecialistID.ToString() , "q"+data.QuestionID.ToString())" title="@data.QuestionTitle.ToString()">
+                                                    @data.QuestionTitle.ToString()
+                                                </a>
+                                            </h3>
+
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                }
+            }
+
+            @if (Model.NewsNew != null)
+            {
+                if (Model.NewsNew.Count > 0)
+                {
+                    <div class="sidebar-container">
+                        <div class="news-post">
+                            <h2>Tin mới nhất</h2>
+                            <div class="news-post--list">
+                                @foreach (var data in Model.NewsNew)
+                                {
+                                    <div class="news-post--item">
+                                        <div class="news-post--row row">
+                                            <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                <div class="news-post--img">
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",data.NewsName.ToString().ToLower(),"s"+data.CateId.ToString() ,"n"+data.NewsId.ToString())" title="@data.NewsName.ToString().TrimStart().TrimEnd()">
+                                                        <img class="lazyload" data-src="@data.newsImagesweb.ToString().Replace("https://login.medlatec.vn","https://img.medlatec.vn")" alt="@data.NewsName.ToString().TrimStart().TrimEnd()" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                <div class="news-post--content">
+                                                    <h3>
+                                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",data.NewsName.ToString().ToLower(),"s"+data.CateId.ToString() ,"n"+data.NewsId.ToString())" title="@data.NewsName.ToString().TrimStart().TrimEnd()">
+
+                                                            @data.NewsName
+                                                        </a>
+                                                    </h3>
+
+                                                    <div class="news-post--info clearfix">
+                                                        @if (data.Datepub != null)
+                                                        {
+                                                            <span class="news-post--date">Ngày @data.Datepub.ToString("dd/MM/yyyy")</span>
+                                                        }
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            }
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+<script>
+    lazyload();
+</script>
+
+
+ <script type="application/ld+json">
+
+
+
+
+    {
+    "@@context": "http://schema.org",
+    "@@type": "NewsArticle",
+    "mainEntityOfPage": {
+    "@@type": "WebPage",
+    "@@id": "https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(Model.TestCode.TestName.ToString().ToLower().Replace("\"", "").ToLower(), Model.TestCode.ID.ToString())"
+    },
+    "url": "https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(Model.TestCode.TestName.ToString().ToLower().Replace("\"", "").ToLower(), Model.TestCode.ID.ToString())",
+    "headline": "@Model.TestCode.TestName.ToString().Replace("\"", "").ToLower()",
+    @*"image": {
+    "@@type": "ImageObject",
+    "url": "@https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(Model.TestCode.TestName.ToString().ToLower().Replace("\"", "").ToLower(), Model.TestCode.ID.ToString())",
+    "height": 1280,
+    "width": 628
+    },*@
+    "datePublished": "@Model.TestCode.UpdateTime.ToString("dd/MM/yyyy")",
+    "dateModified": "@Model.TestCode.UpdateTime.ToString("dd/MM/yyyy")",
+    "author": {
+    "@@type": "Person",
+    "name": "MEDLATEC"
+    },
+    "publisher": {
+    "@@type": "Organization",
+    "name": "MEDLATEC",
+    "logo": {
+    "@@type": "ImageObject",
+    "url": "https://medlatec.vn/Content/images/logo.jpg",
+    "width": 600,
+    "height": 60
+    }
+    },
+    "description": "@Model.TestCode.TestName"
+    }
+</script> 

@@ -1,0 +1,66 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@{
+    ViewBag.Title = "Cập nhật câu hỏi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Cauhoi = (List<Question>)ViewBag.Cauhoi;
+}
+@section Note {
+
+
+    @{
+
+        <meta name="robots" content="noindex,nofollow">
+
+    }
+}
+
+@using (Html.BeginForm("UpdateCauhoi", "Question", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+   
+        <div class="archive-news container">
+            <div class="archive-news--row row">
+               
+                <div class="schedule-col col-xl-12">
+                    <div class="form-group schedule-comment">
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="schedule-col col-md-12">
+                    <div class="form-group schedule-name">
+                        <label>Tiêu đề câu hỏi </label>
+                        <input name="txttieude" class="form-control" type="text" value="@Cauhoi[0].QuestionTitle" />
+                    </div>
+                </div>
+                <div class="schedule-col col-xl-12">
+                    <div class="form-group schedule-comment">
+                        <label>Nội dung câu hỏi </label>
+                        <textarea name="txtnoidung" class="form-control">@Cauhoi[0].QuestionContent</textarea>
+                    </div>
+                </div>
+
+                <input id="hidden1"  type="hidden" name="hidden1" value="@Cauhoi[0].QuestionID" />
+               
+
+
+
+                <div class="schedule-col col-xl-12">
+                    <div class="form-group schedule-row--btn">
+
+                        <button type="submit" name="submit" value="SaveAdd" class="btn-form--submit">Cập nhật</button>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+}

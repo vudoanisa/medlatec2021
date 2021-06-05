@@ -1,0 +1,400 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    /**/
+
+    var News = (List<Cms_News>)ViewBag.NewsCate;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Note {
+
+    <title>Bảo hiểm y tế | Bệnh viện đa khoa Medlatec</title>
+
+    <meta name="description" content="@Html.Raw("Dịch vụ khám và điều trị cho bệnh nhân với Bảo Hiểm Y Tế | Medlatec")" />
+
+
+    <meta name="title" content="@Html.Raw("Sử dụng thẻ Bảo hiểm y tế là biện pháp tiết kiệm chi phí trong khám chữa bệnh. Người dân có thẻ BHYT khi khám, chữa bệnh tại Bệnh viện MEDLATEC đều được hưởng quyền lợi BHYT thanh toán đúng tuyến")" />
+
+    <meta name="keywords" content="@Html.Raw("thẻ BHYT, khám bảo hiểm, bảo hiểm y tế, BHYT, dịch vụ bảo hiểm y tế")" />
+
+    <meta property="og:description" content="@Html.Raw("Sử dụng thẻ Bảo hiểm y tế là biện pháp tiết kiệm chi phí trong khám chữa bệnh. Người dân có thẻ BHYT khi khám, chữa bệnh tại Bệnh viện MEDLATEC đều được hưởng quyền lợi BHYT thanh toán đúng tuyến")" />
+    <meta property="og:title" content="@Html.Raw("Dịch vụ khám và điều trị cho bệnh nhân với Bảo Hiểm Y Tế | Medlatec")" />
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/Content/images/banner/baohiemyte.png" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/Content/images/banner/baohiemyte.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/bao-hiem-y-te" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/bao-hiem-y-te" />
+}
+@using (Html.BeginForm("LandingBaohiemyte", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><span>Bảo hiểm y tế</span></li>
+        </ul>
+    </div>
+
+    <div class="banner-skdn container">
+        <div class="banner-main">
+            <div class="banner-slider owl-carousel">
+                <div class="item">
+                    <div class="banner-item">
+                        <img src="/Content/images/banner/baohiemyte.png" alt="Bảo hiểm y tế | Bệnh viện đa khoa Medlatec" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="body-skdn body-qtk container">
+        <h1 class="title">Chính sách bảo hiểm y tế của MEDLATEC</h1>
+        <div class="sapo-subtitle">Tất cả khách hàng có thẻ BHYT trên toàn quốc, không phân biệt nơi đăng ký khám chữa bệnh ban đầu, đều được hưởng quyền lợi đúng tuyến khi khám chữa bệnh ngoại trú hay điều trị nội trú tại MEDLATEC</div>
+        <div class="line">&nbsp;</div>
+        <h3 class="title-plus title-plus-first">Quyền lợi đặc biệt dành cho khách hàng khám BHYT tại bệnh viện MEDLATEC</h3>
+        <div class="sub-content">
+            <ul>
+                <li>Miễn phí 100% phần chênh giá khám bệnh và các chính sách ưu đãi khác (nếu có).</li>
+                <li>Được quản lý hồ sơ theo đề án của Bệnh viện MEDLATEC nếu mắc các bệnh mạnh tính như: Viêm gan B, Đái tháo đường, Tăng huyết áp, Basedow, Bệnh hô hấp…</li>
+                <li>Được giảm trừ lên tới 100% chi phí khám chữa bệnh khi sử dụng đồng thời thẻ BHYT và thẻ bảo hiểm sức khỏe (bảo hiểm nhân thọ, phi nhân thọ).</li>
+                <li>Thanh  toán đúng tuyến với mọi loại thẻ BHYT. Khách hàng chỉ phải đóng phần cùng chi trả, phần chênh giá giữa giá bảo hiểm và giá bệnh viện (nếu có), và các chi phí dịch vụ khác không được bảo hiểm thanh toán.</li>
+            </ul>
+        </div>
+        <h3 class="title-plus">Quy trình chi tiết khám BHYT tại MEDLATEC</h3>
+        <div class="sub-content">
+            <div class="qtk-medlatec row">
+                <div class="col-md-6 col-xl-4">
+                    <div class="qtk-item">
+                        <div class="qtk-row">
+                            <span class="qtk-number">01</span>
+                            <span class="qtk-content">Xuất trình thẻ BHYT kèm giấy tờ tùy thân để đăng ký khám</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="qtk-item">
+                        <div class="qtk-row">
+                            <span class="qtk-number">02</span>
+                            <span class="qtk-content">Khám lâm sàng được nhận chỉ định khám hợp lý từ bác sĩ chuyên khoa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="qtk-item">
+                        <div class="qtk-row">
+                            <span class="qtk-number">03</span>
+                            <span class="qtk-content">Thanh toán tạm ứng chi phí các dịch vụ kỹ thuật, xét nghiệm tại quầy thu ngân. Khách hàng được hưởng quyền lợi BHYT các danh mục theo đúng quy định</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="qtk-item">
+                        <div class="qtk-row">
+                            <span class="qtk-number">04</span>
+                            <span class="qtk-content">Thực hiện xét nghiệm, thăm dò chức năng theo đúng chỉ định của bác sĩ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="qtk-item">
+                        <div class="qtk-row">
+                            <span class="qtk-number">05</span>
+                            <span class="qtk-content"> Bác sĩ tư vấn hướng điều trị và kê đơn (nếu cần) sau khi có đủ kết quả</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="qtk-item">
+                        <div class="qtk-row">
+                            <span class="qtk-number">06</span>
+                            <span class="qtk-content">Hoàn tất thủ tục thanh toán, nhận lại thẻ BHYT và lĩnh thuốc tại Nhà thuốc Bệnh viện</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qtkt-medlatec row">
+                <div class="col-lg-6">
+                    <div class="qtkt-item">
+                        <div class="qtkt-img"><img src="/Content/images/khamngoaitru.png" alt="" /></div>
+                        <div class="qtkt-title">Quy trình chi tiết <b>khám ngoại trú</b> thẻ BHYT</div>
+                        <div class="qtkt-more"><a href="https://medlatec.vn/tin-tuc/quy-trinh-kham-benh-chua-benh-ngoai-tru-bhyt-tai-medlatec-s2-n10544">Xem chi tiết</a></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="qtkt-item">
+                        <div class="qtkt-img"><img src="/Content/images/khamnoitru.png" alt="" /></div>
+                        <div class="qtkt-title">Quy trình chi tiết <b>khám nội trú</b> thẻ BHYT</div>
+                        <div class="qtkt-more"><a href="https://medlatec.vn/tin-tuc/quy-trinh-kham-benh-chua-benh-noi-tru-bhyt-tai-medlatec-s2-n10545">Xem chi tiết</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="title-plus">Mức hưởng BHYT theo từng đối tượng khách hàng</h3>
+        <div class="qtkt-medlatec row">
+            <p><b>Ngoài phần chi phí được bảo hiểm thanh toán, Quý khách hàng vui lòng thanh toán các khoản:</b></p>
+            <ul class="no-style-list">
+                <li>Chi phí chênh lệch giữa giá bảo hiểm và giá dịch vụ của Bệnh viện (nếu có)</li>
+                <li>Chi phí không được bảo hiểm thanh toán</li>
+            </ul>
+            <table class="table table-bordered table-qtk">
+                <thead>
+                    <tr>
+                        <th>Mức hưởng 100% theo giá BHYT</th>
+                        <th>Mức hưởng 100% theo giá BHYT</th>
+                        <th>Mức hưởng 100% theo giá BHYT</th>
+                        <th>Mức hưởng 95% theo giá BHYT</th>
+                        <th>Mức hưởng 80% theo giá BHYT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Người có công cách mạng</li>
+                                <li>Trẻ em dưới 6 tuổi</li>
+                                <li>Sĩ quan, hạ sĩ quan,.. thuộc lực lượng Công an nhân dân</li>
+                                <li>Người thuộc hộ gia đình nghèo</li>
+                            </ul>
+                        </td>
+                        <td>Khách hàng được cấp Giấy miễn cùng chi trả</td>
+                        <td>Khách hàng có tổng chi phí một lần KCB thấp hơn 15% mức lương tối thiểu</td>
+                        <td>
+                            <ul>
+                                <li>Người hưởng lương hưu, trợ cấp mất sức lao động hàng tháng</li>
+                                <li>Thân nhân của người có công với cách mạng</li>
+                                <li>Người thuộc hộ cận nghèo</li>
+                            </ul>
+                        </td>
+                        <td>Áp dụng với các đối tượng khách hàng còn lại như người lao động, học sinh - sinh viên, hộ gia đình</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="news-main container">
+        <h2 class="main-title">Tin tức bảo hiểm y tế</h2>
+
+
+
+        <div class="news-list">
+            <div class="news-list--row row">
+                @if (@News.Count > 0)
+                {
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        <div class="news-list--col col-lg-6">
+                            <div class="news-item row">
+                                <div class="news-col col-6">
+                                    <div class="news-item--img">
+                                      
+
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+ @News[i].CateId.ToString() , "n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()"><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>
+                                    </div>
+                                </div>
+                                <div class="news-col col-6">
+                                    <div class="news-content">
+                                        <h3 class="news-title"> <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+@News[i].CateId.ToString(),"n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()">@News[i].NewsName.ToString()</a></h3>
+                                        <div class="new-desc d-none d-xl-block">@News[i].NewsDescription.ToString()</div>
+                                        <div class="news-date"><i class="news-calendar"></i>Ngày @News[i].DateCreate.ToString("dd/MM/yyyy")   </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="news-more">
+            <a href="https://medlatec.vn/tin-tuc">Xem tất cả</a>
+        </div>
+    </div>
+
+
+    @Html.Raw(TempData["msg"])
+
+    @Html.AntiForgeryToken()
+
+
+    <div class="register-main qtk-main container">
+        <div class="register-wrapper">
+            <div class="register-row row">
+                <div class="register-col col-lg-4">
+                    <div class="register-form">
+                        <h2>Đăng ký khám, tư vấn</h2>
+
+                        <div class="form-group register-name">
+                            <label>Họ và tên <i>(*)</i></label>
+                            <input placeholder="Họ tên" name="txtHoten" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group register-phone">
+                            <label>Số điện thoại <i>(*)</i></label>
+                            <input placeholder="Số điện thoại" name="txtdt" type="text" class="form-control" />
+                        </div>
+                        <div class="form-group register-email">
+                            <label>Email</label>
+                            <input placeholder="Email" type="email" name="txtemail" class="form-control" />
+                        </div>
+                        <div class="form-group register-comment">
+                            <label>Ghi chú khác</label>
+                            <textarea class="form-control" name="txtghichu" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                        </div>
+                        <div class="form-group form-group--btn">
+                            <button type="submit" name="submit" class="btn-form--submit" value="SaveAdd">Đăng ký ngay</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="register-col col-lg-8">
+                    <div class="choose-main-new">
+                        <h2>Lý do lựa chọn BHYT tại Bệnh viện Đa khoa MEDLATEC</h2>
+                        <div class="choose-main-item row">
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="/Content/images/register-time.png" alt="" /></div>
+                                    <div class="choose-item-text"><b>Thời gian khám chữa bệnh</b> BHYT chủ động (MEDLATEC thực hiện tất cả các ngày trong tuần, bao gồm cả ngày nghỉ và các ngày lễ Tết)</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="/Content/images/register-dollar.png" alt="" /></div>
+                                    <div class="choose-item-text">Bảo đảm quy trình thực hiện nhanh gọn, tiện lợi, <b>tiết kiệm thời gian và chi phí</b> cho khách hàng.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="/Content/images/register-system.png" alt="" /></div>
+                                    <div class="choose-item-text"><b>Có phần mềm quản lý</b> và lưu trữ toàn bộ kết quả khám giúp khách hàng thuận tiện theo dõi suốt quá trình thăm khám.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="choose-item">
+                                    <div class="choose-item-icon"><img src="/Content/images/register-care.png" alt="" /></div>
+                                    <div class="choose-item-text"><b>Được khám và tư vấn đầy đủ</b> chuyên khoa do các chuyên gia, bác sĩ đầu ngành phụ trách</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    }
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "BreadcrumbList",
+        "itemListElement": [
+
+        {
+        "@@type": "ListItem",
+        "position": 1,
+        "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+        },
+
+        {
+        "@@type": "ListItem",
+        "position": 2,
+        "item": { "@@id": "https://medlatec.vn/dich-vu/bao-hiem-y-te", "name": "@Html.Raw("Bảo hiểm y tế | Bệnh viện đa khoa Medlatec")" }
+        }
+
+        ]
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "LocalBusiness",
+        "@@id":"https://medlatec.vn",
+        "priceRange":"$$",
+        "image":"https://medlatec.vn/Content/images/logo.jpg",
+        "name" : "Bệnh Viện Đa Khoa Medlatec",
+        "telephone": "+841900565656",
+        "address": {
+        "@@type": "PostalAddress",
+        "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+        "addressLocality": "Hà Nội"
+        },
+        "potentialAction": {
+        "@@type": "OrderAction",
+        "target": {
+        "@@type": "EntryPoint",
+        "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+        "inLanguage": "vi-VN",
+        "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+        }}}
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Hospital",
+        "priceRange":"$$",
+        "@@id":"https://medlatec.vn",
+        "image":"https://medlatec.vn/Content/images/logo.jpg",
+        "name" : "Bệnh Viện Đa Khoa Medlatec",
+        "telephone": "+841900565656",
+        "openingHours": "Mo-Su 00:00-24:00",
+        "address": {
+        "@@type": "PostalAddress",
+        "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+        "addressLocality": "Hà Nội"
+        },
+        "ContactPoint": {
+        "telephone": "+841900565656",
+        "contactType": "sales",
+        "contactOption": "TollFree",
+        "areaServed": "VN"},
+        "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+        "slogan":"Dịch vụ tốt, công nghệ cao"
+        }
+
+    </script>
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Hospital",
+        "priceRange":"$$",
+        "@@id":"https://medlatec.vn",
+        "image":"https://medlatec.vn/Content/images/logo.jpg",
+        "name" : "Bệnh Viện Đa Khoa Medlatec",
+        "telephone": "+841900565656",
+        "openingHours": "Mo-Su 00:00-24:00",
+        "ContactPoint": {
+        "telephone": "+841900565656",
+        "contactType": "sales",
+        "contactOption": "TollFree",
+        "areaServed": "VN"},
+        "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+        "slogan":"Dịch vụ tốt, công nghệ cao",
+        "founder":[{
+        "@@type":"Person",
+        "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+        "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+        "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+        "sameAs":["https://www.facebook.com/tri.1957"]
+        }]
+        }
+
+    </script>

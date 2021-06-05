@@ -1,0 +1,213 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var TopCauHoi = (List<Question>)ViewBag.TopCauHoi;
+    var QuestionCate = (List<Question>)ViewBag.QuestionCate;
+
+
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    var NewsCate = (List<Cms_News>)ViewBag.NewsCate;
+
+}
+
+@using (Html.BeginForm("KQTimkiem", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn/">Trang chủ</a></li>
+
+            <li><span>Kết quả tìm kiếm : @ViewBag.Tukhoa</span></li>
+        </ul>
+    </div>
+
+    <div class="archive-news container">
+        <div class="archive-news--row row">
+            <div class="archive-news--col col-xl-9 col-lg-8 col-md-7">
+                <div class="archive-news--container">
+                    Kết quả tìm kiếm : <h1 style="display:initial;border-bottom:none;font-size:16px;color:#1576C4;">@ViewBag.Tukhoa</h1>
+
+                </div>
+
+                <div class="archive-news--container">
+                    <h2 style="font-size:18px;color:#1576C4;">Những tin tức chứa từ khóa :@ViewBag.Tukhoa </h2>
+                    <div class="archive-news--list">
+
+                        @for (int i = 0; i < NewsCate.Count; i++)
+                        {
+
+
+                            <div class="archive-news--item">
+                                <div class="archive-item--row row">
+                                    <div class="archive-item-col col-lg-4">
+                                        <div class="archive-item--img">
+                                            @if (NewsCate[i].NewsImages != null)
+                                            {
+                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", NewsCate[i].NewsName.ToString().ToLower(), "s" + NewsCate[i].CateId.ToString(), "n" + NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString()"><img src="@NewsCate[i].NewsImages.ToString()" alt="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="archive-item-col col-lg-8">
+                                        <div class="archive-item--content">
+                                            @if (@NewsCate[i].NewsName != null)
+                                            {
+                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", NewsCate[i].NewsName.ToString().ToLower(), "s" + NewsCate[i].CateId.ToString(), "n" + NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString()">@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                            }
+
+                                            <div class="archive-item--info clearfix">
+                                                @if (@NewsCate[i].DateCreate != null)
+                                                {
+                                                    <span class="archive-item--date">Ngày @NewsCate[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                }
+
+
+                                            </div>
+                                            @if (@NewsCate[i].NewsDescription != null)
+                                            {
+                                                <div class="archive-item--desc d-none d-xl-block">@NewsCate[i].NewsDescription.ToString()</div>
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+
+
+
+
+                </div>
+                <div class="clearfix">
+
+                </div>
+                @*<div class="faq-archive--wrapper" style="padding-top:10px;">
+                        <h2 style="font-size:18px;color:#1576C4;">Những câu hỏi chứa từ khóa :@ViewBag.Tukhoa </h2>
+                        @if (QuestionCate.Count > 0)
+                        {
+                            for (int i = 0; i < QuestionCate.Count; i++)
+                            {
+
+
+                                <div class="faq-archive--item clearfix">
+                                    <div class="faq-archive--avatar">
+                                        <img src="/Content/images/avatar.png" alt="" />
+                                    </div>
+                                    <div class="faq-archive--content">
+                                        <div class="faq-archive--info clearfix">
+                                            @if (QuestionCate[i].FullName != null)
+                                            {
+                                                <div class="faq-archive--author">@QuestionCate[i].FullName.ToString()</div>
+                                            }
+                                            @if (QuestionCate[i].NgayHoi != null)
+                                            {
+                                                <div class="faq-archive--date">@QuestionCate[i].NgayHoi.ToString("dd/MM/yyyy")</div>
+                                            }
+
+                                        </div>
+                                        <a style="color:#333;" href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",@QuestionCate[i].QuestionTitle.ToString().ToLower(),"c"+@QuestionCate[i].SpecialistID.ToString() , "q"+@QuestionCate[i].QuestionID.ToString())#traloi" title="@QuestionCate[i].QuestionTitle.ToString().ToLower()">
+                                            <h3>@QuestionCate[i].QuestionTitle.ToString()</h3>
+                                        </a>
+                                        <div class="faq-archive--desc">   @QuestionCate[i].QuestionContent.ToString()  </div>
+                                        <div class="faq-archive--box clearfix">
+
+                                            <div class="faq-archive--cat clearfix"> MEDLATEC trả lời : @QuestionCate[i].FullName.ToString() về <a style="float:right;color:#1576C4;" href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",@QuestionCate[i].QuestionTitle.ToString().ToLower(),"c"+@QuestionCate[i].SpecialistID.ToString() , "q"+@QuestionCate[i].QuestionID.ToString())#traloi" title="@QuestionCate[i].QuestionTitle.ToString().ToLower()"> @QuestionCate[i].QuestionTitle.ToString().ToLower()</a></div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                    </div>*@
+
+
+
+
+            </div>
+            @Html.AntiForgeryToken()
+            <div class="faq-page--col faq-page--sidebar col-xl-3 col-lg-4">
+                <div class="faq-sidebar">
+
+                    <div class="faq-rating">
+                        <div class="faq-rating--title">Câu hỏi nổi bật trong tháng</div>
+                        <ul>
+                            @if (TopCauHoi != null)
+                            {
+                                for (int i = 0; i < TopCauHoi.Count; i++)
+                                {
+                                    <li data-number="@(i+1)">
+                                        <div class="faq-rating--item">
+                                            <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",@TopCauHoi[i].QuestionTitle.ToString().ToLower(),"c"+@TopCauHoi[i].SpecialistID.ToString() , "q"+@TopCauHoi[i].QuestionID.ToString())" title="@TopCauHoi[i].QuestionTitle.ToString().ToLower()">@TopCauHoi[i].QuestionTitle.ToString()</a></h3>
+
+                                        </div>
+                                    </li>
+                                }
+                            }
+
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <h2>Tin mới nhất</h2>
+                        <div class="news-post--list">
+
+                            @for (int i = 0; i < 6; i++)
+                            {
+
+
+                                <div class="news-post--item">
+                                    <div class="news-post--row row">
+                                        <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                            <div class="news-post--img">
+                                                @if (@TinNoiBat[i].NewsImages != null)
+                                                {
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @TinNoiBat[i].NewsName.ToString().ToLower(), "s" + @TinNoiBat[i].CateId.ToString(), "n" + @TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString()"><img src="@TinNoiBat[i].NewsImages.ToString()" alt="@TinNoiBat[i].NewsName.ToString()" /></a>
+
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                        <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                            <div class="news-post--content">
+                                                @if (@TinNoiBat[i].NewsName != null)
+                                                {
+                                                    <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @TinNoiBat[i].NewsName.ToString().ToLower(), "s" + @TinNoiBat[i].CateId.ToString(), "n" + @TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString()">@TinNoiBat[i].NewsName.ToString()</a></h3>
+                                                }
+
+                                                <div class="news-post--info clearfix">
+                                                    @if (@TinNoiBat[i].DateCreate != null)
+                                                    {
+                                                        <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+

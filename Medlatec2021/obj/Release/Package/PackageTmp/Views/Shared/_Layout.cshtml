@@ -1,0 +1,520 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=1" name="viewport" />
+    <meta content="vi-VN" itemprop="inLanguage" />
+    @*<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />*@
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    @*<link rel="dns-prefetch" href="https://connect.facebook.net">*@
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://static.subiz.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Content/css/styles.css" />
+
+
+    @*<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/js/default.js"></script>
+    <script src="~/Content/js/lazysizes.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+
+
+    @*<script type="text/javascript">
+            if (window.location.protocol == "http:") {
+                var restOfUrl = window.location.href.substr(5);
+                restOfUrl = restOfUrl.replace("www.", "");
+                window.location = "https:" + restOfUrl;[w]
+            }
+        </script>*@
+
+
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+    <!-- End Google Tag Manager -->
+    @RenderSection("Note", false)
+
+
+</head>
+<body>
+    <div id="fb-root"></div>
+
+    <!-- End Google Tag Manager (noscript) -->
+    @{
+        string url = Context.Request.RawUrl;
+        if (string.IsNullOrEmpty(url))
+        {
+            url = string.Empty;
+        }
+    }
+    <!--- Header --->
+    <header class="header-main">
+        <!-- Logo -->
+        <div class="logo">
+            <div class="container">
+
+                @if (url.Equals("/"))
+                {
+                    <h1>
+                        <a href="https://medlatec.vn" title="BỆNH VIỆN ĐA KHOA MEDLATEC,LẤY MẪU VÀ XÉT NGHIỆM TẠI NHÀ">
+                            <img class="logo-desktop d-none d-md-block" src="https://medlatec.vn/Content/images/logo.jpg" alt="BỆNH VIỆN ĐA KHOA MEDLATEC,LẤY MẪU VÀ XÉT NGHIỆM TẠI NHÀ" />
+                            <img class="logo-mobile d-block d-md-none" src="https://medlatec.vn/Content/images/logo.png" alt="BỆNH VIỆN ĐA KHOA MEDLATEC,LẤY MẪU VÀ XÉT NGHIỆM TẠI NHÀ" />
+                        </a>
+                    </h1>
+                }
+                else
+
+                {
+                    <a href="https://medlatec.vn" title="BỆNH VIỆN ĐA KHOA MEDLATEC,LẤY MẪU VÀ XÉT NGHIỆM TẠI NHÀ">
+                        <img class="logo-desktop d-none d-md-block" src="https://medlatec.vn/Content/images/logo.jpg" alt="BỆNH VIỆN ĐA KHOA MEDLATEC,LẤY MẪU VÀ XÉT NGHIỆM TẠI NHÀ" />
+                        <img class="logo-mobile d-block d-md-none" src="https://medlatec.vn/Content/images/logo.png" alt="BỆNH VIỆN ĐA KHOA MEDLATEC,LẤY MẪU VÀ XÉT NGHIỆM TẠI NHÀ" />
+                    </a>
+                }
+            </div>
+        </div>
+        <!-- End Logo -->
+        <!-- Navigation -->
+        <div class="nav-main">
+            <div class="container clearfix">
+                <!-- Hotline -->
+                <div class="nav-hotline d-none d-xl-block">
+                    <a href="tel:1900 565656"><img src="/Content/images/hotline.png" alt="hotline 1900 565656" />1900 565656</a>
+                </div>
+                <!-- End Hotline -->
+                <!-- Language -->
+                <div class="language-main">
+                    <select>
+                        <option value="vn">Tiếng Việt</option>
+                        <option value="en">Tiếng Anh</option>
+                    </select>
+
+                    <div class="language-flag"><img src="/Content/images/vn.png" alt="language" /></div>
+                </div>
+                <!-- End Language -->
+                <!-- Menu Button -->
+                <div class="nav-button d-block d-xl-none">
+                    <img src="/Content/images/bar.png" alt="menu" />
+                </div>
+                <!-- End Menu Button -->
+                <!-- Search Button -->
+                <div class="search-button d-block d-xl-none">
+                    <img src="/Content/images/search.png" alt="search" />
+                </div>
+                <!-- End Search Button -->
+            </div>
+
+            <!-- Search Form -->
+            <div class="search-form">
+                <div class="">
+
+
+                    <input type="text" name="timkiem" id="timkiem" placeholder="Tìm kiếm" />
+                    <button id="nuttimkiem" name="nuttimkiem" class="btntimkiem"><i class="fa fa-search"></i></button>
+
+
+                </div>
+            </div>
+            <!-- End Search Form -->
+        </div>
+        <!-- End Navigation -->
+    </header>
+    <!--- End Header --->
+    <!--- Menu --->
+    <div class="nav-menu" id="topmenu">
+        <div class="container nav-menu--wrapper">
+            <div class="nav-menu--header">Danh mục</div>
+            <ol>
+                <li class="menu-active"><a href="https://medlatec.vn"><img src="/Content/images/home.png" alt="trang chủ" /></a></li>
+                <li class="has-children">
+                    <a href="#" style="padding: 11px 13px 9px;">Giới thiệu<i class="arrow-children"></i></a>
+                    <ol class="sub-menu">
+                        <li><a href="https://medlatec.vn/tin-tuc/medlatec-no-luc-khong-ngung-vi-suc-khoe-cong-dong-s5-n11033">Lịch sử hình thành và phát triển</a></li>
+                        <li><a href="https://medlatec.vn/doi-ngu-bac-sy">Đội ngũ chuyên gia</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/medlatec-tay-ho--co-so-uy-tin-phuc-vu-cham-soc-suc-khoe-nguoi-dan-doanh-nghiep-s1-n10805">Cơ sở vật chất & trang thiết bị</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/-phong-xet-nghiem-benh-vien-da-khoa-medlatec-nhan-chung-chi-iso-151892012-s1-n6746">Chứng chỉ, chứng nhận</a></li>
+                    </ol>
+                </li>
+                <li class="has-children">
+                    <a href="#" style="padding: 11px 10px 9px;">Dịch vụ y tế<i class="arrow-children"></i></a>
+                    <ol class="sub-menu">
+                        <li><a href="https://medlatec.vn/dich-vu/xet-nghiem-lay-mau-tai-nha">Lấy mẫu xét nghiệm tận nơi</a></li>
+                        <li><a href="https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep">Khám sức khỏe doanh nghiệp</a></li>
+                        <li class="has-children">
+                            <a href="#" title="Dịch vụ bảo hiểm">Dịch vụ bảo hiểm<i class="arrow-children"></i></a>
+                            <ol class="sub-menu">
+                                <li><a href="https://medlatec.vn/dich-vu/bao-hiem-y-te" title="Dịch vụ khám và điều trị cho bệnh nhân với Bảo Hiểm Y Tế | Medlatec">Bảo hiểm y tế</a></li>
+                                <li><a href="https://medlatec.vn/dich-vu/bao-lanh-vien-phi" title="Bảo hiểm thương mại">Bảo hiểm thương mại</a></li>
+
+
+                            </ol>
+                        </li>
+                        <li><a href="https://medlatec.vn/goi-kham" title="Gói khám sức khỏe">Gói khám sức khỏe</a></li>
+                        @*<li><a href="#" title="Bác sỹ gia đình">Bác sỹ gia đình</a></li>*@
+                        @*<li><a href="#">Khám chữa bệnh chủ động</a></li>*@
+                        @*<li><a href="#">Hội chẩn chuyên gia</a></li>*@
+                        @*<li><a href="https://medlatec.vn/tin-tuc/dich-vu-moi-s177" title="Dịch vụ mới">Dịch vụ mới</a></li>*@
+                        @*<li><a href="#" title="Gói dịch vụ">Gói dịch vụ</a></li>*@
+                    </ol>
+                </li>
+                <li>
+                    <a href="https://medlatec.vn/chuyen-khoa" title="Chuyên khoa y tế">Chuyên khoa y tế<i class="arrow-children"></i></a>
+
+                </li>
+                <li class="has-children">
+                    <a style="padding: 11px 13px 9px;" href="#" title="Hướng dẫn khách hàng">Hướng dẫn khách hàng<i class="arrow-children"></i></a>
+                    <ol class="sub-menu">
+                        <li><a href="https://medlatec.vn/tra-cuu-ket-qua" title="Tra cứu kết quả">Tra cứu kết quả</a></li>
+                        <li><a href="/hoi-dap" title="Tư vấn Online">Tư vấn Online</a></li>
+                        <li><a href="https://medlatec.vn/dat-lich-lay-mau" title="Đặt lịch lấy mẫu">Đặt lịch lấy mẫu tận nơi</a></li>
+                        <li><a href="https://medlatec.vn/bang-gia-dich-vu" title="Bảng giá dịch vụ chung">Bảng giá dịch vụ chung</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/uu-dai-dac-biet-s120" title="Chương trình ưu đãi">Chương trình ưu đãi</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/den-medlatec-kham-benh-thu-7-chu-nhat-va-ngay-le-s2-n10340" title="Giờ làm việc">Giờ làm việc</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/quy-trinh-kham-benh-chua-benh-noi-tru-bhyt-tai-medlatec-s2-n10545" title="Quy trình khám chữa bệnh">Quy trình khám chữa bệnh</a></li>
+                        <li><a href="https://medlatec.vn/tin-tuc/the-khach-hang-the-pid-su-dung-cang-nhieu-gia-tri-cang-lon--s120-n7003" title="Thẻ bệnh án điện tử (PID)">Thẻ bệnh án điện tử (PID)</a></li>
+                        @*<li><a href="#" title="Đấu thầu">Đấu thầu</a></li>*@
+
+
+                    </ol>
+                </li>
+
+                <li class="has-children">
+                    <a style="padding: 11px 13px 9px;" href="https://medlatec.vn/tin-tuc" title="Tin tức tổng hợp">Tin tức<i class="arrow-children"></i></a>
+                    <ol class="sub-menu">
+                        @*<li class="has-children">
+                                <a href="https://medlatec.vn/tin-tuc/tuyen-dung-s15" title="Tuyển dụng">Tuyển dụng<i class="arrow-children"></i></a>
+
+                            </li>*@
+                        <li class="has-children">
+                            <a href="https://medlatec.vn/tin-tuc/tin-tuc-y-hoc-s28" title="Tin tức y học">Tin tức y học<i class="arrow-children"></i></a>
+                            <ol class="sub-menu">
+                                <li><a href="https://medlatec.vn/tin-tuc/benh-truyen-nhiem-s94" title="Bệnh truyền nhiễm">Bệnh truyền nhiễm</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/xuong-khop-s68" title="Xương khớp">Xương khớp</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/da-lieu-s107" title="Da liễu">Da liễu</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/tieu-hoa-s67" title="Tiêu hóa">Tiêu hóa</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/ho-hap-s64" title="Hô hấp">Hô hấp</a></li>
+
+
+                                <li><a href="https://medlatec.vn/tin-tuc/noi-tiet-s62" title="Nội tiết">Nội tiết</a></li>
+
+                                <li><a href="https://medlatec.vn/tin-tuc/san-khoa-s74" title="Sản phụ khoa">Sản phụ khoa</a></li>
+
+
+                                <li><a href="https://medlatec.vn/tin-tuc/tim-mach-s63" title="Tim mạch">Tim mạch</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/benh-ung-thu-s91" title="Ung thư">Ung thư</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/benh-tre-em-s75" title="Bệnh trẻ em">Bệnh trẻ em</a></li>
+
+                            </ol>
+                        </li>
+
+                        <li class="has-children">
+                            <a style="padding: 11px 13px 9px;" href="#" title="Hoạt động bệnh viện">Hoạt động bệnh viện<i class="arrow-children"></i></a>
+                            <ol class="sub-menu">
+                                <li><a href="https://medlatec.vn/tin-tuc/tin-hoat-dong-s1" title="Tin tức nội bộ">Tin tức nội bộ</a></li>
+                                <li><a href="https://medlatec.vn/tin-tuc/bao-chi-khach-hang-noi-ve-medlatec-s135" title="Báo chí nói về chúng tôi">Báo chí nói về chúng tôi</a></li>
+                            </ol>
+                        </li>
+                        <li class="has-children">
+                            <a href="https://medlatec.vn/tin-tuc/dinh-duong-s51" title="Dinh Dưỡng">Dinh Dưỡng<i class="arrow-children"></i></a>
+
+                        </li>
+                        <li class="has-children">
+                            <a href="https://medlatec.vn/tin-tuc/xet-nghiem-s58" title="Xét nghiệm">Xét nghiệm<i class="arrow-children"></i></a>
+
+                        </li>
+                </li>
+                <li class="has-children">
+                    <a style="color:#F9E484;padding: 11px 10px 9px;" href="https://medlatec.vn/tin-tuc/thong-tin-corona-s194" title="Thông tin Corona">
+                        <img style="max-height:40px;height:40px; " src="/Content/images/banner/thong-tin-corona.png" alt="Thông tin corona" />
+                    </a>
+                </li>
+
+                @*<li class="has-children">
+                        <a href="https://medlatec.vn/tin-tuc/thuoc--suc-khoe-s18" title="Thuốc và TPCN">Thuốc và TPCN<i class="arrow-children"></i></a>
+
+                    </li>*@
+
+
+
+            </ol>
+            </li>
+
+            <li>
+                <a href="https://medlatec.vn/tin-tuc/tuyen-dung-s15" title="Thông tin tuyển dụng">Tuyển dụng <i class="arrow-children"></i></a>
+            </li>
+
+            <li class="has-children">
+                <a style="padding: 11px 13px 9px;" href="#" title="Hệ thống MEDLATEC">Hệ thống MEDLATEC<i class="arrow-children"></i></a>
+                <ol class="sub-menu">
+
+                    <li><a href="https://medlatec.vn/he-thong-medlatec-benh-vien" title="Hệ thống Bệnh viện và Phòng khám">Hệ thống Bệnh viện và Phòng khám</a></li>
+                    <li><a href="https://medlatec.vn/he-thong-medlatec-chi-nhanh" title="Hệ thống chi nhánh các tỉnh">Hệ thống chi nhánh các tỉnh</a></li>
+                    <li><a href="https://medlatec.vn/he-thong-medlatec-van-phong" title="Hệ thống văn phòng">Hệ thống văn phòng</a></li>
+
+
+                </ol>
+            </li>
+
+
+            <li class="has-children">
+                <a href="https://medlatec.vn/video" title="Thông tin video">
+                    Video
+                </a>
+
+            </li>
+
+            </ol>
+        </div>
+    </div>
+
+    <!--- End Menu --->
+    @RenderBody()
+
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-row row">
+                <div class="footer-col col-lg-4">
+                    <div class="contact-info">
+                        <p class="contac-p1">Bệnh viện Đa khoa MEDLATEC</p>
+                        <p class="contac-p2">Trực thuộc Công ty TNHH Công nghệ và Xét nghiệm Y học</p>
+                        <p>Mã số thuế : 0101234974 do Sở Kế hoạch và Đầu tư thành phố Hà Nội cấp ngày 22/04/2002.</p>
+                        <p>Chịu trách nhiệm nội dung</p>
+                        <p>GĐ.ThS.BS Nguyễn Thị  Kim Len</p>
+                    </div>
+
+                    <div class="social-main">
+                        <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/"><img src="/Content/images/facebook.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>
+                        <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q"><img src="/Content/images/youtube.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>
+                        <a href="https://www.linkedin.com/company/bệnh-viện-đa-khoa-medlatec/"><img src="/Content/images/linkin.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>
+                        <a href="https://zalo.me/2830811318419977487"><img src="/Content/images/zalo.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>
+                        @*<a href="#"><img src="/Content/images/twitter.png" alt="Bệnh viện đa khoa MEDLATEC" /></a>*@
+                    </div>
+                    <div class="contact-info">
+                        <a class="contac-a1" href="http://online.gov.vn/CustomWebsiteDisplay.aspx?DocId=12640" target="_blank">
+                            <img class="contact-img1" src="/Content/images/banner/bo-cong-thuong.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col col-lg-4">
+                    <div class="contact-main">
+                        <p class="footer-title d-none d-lg-block">Liên hệ</p>
+                        <ul>
+                            <li class="contact-phone"><img src="/Content/images/phone.png" alt="hotline 1900 565656" />1900 565656</li>
+                            <li class="contact-mail"><img src="/Content/images/mail.png" alt="email" />info@medlatec.com</li>
+                            <li class="contact-address">
+                                <img src="/Content/images/maker.png" alt="Địa chỉ cơ sở" />
+                                <p>1. Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình, Hà Nội, Việt Nam</p>
+                                <p>2. Số 99 Trích Sài, Tây Hồ, Hà Nội</p>
+                                <p>3. Số 03 Khuất Duy Tiến, Thanh Xuân, Hà Nội.</p>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-col col-lg-4 d-none d-lg-block">
+                    <div class="footer-service">
+                        <p class="footer-title">Dịch vụ</p>
+                        <ul>
+
+                            <li><a href="https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep" title="Khám sức khỏe">Khám sức khỏe</a></li>
+
+                            <li><a href="https://medlatec.vn/dich-vu/xet-nghiem-lay-mau-tai-nha" title="Lấy mẫu xét nghiệm tận nơi">Lấy mẫu xét nghiệm tận nơi</a></li>
+                            <li><a href="https://medlatec.vn/dich-vu/bao-hiem-y-te" title="Bảo hiểm y tế">Bảo hiểm y tế</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-service">
+                        <p class="footer-title">Quy chế hoạt động</p>
+                        <ul>
+
+                            <li><a href="https://medlatec.vn/quy-che-hoat-dong">Quy chế hoạt động</a></li>
+                            <li><a href="https://medlatec.vn/chinh-sach-bao-mat">Chính sách bảo mật & Điều khoản sử dụng</a></li>
+                            <li><a href="https://medlatec.vn/trach-nhiem-va-cam-ket">Trách nhiệm và cam kết</a></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <script type="application/ld+json">
+            {
+            "@@context": "http://schema.org",
+            "@@type": "LocalBusiness",
+            "@@id":"https://medlatec.vn",
+            "priceRange":"$$",
+            "image":"https://medlatec.vn/Content/images/logo.jpg",
+            "name" : "Bệnh Viện Đa Khoa Medlatec",
+            "telephone": "+841900565656",
+            "address": {
+            "@@type": "PostalAddress",
+            "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+            "addressLocality": "Hà Nội"
+            },
+            "potentialAction": {
+            "@@type": "OrderAction",
+            "target": {
+            "@@type": "EntryPoint",
+            "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+            "inLanguage": "vi-VN",
+            "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+            }}}
+        </script>
+        <script type="application/ld+json">
+            {
+            "@@context": "http://schema.org",
+            "@@type": "Hospital",
+            "priceRange":"$$",
+            "@@id":"https://medlatec.vn",
+            "image":"https://medlatec.vn/Content/images/logo.jpg",
+            "name" : "Bệnh Viện Đa Khoa Medlatec",
+            "telephone": "+841900565656",
+            "openingHours": "Mo-Su 00:00-24:00",
+            "ContactPoint": {
+            "telephone": "+841900565656",
+            "contactType": "sales",
+            "contactOption": "TollFree",
+            "areaServed": "VN"},
+            "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+            "slogan":"Dịch vụ tốt, công nghệ cao",
+            "founder":[{
+            "@@type":"Person",
+            "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+            "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+            "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+            "sameAs":["https://www.facebook.com/tri.1957"]
+            }]
+            }
+
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("button").click(function () {
+                    window.location.href = "/tim-kiem?tukhoa=" + document.getElementById('timkiem').value;
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".btntimkiem").bind("click", function (evt) {
+                    if (document.getElementById('timkiem').value.length < 2) {
+                        alert("Mời bạn nhập từ khóa tìm kiếm");
+                        return false;
+                    } else {
+                        window.location.href = "/tim-kiem?tukhoa=" + document.getElementById('timkiem').value;
+                        evt.preventDefault();
+                    }
+
+                });
+            });
+        </script>
+
+        <script>
+            var input = document.getElementById("timkiem");
+            input.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("nuttimkiem").click();
+                }
+            });
+        </script>
+        <script>
+            window.onscroll = function () { myFunction() };
+
+            var navmenu = document.getElementById("topmenu");
+            var scroll = navmenu.offsetTop;
+
+            function myFunction() {
+                if (window.pageYOffset > scroll) {
+                    navmenu.classList.add("scroll");
+                } else {
+                    navmenu.classList.remove("scroll");
+                }
+            }
+        </script>
+    </footer>
+
+    <!--- Hotline --->
+    <div class="call-hotline">
+        <a href="tel:1900 565656"><img src="/Content/images/call.png" alt="hotline 1900 565656" />1900 565656</a>
+
+
+    </div>
+
+    <!--- End Hotline --->
+    <!--- Messenger --->
+    <!--- End Messenger --->
+</body>
+
+</html>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '374830993795949',
+            xfbml: true,
+            version: 'v10.0'
+        });
+        FB.AppEvents.logPageView();
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd")</script>
+@*<script>!function (s, u, b, i, z) { var r, m; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = function (e) { return e <= 6 ? 5 : r(e - 1) + r(e - 3) }, (m = function (e) { var t, n, c; 5 < e || s._subiz_init_2094850928430 || (t = "https://", t += 0 === e ? "widget." + i + ".xyz" : 1 === e ? "storage.googleapis.com" : "sbz-" + r(10 + e) + ".com", t += "/sbz/app.js?accid=" + z, n = u.createElement(b), c = u.getElementsByTagName(b)[0], n.async = 1, n.src = t, c.parentNode.insertBefore(n, c), setTimeout(m, 2e3, e + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd");</script>*@
+
+@*<script type="text/javascript">function loadJsAsync(t, e) { var n = document.createElement("script"); n.type = "text/javascript", n.src = t, n.addEventListener("load", function (t) { e(null, t) }, !1); var a = document.getElementsByTagName("head")[0]; a.appendChild(n) } window.addEventListener("DOMContentLoaded", function () { loadJsAsync("https://web.vcc-vinaphone.com.vn:8090/js/CsChat.js?v=2.0", function () { var t = { domain: "0889685656" }; embedCsChat(t) }) }, !1);</script>*@
+@*<script type='text/javascript'>window._sbzq || function (e) { e._sbzq = []; var t = e._sbzq; t.push(["_setAccount", 34050]); var n = e.location.protocol == "https:" ? "https:" : "http:"; var r = document.createElement("script"); r.type = "text/javascript"; r.async = true; r.src = n + "//static.subiz.com/public/js/loader.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i) }(window);</script>*@

@@ -1,0 +1,477 @@
+﻿@model  MEDLATEC2019.Models.VideoHomeViewModel
+@using CMS_Core.Entity;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Note {
+    <title>Bệnh viện đa khoa MEDLATEC | Trang video</title>
+
+    <meta name="description" content="@Html.Raw("Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp, Video hot trong tuần")" />
+    <meta name="og:description" content="@Html.Raw("Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp, Video hot trong tuần")" />
+
+
+    <meta name="title" content="@Html.Raw("Bệnh viện đa khoa MEDLATEC | Lấy mẫu xét nghiệm tại nhà | Video hot trong tuần")" />
+    <meta name="og:title" content="@Html.Raw("Bệnh viện đa khoa MEDLATEC | Lấy mẫu xét nghiệm tại nhà | Video hot trong tuần")" />
+
+
+    <meta name="keywords" content="@Html.Raw("Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp, Video hot trong tuần")" />
+
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <meta property="og:url" content="https://medlatec.vn/video" />
+
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/video" />
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+
+
+    @*<link rel="stylesheet" href="~/Content/css/reset.css">*@
+    <link rel="stylesheet" href="~/Content/css/global.css">
+    <link rel="stylesheet" href="~/Content/css/global.respomsive.css">
+
+
+}
+
+
+
+<section class="pvm-content-data">
+    @if (!string.IsNullOrEmpty(Model.VideoTop.Linkvideo))
+    {
+        <section class="pvm-content pvm-conent-row1">
+            <div class="container pvm-fix-container">
+                <div class="wrap">
+                    <div class="sec32_row1">
+                        <p id="breadcrumbs">
+                            <span>
+                                <span><a href="https://medlatec.vn/">Trang chủ</a> » <span class="breadcrumb_last" aria-current="page">Videos</span></span>
+                            </span>
+                        </p>
+                    </div>
+
+                    <div class="video-big">
+                        <div class="video-content removeClass" id="iframerow1">
+                            @Html.Raw(Model.VideoTop.Linkvideo)
+
+                        </div>
+                        <div class="text-title">
+
+                            <h4>@Model.VideoTop.VideoTitle</h4>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+
+                    @Html.Raw(Model.VideoTop.VideoCode)
+
+                </div>
+            </div>
+        </section>
+
+    }
+
+
+    <!--//-->
+    @if (Model.videoCate1 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate1[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate1[0].vName,Model.videoCate1[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate1)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    @if (Model.videoCate2 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate2[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate2[0].vName,Model.videoCate2[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate2)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    @if (Model.videoCate3 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate3[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate3[0].vName,Model.videoCate3[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate3)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    @if (Model.videoCate4 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate4[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate4[0].vName,Model.videoCate4[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate4)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    @if (Model.videoCate5 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate5[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate5[0].vName,Model.videoCate5[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate5)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    @if (Model.videoCate6 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate6[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate6[0].vName,Model.videoCate6[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate6)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+
+    @if (Model.videoCate7 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate7[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate7[0].vName,Model.videoCate7[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate7)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    @if (Model.videoCate8 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate8[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate8[0].vName,Model.videoCate8[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate8)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    @if (Model.videoCate9 != null)
+    {
+        <section class="pvm-content wap-row2">
+            <div class="container pvm-fix-container">
+                <div class="wrap wap-row2-menu">
+                    <div class="sec32_row1 pvm-sec32_row">
+                        <p class="menu-content">
+                            <span class="one">
+                                @Model.videoCate9[0].vName
+
+                            </span>
+                            <a href="/@CMS_Core.Common.Common.GetURLVideoByCate("video",Model.videoCate9[0].vName,Model.videoCate9[0].vId.ToString()) " class="hplink">
+                                xem tất cả
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="pvm-slider-video">
+                    <div class="owl-carousel">
+                        @foreach (var item in Model.videoCate9)
+                        {
+                            <div class="item">
+                                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                                    <div class="thumb">
+                                        <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+                                    </div>
+                                    <div class="text">
+                                        <h5 class="tid">
+                                            <i class="fab fa-youtube fa-yb"></i>
+                                            @item.VideoName
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+</section>
+
+<!-- CDN JQUERY -->
+
+<script src="~/Content/js/owl.carousel.min.js"></script>
+<script src="~/Content/js/global.js"></script>

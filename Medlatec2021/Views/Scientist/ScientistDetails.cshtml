@@ -1,0 +1,448 @@
+﻿@model  MEDLATEC2019.Models.ScientistViewModel
+@using CMS_Core.Entity;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+
+@if (Model.ScientistDetail != null)
+{
+    if (Model.ScientistDetail.ScientistTitle.Length > 0)
+    {
+        string urlschema = "";
+        string ngaydang = "";
+        string sapo = "";
+        if (Model.ScientistDetail.newsImages.Length > 10)
+        {
+            urlschema = @Model.ScientistDetail.newsImages.Replace("\"", "/").Replace("\\", "/");
+        }
+        @section Note {
+            <title>@Html.Raw(Model.ScientistDetail.ScientistTitle.ToString().TrimStart().TrimEnd().Replace("\"", "")) | Medlatec</title>
+            @if (Model.ScientistDetail.scientistDesc.Length > 10)
+            {
+                <meta name="description" content="@Html.Raw(Model.ScientistDetail.scientistDesc.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+                <meta property="og:description" content="@Html.Raw(Model.ScientistDetail.scientistDesc.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+            }
+            @if (Model.ScientistDetail.ScientistTitle.Length > 10)
+            {
+                <meta name="title" content="@Html.Raw(Model.ScientistDetail.ScientistTitle.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+                <meta property="og:title" content="@Html.Raw(Model.ScientistDetail.ScientistTitle.ToString().TrimStart().TrimEnd().Replace("\"", ""))" />
+            }
+            @if (Model.ScientistDetail.newsKeyword.Length > 5)
+            {
+                <meta name="keywords" content="@Html.Raw(Model.ScientistDetail.newsKeyword.ToString().TrimStart().TrimEnd())" />
+            }
+            else
+            {
+                <meta name="keywords" content="@Html.Raw(Model.ScientistDetail.scientistDesc.ToString().TrimStart().TrimEnd())" />
+            }
+
+
+
+            @if (Model.ScientistDetail.newsImages.Length > 10)
+            {
+                <meta property="og:image" content="@Model.ScientistDetail.newsImages" />
+            }
+
+            <meta property="og:type" content="article" />
+            <meta property="fb:app_id" content="2092985977431269" />
+            <meta property="og:url" content="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", Model.ScientistDetail.ScientistTitle.ToString().ToLower().Replace("\"", "").ToLower(), "s" + Model.ScientistDetail.ScientistCae.ToString(), "n" + Model.ScientistDetail.ID.ToString())" />
+
+
+
+            <meta name="robots" content="index,follow,all">
+            <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu",CMS_Core.Common.Common.removeCharEncode(Model.ScientistDetail.ScientistTitle.ToLower().TrimEnd().TrimStart().ToString().Replace("\"", "").ToLower()), "s" + Model.ScientistDetail.ScientistCae.ToString(), "n" + Model.ScientistDetail.ID.ToString())" />
+            <meta name="theme-color" content="#4285f4">
+            <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+
+        }
+
+
+
+
+        using (Html.BeginForm("ScientistDetails", "Scientist", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <style type="text/css">
+
+                .news-tags a {
+                    color: #4a4a4a;
+                    text-decoration: none;
+                    background-color: #f2f2f2;
+                    margin: 5px 2px 0 0;
+                    padding: 5px 12px 6px;
+                    border-radius: 20px;
+                }
+
+                    .news-tags a:hover {
+                        color: white;
+                        text-decoration: none;
+                        background-color: #1576C4;
+                        margin: 5px 2px 0 0;
+                        padding: 5px 12px 6px;
+                        border-radius: 20px;
+                    }
+
+                .single-news--content h2, h3, h4 {
+                    font-size: 1.25rem;
+                }
+
+                .single-news--content h3, h4 {
+                    font-size: 1rem;
+                }
+            </style>
+            <div class="breadcrumb-container container">
+                <ul class="clearfix" itemscope itemtype="http://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a href="https://medlatec.vn/" itemprop="item"><span itemprop="name">Trang chủ</span></a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a href="/@CMS_Core.Common.Common.GetURLDetailByCate("cong-trinh-nghien-cuu",Model.ScientistDetail.ScientistCateName.ToLower() ,"s"+ Model.ScientistDetail.ScientistCae.ToString())" title="@Model.ScientistDetail.ScientistCateName.ToString()" itemprop="item"><span itemprop="name">@Model.ScientistDetail.ScientistCateName.ToString()</span></a>
+                        <meta itemprop="position" content="2" />
+                    </li>
+
+                    <li><span>@Model.ScientistDetail.ScientistTitle.ToString().TrimStart().TrimEnd()</span></li>
+                </ul>
+            </div>
+
+            <div class="single-news container">
+                <div class="single-news--row row">
+                    <div class="single-news--col col-xl-9 col-lg-8">
+                        <div class="single-news--container">
+
+
+                            <h1>@Html.Raw(CMS_Core.Common.Common.removeCharEncode(Model.ScientistDetail.ScientistTitle.ToString().TrimStart().TrimEnd()))</h1>
+                            <div class="single-news--info clearfix">
+                                @if (Model.ScientistDetail.datepub != null)
+                                {
+                                    ngaydang = Model.ScientistDetail.datepub.ToString("dd/MM/yyyy");
+                                    <span class="single-news--date">Ngày @Model.ScientistDetail.datepub.ToString("dd/MM/yyyy")</span>
+                                }
+                                @if (Model.ScientistDetail.PersionPerform != null)
+                                {
+                                    <span class="single-news--cat">@Model.ScientistDetail.PersionPerform.ToString() </span>
+                                }
+
+
+                            </div>
+                            <div class="single-news--wrapper">
+                                <div class="share-social clearfix">
+                                    <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/" class="share-social--facebook"><img src="/Content/images/facebook-share.png" alt="" /></a>
+                                    <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q" class="share-social--youtube"><img src="/Content/images/youtube-share.png" alt="" /></a>
+                                    <a href="" class="share-social--linkin"><img src="/Content/images/linkedin-share.png" alt="" /></a>
+                                    <a href="" class="share-social--twitter"><img src="/Content/images/twitter-share.png" alt="" /></a>
+
+                                </div>
+
+
+                                <div class="single-news--content">
+                                    @if (Model.ScientistDetail.scientistDesc != null)
+                                    {
+                                        sapo = Model.ScientistDetail.scientistDesc.ToString().TrimStart().TrimEnd().Replace("\"", "");
+                                        <p><b> @Model.ScientistDetail.scientistDesc.ToString().TrimStart().TrimEnd().Replace("\"", "")</b></p><br />
+
+
+                                    }
+
+
+                                    @if (Model.ScientistDetail.newsContent != null)
+                                    {
+                                        string noidung = CMS_Core.Common.Common.CleanHtml(Model.ScientistDetail.newsContent.ToString());
+                                        noidung = CMS_Core.Common.Common.StripStyleTags(noidung);
+                                        noidung = noidung.Replace("<p><meta charset='utf - 8' /></p>", "");
+                                        noidung = noidung.Replace("<meta charset='utf-8' />", "");
+                                        <p> @Html.Raw(noidung)</p>
+
+                                    }
+
+                                </div>
+                                @Html.AntiForgeryToken()
+                                <div class="register-wrapper">
+                                    <div class="register-row row">
+                                        <div class="register-col col-lg-4">
+                                            <div class="register-form">
+                                                <p>Đăng ký khám, tư vấn</p>
+                                                <div class="form">
+
+                                                    <style type="text/css">
+                                                        input[name='CaptchaInputText'] {
+                                                            width: 100% !important;
+                                                            line-height: 28px;
+                                                            background: rgba(255, 255, 255, .8) none;
+                                                            padding: 10px;
+                                                            height: 40px;
+                                                            display: block;
+                                                            width: 100%;
+                                                            font-size: 1rem;
+                                                            font-weight: 400;
+                                                            line-height: 1.5;
+                                                            color: #495057;
+                                                            border: 1px solid #ced4da;
+                                                            border-radius: .25rem;
+                                                            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                                        }
+                                                    </style>
+
+                                                    <div class="form-group register-name">
+
+                                                        <input value="" name="txthoten" class="form-control" placeholder="Họ và tên (*)" type="text" />
+                                                    </div>
+                                                    <div class="form-group register-phone">
+
+                                                        <input value="" name="txtsdt" class="form-control" placeholder="Số điện thoại (*)" type="text" />
+                                                    </div>
+                                                    <div class="form-group register-email">
+
+                                                        <input value="" name="txtemail" placeholder="Email" class="form-control" type="text" />
+                                                    </div>
+                                                    <div class="form-group register-comment">
+
+                                                        <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                                                    </div>
+
+
+                                                    <div class="form-group form-group--btn">
+                                                        <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="register-col col-lg-8 d-none d-lg-block">
+                                            <div class="choose-main">
+                                                <p class="line-title">Tại sao nên chọn bệnh viện đa khoa MEDLATEC</p>
+                                                <div class="choose-main--row row">
+                                                    <div class="choose-main--col col-lg-4">
+                                                        <div class="choose-main--item">
+                                                            <div class="choose-main--icon"><img src="/Content/images/hospital.png" alt="" /></div>
+                                                            <div class="choose-main--desc">Bệnh viện đa khoa nhiều năm kinh nghiệm.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="choose-main--col col-lg-4">
+                                                        <div class="choose-main--item">
+                                                            <div class="choose-main--icon"><img src="/Content/images/doctors.png" alt="Đội ngũ giáo sư, bác sĩ đầu ngành" /></div>
+                                                            <div class="choose-main--desc">Đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="choose-main--col col-lg-4">
+                                                        <div class="choose-main--item">
+                                                            <div class="choose-main--icon"><img src="/Content/images/infrastructure.png" alt="" /></div>
+                                                            <div class="choose-main--desc">Cơ sở vật chất hiện đại</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="choose-main--col col-lg-4">
+                                                        <div class="choose-main--item">
+                                                            <div class="choose-main--icon"><img src="/Content/images/bill.png" alt="" /></div>
+                                                            <div class="choose-main--desc">Áp dụng thanh toán bảo hiểm y tế lên tới 100%</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="choose-main--col col-lg-4">
+                                                        <div class="choose-main--item">
+                                                            <div class="choose-main--icon"><img src="/Content/images/fast.png" alt="" /></div>
+                                                            <div class="choose-main--desc">Quy trình khám chữa bệnh nhanh chóng</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="choose-main--col col-lg-4">
+                                                        <div class="choose-main--item">
+                                                            <div class="choose-main--icon"><img src="/Content/images/dollar.png" alt="" /></div>
+                                                            <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-news--col col-xl-3 col-lg-4">
+
+                        @if (Model.News != null)
+                        {
+                            <div class="sidebar-container">
+                                <div class="news-post">
+                                    <p class="news-qt">Hội nghị hội thảo khoa học</p>
+                                    <div class="news-post--list">
+
+                                        @foreach (var data in Model.News)
+                                        {
+                                            <div class="news-post--item">
+                                                <div class="news-post--row row">
+                                                    <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                        <div class="news-post--img">
+
+                                                            @if (data.NewsImages != null)
+                                                            {
+                                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",data.NewsName.ToString().ToLower(),"s"+data.CateId.ToString() ,"n"+data.NewsId.ToString())" title="@data.NewsName.ToString().TrimStart().TrimEnd()">
+
+                                                                    <img class="lazyload" data-src="@data.NewsImages.ToString().Replace("https://login.medlatec.vn", "https://img.medlatec.vn")" alt="@data.NewsName.ToString().TrimStart().TrimEnd()" />
+                                                                </a>
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                        <div class="news-post--content">
+
+                                                            @if (data.NewsName != null)
+                                                            {
+                                                                <h3>
+                                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",data.NewsName.ToString().ToLower(),"s"+data.CateId.ToString() ,"n"+data.NewsId.ToString())" title="@data.NewsName.ToString().TrimStart().TrimEnd()">
+                                                                        @data.NewsName.ToString().TrimStart().TrimEnd()
+                                                                    </a>
+                                                                </h3>
+                                                            }
+
+                                                            <div class="news-post--info clearfix">
+                                                                @if (data.Datepub != null)
+                                                                {
+                                                                    <span class="news-post--date">Ngày @data.Datepub.ToString("dd/MM/yyyy")</span>
+                                                                }
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            if (Model.Scientist != null)
+            {
+                if (Model.Scientist.Count > 0)
+                {
+                    <div class="news-main single-news-main container">
+                        <p class="main-title">Tin cùng chuyên mục</p>
+                        <div class="news-list">
+                            <div class="news-list--row row">
+
+                                @foreach (var data in Model.Scientist)
+                                {
+
+                                    <div class="news-list--col col-lg-6">
+                                        <div class="news-item row">
+                                            <div class="news-col col-6">
+                                                <div class="news-item--img">
+                                                    @if (data.newsImages != null)
+                                                    {
+                                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", data.ScientistTitle.ToString().ToLower(), "s" + data.ScientistCae.ToString(), "n" + data.ID.ToString())" title="@data.ScientistTitle.ToString().TrimStart().TrimEnd()">
+                                                            <img class="lazyload" data-src="@data.newsImages.ToString().Replace("https://login.medlatec.vn", "https://img.medlatec.vn")" alt="@data.ScientistTitle.ToString().TrimStart().TrimEnd()" />
+                                                        </a>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            <div class="news-col col-6">
+                                                <div class="news-content">
+                                                    @if (data.ScientistTitle != null)
+                                                    {
+                                                        <h3 class="news-title"><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", data.ScientistTitle.ToString().ToLower(), "s" + data.ScientistCae.ToString(), "n" + data.ID.ToString())" title="@data.ScientistTitle.ToString().TrimStart().TrimEnd()">@data.ScientistTitle.ToString().TrimStart().TrimEnd()</a></h3>
+                                                    }
+
+                                                    <div class="new-desc d-none d-xl-block">@data.scientistDesc.ToString() </div>
+                                                    @if (data.datepub != null)
+                                                    {
+                                                        <div class="news-date">
+                                                            <i class="news-calendar"></i>
+                                                            Ngày @data.datepub.ToString("dd/MM/yyyy")
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            <script>
+                lazyload();
+            </script>
+
+
+            <script type="application/ld+json">
+
+
+
+
+                {
+                "@@context": "http://schema.org",
+                "@@type": "NewsArticle",
+                "mainEntityOfPage": {
+                "@@type": "WebPage",
+                "@@id": "https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", Model.ScientistDetail.ScientistTitle.ToString().ToLower(), "s" + Model.ScientistDetail.ScientistCae.ToString(), "n" + Model.ScientistDetail.ID.ToString())"
+                },
+                "url": "https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("cong-trinh-nghien-cuu", Model.ScientistDetail.ScientistTitle.ToString().ToLower(), "s" + Model.ScientistDetail.ScientistCae.ToString(), "n" + Model.ScientistDetail.ID.ToString())",
+                "headline": "@Model.ScientistDetail.ScientistTitle.ToString().Replace("\"", "").ToLower()",
+                "image": {
+                "@@type": "ImageObject",
+                "url": "@urlschema",
+                "height": 1280,
+                "width": 628
+                },
+                "datePublished": "@ngaydang",
+                "dateModified": "@ngaydang",
+                "author": {
+                "@@type": "Person",
+                "name": "MEDLATEC"
+                },
+                "publisher": {
+                "@@type": "Organization",
+                "name": "MEDLATEC",
+                "logo": {
+                "@@type": "ImageObject",
+                "url": "https://medlatec.vn/Content/images/logo.jpg",
+                "width": 600,
+                "height": 60
+                }
+                },
+                "description": "@sapo"
+                }
+            </script>
+
+
+
+        }
+    }
+    else
+    {
+        Response.RedirectPermanent("https://medlatec.vn/cong-trinh-nghien-cuu-khoa-hoc", false);
+    }
+
+
+
+
+}
+else
+{
+    <p style="text-align:center;"> Không có tin bài phù hợp </p>
+
+}
+
+
+
+

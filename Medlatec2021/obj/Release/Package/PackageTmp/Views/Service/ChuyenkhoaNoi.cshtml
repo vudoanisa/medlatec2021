@@ -1,0 +1,509 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    var NewsCate = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+@section Note {
+    <title>Chuyên khoa Nội | Bệnh viện đa khoa Medlatec</title>
+
+    <meta name="description" content="Chuyên khoa Nội thuộc bệnh viện đa khoa medlatec, Chuyên khoa Nội. Medlatec Quy tụ nhiều bác sĩ đầu ngành về lĩnh vực Chuyên khoa Nội ở trong và ngoài nước" />
+    <meta property="og:description" content="Chuyên khoa Nội thuộc bệnh viện đa khoa medlatec, Chuyên khoa Nội. Medlatec Quy tụ nhiều bác sĩ đầu ngành về lĩnh vực Chuyên khoa Nội ở trong và ngoài nước" />
+    <meta name="title" content="Chuyên khoa Răng hàm mặt | Bệnh viện đa khoa Medlatec" />
+    <meta property="og:title" content="Chuyên khoa Nội | Bệnh viện đa khoa Medlatec" />
+    <meta name="keywords" content="Chuyên khoa Nội" />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/Chuyen-khoa/anh-chinh-chuyen-khoa-noi.jpg" />
+
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <meta property="og:url" content="https://medlatec.vn/chuyen-khoa/chuyen-khoa-noi" />
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/chuyen-khoa/chuyen-khoa-noi" />
+}
+
+@using (Html.BeginForm("ChuyenkhoaNoi", "Service", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="https://medlatec.vn/chuyen-khoa">Chuyên khoa y tế</a></li>
+            <li><a href="#">Chuyên khoa Nội</a></li>
+
+        </ul>
+    </div>
+
+    <div class="specialist specialist-child container">
+        <div class="specialist-child--row row">
+            <div class="specialist-child--col col-xl-9 col-lg-8">
+                <h1>Chuyên khoa Nội</h1>
+                <div class="specialist-child--desc">
+                    Với ý nghĩa thông qua khám nội, khách hàng/bệnh nhân xác định bước đầu các bất thường, để từ đó có hướng khám chuyên sâu chính xác và điều trị hiệu quả. Vì vậy, chuyên khoa Nội của Bệnh viện Đa khoa MEDLATEC đã được hội tụ đội ngũ chuyên gia, bác sĩ đầu ngành, dày dặn kinh nghiệm cùng hệ thống máy móc, thiết bị đồng bộ các chuyên khoa nhằm phục vụ tốt nhất nhu cầu kiểm tra sức khỏe của người dân.
+                </div>
+                <div class="specialist-child--img"><img src="~/Content/images/Chuyen-khoa/anh-chinh-chuyen-khoa-noi.jpg" alt="Chuyên khoa Nội" /></div>
+                <div class="specialist-service">
+                    <h2 class="main-title">Dịch vụ chính</h2>
+                    <div class="specialist-service--wrapper">
+                        <div class="specialist-service--list row">
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Dịch vụ thông thường</h3>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám và điều trị tổng quát nội Tim mạch</h3>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám và điều trị nội Tiêu hóa – gan mật</h3>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám và điều trị tổng quát nội Hô hấp</h3>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám và điều trị tổng quát nội Cơ – xương – khớp</h3>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám và điều trị tổng quát nội Nội tiết</h3>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám và điều trị tổng quát nội Thần kinh</h3>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám và điều trị nội Tiêu hóa</h3>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám, tầm soát sớm Ung thư</h3>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="specialist-material" style="margin-top:15px;">
+                    <h2 class="main-title">Cơ sở vật chất - Trang thiết bị</h2>
+                    <div class="specialist-material-desc">
+                        Ra đời ngay từ ngày đầu thành lập Bệnh viện Đa khoa MEDLATEC, Chuyên Khoa Nội được đầu tư cơ sở vật chất, phòng ốc rộng rãi, khang trang tạo không gian thoải mái, thư giãn nhất cho tất cả khách hàng thăm khám. Bên cạnh đó, chuyên khoa cũng được định hướng và chú trọng đầu tư hệ thống trang thiết bị, công nghệ hiện đại nhằm chẩn đoán chính xác các bệnh lý chuyên khoa cho khách hàng mọi độ tuổi, giới tính nam - nữ, trong đó tiêu biểu như:
+                    </div>
+                    <div class="specialist-material-wrapper">
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/dien-tim-vivid-s5.jpg" alt="Siêu âm Doppler Tim – mạch máu" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Siêu âm Doppler Tim – mạch máu</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Giúp đánh giá hình thái, cấu trúc và hoạt động của tim; tình trạng huyết dịch, theo dõi tuần hoàn máu trong cơ thể. Đồng thời, máy có giá trị chẩn đoán, phát hiện các bệnh lý tim, mạch máu, huyết khối, u máu… nguy hiểm; Tầm soát, phòng ngừa tai biến, đột quỵ, đánh giá sau ghép tạng...</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/holter-ABPM-05 Meditech.jpg" alt="Holter điện tim" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Holter điện tim</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Máy để ghi lại hoạt động của tim trong thời gian dài, chẩn đoán các trường hợp rối loạn tim mạch không thường xuyên; Theo dõi nhịp tim của bệnh nhân có tiền sử suy tim, nhồi máu cơ tim, tụt huyết áp, chóng mặt, tim đập nhanh...; Đánh giá hiệu quả điều trị của thuốc chống loạn nhịp tim</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/holter-huyet-ap-ABPM-05.jpg" alt="Holter huyết áp" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Holter huyết áp</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Đo huyết áp tự động, liên tục trong 24 giờ; Chẩn đoán và điều trị bệnh lý tăng/hạ huyết áp, tăng huyết áp thai kì; Đánh giá hiệu quả sử dụng thuốc trong 24 giờ.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/dien-tim-vivid-s5.jpg" alt="Điện tim" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Điện tim</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Đo tốc độ và nhịp tim, cung cấp thông tin về lưu lượng máu qua tim; Chẩn đoán nhiều bệnh tim mạch: loạn nhịp tim, đau thắt ngực, bệnh van tim,… Sàng lọc và tầm soát bệnh tim mạch với những đối tượng có nguy cơ cao.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/cac-trang-thiet-bi-khac.png" alt="Dàn máy nội soi tiêu hóa" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Dàn máy nội soi tiêu hóa</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Máy CV 170 olympus (Nhật Bản) với công nghệ sử dụng ánh sáng có bước sóng ngắn (dải tần hẹp – NBI) có khả năng nhuộm màu ảo phát hiện những tổn thương ung thư sớm mà ánh sáng thường không phát hiện được.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/may-sieu-am.jpg" alt="Hệ thống máy siêu âm mới nhất hiện nay" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Hệ thống máy siêu âm mới nhất hiện nay</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>VIVID-T8, VOLUSION 730, X6, ….;</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/viva.jpg" alt="Máy Viva RF System" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy Viva RF System</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Máy đốt sóng cao tần bướu nhân tuyến giáp lành tính hiện là phương pháp điều trị đầu tay của các bác sĩ với các ưu điểm vượt trội như không để lại sẹo, đảm bảo tính thẩm mỹ, ra viện trong ngày, thời gian thực hiện nhanh (khoảng 10-15 phút), không phải uống thuốc hàng ngày,…</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/DEXA.jpg" alt="Máy DEXA scan" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy DEXA scan</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Là phương pháp hiện đại nhất, cho kết quả chính xác về mật độ xương, dự báo nguy cơ gãy xương và theo dõi điều trị. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/may-chup-cat-lop-ct.jpg" alt="Máy chụp cắt lớp vi tính (hay còn gọi là chụp CT-Scanner)" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy chụp cắt lớp vi tính (hay còn gọi là chụp CT-Scanner)</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Là một thành tựu vượt bậc trong chẩn đoán hình ảnh, hỗ trợ đắc lực cho bác sĩ trong quá trình chẩn đoán và tiên lượng bệnh. Đối với bệnh cơ xương khớp, máy khảo sát chính xác tổn thương về hệ thống xương khớp.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="~/Content/images/Chuyen-khoa/chup-cong-huong-tu-MRI.jpg" alt="Máy chụp Cộng hưởng từ (MRI)" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy chụp Cộng hưởng từ (MRI)</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Là kỹ thuật hình ảnh hiện đại, ngày càng được sử dụng rộng rãi bởi sự chính xác, an toàn, không xâm nhập và không dùng tia X. Kỹ thuật này được ứng dụng rộng rãi trong nhiều chuyên khoa, trong đó có chuyên khoa cơ xương khớp như chẩn đoán chính xác các bệnh lý về cột sống, đĩa đệm, dây chằng; khớp và phần mềm quanh khớp, bệnh lý thần kinh và tủy sống</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="single-news--col col-xl-3 col-lg-4 d-none d-lg-block">
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin cùng chuyên mục</p>
+                        <div class="news-post--list">
+                            @if (NewsCate != null)
+                            {
+                                for (int i = 0; i < NewsCate.Count; i++)
+                                {
+
+                                    if (i < 5)
+                                    {
+                                        <div class="news-post--item">
+                                            <div class="news-post--row row">
+                                                <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                    <div class="news-post--img">
+
+                                                        @if (NewsCate[i].NewsImages != null)
+                                                        {
+                                                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@NewsCate[i].NewsImages.ToString()" alt="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                        }
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                    <div class="news-post--content">
+
+                                                        @if (@NewsCate[i].NewsName != null)
+                                                        {
+                                                            <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()">@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                        }
+
+                                                        <div class="news-post--info clearfix">
+                                                            @if (@NewsCate[i].DateCreate != null)
+                                                            {
+                                                                <span class="news-post--date">Ngày @NewsCate[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin nổi bật</p>
+                        <div class="news-post--list">
+
+                            @for (int i = 0; i < 5; i++)
+                            {
+
+
+
+                                <div class="news-post--item">
+                                    <div class="news-post--row row">
+                                        <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                            <div class="news-post--img">
+
+                                                @if (@TinNoiBat[i].NewsImages != null)
+                                                {
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@TinNoiBat[i].NewsImages.ToString()" alt="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                        <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                            <div class="news-post--content">
+
+                                                @if (@TinNoiBat[i].NewsName != null)
+                                                {
+                                                    <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                }
+
+                                                <div class="news-post--info clearfix">
+                                                    @if (@TinNoiBat[i].DateCreate != null)
+                                                    {
+                                                        <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                    }
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+    <div class="register-main single-register-main container">
+        <div class="register-wrapper">
+            <div class="register-row row">
+                <div class="register-col col-lg-6">
+                    <div class="register-form">
+                        <p style="font-size: 21px;line-height: 21px;color:white;text-align:center;text-transform:uppercase;">Đăng ký khám, tư vấn</p>
+                        <div class="form">
+
+                            <style type="text/css">
+                                input[name='CaptchaInputText'] {
+                                    width: 100% !important;
+                                    line-height: 28px;
+                                    background: rgba(255, 255, 255, .8) none;
+                                    padding: 10px;
+                                    height: 50px;
+                                    display: block;
+                                    width: 100%;
+                                    font-size: 1rem;
+                                    font-weight: 400;
+                                    line-height: 1.5;
+                                    color: #495057;
+                                    border: 1px solid #ced4da;
+                                    border-radius: .25rem;
+                                    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                }
+                            </style>
+
+                            <div class="form-group register-name">
+                                <label>Họ và tên <i>(*)</i></label>
+                                <input value="" name="txthoten" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-phone">
+                                <label>Số điện thoại <i>(*)</i></label>
+                                <input value="" name="txtsdt" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-email">
+                                <label>Email</label>
+                                <input value="" name="txtemail" class="form-control" type="email" />
+                            </div>
+                            <div class="form-group register-comment">
+                                <label>Ghi chú khác</label>
+                                <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                            </div>
+
+
+                            <div class="form-group form-group--btn">
+                                <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-col col-lg-6 d-none d-lg-block">
+                    <div class="choose-main">
+                        <p class="line-title">Tại sao nên chọn bệnh viện đa khoa MEDLATEC</p>
+                        <div class="choose-main--row row">
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/hospital.png" alt="" /></div>
+                                    <div class="choose-main--desc">Bệnh viện đa khoa với nhiều năm kinh nghiệm trong lĩnh vực y tế.</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/doctors.png" alt="" /></div>
+                                    <div class="choose-main--desc">Thăm khám bởi đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/infrastructure.png" alt="" /></div>
+                                    <div class="choose-main--desc">Cơ sở vật chất, máy móc trang thiết bị hiện đại</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/bill.png" alt="" /></div>
+                                    <div class="choose-main--desc">Áp dụng thanh toán bảo hiểm y tế và các bảo hiểm khác lên tới 100%</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/fast.png" alt="" /></div>
+                                    <div class="choose-main--desc">Quy trình khám chữa bệnh nhanh chóng, thuận tiện</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/images/dollar.png" alt="" /></div>
+                                    <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

@@ -1,0 +1,40 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+    Layout = null;
+    var QuestionCT = (List<Question>)ViewBag.QuestionCT;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GenMapCauhoi</title>
+    <meta name="robots" content="noindex,nofollow,all">
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+               
+                <td>
+                    Tiêu đề
+                </td>
+                <td>
+                    Link
+                </td>
+            </tr>
+
+            @for (int i = 0; i < QuestionCT.Count; i++)
+            {
+            <tr>
+                
+                <td>@QuestionCT[i].QuestionTitle</td>
+                <td>https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", QuestionCT[i].QuestionTitle.ToString().ToLower(), "c" + QuestionCT[i].SpecialistID.ToString(), "q" + QuestionCT[i].QuestionID.ToString())</td>
+            </tr>
+                    }
+                
+            </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<SelectListItem> data = ViewBag.dllTest;
+    var News = (List<Cms_News>)ViewBag.News;
+}
+@using (Html.BeginForm("TaiVien", "Appointment", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal"  }))
+{
+    @section Note {
+        <title>Đặt lịch lấy mẫu tại nhà tin cậy nhất| Medlatec</title>
+        <meta name="description" content="@Html.Raw("Đặt lịch lấy mẫu tại nhà giúp bạn dễ dàng kiểm soát tình trạng bệnh, giảm thời gian đi lại, chờ đợi, trả kết quả kịp thời, chính xác, có bác sĩ chuyên khoa tư vấn kết quả")" />
+        <meta name="title" content="@Html.Raw("Đặt lịch lấy mẫu tại nhà tin cậy nhất| Medlatec")" />
+        <meta name="keywords" content="@Html.Raw("Đặt lịch lấy mẫu tại nhà giúp bạn dễ dàng kiểm soát tình trạng bệnh, giảm thời gian đi lại, chờ đợi, trả kết quả kịp thời, chính xác, có bác sĩ chuyên khoa tư vấn kết quả")" />
+        <meta name="robots" content="index,follow,all">
+        <script src="~/Content/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.standalone.min.css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css" />
+    }
+    @Html.Raw(TempData["msg"])
+    <div class="schedule-main">
+        <div class="container">
+            <div class="schedule-container">
+                <div class="schedule-form">
+                    <h2>Đặt lịch khám tại bệnh viện</h2>
+                    <div class="schedule-note">Quý khách vui lòng điền đầy đủ thông tin. Chúng tôi sẽ liên hệ lại sớm nhất</div>
+                    <div class="form">
+                        @Html.AntiForgeryToken()
+                        <div class="schedule-row row">
+                            <div class="schedule-col col-xl-12">
+                                <div class="form-group schedule-comment">
+                                    <label>@ViewBag.TextErr</label>
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-name">
+                                    <label>Họ và tên <i style="color:red;">(*)</i></label>
+                                    <input name="txtHoten" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-phone">
+                                    <label>Số điện thoại <i style="color:red;">(*)</i></label>
+                                    <input name="txtdt" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-birthday">
+                                    <label>Ngày sinh <span class="hidden-desktop">DD/MM/YY</span> <i style="color:red;">(*)</i></label>
+                                    <input name="txtngaysinh" class="form-control schedule-date" placeholder="DD/MM/YY" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-email">
+                                    <label>Email</label>
+                                    <input id="txtemail" name="txtemail" value="" class="form-control" type="email" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-sex">
+                                    <label>Giới tính  <i style="color:red;">(*)</i></label>
+                                    <select class="form-control" name="dllGT">
+                                        <option value="1">Nam</option>
+                                        <option value="2">Nữ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-address">
+                                    <label>Địa chỉ</label>
+                                    <input value="" name="txtdiachi" class="form-control" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-address">
+                                    <label>Nơi muốn khám</label>
+                                    <select id="Select1" class="form-control" name="ddrDiaDiem">
+                                        <option value="ND">Nghĩa Dũng</option>
+                                        <option value="99TS">Trích sài</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-address">
+                                    <label>Thời gian khám</label>
+                                    <input name="txtThoiGianKham" class="form-control schedule-date" placeholder="DD/MM/YY" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-md-6">
+                                <div class="form-group schedule-address">
+                                    <label>Bạn muốn khám vào khung giờ nào</label><input name="txtKhungGio" class="form-control" placeholder="Từ 7h đến 8h" type="text" />
+                                </div>
+                            </div>
+                            <div class="schedule-col col-xl-12">
+                                <div class="form-group schedule-comment">
+                                    <label>Ghi chú khác <i style="color:red;"></i></label>
+                                    <textarea name="txtghichu" class="form-control" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                                </div>
+                            </div>
+                            <div class="schedule-col col-xl-12">
+                                <div class="form-group schedule-row--btn">
+                                    <button type="submit" name="submit" value="SaveAdd">Đặt lịch khám</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="schedule-link"><a href="https://medlatec.vn/tin-tuc/cac-buoc-dat-lich-lay-mau-xet-nghiem-tan-noi-s2-n6662" title="Các bước lấy mẫu và trả kết quả tại nhà"><img src="/Content/images/schedule-link.png" alt="" />Các bước lấy mẫu và trả kết quả tại nhà</a></div>
+        </div>
+    </div>
+    <div class="news-main container news-schedule">
+        <h2 class="main-title">Tin tức mới</h2>
+        <div class="news-list">
+            <div class="news-list--row row">
+                @if (@News.Count > 0)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        <div class="news-list--col col-lg-6">
+                            <div class="news-item row">
+                                <div class="news-col col-6">
+                                    <div class="news-item--img">
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+ @News[i].CateId.ToString() , "n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()"><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>
+                                    </div>
+                                </div>
+                                <div class="news-col col-6">
+                                    <div class="news-content">
+                                        <h3 class="news-title"> <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+@News[i].CateId.ToString(),"n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()">@News[i].NewsName.ToString()</a></h3>
+                                        <div class="new-desc d-none d-xl-block">@News[i].NewsDescription.ToString()</div>
+                                        <div class="news-date"><i class="news-calendar"></i>Ngày @News[i].DateCreate.ToString("dd/MM/yyyy")   </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="news-more">
+            <a href="https://medlatec.vn/tin-tuc/y-khoa-medlatec-s28">Xem tất cả</a>
+        </div>
+    </div>
+
+}
+

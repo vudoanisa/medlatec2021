@@ -1,0 +1,190 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>@ViewBag.Title TRA CỨU KẾT QUẢ | BỆNH VIỆN ĐA KHOA MEDLATEC</title>
+
+<div class="breadcrumb-container container">
+    <ul class="clearfix">
+        <li><a href="#">Trang chủ</a></li>
+        <li><span>Tra cứu kết quả</span></li>
+    </ul>
+</div>
+<style>
+   
+</style>
+<div class="turn-up container">
+    <div class="turn-up--container">
+        <div class="turn-up--form">
+            <h2 class="title text-center">Tra cứu kết quả</h2>
+            <div class="subtitle text-center">Quý khách vui lòng điền đầy đủ thông tin. Chúng tôi sẽ liên hệ lại sớm nhất</div>
+
+            <div class="turn-up--wrapper">
+                <div class="turn-up--tab">
+                    <ul>
+                        <li data-panel="tab-customer" class="turn-up--active">Khách hàng</li>
+                        <li data-panel="tab-sample">Đơn vị gửi mẫu</li>
+                        <li data-panel="tab-card">Thẻ khách hàng</li>
+                    </ul>
+                </div>
+              
+                <div class="form">
+                    <div class="turn-up--panel">
+
+                        <div id="tab-customer" class="tab-customer turn-up--content">
+
+
+                            <div class="form-group">
+                                <label for="dateCustomer">Ngày khám <i>(*)</i></label>
+                                <input id="dateCustomer" class="form-control tab-customer--date" name="txtngaykham" placeholder="Ngày khám DD/MM/YY" type="text" readonly />
+                            </div>
+                            <div class="form-group">
+                                <i class="icon-location d-block d-md-none"></i>
+                                <label for="locationCustomer">Nơi khám <i>(*)</i></label>
+                                <select id="locationCustomer" name="dllNoiKhamSID" class="form-control tab-customer--location">
+                                    <option value="HN">Hà Nội</option>
+                                    <option value="TPHCM">Hà Nội</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="codeCustomer">Mã tra cứu <i>(*)</i></label>
+                                <input id="codeCustomer" class="form-control tab-customer--code" name="txtSID" placeholder="Mã tra cứu của bạn" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label for="passCustomer">Mã bảo mật <i>(*)</i></label>
+                                <input id="passCustomer" class="form-control tab-customer--pass" name=txtMKSID placeholder="Nhập mật khẩu của bạn" type="password" />
+                            </div>
+                            <div class="form-group form-group--btn clearfix">
+                                <button class="btn-form--submit" type="submit" name="submit" id="btnSearchSID" value="btnSearchSID">Tra cứu</button>
+
+
+                            </div>
+
+
+                        </div>
+
+                        <div id="tab-sample" class="tab-sample turn-up--content">
+
+
+
+
+
+                            <div class="form-group">
+                                <i class="icon-location d-block d-md-none"></i>
+                                <label for="locationSample">Vị trí <i>(*)</i></label>
+                                <select id="locationSample" class="form-control tab-sample--location">
+                                    <option value="">Hà Nội</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="userSample">Tên đăng nhập <i>(*)</i></label>
+                                <input id="userSample" class="form-control tab-sample--user" name="" placeholder="Nhập tên đăng nhập của bạn" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label for="passSample">Mật khẩu <i>(*)</i></label>
+                                <input id="passSample" class="form-control tab-sample--pass" placeholder="Nhập mật khẩu của bạn" type="password" />
+                            </div>
+                            <div class="form-group form-group--btn clearfix">
+                                @*<button class="btn-form--submit" type="submit" name="submit" value="btnDonviGuiMau">Tra cứu</button>*@
+                            </div>
+
+
+                        </div>
+                        <div id="tab-card" class="tab-card turn-up--content">
+
+
+                            <div class="form-group">
+                                <i class="icon-location d-block d-md-none"></i>
+                                <label for="locationCard">Nơi khám <i>(*)</i></label>
+                                <select id="locationCard" class="form-control tab-card--location">
+                                    <option value="">Hà Nội</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="codeCard">Mã thẻ <i>(*)</i></label>
+                                <input id="codeCard" class="form-control tab-card--code" placeholder="Nhập mã thẻ của bạn" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label for="passCard">Mật khẩu <i>(*)</i></label>
+                                <input id="passCard" class="form-control tab-card--pass" placeholder="Nhập mật khẩu của bạn" type="password" />
+                                <a class="get-pass" href="#" title="Lấy mật khẩu tra cứu">Lấy mật khẩu tra cứu</a>
+                            </div>
+                            <div class="form-group form-group--btn clearfix">
+                                @*<button class="btn-form--submit" type="submit" name="submit" value="btnPID">Tra cứu</button>*@
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="turn-up--guide clearfix"><a href="#" title="">Hướng dẫn tra cứu kết quả</a></div>
+        </div>
+    </div>
+</div>
+
+<div class="introduce-service container">
+    <div class="introduce-service--row row">
+        <div class="introduce-service--col col-lg-6">
+            <div class="introduce-service--item clearfix">
+                <div class="introduce-service--icon">
+                    <a href="#" title=""><img src="/Content/images/service-gift.png" alt="" /></a>
+                </div>
+                <div class="introduce-service--content">
+                    <h3><a href="#" title="">Chương trình ưu đãi</a></h3>
+                    <div class="introduce-service--desc">Bên cạnh mục tiêu nâng cao chất lượng chuyên môn, kỹ thuật để có chất lượng khám và điều trị tốt nhất phục vụ người bệnh, Bệnh viện MEDLATEC còn hướng đến những chính sách, chương...</div>
+                    <div class="introduce-service--more">
+                        <a href="#" title="">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="introduce-service--col col-lg-6">
+            <div class="introduce-service--item clearfix">
+                <div class="introduce-service--icon">
+                    <a href="#" title=""><img src="/Content/images/service-calendar.png" alt="" /></a>
+                </div>
+                <div class="introduce-service--content">
+                    <h3><a href="#" title="">Đặt lịch khám lấy mẫu</a></h3>
+                    <div class="introduce-service--desc">Thay vì phải phiền toái đến bệnh viện, phòng khám chờ đợi, người dân chỉ cần gọi điện đến tổng đài: 1900 56 56 56 để được phục vụ ngay tại nhà, cơ quan khi có chỉ định của bác sĩ, hoặc có...</div>
+                    <div class="introduce-service--more">
+                        <a href="#" title="">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="introduce-service--col col-lg-6">
+            <div class="introduce-service--item clearfix">
+                <div class="introduce-service--icon">
+                    <a href="#" title=""><img src="/Content/images/service-faq.png" alt="" /></a>
+                </div>
+                <div class="introduce-service--content">
+                    <h3><a href="#" title="">Tư vấn trực tuyến</a></h3>
+                    <div class="introduce-service--desc">Bạn đang băn khoăn, lo lắng về những bệnh lý, hay các chỉ số xét nghiệm của cơ thể,… bạn hãy đặt câu hỏi tại đây. Giáo sư, thạc sỹ, bác sỹ chuyên khoa của Bệnh viện MEDLATEC luôn sẵn...</div>
+                    <div class="introduce-service--more">
+                        <a href="#" title="">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="introduce-service--col col-lg-6">
+            <div class="introduce-service--item clearfix">
+                <div class="introduce-service--icon">
+                    <a href="#" title=""><img src="/Content/images/service-news.png" alt="" /></a>
+                </div>
+                <div class="introduce-service--content">
+                    <h3><a href="#" title="">Dịch vụ mới</a></h3>
+                    <div class="introduce-service--desc">Với đội ngũ giáo sư, chuyên gia đầu ngành từng công tác tại các bệnh viện lớn ở trong và ngoài nước về làm việc, khám và hội chẩn tại Bệnh viện Đa khoa MEDLATEC, luôn mang lại sự an tâm...</div>
+                    <div class="introduce-service--more">
+                        <a href="#" title="">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

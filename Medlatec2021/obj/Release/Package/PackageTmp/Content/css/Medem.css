@@ -1,0 +1,468 @@
+﻿.box1 img, .box1:after, .box1:before {
+    width: 100%;
+    transition: all .3s ease 0s
+}
+
+.box1 .icon, .box2, .box3, .box4, .box5 .icon li a {
+    text-align: center
+}
+
+    .box10:after, .box10:before, .box1:after, .box1:before, .box2 .inner-content:after, .box3:after, .box3:before, .box4:before, .box5:after, .box5:before, .box6:after, .box7:after, .box7:before {
+        content: ""
+    }
+
+.box1, .box11, .box12, .box13, .box14, .box16, .box17, .box18, .box2, .box20, .box21, .box3, .box4, .box5, .box5 .icon li a, .box6, .box7, .box8 {
+    overflow: hidden
+}
+
+    .box1 .title, .box10 .title, .box4 .title, .box7 .title {
+        letter-spacing: 1px
+    }
+
+    .box3 .post, .box4 .post, .box5 .post, .box7 .post {
+        font-style: italic
+    }
+
+body {
+    background-color: #f1f1f2
+}
+
+.mt-30 {
+    margin-top: 30px
+}
+
+.mt-40 {
+    margin-top: 40px
+}
+
+.mb-30 {
+    margin-bottom: 30px
+}
+
+
+/*********************** Demo - 8 *******************/
+.box8 .icon, .box8 .title {
+    margin: 0;
+    position: absolute
+}
+
+.box8 {
+    box-shadow: 0 0 3px rgba(0,0,0,.3);
+    position: relative
+}
+
+    .box8 img {
+        width: 100%;
+        height: auto
+    }
+
+    .box8 .box-content {
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.6);
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: perspective(400px) rotateX(-90deg);
+        transform-origin: center top 0;
+        transition: all .5s ease 0s
+    }
+
+    .box8 .icon li a, .box8 .title {
+        background: #ef4050;
+        font-size: 20px;
+        color: #fff
+    }
+
+    .box8:hover .box-content {
+        opacity: 1;
+        transform: perspective(400px) rotateX(0)
+    }
+
+    .box8 .title {
+        padding: 5px 7px;
+        border-radius: 5px;
+        font-weight: 600;
+        bottom: 20px;
+        left: 20px;
+        transition: all .9s ease 0s
+    }
+
+    .box8 .icon li a, .box9 .box-content, .box9 .icon li, .box9 img {
+        transition: all .35s ease 0s
+    }
+
+    .box8:hover .title {
+        bottom: -40px
+    }
+
+    .box8 .icon {
+        list-style: none;
+        padding: 0;
+        top: 42%;
+        left: 0;
+        right: 0
+    }
+
+        .box8 .icon li a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 7px
+        }
+
+.box9 .icon, .box9 .title {
+    width: 100%;
+    font-size: 22px
+}
+
+.box8 .icon li a:hover {
+    background: #fff;
+    color: #000
+}
+
+@media only screen and (max-width:990px) {
+    .box8 {
+        margin-bottom: 20px
+    }
+}
+
+
+.body-full {
+    background: url(https://medlatec.vn/Content/images/Goiksktainha/body-1.png);
+}
+
+.img-h2 {
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.img-h3 {
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 30px;
+}
+
+.img-h2 img {
+    max-width: 700px;
+}
+
+.sec-4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sec-5 {
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.anh-sec-2 {
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 3px solid #1761ca;
+    border-width: medium;
+}
+
+.modal.show .modal-dialog {
+    max-width: 650px;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: transparent;
+}
+
+.qua-tang {
+    border: none;
+    background-color: transparent;
+}
+
+.user-details {
+    position: relative;
+    padding: 0;
+}
+
+    .user-details .user-image {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+.user-image img {
+    clear: both;
+    margin: auto;
+    position: relative;
+}
+
+
+
+.user-info-block .navigation {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid #428BCA;
+    border-top: 1px solid #428BCA;
+}
+
+.navigation li {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+    .navigation li a {
+        padding: 20px 30px;
+        float: left;
+    }
+
+    .navigation li.active a {
+        background: #428BCA;
+        color: #fff;
+    }
+
+.user-info-block .user-body {
+    float: left;
+    padding: 5%;
+    width: 90%;
+}
+
+.user-body .tab-content > div {
+    float: left;
+    width: 100%;
+}
+
+.user-body .tab-content h4 {
+    width: 100%;
+    margin: 10px 0;
+    color: #333;
+}
+
+hr {
+    border-top: 1px solid white;
+}
+
+.title {
+    color: #133063;
+    text-align: center !important;
+    text-transform: unset;
+    text-decoration: underline;
+}
+
+.nav-menu--wrapper li a {
+    padding: 20px 10px 9px;
+    height: 80px;
+}
+
+.nav-menu {
+    border-bottom: 1px solid white;
+}
+
+.service-item p {
+    color: #444;
+}
+
+.line-title {
+    font-size: 28px;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+.mySlidesSan {
+    display: none;
+}
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.demo1 {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
+.active,
+.demo1:hover {
+    opacity: 1;
+}
+
+.feedback-customer {
+    background: none;
+}
+
+    .feedback-customer::before {
+        background: none;
+    }
+
+.feedback-customer-1 {
+    background-image: url(https://medlatec.vn/Content/images/medem/bg-1.png);
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.feedback-customer-2 {
+    background-color: #053972;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.feedback-customer-3 {
+    background-image: url(https://medlatec.vn/Content/images/medem/bg-3.png);
+    padding-bottom: 25px;
+}
+
+.feedback-customer-4 {
+    background-image: url(https://medlatec.vn/Content/images/medem/bg-4.png);
+    padding-bottom: 25px;
+}
+
+.feedback-customer-6 {
+    background-image: url(https://medlatec.vn/Content/images/medem/bg-6.png);
+    padding-bottom: 25px;
+}
+
+.body-skdn1 {
+    background-image: url(https://medlatec.vn/Content/images/chuyengia/Bg-2.png);
+    background-size: cover;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.khonggian {
+    padding: 3px;
+}
+
+    .khonggian a {
+        display: block;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .khonggian img {
+        width: 100%;
+        height: auto;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .khonggian:hover img {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+.turn-up--wrapper {
+    max-width: 100%;
+    margin-top: 25px;
+}
+
+@media only screen and (max-width: 1199px) {
+    .nav-tabs .nav-link.active {
+        max-width: 50%;
+    }
+
+    .nav-tabs .nav-link {
+        max-width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .nav-tabs .nav-link.active {
+        max-width: 25%;
+    }
+
+    .nav-tabs .nav-link {
+        max-width: 25%;
+    }
+
+    .banner-skdn {
+        margin-top: 80px;
+    }
+}

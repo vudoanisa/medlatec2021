@@ -1,0 +1,583 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    Layout = null;
+    var News = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+<html>
+<head>
+    <title>Đốt sóng cao tầng, điều trị u tuyến giáp lành tính tại bệnh viện Medlatec</title>
+
+    <meta name="description" content="@Html.Raw("Đốt sóng cao tầng, điều trị u tuyến giáp lành tính tại bệnh viện Medlatec. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn")" />
+
+
+    <meta name="title" content="@Html.Raw("Đốt sóng cao tầng, điều trị u tuyến giáp lành tính tại bệnh viện Medlatec")" />
+
+    <meta name="keywords" content="@Html.Raw("đốt sóng cao tầng, điều trị u tuyến giáp, rfa")" />
+
+    <meta property="og:description" content="@Html.Raw("Đốt sóng cao tầng, điều trị u tuyến giáp lành tính tại bệnh viện Medlatec. Với sự hội tụ của nhiều chuyên gia đã từng công tác tại các bệnh viện danh tiếng ở trong và ngoài nước về làm việc cũng như cố vấn chuyên môn")" />
+    <meta property="og:title" content="@Html.Raw("Đốt sóng cao tầng, điều trị u tuyến giáp lành tính tại bệnh viện Medlatec")" />
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/rfa/banner-dot-song-cao-tang.png" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/rfa/banner-dot-song-cao-tang.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/dot-song-cao-tang" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/dot-song-cao-tang" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Content/css/styles.css" />
+    <script src="~/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/js/default.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+    <meta name="google-site-verification" content="ccIfgcSBv7UttiBiE_C4LQuIJr1be5vwhE1f5mPY3lg" />
+    <script type="text/javascript">
+        if (window.location.protocol == "http:") {
+            var restOfUrl = window.location.href.substr(5);
+            restOfUrl = restOfUrl.replace("www.", "");
+            window.location = "https:" + restOfUrl;[w]
+        }
+    </script>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://static.subiz.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+
+
+
+    <style>
+        .body-skdn .title {
+            text-align: center;
+            color: #052A66;
+            font-size: 26px;
+        }
+
+        .body-skdn .sapo-subtitle {
+            color: #052A66;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .body-skdn {
+            padding-top: 0px;
+        }
+
+            .body-skdn .title-h3 {
+                text-align: center;
+                color: #0066AE;
+                font-size: 26px;
+                margin-top: 15px;
+                background: transparent url(/Content/images/ksk/line.png) no-repeat center bottom;
+                padding: 0 0 30px;
+                text-align: center;
+                display: block;
+                margin: 0;
+                text-transform: uppercase;
+            }
+
+        .register-form input.form-control {
+            height: 40px;
+        }
+
+        .register-form .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    @using (Html.BeginForm("Dotsongcaotang", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+
+        <div class="banner-skdn">
+
+            <div class="col-12 d-block d-xl-none" style="padding-left:0px;padding-right:0px;">
+                <a href="#dangkyngay">
+                    <img src="/Content/images/rfa/Mobile/dot-song-cao-tang-mb.png" alt="Đốt sóng cao tầng, điều trị u tuyến giáp lành tính tại bệnh viện Medlatec" />
+                </a>
+            </div>
+            <div class="col-lg-12 d-none d-sm-block" style="padding-left:0px;padding-right:0px;">
+                <a href="#dangkyngay">
+                    <img src="/Content/images/rfa/banner-dot-song-cao-tang.png" alt="Đốt sóng cao tầng, điều trị u tuyến giáp lành tính tại bệnh viện Medlatec" />
+                </a>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="body-skdn">
+            <div style="background-image:url(/Content/images/rfa/banner-bg.png);background-size: cover;padding-top:25px;padding-bottom:25px; background-position:center;">
+                <div class="container">
+
+
+                    <div class="row">
+                        <div class="col-12" style="text-align:center;">
+                            <img src="/Content/images/rfa/u-tuyen-giap.png" alt="U tuyến giáp, bướu giáp nhân, bệnh lý phổ biến đứng thứ 2 hiện nay" />
+
+                        </div>
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/rfa/cac-benh-thuong-gap.png" alt="Các bệnh thường gặp trong u tuyến giáp" />
+
+                        </div>
+
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/rfa/Mobile/u-tuyen-giap.png" alt="Các bệnh thường gặp trong u tuyến giáp" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;margin-top:15px;">
+                            <img src="/Content/images/rfa/Mobile/u-tuyen-giap-lanh-tinh.png" alt="u tuyến giáp lành tính hoàn toàn có thể chữa khỏi mà không cần phẫu thuật bằng phương pháp đốt sóng cao tầng rfa" />
+
+                        </div>
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;margin-top:15px;">
+                            <img src="/Content/images/rfa/u-tuyen-giap-lanh-tinh.png" alt="u tuyến giáp lành tính hoàn toàn có thể chữa khỏi mà không cần phẫu thuật bằng phương pháp đốt sóng cao tầng rfa" />
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="background-image:url(/Content/images/rfa/banner-bg-2.png);background-size: cover;margin-top:25px;background-position:center;">
+                <div class="container" style="padding-bottom:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/rfa/uu-diem.png" alt="Ưu điểm vượt trội của phương pháp rfa u tuyến giáp lành tính" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/rfa/Mobile/uu-diem.png" alt="Ưu điểm vượt trội của phương pháp rfa u tuyến giáp lành tính" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none">
+                            <img src="/Content/images/rfa/Mobile/list-uu-diem.png" alt="Ưu điểm vượt trội của phương pháp rfa" />
+                        </div>
+                        <div class="col-6 d-none d-sm-block">
+                            <img src="/Content/images/rfa/list-uu-diem.png" alt="Ưu điểm vượt trội của phương pháp rfa" />
+                        </div>
+                        <div class="col-6 d-none d-sm-block my-auto">
+                            <div class="justify-content-center">
+                                <img src="/Content/images/rfa/bs-uu-diem.png" style="max-width:450px;" alt="Ưu điểm vượt trội của phương pháp rfa" />
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div style="background-image:url(/Content/images/rfa/banner-bg.png);background-size: cover;margin-top:25px;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/rfa/doi-tuong.png" style="max-width:900px" alt="Đối tượng chỉ định dùng phương pháp rfa" />
+                            <img src="/Content/images/rfa/doi-tuong-2.png" style="max-width:800px" alt="Đối tượng chỉ định dùng phương pháp rfa" />
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img style="margin-bottom:10px;" src="/Content/images/rfa/Mobile/doi-tuong.png" alt="Đối tượng chỉ định dùng phương pháp rfa" />
+                            <img style="margin-bottom:10px;" src="/Content/images/rfa/Mobile/doi-tuong-2.png" alt="Đối tượng chỉ định dùng phương pháp rfa" />
+                        </div>
+                        <div class="col-6 d-none d-sm-block" style="text-align:right;">
+                            <img src="/Content/images/rfa/doi-tuong-3.png" style="max-width:300px;" alt="Đối tượng chỉ định dùng phương pháp rfa" />
+                        </div>
+                        <div class="col-6 d-none d-sm-block my-auto">
+                            <div class="justify-content-center">
+                                <img src="/Content/images/rfa/doi-tuong-4.png" style="max-width:450px;" alt="Đối tượng chỉ định dùng phương pháp rfa" />
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none">
+
+                            <img src="/Content/images/rfa/Mobile/doi-tuong-4.png" alt="" />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="background-image:url(/Content/images/rfa/banner-bg-2.png);background-size: cover;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/rfa/quy-trinh.png" style="max-width:900px" alt="Quy trình thực hiện phương pháp rfa" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/rfa/Mobile/quy-trinh.png" alt="Quy trình thực hiện phương pháp rfa" />
+
+                        </div>
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;margin-bottom:20px;margin-top:20px;">
+                            <img src="/Content/images/rfa/quy-trinh-1.png" style="max-width:800px;" alt="Quy trình thực hiện phương pháp rfa" />
+                        </div>
+
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+
+                            <img style="width:80%;margin-top:15px;" src="/Content/images/rfa/Mobile/quy-trinh-1.png" alt="Quy trình thực hiện phương pháp rfa" />
+
+                        </div>
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/rfa/quy-trinh-3.png" style="max-width:900px" alt="Quy trình thực hiện phương pháp rfa" />
+
+                        </div>
+                        @*<div class="col-12 d-block d-xl-none" style="text-align:center;">
+                                <img src="/Content/images/rfa/quy-trinh-3.png" style="max-width:900px" alt="Quy trình thực hiện phương pháp rfa" />
+
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+            <div style="background-image:url(/Content/images/rfa/banner-bg-3.png);background-size: cover;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/rfa/dieu-tri.png" style="max-width:900px" alt="Tại sao nên lựa chọn medlatec để điều trị u tuyến giáp" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/rfa/Mobile/dieu-tri.png" alt="Tại sao nên lựa chọn medlatec để điều trị u tuyến giáp" />
+
+                        </div>
+                        <div class="col-6 d-none d-sm-block" style="text-align:center;margin-bottom:20px;margin-top:20px;">
+                            <img src="/Content/images/rfa/dieu-tri-1.png" alt="Tại sao nên lựa chọn medlatec để điều trị u tuyến giáp" />
+                        </div>
+                        <div class="col-6 d-none d-sm-block" style="text-align:center;margin-bottom:20px;margin-top:20px;">
+
+
+                            <div class="feature-main">
+
+                                <div class="row">
+                                    <div class="col-6" style="padding-right:0px;">
+                                        <div class="khonggian">
+                                            <a href="#" title="">
+                                                <img src="/Content/images/rfa/dieu-tri-2.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-6" style="padding-right:0px;">
+
+                                        <div class="khonggian">
+
+                                            <a href="#" title="">
+                                                <img src="/Content/images/rfa/dieu-tri-3.jpg">
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-6" style="padding-right:0px;margin-top:10px;">
+                                        <div class="khonggian">
+                                            <a href="#" title="">
+                                                <img src="/Content/images/rfa/dieu-tri-4.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-6" style="padding-right:0px;margin-top:10px;">
+
+                                        <div class="khonggian">
+
+                                            <a href="#" title="">
+                                                <img src="/Content/images/rfa/dieu-tri-5.jpg">
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none">
+
+                            <img style="margin-top:15px;" src="/Content/images/rfa/dieu-tri-1.png" alt="Tại sao nên lựa chọn medlatec để điều trị u tuyến giáp" />
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div style="background-image:url(/Content/images/rfa/banner-bg-2.png);background-size: cover;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/rfa/video.png" style="max-width:900px" alt="Video và hình ảnh thực tế" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/rfa/mobile/video.png" alt="Video và hình ảnh thực tế" />
+
+                        </div>
+
+
+                        <div class="col-12 " style="text-align:center;margin-bottom:20px;margin-top:20px;">
+                            <iframe width="90%" height="415" src="https://www.youtube.com/embed/01RZnvm_0qY?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+
+
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <div class="feature-main">
+
+                                <div class="row">
+                                    <div class="col-4" style="padding-right:0px;">
+                                        <div class="khonggian">
+                                            <a href="#" title="">
+                                                <img src="/Content/images/rfa/hinh-anh-1.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-4" style="padding-right:0px;">
+
+                                        <div class="khonggian">
+
+                                            <a href="#" title="">
+                                                <img src="/Content/images/rfa/hinh-anh-2.jpg">
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-4" style="padding-right:0px;">
+
+                                        <div class="khonggian">
+
+                                            <a href="#" title="">
+                                                <img src="/Content/images/rfa/hinh-anh-3.jpg">
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background-image:url(/Content/images/rfa/banner-bg-2.png);background-size: cover;background-position:center;">
+                <div class="container" style="padding-bottom:25px;padding-top:25px;">
+                    <div class="row">
+                        <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                            <img src="/Content/images/rfa/nhan-xet.png" style="max-width:900px" alt="Nhận xét của khách hàng sau khi sử dụng dịch vụ" />
+
+                        </div>
+                        <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                            <img src="/Content/images/rfa/mobile/nhan-xet.png" alt="Nhận xét của khách hàng sau khi sử dụng dịch vụ" />
+
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <img src="/Content/images/rfa/nhan-xet-1.png" alt="Quy trình thực hiện phương pháp rfa" />
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <img src="/Content/images/rfa/nhan-xet-2.png" alt="Quy trình thực hiện phương pháp rfa" />
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+        @Html.Raw(TempData["msg"])
+
+        @Html.AntiForgeryToken()
+        <div id="dangkyngay" style="background-image:url(/Content/images/rfa/banner-bg-4.png);background-size: cover;background-position:center;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 my-auto d-none d-sm-block">
+
+
+                        <img src="/Content/images/rfa/footer.png" alt="" />
+
+
+
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="register-form" style="width:100%;background:transparent;background-image:url(/Content/images/rfa/footer-1.png);background-size: cover;padding:18%;border:none;background-repeat:round;">
+
+
+
+                            <div class="form-group">
+                                <input value="" name="txthoten" placeholder="Họ tên (*)" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <input value="" name="txtsdt" class="form-control" type="text" placeholder="Điện thoại (*)" />
+                            </div>
+                            <div class="form-group">
+                                <input value="" name="txtemail" class="form-control" type="text" placeholder="Email" />
+                            </div>
+
+
+                            <div class="form-group">
+                                <textarea class="form-control" name="txtGhichu" placeholder="Nội dung yêu cầu"></textarea>
+                            </div>
+                            <div class="form-group form-group--btn" style="margin-bottom:20px;padding-bottom:10px;">
+                                <button style="border:1px solid #1576C4;" type="submit" name="submit" value="SaveAdd">Gửi yêu cầu</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</body>
+</html>
+
+<script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd")</script>
+
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+    },
+
+    {
+    "@@type": "ListItem",
+    "position": 2,
+    "item": { "@@id": "https://medlatec.vn/dich-vu/kham-suc-khoe-doanh-nghiep", "name": "@Html.Raw("Khám sức khoẻ doanh nghiệp, cho nhân viên tại bệnh viện Medlatec")" }
+    }
+
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>

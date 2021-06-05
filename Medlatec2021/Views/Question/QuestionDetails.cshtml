@@ -1,0 +1,472 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Cauhoi = (List<Question>)ViewBag.Cauhoi;
+    var CauhoiLienquan = (List<Question>)ViewBag.CahoiLienQuan;
+    var DanhMucCauHoi = (List<Question>)ViewBag.DanhMucCauHoi;
+    var TopCauHoi = (List<Question>)ViewBag.TopCauHoi;
+    var Total = (List<Question>)ViewBag.Tongcauhoi;
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    string fullname = "";
+    var NewsTags = (List<Cms_NewsTags>)ViewBag.Tag;
+
+}
+@if (Cauhoi != null)
+{
+    if (Cauhoi.Count > 0)
+    {
+        @section Note {
+
+
+            @if (@Cauhoi[0].QuestionContent != null)
+            {
+                <meta name="description" content="@Html.Raw(@CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionContent.TrimStart().TrimEnd().Replace("\"", "").ToLower()))" />
+            }
+
+            @if (@Cauhoi[0].QuestionTitle != null)
+            {
+                @*if (Cauhoi[0].QuestionTitle.Trim().Length == 0)
+                {
+                    if (@Cauhoi[0].QuestionContent.Length > 75)
+                    {
+                        <meta name="title" content="@Html.Raw(@Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd())" />
+                        <title>@Html.Raw(@Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd()) | Medlatec Hỏi Đáp số @Cauhoi[0].QuestionID.ToString()  </title>
+                        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", @CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd().ToLower()), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+                        <link href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("amp/hoi-dap", @CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd().ToLower()), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" rel="amphtml" />
+                    }
+                    else
+                    {
+                        <meta name="title" content="@Html.Raw("Câu hỏi số :" + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString())" />
+                        <title>@@Html.Raw("Câu hỏi số :" + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString()) </title>
+                        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", "Câu hỏi số " + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+                        <link href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("amp/hoi-dap", "Câu hỏi số " + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" rel="amphtml" />
+                    }
+                }
+                else if ((Cauhoi[0].QuestionTitle.Trim().Length < 15) && (Cauhoi[0].QuestionTitle.Trim().Length > 0))
+                {
+                    if (@Cauhoi[0].QuestionContent.Length > 75)
+                    {
+
+                        <meta name="title" content="@Html.Raw(Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd() +" - "+ @Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd())" />
+                        <title>@Html.Raw(Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd() + " - " + @Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd()) | Medlatec Hỏi Đáp số @Cauhoi[0].QuestionID.ToString()  </title>
+                        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",@CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd().ToLower()), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+
+                        <link href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("amp/hoi-dap",@CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionContent.Substring(0, 75).TrimStart().TrimEnd().ToLower()), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" rel="amphtml" />
+
+                    }
+                    else
+                    {
+                        <meta name="title" content="@Html.Raw("Câu hỏi: " + @Cauhoi[0].QuestionTitle.ToString().ToLower() + " tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString())" />
+                        <title>@Html.Raw("Câu hỏi: " + @Cauhoi[0].QuestionTitle.ToString().ToLower() + " tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString()) </title>
+                        <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", "Câu hỏi " + @CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionTitle.ToString().ToLower()) + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+
+
+                        <link href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("amp/hoi-dap", "Câu hỏi " + @CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionTitle.ToString().ToLower()) + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" rel="amphtml" />
+                    }
+                }
+                else
+                {*@
+                    <meta name="title" content="@Html.Raw(@Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd().Replace("\"", "").ToLower())" />
+                    <title>@Html.Raw(@Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd()) | Medlatec Hỏi Đáp số @Cauhoi[0].QuestionID.ToString()  </title>
+                    <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd().ToLower().Replace("\"", "")), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+
+                    <link href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("amp/hoi-dap", CMS_Core.Common.Common.removeCharEncode(Cauhoi[0].QuestionTitle.ToString().TrimStart().TrimEnd().ToLower().Replace("\"", "")), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" rel="amphtml" />
+
+                //}
+
+            }
+            else
+            {
+                <meta name="title" content="@Html.Raw("Câu hỏi số : " + @Cauhoi[0].QuestionID.ToString().TrimStart().TrimEnd()+ "tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString())" />
+                <title>@Html.Raw("Câu hỏi số : " + @Cauhoi[0].QuestionID.ToString().TrimStart().TrimEnd() + "tới bác sỹ | Medlatec Hỏi Đáp số " + @Cauhoi[0].QuestionID.ToString()) </title>
+                <link rel="canonical" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", "Câu hỏi số " + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" />
+
+
+                <link href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("amp/hoi-dap", "Câu hỏi số " + @Cauhoi[0].QuestionID.ToString().ToLower() + " tới bác sỹ", "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())" rel="amphtml" />
+
+            }
+
+
+            @if (@Cauhoi[0].QuestionContent != null)
+            {
+                <meta name="keywords" content="@Html.Raw(@Cauhoi[0].QuestionContent.TrimStart().TrimEnd().Replace("\"", "").ToLower())" />
+            }
+            else
+            {
+                <meta name="keywords" content="@Html.Raw(@Cauhoi[0].QuestionContent.TrimStart().TrimEnd().Replace("\"", "").ToLower())" />
+            }
+            <meta name="robots" content="index,follow,all">
+
+
+
+
+        }
+
+
+
+
+        <div class="breadcrumb-container container">
+            <ul class="clearfix">
+                <li><a href="https://medlatec.vn/">Trang chủ</a></li>
+                <li><a href="/hoi-dap">Hỏi đáp cùng chuyên gia</a></li>
+                <li><a href="/@CMS_Core.Common.Common.GetURLDetailByCate("hoi-dap",Cauhoi[0].SpecialName.ToString().ToLower(),"c"+Cauhoi[0].SpecialistID.ToString())" title="@Cauhoi[0].QuestionTitle.ToString()">@Cauhoi[0].SpecialName.ToString()</a></li>
+                <li><span>@Cauhoi[0].QuestionTitle.ToString() </span></li>
+            </ul>
+        </div>
+
+        <div class="faq-question d-none d-md-block">
+            <div class="faq-question--container">
+                <p class="clearfix">Tư vấn sức khoẻ từ các chuyên gia <a href="#">Đặt lịch khám</a></p>
+            </div>
+        </div>
+
+        <div class="faq-page faq-detail container">
+            <div class="faq-page--row row">
+                <div class="faq-page--col col-xl-3 d-none d-xl-block">
+                    <div class="service-menu">
+                        <div class="service-menu--title">Danh sách chuyên khoa</div>
+                        <ul>
+                            @if (DanhMucCauHoi != null)
+                            {
+                                for (int i = 0; i < DanhMucCauHoi.Count; i++)
+                                {
+                                    <li><a href="/@CMS_Core.Common.Common.GetURLDetailByCate("hoi-dap",@DanhMucCauHoi[i].SpecialName.ToString().ToLower(),"c"+DanhMucCauHoi[i].SpecialistID.ToString())" title="@DanhMucCauHoi[i].SpecialName.ToString().ToLower()"><img src="/content/images/chuyen-muc-khac.png" alt="@DanhMucCauHoi[i].SpecialName.ToString()" class="service-menu--icon" />@DanhMucCauHoi[i].SpecialName.ToString()</a></li>
+
+                                }
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="faq-page--col col-xl-6 col-lg-8">
+                    <div class="faq-detail--container">
+                        <select class="service-menu--select d-block d-xl-none">
+                            <option>Tim mạch</option>
+                            <option>Nội tiết - Tiểu đường</option>
+                        </select>
+
+                        @if (@Cauhoi[0].QuestionTitle != null)
+                        {
+                            <h1>@Cauhoi[0].QuestionTitle.ToString()</h1>
+                        }
+
+
+
+                        <div class="faq-detail--question">
+                            <div class="faq-archive--item clearfix">
+                                @*<div class="faq-archive--avatar">
+                                        <img src="images/avatar.png" alt="" />
+                                    </div>*@
+                                <div class="faq-archive--content">
+                                    <div class="faq-archive--info clearfix">
+                                        @if (@Cauhoi[0].FullName != null)
+                                        {
+                                            <div class="faq-archive--author">@Cauhoi[0].FullName.ToString()</div>
+                                            fullname = @Cauhoi[0].FullName;
+                                        }
+
+
+                                        @if (@Cauhoi[0].NgayHoi != null)
+                                        {
+                                            <div class="faq-archive--date"> @Cauhoi[0].NgayHoi.ToString("dd/MM/yyyy")</div>
+                                        }
+
+                                    </div>
+                                    @if (@Cauhoi[0].QuestionContent != null)
+                                    {
+                                        <div class="faq-archive--desc">@Cauhoi[0].QuestionContent.ToString()</div>
+                                    }
+
+                                    <div class="faq-reply--answer">Đã trả lời</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-detail--reply">
+                            <div class="faq-reply--item clearfix">
+                                <div class="faq-reply--content" id="traloi">
+
+                                    @if (@Cauhoi[0].NgayTraLoi != null)
+                                    {
+                                        <div class="faq-reply--date"><span>@Cauhoi[0].NgayTraLoi.ToString("dd/MM/yyyy")</span></div>
+
+                                    }
+                                    @{
+                                        int check = 0;
+                                        check = DateTime.Compare(DateTime.Parse("2019-09-04 16:00:00"), @Cauhoi[0].NgayTraLoi);
+                                        if (check > 0)
+                                        {
+                                            if (@Cauhoi[0].AnswerContentAutoLink != null)
+                                            {
+                                                string noidung = CMS_Core.Common.Common.CleanHtml(Cauhoi[0].AnswerContentAutoLink.ToString());
+                                                noidung = CMS_Core.Common.Common.StripStyleTags(noidung);
+                                                <div class="faq-reply--desc">
+                                                    @Html.Raw(noidung)
+                                                </div>
+                                            }
+
+
+                                        }
+                                        else
+                                        {
+
+                                            if (@Cauhoi[0].AnswerContent != null)
+                                            {
+                                                string noidung = CMS_Core.Common.Common.CleanHtml(Cauhoi[0].AnswerContent.ToString());
+                                                noidung = CMS_Core.Common.Common.StripStyleTags(noidung);
+
+                                                <div class="faq-reply--desc">
+                                                    @Html.Raw(noidung)
+                                                </div>
+                                            }
+                                        }
+                                    }
+
+                                </div>
+                                @*<div class="faq-reply--avatar">
+                                        <img src="images/lg-med.png" alt="" />
+                                    </div>*@
+                            </div>
+                            @*<div class="faq-reply--button">
+                                    <button>Phản hồi</button>
+                                </div>
+
+                                <div class="faq-reply--form">
+                                    <form action="" method="">
+                                        <div class="form-group">
+                                            <input class="form-control faq-reply--name" type="text" placeholder="Họ tên" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control faq-reply--phone" type="text" placeholder="Số điện thoại" />
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control faq-reply--comment" placeholder="Viết phản hồi"></textarea>
+                                        </div>
+                                        <div class="form-group form-group--btn">
+                                            <button>Gửi</button>
+                                        </div>
+                                    </form>
+                                </div>*@
+
+                            <div class="share-box">
+                                <div class="share-box--wrapper clearfix">
+                                    <span class="share-box--text">Share</span>
+                                    <a href="https://www.facebook.com/BenhVienDaKhoaMedlatec/" class="social-facebook"></a>
+                                    <a href="https://www.youtube.com/channel/UCOMskN2D_vfshrGgpL-o55Q" class="social-youtube"></a>
+                                    <a href="#"><i class="share-box--button share-box--linkin"></i></a>
+                                    <a href="#"><i class="share-box--button share-box--twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-question faq-question--mobile d-block d-md-none">
+                            <div class="faq-question--container">
+                                <h3 class="clearfix">Tư vấn sức khoẻ từ các chuyên gia <a href="https://medlatec.vn/dat-cau-hoi">Đặt câu hỏi</a></h3>
+                            </div>
+                        </div>
+
+                        <div class="faq-related">
+                            <div class="faq-related--title">Câu hỏi liên quan</div>
+                            <ul>
+                                @if (CauhoiLienquan != null)
+                                {
+                                    for (int i = 0; i < CauhoiLienquan.Count; i++)
+                                    {
+                                        if (i < 5)
+                                        {
+                                            <li data-number="@(i+1)">
+                                                <div class="faq-related--item">
+                                                    @if (@CauhoiLienquan[i].QuestionTitle != null)
+                                                    {
+                                                        <h2><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",@CauhoiLienquan[i].QuestionTitle.ToString().ToLower(),"c"+@CauhoiLienquan[i].SpecialistID.ToString() , "q"+@CauhoiLienquan[i].QuestionID.ToString())" title="@CauhoiLienquan[i].QuestionTitle.ToString()">@CauhoiLienquan[i].QuestionTitle.ToString()</a></h2>
+                                                    }
+
+                                                    @if (@CauhoiLienquan[i].QuestionContent != null)
+                                                    {
+                                                        <div class="faq-archive--desc">@CauhoiLienquan[i].QuestionContent.ToString()</div>
+                                                    }
+
+                                                </div>
+                                            </li>
+                                        }
+
+
+                                    }
+                                }
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-page--col faq-page--sidebar col-xl-3 col-lg-4">
+                    <div class="faq-sidebar">
+                        <div class="faq-answer">
+
+                            <span class="faq-answer--number">@Total[0].Total.ToString()</span>
+                            <span class="faq-answer--note">Câu hỏi đã được trả lời</span>
+                            <a class="faq-send" href="/dat-cau-hoi">Gửi câu hỏi</a>
+                        </div>
+
+                        <div class="news-post">
+                            <p class="news-qt">Có thể bạn quan tâm</p>
+                            <div class="news-post--list">
+                                @if (NewsTags != null)
+                                {
+                                    if (NewsTags.Count > 0)
+                                    {
+                                        int check1 = 0;
+                                        for (int j = 0; j < NewsTags.Count; j++)
+                                        {
+
+                                            var tinquantam = CMS_Core.Common.Common.GetNewsidByTags(NewsTags[j].Tagid, NewsTags[j].NewsId);
+                                            if (tinquantam.Count > 0)
+                                            {
+                                                for (int a = 0; a < tinquantam.Count; a++)
+                                                {
+                                                    check1 = check1 + 1;
+                                                    if (check1 < 10)
+                                                    {
+
+
+                                                        <div class="news-post--item">
+                                                            <div class="news-post--row row">
+
+                                                                <div class="news-post--col col-12">
+                                                                    <div class="news-post--content">
+
+                                                                        @if (tinquantam[a].NewsName != null)
+                                                                        {
+                                                                            <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",tinquantam[a].NewsName.ToString().ToLower(),"s"+tinquantam[a].CateId.ToString() ,"n"+tinquantam[a].NewsId.ToString())" title="@tinquantam[a].NewsName.ToString().TrimStart().TrimEnd()">@tinquantam[a].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                                        }
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    }
+                                                }
+                                            }
+                                            if ((tinquantam.Count == 0) || (tinquantam.Count < 10))
+                                            {
+                                                int checktin = tinquantam.Count;
+                                                if (TinNoiBat.Count > 0)
+                                                {
+                                                    for (int k = 0; k < TinNoiBat.Count; k++)
+                                                    {
+                                                        if (k < (10 - checktin))
+                                                        {
+                                                            if (@TinNoiBat[k].NewsName != null)
+                                                            {
+
+                                                                <div class="news-post--item">
+                                                                    <div class="news-post--row row">
+
+                                                                        <div class="news-post--col col-12">
+                                                                            <div class="news-post--content">
+                                                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @TinNoiBat[k].NewsName.ToString().ToLower(), "s" + @TinNoiBat[k].CateId.ToString(), "n" + @TinNoiBat[k].NewsId.ToString())" title="@TinNoiBat[k].NewsName.ToString()">@TinNoiBat[k].NewsName.ToString()</a></h3>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        }
+                                                    }
+                                                }
+
+
+                                            }
+                                        }
+
+
+
+                                    }
+                                }
+
+                            </div>
+                        </div>
+
+
+                        <div class="faq-rating">
+                            <div class="faq-rating--title">Câu hỏi nổi bật trong tháng</div>
+                            <ul>
+
+
+                                @if (TopCauHoi != null)
+                                {
+                                    for (int i = 0; i < TopCauHoi.Count; i++)
+                                    {
+                                        <li data-number="@(i+1)">
+                                            <div class="faq-rating--item">
+                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap",@TopCauHoi[i].QuestionTitle.ToString().ToLower(),"c"+@TopCauHoi[i].SpecialistID.ToString() , "q"+@TopCauHoi[i].QuestionID.ToString())" title="@TopCauHoi[i].QuestionTitle.ToString().ToLower()">@TopCauHoi[i].QuestionTitle.ToString()</a></h3>
+                                                @*<div class="faq-rating--view">1972 lượt xem</div>*@
+                                            </div>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="sidebar-container">
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <script type="application/ld+json">
+            {
+            "@@context": "https://schema.org",
+            "@@type": "QAPage",
+            "mainEntity": {
+            "@@type": "Question",
+            "name": "@Html.Raw(Cauhoi[0].QuestionTitle.ToString().Replace("\"", ""))",
+            "text": "@Html.Raw(Cauhoi[0].QuestionContent.ToString().Replace("\"", ""))",
+            "answerCount": 1,
+            "dateCreated": "@Cauhoi[0].NgayHoi.ToString("dd/MM/yyyy")",
+            "author": {
+            "@@type": "Person",
+            "name": "@fullname"
+            },
+            "acceptedAnswer": {
+            "@@type": "Answer",
+            "upvoteCount":"1",
+            "text": "@Html.Raw(CMS_Core.Common.Common.ConvertHtml(Cauhoi[0].AnswerContent.ToString().Replace("\"", "")))",
+            "dateCreated": "@Cauhoi[0].NgayTraLoi.ToString("dd/MM/yyyy")",
+            "url": "https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByNews("hoi-dap", @Cauhoi[0].QuestionTitle.ToString().Replace("\"", "").ToLower(), "c" + @Cauhoi[0].SpecialistID.ToString(), "q" + @Cauhoi[0].QuestionID.ToString())#traloi",
+            "author": {
+            "@@type": "Person",
+            "name": "Bác sỹ MEDLATEC"
+            }
+            }
+            }
+            }
+        </script>
+    }
+    else
+    {
+        Response.RedirectPermanent("https://medlatec.vn/hoi-dap", false);
+    }
+
+}
+else
+{
+    <p>Không có dữ liệu câu hỏi</p>
+}

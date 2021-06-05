@@ -1,0 +1,455 @@
+﻿.box1 img, .box1:after, .box1:before {
+    width: 100%;
+    transition: all .3s ease 0s
+}
+
+.box1 .icon, .box2, .box3, .box4, .box5 .icon li a {
+    text-align: center
+}
+
+    .box10:after, .box10:before, .box1:after, .box1:before, .box2 .inner-content:after, .box3:after, .box3:before, .box4:before, .box5:after, .box5:before, .box6:after, .box7:after, .box7:before {
+        content: ""
+    }
+
+.box1, .box11, .box12, .box13, .box14, .box16, .box17, .box18, .box2, .box20, .box21, .box3, .box4, .box5, .box5 .icon li a, .box6, .box7, .box8 {
+    overflow: hidden
+}
+
+    .box1 .title, .box10 .title, .box4 .title, .box7 .title {
+        letter-spacing: 1px
+    }
+
+    .box3 .post, .box4 .post, .box5 .post, .box7 .post {
+        font-style: italic
+    }
+
+body {
+    background-color: #f1f1f2
+}
+
+.mt-30 {
+    margin-top: 30px
+}
+
+.mt-40 {
+    margin-top: 40px
+}
+
+.mb-30 {
+    margin-bottom: 30px
+}
+
+
+/*********************** Demo - 20 *******************/
+.box20 {
+    position: relative
+}
+
+    .box20:after, .box20:before {
+        position: absolute;
+        content: ""
+    }
+
+    .box20:before {
+        width: 85%;
+        height: 220%;
+        background: #0769AF;
+        top: -50%;
+        left: -100%;
+        z-index: 1;
+        transform: rotate(25deg);
+        transform-origin: center top 0;
+        transition: all .5s ease 0s
+    }
+
+    .box20:hover:before {
+        left: 10%
+    }
+
+    .box20:after {
+        width: 55%;
+        height: 175%;
+        background-color: #EFD06F;
+        opacity: 0.6;
+        bottom: -1000%;
+        left: 53%;
+        transform: rotate(-33deg);
+        transform-origin: center bottom 0;
+        transition: all .8s ease 0s
+    }
+
+    .box20 .box-content, .box20 .icon {
+        width: 100%;
+        padding: 0 20px;
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        transition: all 1.1s ease 0s
+    }
+
+    .box20:hover:after {
+        bottom: -70%
+    }
+
+    .box20 img {
+        width: 100%;
+        height: auto
+    }
+
+    .box20 .box-content {
+        top: -100%;
+        color: #fff
+    }
+
+    .box20:hover .box-content {
+        top: 30px
+    }
+
+    .box20 .title {
+        font-size: 24px;
+        margin: 0
+    }
+
+    .box20 .icon li a, .box20 .post {
+        display: inline-block;
+        font-size: 14px
+    }
+
+    .box20 .post {
+        margin-top: 5px
+    }
+
+    .box20 .icon {
+        list-style: none;
+        margin: 0;
+        bottom: -100%
+    }
+
+    .box20:hover .icon {
+        bottom: 25px
+    }
+
+    .box20 .icon li {
+        display: inline-block
+    }
+
+        .box20 .icon li a {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background: #444;
+            border-radius: 50%;
+            margin: 0 3px;
+            color: #fff;
+            text-align: center;
+            transition: all .5s ease 0s
+        }
+
+            .box20 .icon li a:hover {
+                background: #fff;
+                color: #ff402a
+            }
+
+@media only screen and (max-width:990px) {
+    .box20 {
+        margin-bottom: 30px
+    }
+}
+
+@media only screen and (max-width:479px) {
+    .box20 .title {
+        font-size: 20px
+    }
+}
+
+
+
+.body-full {
+    background: url(https://medlatec.vn/Content/images/Goiksktainha/body-1.png);
+}
+
+.img-h2 {
+    text-align: center;
+}
+
+    .img-h2 img {
+        max-width: 700px;
+    }
+
+.nav-tabs .nav-link.active {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 3px solid #1761ca;
+    border-width: medium;
+}
+
+.modal.show .modal-dialog {
+    max-width: 650px;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: transparent;
+}
+
+.qua-tang {
+    border: none;
+    background-color: transparent;
+}
+
+.user-details {
+    position: relative;
+    padding: 0;
+}
+
+    .user-details .user-image {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+.user-image img {
+    clear: both;
+    margin: auto;
+    position: relative;
+}
+
+
+
+.user-info-block .navigation {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid #428BCA;
+    border-top: 1px solid #428BCA;
+}
+
+.navigation li {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+    .navigation li a {
+        padding: 20px 30px;
+        float: left;
+    }
+
+    .navigation li.active a {
+        background: #428BCA;
+        color: #fff;
+    }
+
+.user-info-block .user-body {
+    float: left;
+    padding: 5%;
+    width: 90%;
+}
+
+.user-body .tab-content > div {
+    float: left;
+    width: 100%;
+}
+
+.user-body .tab-content h4 {
+    width: 100%;
+    margin: 10px 0;
+    color: #333;
+}
+
+hr {
+    border-top: 1px solid white;
+}
+
+.title {
+    color: #133063;
+    text-align: center !important;
+    text-transform: unset;
+    text-decoration: underline;
+}
+
+.nav-menu--wrapper li a {
+    padding: 20px 10px 9px;
+    height: 80px;
+}
+
+.nav-menu {
+    border-bottom: 1px solid white;
+}
+
+.service-item p {
+    color: #444;
+}
+
+.line-title {
+    font-size: 28px;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+.mySlidesSan {
+    display: none;
+}
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.demo1 {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
+.active,
+.demo1:hover {
+    opacity: 1;
+}
+
+.feedback-customer {
+    background: none;
+}
+
+    .feedback-customer::before {
+        background: none;
+    }
+
+.feedback-customer-1 {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.body-skdn1 {
+    background-image: url(https://medlatec.vn/Content/images/chuyengia/Bg-2.png);
+    background-size: cover;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.khonggian {
+    padding: 3px;
+}
+
+    .khonggian a {
+        display: block;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .khonggian img {
+        width: 100%;
+        height: auto;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .khonggian:hover img {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+.turn-up--wrapper {
+    max-width: 100%;
+    margin-top: 25px;
+}
+
+@media only screen and (max-width: 1199px) {
+    .nav-tabs .nav-link.active {
+        max-width: 50%;
+    }
+
+    .nav-tabs .nav-link {
+        max-width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .nav-tabs .nav-link.active {
+        max-width: 25%;
+    }
+
+    .nav-tabs .nav-link {
+        max-width: 25%;
+    }
+
+    .banner-skdn {
+        margin-top: 80px;
+    }
+}

@@ -1,0 +1,730 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@model  MEDLATEC2019.Models.MPTXViewModel
+@{
+    Layout = null;
+}
+
+
+<meta charset="UTF-8">
+<meta http-equiv=”Content-Type” content=”text/html; charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+<title>Sàng lọc trước sinh không xâm lấn NIPT| Bệnh viện đa khoa Medlatec</title>
+
+<meta name="description" content="@Html.Raw("Xét nghiệm NIPT là phương pháp xét nghiệm sàng lọc trước sinh với khả năng kiểm tra và phát hiện ra các dạng bệnh lý di truyền, dị tật gây ảnh hưởng tới sức khỏe cũng như sự phát triển của thai nhi.")" />
+
+
+<meta name="title" content="@Html.Raw("Sàng lọc trước sinh không xâm lấn NIPT| Bệnh viện đa khoa Medlatec")" />
+
+<meta name="keywords" content="@Html.Raw("Đặt lịch lấy mẫu tại nhà giúp bạn dễ dàng kiểm soát tình trạng bệnh, giảm thời gian đi lại, chờ đợi, trả kết quả kịp thời, chính xác, có bác sĩ chuyên khoa tư vấn kết quả")" />
+
+
+
+<meta property="og:description" content="@Html.Raw("Xét nghiệm NIPT là phương pháp xét nghiệm sàng lọc trước sinh với khả năng kiểm tra và phát hiện ra các dạng bệnh lý di truyền, dị tật gây ảnh hưởng tới sức khỏe cũng như sự phát triển của thai nhi.")" />
+<meta property="og:title" content="@Html.Raw("Sàng lọc trước sinh không xâm lấn NIPT| Bệnh viện đa khoa Medlatec")" />
+
+
+
+<meta property="og:image" content="https://medlatec.vn/Content/images/banner/laymautainha.jpg" />
+
+
+<meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/banner/laymautainha.jpg" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1110" />
+<meta property="og:image:height" content="514" />
+
+<meta property="og:type" content="article" />
+<meta property="fb:app_id" content="2092985977431269" />
+
+
+<meta property="og:url" content="https://medlatec.vn/dich-vu/san-loc-truoc-sinh-khong-xam-lan-nipt" />
+<meta name="robots" content="index,follow,all">
+
+<link rel="canonical" href="https://medlatec.vn/dich-vu/san-loc-truoc-sinh-khong-xam-lan-nipt" />
+<link rel="stylesheet" href="/Content/images/NIPT/Lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Content/images/NIPT/css/reset.css">
+<link rel="stylesheet" href="/Content/images/NIPT/css/global.css">
+<link rel="stylesheet" href="/Content/images/NIPT/css/responsive.css">
+
+<meta name="robots" content="index,follow,all">
+<link rel="canonical" href="https://medlatec.vn" />
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-20501699-10');
+</script>
+
+
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- Google Tag Manager -->
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+<!-- End Google Tag Manager -->
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+    <script type="text/javascript">
+        if (window.location.protocol == "http:") {
+            var restOfUrl = window.location.href.substr(5);
+            restOfUrl = restOfUrl.replace("www.", "");
+            window.location = "https:" + restOfUrl;[w]
+        }
+    </script>
+
+
+    <header>
+        <div class="MEDLA-header-bg">
+            <div class="logo">
+                <div class="container-fluid fix-container">
+                    <div class="MEDLA-top">
+                        <a href="https://medlatec.vn/">
+                            <div class="MEDLA-logo">
+                                <img src="/Content/images/NIPT/img/logofull_01.png" alt="logo-MEDLATEC" class="MEDLA-logo-home">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container fix-container">
+                <div class="MEDLATEC-header-phone">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6 MEDLATEC-phone-number">
+                            <div class="MEDLATEC-bg-phone btn btn-default">
+                                <a href="tel:1900565656">
+                                    <p class="MEDLATEC-text-phone">Hotline</p>
+                                    <p class="MEDLATEC-btn-number-phone MEDLATEC-phone-header">1900 56 56 56</p>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 MEDLATEC-btn-Dangky">
+                            <div style="margin-bottom: 10px" class="btn btn-default MEDLATEC-btn-submitNow">
+                                <p id="btnregister1" onclick="scrollToForm();">Đăng Ký Ngay</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="MEDLA-header-GB-bottom"></div>
+        </div>
+    </header>
+
+    <section>
+        <article class="MEDLATEC-section-1">
+            <div class="container fix-container">
+
+                <div class="NIPT-content-text">
+                    <div class="data-title-text">
+                        <!--https://1stwebdesigner.com/set-text-on-a-circle-with-css/-->
+                        <p class="content-title"></p>
+                    </div>
+                    <div class="Data-content">
+                        <p>
+                            Xét nghiệm NIPT là phương pháp xét nghiệm sàng lọc trước sinh với khả năng kiểm tra và phát hiện ra các dạng bệnh lý di truyền, dị tật gây ảnh hưởng tới sức khỏe cũng như sự phát triển của thai nhi.
+                        </p>
+                        <p>
+                            Thông qua sự đáng giá, phân tích ADN tự do, NIPT giúp dễ dàng phát hiện các bệnh về rối loạn nhiễm sắc thể bao gồm.
+                        </p>
+                    </div>
+                    <div class="Data-img-NIPT">
+                        <div class="row">
+                            <!--begin-->
+                            <div class="col-md-3 col-sm-6 col-xs-6 fix-margin-content">
+                                <div class="block-row">
+                                    <div class="row-one"></div>
+                                    <div class="arrow">
+                                        <div class="arrow-transform"></div>
+                                    </div>
+                                    <div class="Data-contents">
+                                        <p class="content-first">Bất thường về số lượng nhiễm sắc thể gây ra các hội chứng phổ biến</p>
+                                        <p class="content-last">Hội chứng PAUTAU(13), EDWARDS(18), DOWN(21)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end-->
+                            <div class="col-md-3 col-sm-6 col-xs-6 fix-margin-content">
+                                <div class="block-row">
+                                    <div class="row-one"></div>
+                                    <div class="arrow">
+                                        <div class="arrow-transform"></div>
+                                    </div>
+                                    <div class="Data-contents">
+                                        <p class="content-first">Bất thường NST giới tính gây ra hội chứng:</p>
+                                        <p class="content-last">Tuner(XO), hội chứng tam nhiễm (XXX), Klinefelter (XXY), Jacobs (XYY)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 fix-margin-content">
+                                <div class="block-row">
+                                    <div class="row-one"></div>
+                                    <div class="arrow">
+                                        <div class="arrow-transform"></div>
+                                    </div>
+                                    <div class="Data-contents">
+                                        <p class="content-first">Hội chứng do đột biến vi mất đoạn: Các hội chứng mất đoạn nhiễm sắc thể gây các khuyết tật về vận động và trí não</p>
+                                        <p class="content-last">Hội chứng DiGeorge do mất đoạn 22q11. Hội chứng Wolf - Hirschhorn do mất đoạn 1p36, hội chứng Cri-du-chat, hội chứng Prader-Willi, hội chứng Angelman.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 fix-margin-content">
+                                <div class="block-row">
+                                    <div class="row-one"></div>
+                                    <div class="arrow">
+                                        <div class="arrow-transform"></div>
+                                    </div>
+                                    <div class="Data-contents">
+                                        <p class="content-first2">Bất thường số lượng tất cả các NST còn lại</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--//-->
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </article>
+        <!--//-->
+        <article class="MEDLATEC-section-2">
+            <div class="bg-opacity"></div>
+            <div class="opacity"></div>
+            <div class="container fix-container">
+                <div class="content-data">
+                    <p>ƯU ĐIỂM CỦA XÉT NGHIỆM NIPT TRONG SÀNG LỌC TRƯỚC SINH</p>
+                </div>
+                <div class="data-img-text">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 fix-data-img">
+                            <div class="content">
+                                <div class="data-img">
+                                    <img src="/Content/images/NIPT/img/anh1.png" alt="ƯU ĐIỂM CỦA XÉT NGHIỆM NIPT TRONG SÀNG LỌC TRƯỚC SINH">
+                                </div>
+                                <div class="data-text">
+                                    <ul>
+                                        <li>
+                                            <p>Sàng lọc dị tật từ giai đoạn sớm: Ngay từ tuần thứ 10 của thai kỳ</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 fix-data-img">
+                            <div class="content">
+                                <div class="data-img">
+                                    <img src="/Content/images/NIPT/img/anh2.png" alt="ƯU ĐIỂM CỦA XÉT NGHIỆM NIPT TRONG SÀNG LỌC TRƯỚC SINH">
+                                </div>
+                                <div class="data-text">
+                                    <ul>
+                                        <li>
+                                            <p>Xét nghiệm NIPT áp dụng công nghệ giải trình gen cho kết quả tin cậy tới 99,98%</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 fix-data-img">
+                            <div class="content">
+                                <div class="data-img">
+                                    <img src="/Content/images/NIPT/img/anh3.png" alt="ƯU ĐIỂM CỦA XÉT NGHIỆM NIPT TRONG SÀNG LỌC TRƯỚC SINH">
+                                </div>
+                                <div class="data-text">
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                Không cần sinh thiết nhau thai cũng như không can thiệp xâm lấn đến thai nhi mà chỉ cần 7 - 10ml máu của mẹ, an toàn tuyệt đối cho cả mẹ và con.
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 fix-data-img">
+                            <div class="content">
+                                <div class="data-img">
+                                    <img src="/Content/images/NIPT/img/anh4.png" alt="ƯU ĐIỂM CỦA XÉT NGHIỆM NIPT TRONG SÀNG LỌC TRƯỚC SINH">
+                                </div>
+                                <div class="data-text">
+                                    <ul>
+                                        <li>
+                                            <p>Phục vụ lấy mẫu xét nghiệm tận nơi trên toàn quốc 24/7.</p>
+                                        </li>
+                                        <li>
+                                            <p>Tra cứu kết quả nhanh chóng trên website/app iCNM</p>
+                                        </li>
+                                        <li>
+                                            <p>Chuyên gia, bác sĩ tư vấn, hỗ trợ biện pháp can thiệp phù hợp nếu có kết quả bất thường</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="MEDLATEC-section-4"></article>
+
+        <article class="MEDLATEC-section-5">
+            <div class="container fix-container">
+                <div class="title">
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <!---->
+                        <div class="col-md-3 col-sm-3">
+                            <div class="box-from">
+                                <div class="content-data">
+                                    <p class="title-text">Gói xét nghiệm NIPT-BasicSave 6 ngày</p>
+                                    <div class="price-data">
+                                        <p class="font-size-price">Giá:</p>
+                                        <p class="price-text">3.999.000</p>
+                                        <p class="font-size-price">vnđ</p>
+                                    </div>
+                                    <div class="body-text-combo">
+                                        <div class="content-text-combo">
+                                            <div class="title-text-combo">
+                                                <p>phát hiện các hội chứng phổ biến:</p>
+                                            </div>
+                                            <div class="contnent-text-combo">
+                                                <ul>
+                                                    <li>
+                                                        <p>Patau(Trisomy 13)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Edward(Trisomy 18)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Down(Trisomy 21)</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="combo">
+                                        <p class="text-combo">Tặng kèm miễn phí<br />sàng lọc sơ sinh 3 bệnh</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#FromDataSubmit"><p class="btn btn-default btn-submit-type3" onclick="scrollToForm();" id="DataSubmitType2" data-type="3" data-content="Goi-xet-nghiem-NIPT-BasicSave">Đăng ký</p></a>
+                        </div>
+                        <!---->
+                        <div class="col-md-3 col-sm-3">
+                            <div class="box-from">
+                                <div class="content-data">
+                                    <p class="title-text">Gói xét nghiệm NIPT-ProSave 6 ngày</p>
+                                    <div class="price-data">
+                                        <p class="font-size-price">Giá:</p>
+                                        <p class="price-text">5.999.000</p>
+                                        <p class="font-size-price">vnđ</p>
+                                    </div>
+                                    <div class="content-text-combo">
+                                        <div class="title-text-combo">
+                                            <p>phát hiện các hội chứng phổ biến:</p>
+                                        </div>
+                                        <div class="contnent-text-combo">
+                                            <ul>
+                                                <li>
+                                                    <p>Patau(Trisomy 13)</p>
+                                                </li>
+                                                <li>
+                                                    <p>Edward(Trisomy 18)</p>
+                                                </li>
+                                                <li>
+                                                    <p>Down(Trisomy 21)</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="content-text-combo">
+                                        <div class="title-text-combo">
+                                            <p>phát hiện các hội chứng phổ biến:</p>
+                                        </div>
+                                        <div class="contnent-text-combo">
+                                            <ul>
+                                                <li>
+                                                    <p>Tuner (Xo)</p>
+                                                </li>
+                                                <li>
+                                                    <p>Hộ chứng tam nhiễm (XXX)</p>
+                                                </li>
+                                                <li>
+                                                    <p>Klinefelter (XXY)</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="combo">
+                                        <p class="text-combo">Tặng kèm miễn phí<br />sàng lọc sơ sinh 3 bệnh</p>
+                                        <p class="text-combo">Siêu âm thai 4D lần đầu</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="btn btn-default btn-submit-type3" onclick="scrollToForm();" id="DataSubmitType2" data-type="3" data-content="Goi-xet-nghiem-NIPT-BasicSave">Đăng ký</p>
+                        </div>
+                        <!---->
+                        <div class="col-md-3 col-sm-3">
+                            <div class="box-from">
+                                <div class="content-data">
+                                    <p class="title-text">Gói xét nghiệm NIPT-BasicSave 4 ngày</p>
+                                    <div class="price-data">
+                                        <p class="font-size-price">Giá:</p>
+                                        <p class="price-text">4.599.000</p>
+                                        <p class="font-size-price">vnđ</p>
+                                    </div>
+                                    <div class="body-text-combo">
+                                        <div class="content-text-combo">
+                                            <div class="title-text-combo">
+                                                <p>phát hiện các hội chứng phổ biến:</p>
+                                            </div>
+                                            <div class="contnent-text-combo">
+                                                <ul>
+                                                    <li>
+                                                        <p>Patau(Trisomy 13)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Edward(Trisomy 18)</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Down(Trisomy 21)</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="combo">
+                                        <p class="text-combo">Tặng kèm miễn phí<br />sàng lọc sơ sinh 3 bệnh</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="btn btn-default btn-submit-type3" onclick="scrollToForm();" id="DataSubmitType2" data-type="3" data-content="Goi-xet-nghiem-NIPT-BasicSave">Đăng ký</p>
+                        </div>
+                        <!---->
+                        <div class="col-md-3 col-sm-3">
+                            <div class="box-from">
+                                <div class="content-data">
+                                    <p class="title-text">Gói xét nghiệm NIPT-ProSave 4 ngày</p>
+                                    <div class="price-data">
+                                        <p class="font-size-price">Giá:</p>
+                                        <p class="price-text">6.599.000</p>
+                                        <p class="font-size-price">vnđ</p>
+                                    </div>
+                                    <div class="content-text-combo">
+                                        <div class="title-text-combo">
+                                            <p>phát hiện các hội chứng phổ biến:</p>
+                                        </div>
+                                        <div class="contnent-text-combo">
+                                            <ul>
+                                                <li>
+                                                    <p>Patau(Trisomy 13)</p>
+                                                </li>
+                                                <li>
+                                                    <p>Edward(Trisomy 18)</p>
+                                                </li>
+                                                <li>
+                                                    <p>Down(Trisomy 21)</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="content-text-combo">
+                                        <div class="title-text-combo">
+                                            <p>phát hiện các hội chứng phổ biến:</p>
+                                        </div>
+                                        <div class="contnent-text-combo">
+                                            <ul>
+                                                <li>
+                                                    <p>Tuner (Xo)</p>
+                                                </li>
+                                                <li>
+                                                    <p>Hộ chứng tam nhiễm (XXX)</p>
+                                                </li>
+                                                <li>
+                                                    <p>Klinefelter (XXY)</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="combo">
+                                        <p class="text-combo">Tặng kèm miễn phí<br />sàng lọc sơ sinh 3 bệnh</p>
+                                        <p class="text-combo">Siêu âm thai 4D lần đầu</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="btn btn-default btn-submit-type3" onclick="scrollToForm();" id="DataSubmitType2" data-type="3" data-content="Goi-xet-nghiem-NIPT-BasicSave">Đăng ký</p>
+                        </div>
+                        <!---->
+                    </div>
+                    <div class="text-camket">
+                        <p>Bảo hiểm sau sinh (âm tính giả): <b>200.000.000 vnđ</b> </p>
+                        <p>Hỗ trợ chọc ối khi kết quả dương tính: <b>8.000.000 vnđ</b> </p>
+                        <p><b>Hoàn phí 100%</b> khi kết quả dương tính giả</p>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </article>
+
+
+        <article class="MEDLATEC-section-6">
+            <div class="container fix-container">
+                <div class="box-section6"></div>
+                <p class="title-section4"></p>
+                <div class="content-section4">
+                    <div class="row fix-row-content4">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="content-data">
+                                <div class="img-top">
+                                    <img src="/Content/images/NIPT/img/bacsi.png" alt="Đội ngũ chuyên gia đầu ngành về Di truyền, Sản Khoa: PGS.TS Phan Thị Hoan – Nguyên phó trưởng Bộ môn Y sinh học Di truyền – ĐH Y Hà Nội; PGS.TS Hoàng Thị Ngọc Lan – Nguyên PGĐ Trung tâm Chẩn đoán trước sinh – BV Phụ sản TW và đội ngũ bác sĩ giàu kinh nghiệm">
+                                </div>
+                                <div class="context-data">
+                                    <p class="number-text number1">1</p>
+                                    <div class="text text1">
+                                        <p>
+                                            Đội ngũ chuyên gia đầu ngành về Di truyền, Sản Khoa: PGS.TS Phan Thị Hoan – Nguyên phó trưởng Bộ môn Y sinh học Di truyền – ĐH Y Hà Nội; PGS.TS Hoàng Thị Ngọc Lan – Nguyên PGĐ Trung tâm Chẩn đoán trước sinh – BV Phụ sản TW và đội ngũ bác sĩ giàu kinh nghiệm
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                            <div class="content-data">
+                                <div class="img-top">
+                                    <img src="/Content/images/NIPT/img/trungtam.png" alt=" Trung tâm xét nghiệm hàng đầu Việt Nam với hệ thống máy xét nghiệm đạt tiêu chuẩn Quốc tế ISO 15189:2012">
+                                </div>
+                                <div class="context-data">
+                                    <p class="number-text number2">2</p>
+                                    <div class="text text2">
+                                        <p>
+                                            Trung tâm xét nghiệm hàng đầu Việt Nam với hệ thống máy xét nghiệm đạt tiêu chuẩn Quốc tế ISO 15189:2012
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--##-->
+                    <div class="row fix-row-content4">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="content-data">
+                                <div class="img-top">
+                                    <img src="/Content/images/NIPT/img/datnuoc.png" alt="Hệ thống mạng lưới lấy mẫu xét nghiệm tận nơi phủ rộng khắp cả nước">
+                                </div>
+                                <div class="context-data">
+                                    <p class="number-text number3">3</p>
+                                    <div class="text text3">
+                                        <p>
+                                            Hệ thống mạng lưới lấy mẫu xét nghiệm tận nơi phủ rộng khắp cả nước
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                            <div class="content-data">
+                                <div class="img-top">
+                                    <img src="/Content/images/NIPT/img/24h.png" alt="Bệnh viện làm việc tất cả các ngày trong tuần kể cả những ngày LỄ TẾT">
+                                </div>
+                                <div class="context-data">
+                                    <p class="number-text number4">4</p>
+                                    <div class="text text4">
+                                        <p>
+                                            Bệnh viện làm việc tất cả các ngày trong tuần kể cả những ngày LỄ TẾT
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row fix-row-content4">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="content-data">
+                                <div class="img-top">
+                                    <img src="/Content/images/NIPT/img/baohiem.png" alt=" Mẹ bầu có thẻ bảo hiểm y tế (BHYT), khi đi khám mang theo thẻ sẽ được thanh toán đúng tuyến những danh mục BHYT chi trả">
+                                </div>
+                                <div class="context-data">
+                                    <p class="number-text number5">5</p>
+                                    <div class="text text5">
+                                        <p>
+                                            Mẹ bầu có thẻ bảo hiểm y tế (BHYT), khi đi khám mang theo thẻ sẽ được thanh toán đúng tuyến những danh mục BHYT chi trả
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="content-data">
+                                <div class="img-top">
+                                    <img src="/Content/images/NIPT/img/quanly.png" alt="Quản lý thai nghén tại MEDLATEC, hồ sơ khám chữa bệnh được lưu trữ giúp mẹ bầu dễ dàng theo dõi tình trạng sức khỏe và được nhắc nhở đi tái khám">
+                                </div>
+                                <div class="context-data">
+                                    <p class="number-text number6">6</p>
+                                    <div class="text text6">
+                                        <p>
+                                            Quản lý thai nghén tại MEDLATEC, hồ sơ khám chữa bệnh được lưu trữ giúp mẹ bầu dễ dàng theo dõi tình trạng sức khỏe và được nhắc nhở đi tái khám
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fix-row-content4 content-row7">
+                        <div class="content-data">
+                            <div class="img-top">
+                                <img src="/Content/images/NIPT/img/battay.png" alt="Thực hiện liên kết với hơn 20 bệnh viện đầu ngành phục vụ mẹ bầu trong trường hợp cần điều trị chuyên sâu.">
+                            </div>
+                            <div class="context-data">
+                                <p class="number-text number7">7</p>
+                                <div class="text text7">
+                                    <p>
+                                        Thực hiện liên kết với hơn 20 bệnh viện đầu ngành phục vụ mẹ bầu trong trường hợp cần điều trị chuyên sâu.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+    </section>
+
+    @using (Html.BeginForm("nipt", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <footer>
+            <div class="container fix-container">
+                <div class="all-from-number">
+                    <div class="fom-data-text">
+                        <div class="title-dk">
+                            <p class="text">Đăng ký ngay</p>
+                        </div>
+                        <div class="form" id="frmRegsiter">
+
+                            <div class="input-name name-top">
+                                <label style="margin-bottom: 5px" for="lbl-name">Họ và Tên(*)</label>
+                                @Html.TextBoxFor(m => m.txthoten, new { @class = "form-control className", autocomplete = "off", placeholder = "Họ và Tên", type = "text" })
+
+
+
+                            </div>
+                            <div class="input-name">
+                                <label style="margin-bottom: 5px" for="lbl-name">Số điện thoại(*)</label>
+                                @Html.TextBoxFor(m => m.txtdt, new { @class = "form-control classSdt", placeholder = "Số điện thoại", autocomplete = "off", type = "text" })
+
+
+                            </div>
+                            <div class="input-name">
+                                <label style="margin-bottom: 5px" for="lbl-name">Địa chỉ </label>
+                                @Html.TextBoxFor(m => m.txtAddress, new { @class = "form-control classAdress", placeholder = "Địa chỉ", autocomplete = "off", type = "text" })
+                            </div>
+                            <div class="input-name">
+                                <label style="margin-bottom: 5px" for="lbl-name">Gói dịch vụ</label>
+                                @Html.DropDownListFor(m => m.Dichvu, this.ViewBag.GetDichvu as List<SelectListItem>, new { @class = "form-control tab-customer--location", style = "text-align-last:center;" })
+
+
+
+                            </div>
+                            <div class="input-name">
+                                <label style="margin-bottom: 5px" for="lbl-name">Ghi chú</label>
+                                @Html.TextBoxFor(m => m.txtnote, new { @class = "form-control classnote", placeholder = "Ghi chú", autocomplete = "off", type = "text" })
+
+
+                            </div>
+                            <div class="btn-from">
+
+                                <button type="submit" name="submit" class="btn btn-default btn-submit-from" id="IDfromsubmit" value="SaveAdd">GỬI YÊU CẦU</button>
+
+
+                                <!--<p class="btn btn-default btn-submit-from" id="IDfromsubmit">Gửi yêu cầu</p>-->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="MEDLATEC-bg-phone btn btn-default btn-phone-bottom">
+                        <a href="tel:1900565656">
+                            <p class="MEDLATEC-text-phone">Hotline</p>
+                            <p class="MEDLATEC-btn-number-phone MEDLATEC-phone-header">1900 56 56 56</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    }
+    <script src="/Content/images/NIPT/Lib/jquery.min.js"></script>
+    <script src="/Content/images/NIPT/Lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        function scrollToForm() {
+            document.getElementById('frmRegsiter').scrollIntoView();
+        }
+    </script>
+
+    <!--- Hotline --->
+    <style>
+        .call-hotline a {
+            display: block;
+            height: 36px;
+            color: #F9E484;
+            padding: 8px 15px 8px 46px;
+            line-height: 20px;
+            font-size: 18px;
+            background: #1576C4 none;
+            -webkit-border-radius: 8px 8px 0 0;
+            -moz-border-radius: 8px 8px 0 0;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            font-weight: 700;
+        }
+    </style>
+    <div class="call-hotline">
+        <a href="tel:1900 565656"><img src="/Content/images/call.png" alt="hotline 1900 565656" />1900 565656</a>
+
+
+    </div>
+
+
+</body>
+</html>
+<script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd")</script>
+
+@*<script>!function (s, u, b, i, z) { var r, m; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = function (e) { return e <= 6 ? 5 : r(e - 1) + r(e - 3) }, (m = function (e) { var t, n, c; 5 < e || s._subiz_init_2094850928430 || (t = "https://", t += 0 === e ? "widget." + i + ".xyz" : 1 === e ? "storage.googleapis.com" : "sbz-" + r(10 + e) + ".com", t += "/sbz/app.js?accid=" + z, n = u.createElement(b), c = u.getElementsByTagName(b)[0], n.async = 1, n.src = t, c.parentNode.insertBefore(n, c), setTimeout(m, 2e3, e + 1)) })(0)) }(window, document, "script", "subiz", "acqqygtujcouievpmxgd");</script>*@

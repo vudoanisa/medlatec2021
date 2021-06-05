@@ -1,0 +1,30 @@
+﻿@model  MEDLATEC2019.Models.VideoHomeViewModel
+@using CMS_Core.Entity;
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model.videoCate1)
+{
+
+    <li>
+        <div class="thumb">
+            <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())" title="@item.VideoName">
+                <img src="https://img.medlatec.vn/@item.VideoImageThumb" alt="@item.VideoName">
+            </a>
+        </div>
+        <div class="text">
+            <h2>
+                <a href="/@CMS_Core.Common.Common.GetURLDetailVideoByNews("video",item.VideoName,item.vId.ToString(),item.videoId.ToString())">
+                    @item.VideoName
+                </a>
+            </h2>
+            <div class="post_info d_flex">
+                <span><i class="fa fa-eye"></i> 99</span>
+                <span><i class="fa fa-clock"></i> @item.dateCreate.ToString("dd/MM/yyyy")</span>
+            </div>
+        </div>
+    </li>
+
+}

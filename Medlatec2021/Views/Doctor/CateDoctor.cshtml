@@ -1,0 +1,245 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var Doctor = (List<Cms_Doctor>)ViewBag.Doctor;
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    var CateDoctor = (List<Cms_Doctor>)ViewBag.Total;
+    var page = (int)ViewBag.page;
+}
+@section Note {
+    <title>@Html.Raw("Đội ngũ bác sỹ | Bệnh viện đa khoa Medlatec")</title>
+   
+        <meta name="description" content="@Html.Raw("Đội ngũ bác sỹ | Bệnh viện đa khoa Medlatec")" />
+       
+   
+        <meta name="title" content="@Html.Raw("Đội ngũ bác sỹ | Bệnh viện đa khoa Medlatec")" />
+       
+   
+        <meta name="keywords" content="@Html.Raw("Đội ngũ bác sỹ, bác sỹ, chuyên gia đầu ngành")" />
+    
+
+
+
+   
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/doi-ngu-bac-sy" />
+}
+@Html.Raw(TempData["msg"])
+<div class="breadcrumb-container container">
+    <ul class="clearfix">
+        <li><a href="https://medlatec.vn">Trang chủ</a></li>
+        <li><span>Đội ngũ chuyên gia</span></li>
+    </ul>
+</div>
+<div class="single-news container">
+    <div class="single-news--row row">
+        <div class="single-news--col col-xl-9 col-lg-8">
+
+            <div class="doctor-team container">
+                @if (page > 1)
+                {
+
+                }
+                else
+                {
+                    <h1 class="main-title">Đội ngũ chuyên gia đầu ngành</h1>
+                    <div class="doctor-team-main">
+                        <div class="doctor-team-row row">
+                            @if (Doctor != null)
+                            {
+                                for (int i = 0; i < Doctor.Count; i++)
+                                {
+                                    if (Doctor[i].DoctorOrd < 15)
+                                    {
+                                        string abc = "https://login.medlatec.vn/" + Doctor[i].DoctorImage.ToString();
+                                        <div class="doctor-team-col col-xl-4 col-lg-4 col-md-6">
+                                            <div class="doctor-team-item">
+
+                                                <div class="doctor-team-img"><a href="@CMS_Core.Common.Common.GetURLDetailByCate("/doi-ngu-bac-sy",Doctor[i].DoctorName.ToString().ToLower().TrimStart().TrimEnd() ,"d"+ Doctor[i].id.ToString())" title=""><img src="@abc" alt="@Doctor[i].DoctorName" /></a></div>
+                                                <h3 class="doctor-team-name"><a href="@CMS_Core.Common.Common.GetURLDetailByCate("/doi-ngu-bac-sy",Doctor[i].DoctorName.ToString().ToLower().TrimStart().TrimEnd(),"d"+ Doctor[i].id.ToString())" title="">@Doctor[i].DoctorName.ToString()</a></h3>
+                                                <div class="doctor-team-desc">@Doctor[i].cateIdListName</div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                }
+
+                            }
+
+                        </div>
+
+
+                    </div>
+                }
+
+
+                <h2 class="main-title">Đội ngũ bác sĩ cao cấp</h2>
+                <div class="doctor-team-main">
+                    <div class="doctor-team-row row">
+                        @if (Doctor != null)
+                        {
+                            for (int i = 0; i < Doctor.Count; i++)
+                            {
+                                if (Doctor[i].DoctorOrd >= 15)
+                                {
+                                    string abc = "https://img.medlatec.vn/" + Doctor[i].DoctorImage.ToString();
+                                    <div class="doctor-team-col col-xl-4 col-lg-4 col-md-6">
+                                        <div class="doctor-team-item">
+
+                                            <div class="doctor-team-img"><a href="@CMS_Core.Common.Common.GetURLDetailByCate("/doi-ngu-bac-sy",Doctor[i].DoctorName.ToString().ToLower().TrimStart().TrimEnd() ,"d"+ Doctor[i].id.ToString())" title=""><img src="@abc" alt="@Doctor[i].DoctorName" /></a></div>
+                                            <h3 class="doctor-team-name"><a href="@CMS_Core.Common.Common.GetURLDetailByCate("/doi-ngu-bac-sy",Doctor[i].DoctorName.ToString().ToLower().TrimStart().TrimEnd(),"d"+ Doctor[i].id.ToString())" title="">@Doctor[i].DoctorName.ToString()</a></h3>
+                                            <div class="doctor-team-desc">@Doctor[i].cateIdListName</div>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+
+                        }
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="container" style="margin:25px 0 25px;">
+                @Html.Raw(CMS_Core.Common.Common.buildUrl("/doi-ngu-bac-sy", page, CateDoctor[0].Tongso, 12))
+
+            </div>
+        </div>
+        <div class="single-news--col col-xl-3 col-lg-4 d-none d-lg-block">
+            <div class="sidebar-container">
+                <div class="news-post">
+                    <p>Tin mới nhất</p>
+                    <div class="news-post--list">
+
+                        @for (int i = 0; i < 5; i++)
+                        {
+
+
+
+                            <div class="news-post--item">
+                                <div class="news-post--row row">
+                                    <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                        <div class="news-post--img">
+
+                                            @if (@TinNoiBat[i].NewsImages != null)
+                                            {
+                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@TinNoiBat[i].NewsImages.ToString().Replace("https://login.medlatec.vn","https://img.medlatec.vn")" alt="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                    <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                        <div class="news-post--content">
+
+                                            @if (@TinNoiBat[i].NewsName != null)
+                                            {
+                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                            }
+
+                                            <div class="news-post--info clearfix">
+                                                @if (@TinNoiBat[i].DateCreate != null)
+                                                {
+                                                    <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+           
+        </div>
+        <div class="register-main container">
+            <div class="register-wrapper">
+                <div class="register-row row">
+                    <div class="register-col col-lg-6">
+                        <div class="register-form">
+                            <h2>Đăng ký khám, tư vấn</h2>
+                            <form method="" action="">
+                                <div class="form-group register-name">
+                                    <label>Họ và tên <i>(*)</i></label>
+                                    <input value="" class="form-control" type="text" />
+                                </div>
+                                <div class="form-group register-phone">
+                                    <label>Số điện thoại <i>(*)</i></label>
+                                    <input value="" class="form-control" type="text" />
+                                </div>
+                                <div class="form-group register-email">
+                                    <label>Email</label>
+                                    <input value="" class="form-control" type="email" />
+                                </div>
+                                <div class="form-group register-comment">
+                                    <label>Ghi chú khác</label>
+                                    <textarea class="form-control" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                                </div>
+                                <div class="form-group form-group--btn">
+                                    <button>Đăng ký</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="register-col col-lg-6 d-none d-lg-block">
+                        <div class="choose-main">
+                            <h2 class="line-title">Tại sao nên chọn bệnh viện đa khoa MEDLATEC</h2>
+                            <div class="choose-main--row row">
+                                <div class="choose-main--col col-lg-6">
+                                    <div class="choose-main--item">
+                                        <div class="choose-main--icon"><img src="/Content/images/hospital.png" alt="" /></div>
+                                        <div class="choose-main--desc">Bệnh viện đa khoa với nhiều năm kinh nghiệm trong lĩnh vực y tế.</div>
+                                    </div>
+                                </div>
+                                <div class="choose-main--col col-lg-6">
+                                    <div class="choose-main--item">
+                                        <div class="choose-main--icon"><img src="/Content/images/doctors.png" alt="" /></div>
+                                        <div class="choose-main--desc">Thăm khám bởi đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                                    </div>
+                                </div>
+                                <div class="choose-main--col col-lg-6">
+                                    <div class="choose-main--item">
+                                        <div class="choose-main--icon"><img src="/Content/images/infrastructure.png" alt="" /></div>
+                                        <div class="choose-main--desc">Cơ sở vật chất, máy móc trang thiết bị hiện đại</div>
+                                    </div>
+                                </div>
+                                <div class="choose-main--col col-lg-6">
+                                    <div class="choose-main--item">
+                                        <div class="choose-main--icon"><img src="/Content/images/bill.png" alt="" /></div>
+                                        <div class="choose-main--desc">Áp dụng thanh toán bảo hiểm y tế và các bảo hiểm khác lên tới 100%</div>
+                                    </div>
+                                </div>
+                                <div class="choose-main--col col-lg-6">
+                                    <div class="choose-main--item">
+                                        <div class="choose-main--icon"><img src="/Content/images/fast.png" alt="" /></div>
+                                        <div class="choose-main--desc">Quy trình khám chữa bệnh nhanh chóng, thuận tiện</div>
+                                    </div>
+                                </div>
+                                <div class="choose-main--col col-lg-6">
+                                    <div class="choose-main--item">
+                                        <div class="choose-main--icon"><img src="/Content/images/dollar.png" alt="" /></div>
+                                        <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

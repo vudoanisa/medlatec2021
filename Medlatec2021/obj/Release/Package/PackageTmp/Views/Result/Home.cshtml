@@ -1,0 +1,208 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var News = (List<Cms_News>)ViewBag.News;
+}
+
+@section Note {
+    <title>Tra cứu kết quả khám chữa bệnh | Medlatec</title>
+
+    <meta name="description" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi")" />
+
+
+    <meta name="title" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh | Medlatec")" />
+
+    <meta name="keywords" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi")" />
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/tra-cuu-ket-qua" />
+    <script src="~/Content/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.standalone.min.css" />
+}
+
+
+@Html.Raw(TempData["msg"])
+@using (Html.BeginForm("Home", "Result", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+
+    <div class="turn-up container">
+        <div class="turn-up--container">
+            <div class="turn-up--form">
+                <h1 class="title text-center">Tra cứu kết quả</h1>
+                <div class="subtitle text-center">Quý khách vui lòng điền đầy đủ thông tin. Chúng tôi sẽ liên hệ lại sớm nhất</div>
+
+                <div class="turn-up--wrapper">
+                    <div class="turn-up--tab">
+                        <ul>
+                            <li data-panel="tab-customer" class="turn-up--active">Khách hàng</li>
+                            <li data-panel="tab-sample">Đơn vị gửi mẫu</li>
+                            <li data-panel="tab-card">Thẻ khách hàng</li>
+                        </ul>
+                    </div>
+
+
+                    <div class="turn-up--panel">
+                        <div class="form">
+                            <div id="tab-customer" class="tab-customer turn-up--content">
+
+
+                                <div class="form-group">
+                                    <label for="dateCustomer">Ngày khám <i>(*)</i></label>
+                                    <input id="dateCustomer" class="form-control tab-customer--date" name="txtngaykham" placeholder="Ngày khám DD/MM/YY" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy")" />
+                                </div>
+                                @*<div class="form-group">
+                                        <i class="icon-location d-block d-md-none"></i>
+                                        <label for="locationCustomer">Nơi khám <i>(*)</i></label>
+                                        <select id="locationCustomer" name="dllNoiKhamSID" class="form-control tab-customer--location">
+                                            <option value="HN">Hà Nội</option>
+                                            <option value="TPHCM">Hồ Chí Minh</option>
+                                        </select>
+                                    </div>*@
+                                <div class="form-group">
+                                    <i class="icon-location d-block d-md-none"></i>
+                                    <label for="locationCustomer">Ngôn ngữ <i>(*)</i></label>
+                                    <select id="locationCustomer" name="dllNgonngu" class="form-control tab-customer--location">
+                                        <option value="VN">Tiếng Việt</option>
+                                        <option value="EN">Tiếng Anh</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="codeCustomer">Mã tra cứu <i>(*)</i></label>
+                                    <input id="codeCustomer" class="form-control tab-customer--code" name="txtSID" placeholder="Mã tra cứu của bạn" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="passCustomer">Mã bảo mật <i>(*)</i></label>
+                                    <input id="passCustomer" class="form-control tab-customer--pass" name=txtMKSID placeholder="Nhập mật khẩu của bạn" type="password" />
+                                </div>
+                                <div class="form-group form-group--btn clearfix">
+                                    <button type="submit" name="submit" value="SaveAdd" id="SaveAdd" class="btn-form--submit">Tra cứu</button>
+
+                                    <script>
+                                        $("#SaveAdd").click(function () {
+
+                                            $("#SaveAdd").hide();
+
+                                        });
+                                    </script>
+
+                                </div>
+
+
+                            </div>
+
+                            <div id="tab-sample" class="tab-sample turn-up--content">
+
+
+                                <div class="form-group">
+                                    <i class="icon-location d-block d-md-none"></i>
+                                    <label for="locationSample">Vị trí <i>(*)</i></label>
+                                    <select id="locationSample" name="dllNoikhamDVGM" class="form-control tab-sample--location">
+                                        <option value="HN">Hà Nội</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userSample">Tên đăng nhập <i>(*)</i></label>
+                                    <input id="userSample" class="form-control tab-sample--user" name="txtusersid" placeholder="Nhập tên đăng nhập của bạn" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="passSample">Mật khẩu <i>(*)</i></label>
+                                    <input id="passSample" class="form-control tab-sample--pass" name="txtmkuser" placeholder="Nhập mật khẩu của bạn" type="password" />
+                                </div>
+                                <div class="form-group form-group--btn clearfix">
+                                    <button type="submit" name="submit" value="DVGM" id="DVGM" class="btn-form--submit">Tra cứu</button>
+                                    <script>
+                                        $("#DVGM").click(function () {
+
+                                            $("#DVGM").hide();
+
+                                        });
+                                    </script>
+
+                                </div>
+
+
+                            </div>
+                            <div id="tab-card" class="tab-card turn-up--content">
+
+
+                                <div class="form-group">
+                                    <i class="icon-location d-block d-md-none"></i>
+                                    <label for="locationCard">Nơi khám <i>(*)</i></label>
+                                    <select id="locationCard" class="form-control tab-card--location">
+                                        <option value="">Hà Nội</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="codeCard">Mã thẻ <i>(*)</i></label>
+                                    <input id="codeCard" class="form-control tab-card--code" name="txtPid" placeholder="Nhập mã thẻ của bạn" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="passCard">Mật khẩu <i>(*)</i></label>
+                                    <input id="passCard" class="form-control tab-card--pass" name="txtmkpid" placeholder="Nhập mật khẩu của bạn" type="password" />
+
+                                </div>
+                                <div class="form-group form-group--btn clearfix">
+                                    <button type="submit" name="submit" value="PID" id="PID" class="btn-form--submit">Tra cứu</button>
+                                    <script>
+                                        $("#PID").click(function () {
+
+                                            $("#PID").hide();
+
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="turn-up--guide clearfix"><a href="#" title="">Hướng dẫn tra cứu kết quả</a></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="news-main container news-schedule">
+        <h2 class="main-title">Tin tức mới</h2>
+        <div class="news-list">
+            <div class="news-list--row row">
+                @if (@News.Count > 0)
+                {
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        <div class="news-list--col col-lg-6">
+                            <div class="news-item row">
+                                <div class="news-col col-6">
+                                    <div class="news-item--img">
+                                        @*<a href="News/NewsDetails?cateid=@News[i].CateId.ToString()&newsid=@News[i].NewsId.ToString()" title=""><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>*@
+
+                                        <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+ @News[i].CateId.ToString() , "n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()"><img src="@News[i].NewsImages.ToString()" alt="@News[i].NewsName.ToString()" /></a>
+                                    </div>
+                                </div>
+                                <div class="news-col col-6">
+                                    <div class="news-content">
+                                        <h3 class="news-title"> <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",News[i].NewsName.ToString().ToLower(),"s"+@News[i].CateId.ToString(),"n"+@News[i].NewsId.ToString())" title="@News[i].NewsName.ToString()">@News[i].NewsName.ToString()</a></h3>
+                                        <div class="new-desc d-none d-xl-block">@News[i].NewsDescription.ToString()</div>
+                                        <div class="news-date"><i class="news-calendar"></i>Ngày @News[i].DateCreate.ToString("dd/MM/yyyy")   </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+
+            </div>
+        </div>
+
+        <div class="news-more">
+            <a href="https://medlatec.vn/tin-tuc/y-khoa-medlatec-s28">Xem tất cả</a>
+        </div>
+    </div>
+
+}
+

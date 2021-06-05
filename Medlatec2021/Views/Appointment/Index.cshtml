@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="schedule-main">
+    <div class="container">
+        <div class="schedule-container">
+            <div class="schedule-form">
+                <h2>Đặt lịch lấy mẫu tại nhà</h2>
+                <div class="schedule-note">Quý khách vui lòng điền đầy đủ thông tin. Chúng tôi sẽ liên hệ lại sớm nhất</div>
+                <form action="" method="">
+              
+                <div class="schedule-row row">
+                    <div class="schedule-col col-xl-12">
+                        </div>
+                    </div>
+                    <div class="schedule-col col-md-6 col-sm-8 col-7">
+                        <div class="form-group schedule-id">
+                            <label>Mã thẻ khách hàng (nếu có)</label>
+                            <input value="" class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="schedule-col col-md-6 col-sm-4 col-5">
+                        <div class="schedule-btn" onclick="">Lấy thông tin</div>
+                    </div>
+                    <div class="schedule-col col-md-6">
+                        <div class="form-group schedule-name">
+                            <label>Họ và tên <i>(*)</i></label>
+                            <input name="txtHoten" class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="schedule-col col-md-6">
+                        <div class="form-group schedule-phone">
+                            <label>Số điện thoại <i>(*)</i></label>
+                            <input name="txtdt" class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="schedule-col col-md-6">
+                        <div class="form-group schedule-birthday">
+                            <label>Ngày sinh <span class="hidden-desktop">DD/MM/YY</span> <i>(*)</i></label>
+                            <input value="" class="form-control schedule-date" placeholder="DD/MM/YY" type="text" />
+                        </div>
+                    </div>
+                    <div class="schedule-col col-md-6">
+                        <div class="form-group schedule-email">
+                            <label>Email</label>
+                            <input id="txtemail" name="txtemail" value="" class="form-control" type="email" />
+                        </div>
+                    </div>
+                    <div class="schedule-col col-md-6">
+                        <div class="form-group schedule-sex">
+                            <label>Giới tính <i>(*)</i></label>
+                            <select class="form-control">
+                                <option value="male">Nam</option>
+                                <option value="female">Nữ</option>
+                            </select>
+                        </div>
+                    </div>
+                    @*<div class="schedule-col col-md-6">
+                            <div class="form-group schedule-sex">
+                                <label>abc <i>(*)</i></label>
+                                <select name="dllTest" class="form-control">
+                                    @foreach (var value in data)
+                                    {
+                                        <option value="@value.Value"> @value.Text </option>
+                                    }
+                                </select>
+                            </div>
+                        </div>*@
+
+
+                    <div class="schedule-col col-md-6">
+                        <div class="form-group schedule-address">
+                            <label>Địa chỉ <i>(*)</i></label>
+                            <input value="" class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="schedule-col col-xl-12">
+                        <div class="form-group schedule-comment">
+                            <label>Ghi chú khác</label>
+                            <textarea class="form-control" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                        </div>
+                    </div>
+                    <div class="schedule-col col-xl-12">
+                        <div class="form-group schedule-comment">
+
+                          
+                        </div>
+                    </div>
+
+
+                    <div class="schedule-col col-xl-12">
+                        <div class="form-group schedule-row--btn">
+
+                            <button type="submit" name="submit" value="SaveAdd">Đặt lịch khám</button>
+
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="schedule-link"><a href="#"><img src="images/schedule-link.png" alt="" />Các bước lấy mẫu và trả kết quả tại nhà</a></div>
+    </div>
+</div>
+

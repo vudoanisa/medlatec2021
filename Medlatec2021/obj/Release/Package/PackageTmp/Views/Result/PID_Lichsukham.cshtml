@@ -1,0 +1,120 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@{
+    ViewBag.Title = "Lịch sử khám chữa bệnh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Thongtin = (List<Cms_Patient>)ViewBag.Thongtin;
+}
+@Html.Raw(TempData["msg"])
+@if (Thongtin != null)
+{
+    if (Thongtin.Count > 0)
+    {
+        @section Note {
+            <title>Tra cứu kết quả khám chữa bệnh | Medlatec | @Thongtin[0].PID</title>
+            <meta name="description" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi" + @Thongtin[0].PID)" />
+            <meta name="title" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh | Medlatec |" + @Thongtin[0].PID)" />
+            <meta name="keywords" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi" + @Thongtin[0].PID)" />
+            <meta name="robots" content="noindex,follow,all">
+        }
+        <div class="customer-container container">
+            <div class="customer-row row">
+                <div class="customer-col customer-col-left">
+                    <div class="customer-sidebar">
+                        <div class="customer-info">
+                            <div class="customer-info-row">
+                                <div class="customer-info-col customer-info-left">
+                                    <div class="customer-info--img"><img src="/Content/images/person-white.png" alt="" /></div>
+                                </div>
+                                <div class="customer-info-col customer-info-right">
+                                    <div class="customer-info--wrapper">
+                                        <div class="customer-info--code">@Thongtin[0].PID</div>
+                                        <div class="customer-info--name">@Thongtin[0].PatientName</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="customer-menu">
+                            <ul>
+                                <li class="customer-ttcn">
+                                    <a href="#">Thông tin cá nhân</a>
+                                </li>
+                                <li class="customer-lsk customer-menu--active">
+                                    <a href="#">Lịch sử khám</a>
+                                </li>
+                                <li class="customer-qdtkh">
+                                    <a href="#">Quy định thẻ KH (PID)</a>
+                                </li>
+                                <li class="customer-lsgd">
+                                    <a href="#">Lịch sử giao dịch</a>
+                                </li>
+                                <li class="customer-ctudkh">
+                                    <a href="#">Chương trình ưu đãi dành cho KH</a>
+                                </li>
+                                <li class="customer-gydv">
+                                    <a href="#">Góp ý dich vụ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="customer-col customer-col-right">
+                    <div class="customer-wrapper customer-wrapper-2">
+                        <h1 class="title">Lịch sử khám bệnh tại MEDLATEC</h1>
+                        <div class="customer-content">
+                            <div class="table-return">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-return-1">STT</th>
+                                            <th class="table-return-2">Họ và tên</th>
+                                            <th class="table-return-3">Thời gian khám</th>
+                                            <th class="table-return-4">Mã khám bệnh</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (int i = 0; i < Thongtin.Count; i++)
+                                        {
+                                            <tr>
+                                                @if (Thongtin[i].PatientName != null)
+                                                {
+                                                    <td class="table-return-1">@(i + 1)</td>
+                                                    if (Thongtin[i].PatientName != null)
+                                                    {
+                                                        <td class="table-return-2">@Thongtin[i].PatientName.ToString() </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="table-return-2"></td>
+                                                    }
+                                                    if (Thongtin[i].Intime != null)
+                                                    {
+                                                        <td class="table-return-3">@Thongtin[i].Intime.ToString("dd/MM/yyyy")</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="table-return-2"></td>
+                                                    }
+                                                    if (Thongtin[i].SID != null)
+                                                    {
+                                                        <td class="table-return-4"><a href="@CMS_Core.Common.Common.GetLinkSId(Thongtin[i].SID)">@Thongtin[i].SID.ToString() </a></td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="table-return-2"></td>
+                                                    }
+                                                }
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

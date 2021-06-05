@@ -1,0 +1,451 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    ViewBag.Title = "LandingUngThu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Note {
+
+    <title>@Html.Raw("Chương trình tầm soát ung thư gan AFP miễn phí tại nhà | Bệnh viện đa khoa Medlatec")</title>
+    <meta name="description" content="@Html.Raw("Theo số liệu thống kê của Tổ chức Y tế thế giới tại Việt Nam Có khoảng 7,8 triệu người mắc viêm gan B, Gần 6.000 người bị ung thư tế bào gan.. Hãy liên hệ ngay Bệnh viện đa khoa Medlatec để tham gia Chương trình tầm soát ung thư gan AFP miễn phí tại nhà")" />
+    <meta property="og:description" content="@Html.Raw("Theo số liệu thống kê của Tổ chức Y tế thế giới tại Việt Nam Có khoảng 7,8 triệu người mắc viêm gan B, Gần 6.000 người bị ung thư tế bào gan.. Hãy liên hệ ngay Bệnh viện đa khoa Medlatec để tham gia Chương trình tầm soát ung thư gan AFP miễn phí tại nhà")" />
+    <meta property="og:title" content="@Html.Raw("Chương trình tầm soát ung thư gan AFP miễn phí tại nhà | Bệnh viện đa khoa Medlatec")" />
+    <meta name="keywords" content="@Html.Raw("Theo số liệu thống kê của Tổ chức Y tế thế giới tại Việt Nam Có khoảng 7,8 triệu người mắc viêm gan B, Gần 6.000 người bị ung thư tế bào gan.. Hãy liên hệ ngay Bệnh viện đa khoa Medlatec để tham gia Chương trình tầm soát ung thư gan AFP miễn phí tại nhà")" />
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/banner/bannerungthu.jpg" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/banner/bannerungthu.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/chuong-trinh-tam-soat-ung-thu-gan-afp-mien-phi-tai-nha" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/chuong-trinh-tam-soat-ung-thu-gan-afp-mien-phi-tai-nha" />
+    <script type="text/javascript">
+            if (window.location.protocol == "http:") {
+                var restOfUrl = window.location.href.substr(5);
+                restOfUrl = restOfUrl.replace("www.", "");
+                window.location = "https:" + restOfUrl;[w]
+            }
+    </script>
+
+}
+@using (Html.BeginForm("LandingUngThu", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><span>Chương trình miễn phí tầm soát ung thư gan AFP tại nhà</span></li>
+        </ul>
+    </div>
+
+    <div class="banner-skdn container">
+        <div class="banner-main">
+            <div class="banner-slider owl-carousel">
+                <div class="item">
+                    <div class="banner-item">
+                        <a href="#dangkyngay"> <img src="~/Content/images/banner/bannerungthu.jpg" alt="Chương trình miễn phí tầm soát ung thư gan AFP tại nhà" /></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="xntn-main">
+        <div class="xntn-intro container">
+            <div class="xntn-intro-container">
+                <h2 class="title" style="font-weight:700;color:#1576C4;">Báo động bệnh ung thư gan</h2>
+                <h4 style="text-align:center;color:#62676D;">Tổ chức Ung thư toàn cầu (GLOBOCAN) thống kê năm 2018 tại Việt Nam</h4>
+                <ul>
+                    <li class="xntn-intro-1">
+                        <div class="xntn-intro-item">
+                            <div class="xntin-intro-img"><img src="~/Content/images/icon-bvsk.png" alt="Có khoảng 7,8 triệu người mắc viêm gan B" /></div>
+
+                            <p style="text-align:center;">25.335 ca mắc mới ung thư gan</p>
+                        </div>
+                    </li>
+                    <li class="xntn-intro-2">
+                        <div class="xntn-intro-item">
+                            <div class="xntin-intro-img"><img src="~/Content/images/icon-ttl.png" style="max-height:100px; background: white;border-radius: 50%;" alt="Hơn 13.000 người bị xơ gan mất bù" /></div>
+
+                            <p style="text-align:center;">25.404 trường hợp tử vong vì bệnh này</p>
+                        </div>
+                    </li>
+                    <li class="xntn-intro-3">
+                        <div class="xntn-intro-item">
+                            <div class="xntin-intro-img"><img src="~/Content/images/icon-cpxnhl.png" style="max-height:100px;background: white;border-radius: 50%;" alt="Gần 6.000 người bị ung thư tế bào gan" /></div>
+
+                            <p style="text-align:center;">Việt Nam được xếp vào nhóm những nước có tỷ lệ người bị ung thư gan cao nhất thế giới</p>
+                        </div>
+                    </li>
+                    <li class="xntn-intro-4">
+                        <div class="xntn-intro-item">
+                            <div class="xntin-intro-img"><img src="~/Content/images/icon-nc.png" alt="Hơn 6.400 người tử vong do bệnh gan gây nên" /></div>
+
+                            <p style="text-align:center;">Cứ 100.000 người thì có 23,2 người bị ung thư gan, ở cả nam và nữ</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="xntn-intro-container">
+            <div class="xntn-intro container">
+                <h3 class="title-plus">Những điều cần biết về xét nghiệm tầm soát ung thư gan (AFP)</h3>
+                <div class="sub-content">
+                    <div class="qtk-medlatec row">
+                        <span style="font-size:16px; text-align :left;width:100%;padding-left:15px;padding-right:15px;">Xét nghiệm AFP là một trong các dấu ấn sinh học, được thực hiện bằng cách lấy máu phân tích các chỉ số, có giá trị tầm soát ung thư gan. Giá trị bình thường của AFP: 0-8.78 ng/mL.</span>
+                        <span style="text-align:left;width:100%;padding-left:15px;padding-right:15px;">
+                            Khi nồng độ AFP máu tăng, có ý nghĩa trong các trường hợp sau:
+                        </span>
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">01</span>
+                                    <span class="qtk-content">Người có dấu hiệu mắc bệnh Ung thư tế bào gan tiên phát</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">02</span>
+                                    <span class="qtk-content">Các bệnh lý gan - mật lành tính: Xơ gan, viêm gan do virus, viêm mạn tính tiến triển.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="qtk-item">
+                                <div class="qtk-row">
+                                    <span class="qtk-number">03</span>
+                                    <span class="qtk-content">Các loại ung thư khác: Ung thư vú, phổi, thận,…</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="xntn-service container" style="padding-bottom:25px;">
+            <h2 class="title">Những điều cần biết về xét nghiệm tầm soát ung thư gan (AFP)</h2>
+            <div class="xntn-service-container row">
+                <div class="xntn-service-col col-lg-7">
+                    <div class="xntn-service-img"><img src="~/Content/images/banner/laymau.png" alt="Hình ảnh lấy mẫu xét nghiệm tại nhà" /></div>
+                </div>
+                <div class="xntn-service-col col-lg-5">
+                    <div class="xntn-service-content">
+                        <ul>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-1.png" alt="Người có tiền sử gia đình bị bệnh lý ung thư gan" /></span><span class="xntn-service-text">Người có tiền sử gia đình bị bệnh lý ung thư gan;</span></li>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-2.png" alt="Người bị xơ gan do mọi nguyên nhân, hay gặp do virus, rượu" /></span><span class="xntn-service-text">Người bị xơ gan do mọi nguyên nhân, hay gặp do virus, rượu;</span></li>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-3.png" alt="Người bị viêm gan B, C mạn tính" /></span><span class="xntn-service-text">Người bị viêm gan B, C mạn tính;</span></li>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-4.png" alt="Người nghiện rượu hoặc uống rượu thường xuyên" /></span><span class="xntn-service-text">Người nghiện rượu hoặc uống rượu thường xuyên;</span></li>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-5.png" alt="Người thừa cân, béo phì" /></span><span class="xntn-service-text">Người thừa cân, béo phì;</span></li>
+                            <li><span class="xntn-service-icon"><img src="~/Content/images/icon-xntn-6.png" alt="Có tiền sử tim mạch, tiểu đường" /></span><span class="xntn-service-text">Có tiền sử tim mạch, tiểu đường.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="feedback-customer">
+            <div class="container">
+                <h2 class="title">Chuyên gia, Phó giáo sư, Tiến sĩ đầu ngành công tác tại MEDLATEC</h2>
+                <div class="feedback-slider owl-carousel">
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="~/Content/images/tsngoc.jpg" alt="Trịnh Thị Ngọc, Nguyên Trưởng khoa Truyền nhiễm, Bệnh viện Bạch Mai; Phó Chủ tịch Hội Gan Mật Hà Nội." /></div>
+                            <div class="feedback-customer-info">
+                                <h3>PGS. TS. Trịnh Thị Ngọc</h3>
+
+                                <div class="feedback-customer-text">Nguyên Trưởng khoa Truyền nhiễm, Bệnh viện Bạch Mai; Phó Chủ tịch Hội Gan Mật Hà Nội.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="~/Content/images/tsnghi.jpg" alt="PGS.TS Đoàn Hữu Nghị, Phó Chủ tịch Hội Ung thư Hà Nội, chuyên gia Ung bướu đầu ngành tại Việt Nam với 40 năm kinh nghiệm" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>PGS.TS Đoàn Hữu Nghị</h3>
+
+                                <div class="feedback-customer-text">Phó Chủ tịch Hội Ung thư Hà Nội, chuyên gia Ung bướu đầu ngành tại Việt Nam với 40 năm kinh nghiệm.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="~/Content/images/bsha.jpg" alt=" Thạc sỹ Nguyễn Hồng Hà, Nguyên Phó Giám đốc Bệnh viện Bệnh Nhiệt đới Trung ương" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>BSCKII, Thạc sỹ Nguyễn Hồng Hà</h3>
+
+                                <div class="feedback-customer-text">Nguyên Phó Giám đốc Bệnh viện Bệnh Nhiệt đới Trung ương</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="feedback-customer-item">
+                            <div class="feedback-customer-avatar"><img src="~/Content/images/thshuong.jpg" alt="Bác sĩ chuyên khoa Truyền nhiễm: ThS. Nguyễn Thu Hương" /></div>
+                            <div class="feedback-customer-info">
+                                <h3>ThS. Nguyễn Thu Hương</h3>
+
+                                <div class="feedback-customer-text">Bác sĩ chuyên khoa Truyền nhiễm: ThS. Nguyễn Thu Hương</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="xntn-why-choose">
+            <div class="container">
+                <h2 class="title">Vì sao chọn dịch vụ xét nghiệm AFP tại nhà của MEDLATEC</h2>
+                <div class="xntn-why-container row">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-1.png" alt="MEDLATEC là đơn vị tiên phong về dịch vụ và có nhiều năm kinh nghiệm trong lĩnh vực xét nghiệm" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Kinh nghiệm</h3>
+                                <p>MEDLATEC là đơn vị tiên phong về dịch vụ và có nhiều năm kinh nghiệm trong lĩnh vực xét nghiệm.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-2.png" alt="Mạng lưới labo xét nghiệm đạt tiêu chuẩn quốc tế, rộng khắp các tỉnh thành trên cả nước" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Quy mô</h3>
+                                <p>Mạng lưới labo xét nghiệm đạt tiêu chuẩn quốc tế, rộng khắp các tỉnh thành trên cả nước.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-3.png" alt="Đội ngũ lấy mẫu chuyên nghiệp, ân cần, có chứng chỉ hành nghề" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Nhân lực</h3>
+                                <p>Đội ngũ lấy mẫu chuyên nghiệp, ân cần, có chứng chỉ hành nghề.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-4.png" alt="Phục vụ hơn 500 loại xét nghiệm từ cơ bản đến chuyên sâu" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Đối tượng</h3>
+                                <p>Phục vụ hơn 500 loại xét nghiệm từ cơ bản đến chuyên sâu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-5.png" alt="Đơn giá theo giá niêm yết tại bệnh viện, chỉ  thêm 10.000 đồng phí đi lại" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Chi phí</h3>
+                                <p>Đơn giá theo giá niêm yết tại bệnh viện, chỉ  thêm 10.000 đồng phí đi lại.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-6.png" alt="Phục vụ tất cả các ngày trong tuần, <b>kể cả thứ 7, chủ nhật và lễ Tết</b> từ 6:00-22:00 hàng ngày" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Giờ giấc phục vụ</h3>
+                                <p>Phục vụ tất cả các ngày trong tuần, <b>kể cả thứ 7, chủ nhật và lễ Tết</b> từ 6:00-22:00 hàng ngày.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-7.png" alt="Kết quả được trả tận nơi hoặc tra cứu trên website medlatec.vn và ứng dụng iCNM" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Trả kết quả</h3>
+                                <p>Kết quả được trả tận nơi hoặc tra cứu trên website medlatec.vn và ứng dụng iCNM.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-8.png" alt="Lưu trữ trực tuyến toàn bộ hồ sơ, khách hàng có thể tra cứu mọi lúc, mọi nơi. Thông tin được bảo mật tuyệt đối" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Lưu trữ hồ sơ</h3>
+                                <p>Lưu trữ trực tuyến toàn bộ hồ sơ, khách hàng có thể tra cứu mọi lúc, mọi nơi. Thông tin được bảo mật tuyệt đối.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="xntn-why-item">
+                            <div class="xntn-why-icon"><img src="~/Content/images/xntn-why-9.png" alt="Được các bác sĩ, chuyên gia hàng đầu tư vấn nếu kết quả có bất thường" /></div>
+                            <div class="xntn-why-text">
+                                <h3>Tư vấn kết quả</h3>
+                                <p>Được các bác sĩ, chuyên gia hàng đầu tư vấn nếu kết quả có bất thường.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xntn-register"><a href="#dangkyngay">Đăng ký ngay</a></div>
+            </div>
+        </div>
+        <div class="xntn-hatt container">
+            <h2 class="title">Một số hình ảnh thực tế</h2>
+            <div class="xntn-hatt-container row">
+                <div class="xntn-hatt-col col-lg-6">
+                    <div class="xntn-hatt-img">
+                        <ul>
+                            <li><div class="xntn-hatt-item"><img src="~/Content/images/ungthu1.jpg" alt="" /></div></li>
+                            <li><div class="xntn-hatt-item"><img src="~/Content/images/ungthu2.jpg" alt="" /></div></li>
+                            <li><div class="xntn-hatt-item"><img src="~/Content/images/ungthu3.jpg" alt="" /></div></li>
+                            <li><div class="xntn-hatt-item"><img src="~/Content/images/ungthu5.jpg" alt="" /></div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="xntn-hatt-col col-lg-6">
+                    <div class="xntn-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5fnoBe-xFMI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="xntn-step container">
+            <h2 class="title">Các bước lấy mẫu xét nghiệm tận nơi</h2>
+            <div class="sub-content">
+                <ul class="content-step">
+                    <li><b>Bước 1-</b> Khách hàng đăng ký lịch hẹn bằng cách gọi điện cho tổng đài 1900565656 hoặc đăng ký trực tuyến trên website medlatec.vn.</li>
+                    <li><b>Bước 2-</b> Cán bộ đến lấy mẫu theo yêu cầu của khách hàng.</li>
+                    <li><b>Bước 3-</b> Khách hàng có thể đăng ký nhận kết quả xét nghiệm qua các hình thức sau: Trả tận nơi, tra cứu kết quả trên website, email.</li>
+                    <li><b>Bước 4-</b> Ngay khi có đầy đủ kết quả, khách hàng sẽ được các chuyên gia giàu kinh nghiệm tư vấn về: Kết quả xét nghiệm và chế độ dinh dưỡng hợp lý.</li>
+                </ul>
+            </div>
+        </div>
+
+        <style type="text/css">
+            input[name='CaptchaInputText'] {
+                text-transform: uppercase;
+            }
+        </style>
+
+        @Html.Raw(TempData["msg"])
+        <div class="xntn-form-dk" id="dangkyngay">
+            <div class="container">
+                <div class="xntn-form-container row">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="xntn-form-img" style="bottom: 0px;position: absolute;"><img src="~/Content/images/xntn-bs.png" alt="" /></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="xntn-form-wrapper">
+                            <div class="form">
+                                @Html.AntiForgeryToken()
+                                <h3>Đăng ký xét nghiệm miễn phí tầm soát ung thư gan</h3>
+                                <h5 style="font-weight:100;font-size:14px;color:#62676D;text-align:center;">(Quý khách vuil lòng bắt buộc nhập họ tên, số điện thoại, mã bảo mật để chúng tôi chăm sóc được tốt nhất)</h5>
+                                <div class="form-group">
+                                    <input placeholder="Họ tên" name="txtHoten" type="text" class="form-control" />
+                                </div>
+                                <div class="form-group form-group-flex">
+                                    <input placeholder="Email" type="email" name="txtemail" class="form-control" />
+                                    <input placeholder="Số điện thoại" name="txtdt" type="text" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <input placeholder="Địa chỉ" name="txtdiachi" type="text" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" name="txtghichu" placeholder="Nhu cầu khám của bạn là gì?"></textarea>
+                                </div>
+
+                                <div class="form-group form-group--btn">
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+    },
+
+    {
+    "@@type": "ListItem",
+    "position": 2,
+    "item": { "@@id": "https://medlatec.vn/dich-vu/chuong-trinh-tam-soat-ung-thu-gan-afp-mien-phi-tai-nha", "name": "@Html.Raw("Chương trình tầm soát ung thư gan AFP miễn phí tại nhà | Bệnh viện đa khoa Medlatec")" }
+    }
+
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>

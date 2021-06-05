@@ -1,0 +1,39 @@
+﻿@using MEDLATEC2019.BusinessLayer;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listPhongkham = (List<Phongkham>)ViewBag.Data;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <div class="base-container container">
+            <h1 class="title">Chọn cơ sở khám bệnh</h1>
+            <div class="base-row row">
+                @for (int i = 0; listPhongkham != null && i < listPhongkham.Count; i++)
+                {
+                    <div class="base-col col-md-6">
+                        <div class="base-item">
+
+                            <div class="base-img"><img src="images/base.png" alt="" /></div>
+                            <a href="@("/dat-lich-bac-si/"+listPhongkham[i].OrganizeID+",0,"+string.Format("{0:yyyy-MM-dd}", DateTime.Now))"><h3 class="base-title">@listPhongkham[i].OrganizeName</h3></a>
+                            <div class="base-address">Địa chỉ : @listPhongkham[i].OrganizeAddress</div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

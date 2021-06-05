@@ -1,0 +1,435 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    var NewsCate = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+@section Note {
+    <title>Trung tâm xét nghiệm | Bệnh viện đa khoa Medlatec</title>
+
+    <meta name="description" content="Trung tâm xét nghiệm thuộc bệnh viện đa khoa medlatec, Trung tâm xét nghiệm. Medlatec Quy tụ nhiều bác sĩ đầu ngành về lĩnh vực xét nghiệm ở trong và ngoài nước" />
+    <meta property="og:description" content="Trung tâm xét nghiệm thuộc bệnh viện đa khoa medlatec, Trung tâm xét nghiệm. Medlatec Quy tụ nhiều bác sĩ đầu ngành về lĩnh vực xét nghiệm ở trong và ngoài nước" />
+    <meta name="title" content="Trung tâm xét nghiệm | Bệnh viện đa khoa Medlatec" />
+    <meta property="og:title" content="Trung tâm xét nghiệm | Bệnh viện đa khoa Medlatec" />
+    <meta name="keywords" content="Trung tâm xét nghiệm" />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/Chuyen-khoa/anh-chinh-xet-nghiem.jpg" />
+
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <meta property="og:url" content="https://medlatec.vn/chuyen-khoa/trung-tam-xet-nghiem" />
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/chuyen-khoa/trung-tam-xet-nghiem" />
+}
+
+@using (Html.BeginForm("XetNghiem", "Service", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="https://medlatec.vn/chuyen-khoa">Chuyên khoa y tế</a></li>
+            <li><a href="#">Trung tâm xét nghiệm</a></li>
+
+        </ul>
+    </div>
+
+    <div class="specialist specialist-child container">
+        <div class="specialist-child--row row">
+            <div class="specialist-child--col col-xl-9 col-lg-8">
+                <h1>Trung tâm xét nghiệm</h1>
+                <div class="specialist-child--desc">
+                    Trung tâm Xét nghiệm MEDLATEC - thương hiệu xét nghiệm số 1 phía Bắc, tự hào là nơi tụ hội được đội ngũ chuyên gia đầu ngành và luôn đón đầu những công nghệ hiện đại, đồng bộ, tự động. Bởi vậy, trong suốt 23 năm qua, chất lượng xét nghiệm của Bệnh viện Đa khoa MEDLATEC không ngừng nhận được sự đánh giá cao của các chuyên gia, bác sĩ cũng như niềm tin tưởng, hài lòng chất lượng của nhân dân trên khắp mọi miền cả nước.
+                </div>
+                <div class="specialist-child--img"><img src="/Content/images/Chuyen-khoa/anh-chinh-xet-nghiem.jpg" alt="Trung tâm xét nghiệm" /></div>
+                <div class="specialist-service">
+                    <h2 class="main-title">Dịch vụ chính</h2>
+                    <div class="specialist-service--wrapper">
+                        <div class="specialist-service--list row">
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Dịch vụ thông thường</h3>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Truyền nhiễm</h3>
+                                    <p>Bệnh viêm gan (A, B, C, E), bệnh Lao, giang mai, HIV, lậu, Chlamydia…</p>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Sản - phụ khoa - Nam khoa</h3>
+                                    <p>Bộ xét nghiệm nội tiết sinh dục nam, nữ (FSH, LH, E2, Progesteron,…); Xét nghiệm tìm nguyên nhân vô sinh nam/nữ (nhiễm sắc thể đồ, kháng thể kháng tinh trùng,…); Sàng lọc trước sinh (NIPT, Double test, Triple test); tầm soát ung thư (CA 125, CA 13-5, SCC,…).</p>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Thận - Tiết Niệu</h3>
+                                    <p>Tổng phân tích nước tiểu, chức năng thận, điện giải đồ, microlobumin, cấy nước tiểu và làm kháng sinh đồ,…</p>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Nhi khoa</h3>
+                                    <p>Xét nghiệm đầy đủ các chuyên khoa Huyết học, Miễn dịch, Di truyền,…</p>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Nội tiết</h3>
+                                    <p>Bệnh đái tháo đường, rối loạn chuyển hóa lipid, bệnh lý tuyến giáp (basedow, nhân tuyến giáp, suy giáp, viêm tuyến giáp, bệnh lý tuyến thượng thận...).</p>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Di truyền</h3>
+                                    <p>Xét nghiệm nhiễm sắc thể đồ, bệnh lý di truyền Thalassemia, AND huyết thống,…</p>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Huyết học</h3>
+                                    <p>Xét nghiệm tổng phân tích tế bào máu, đông máu, nhóm máu…</p>
+                                </div>
+                            </div>
+
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Tim mạch</h3>
+                                    <p>Xét nghiệm AST, CK-MB, D-Dimer, Troponin T-hs…</p>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="specialist-material" style="margin-top:15px;">
+                    <h2 class="main-title">Cơ sở vật chất - Trang thiết bị</h2>
+                    <div class="specialist-material-desc">
+                        Nhận thức được tầm quan trọng đặc biệt của xét nghiệm trong chẩn đoán và điều trị bệnh, cũng như với mong muốn phục vụ tốt nhất và kịp thời quá trình chẩn đoán, theo dõi của tất cả khách hàng/bệnh nhân, vì vậy, cách đây 23 năm, MEDLATEC đã xác định lấy xét nghiệm làm mũi nhọn phát triển.
+                        Theo đó, Trung tâm Xét nghiệm - Bệnh viện Đa khoa MEDLATEC không ngừng  tiên phong cập nhật, ứng dụng những công nghệ hiện đại, tiên tiến nhất của quốc tế thuộc đầy đủ các chuyên khoa với cam kết chất lượng chính xác, trả kết quả kịp thời, trong đó tiêu biểu như:
+
+                    </div>
+                    <div class="specialist-material-wrapper">
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/Cobas.jpg" alt="Hệ thống tự động Cobas – Roche" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Hệ thống tự động Cobas – Roche</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Hệ thống tự động Cobas – Roche là hệ thống tự động vớicông suất 2600 test hóa sinh/ giờ và 940 test miễn dịch/ giờ.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/A3600.jpg" alt="Hệ thống tự động A3600 – Aboott" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Hệ thống tự động A3600 – Aboott</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Hệ thống tự động A3600 – Aboott là hệ thống hệ thống tự động toàn diện cho phòng xét nghiệm, được thiết kế đáp ứng nhu cầu của mọi phòng xét nghiệm trong thời điểm hiện tại và tương lai. Công suất xét nghiệm tại hệ thống có thể đạt tới 1000 test miễn dịch / giờ và 4400  hóa sinh/ giờ.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/LIAISON.jpg" alt="Hệ thống máy LIAISON" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Hệ thống máy LIAISON</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Hệ thống máy LIAISON chạy các xét nghiệm đặc biệt trên các hệ thống khác không có như kháng thể kháng Phospholipid, virus HSV, sởi, thủy đậu, quai bị, Chlamydia…</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/nuoc-tieu.jpg" alt="Máy xét nghiệm nước tiểu tự động" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy xét nghiệm nước tiểu tự động</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Máy xét nghiệm nước tiểu tự động: Hệ thống tích hợp xét nghiệm nước tiểu tự động LabUmat và cặn tự động Urised của hãng 77 Elektronika  (đang rất được ưa chuộng) với công suất 240 test/h.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/Content/images/Chuyen-khoa/may-Q-StationElite.jpg" alt="Dàn máy nội soi tiêu hóa" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy Panel Q-station elite</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Máy Panel Q-station elite: Phát hiện 60 dị nguyên thường gặp gây dị ứng như tôm, cua, cá, thịt bò… giúp chẩn đoán và tìm nguyên nhân gây dị ứng.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="single-news--col col-xl-3 col-lg-4 d-none d-lg-block">
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin cùng chuyên mục</p>
+                        <div class="news-post--list">
+                            @if (NewsCate != null)
+                            {
+                                for (int i = 0; i < NewsCate.Count; i++)
+                                {
+
+                                    if (i < 5)
+                                    {
+                                        <div class="news-post--item">
+                                            <div class="news-post--row row">
+                                                <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                    <div class="news-post--img">
+
+                                                        @if (NewsCate[i].NewsImages != null)
+                                                        {
+                                                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@NewsCate[i].NewsImages.ToString()" alt="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                        }
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                    <div class="news-post--content">
+
+                                                        @if (@NewsCate[i].NewsName != null)
+                                                        {
+                                                            <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()">@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                        }
+
+                                                        <div class="news-post--info clearfix">
+                                                            @if (@NewsCate[i].DateCreate != null)
+                                                            {
+                                                                <span class="news-post--date">Ngày @NewsCate[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin nổi bật</p>
+                        <div class="news-post--list">
+
+                            @for (int i = 0; i < 5; i++)
+                            {
+
+
+
+                                <div class="news-post--item">
+                                    <div class="news-post--row row">
+                                        <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                            <div class="news-post--img">
+
+                                                @if (@TinNoiBat[i].NewsImages != null)
+                                                {
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@TinNoiBat[i].NewsImages.ToString()" alt="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                        <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                            <div class="news-post--content">
+
+                                                @if (@TinNoiBat[i].NewsName != null)
+                                                {
+                                                    <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                }
+
+                                                <div class="news-post--info clearfix">
+                                                    @if (@TinNoiBat[i].DateCreate != null)
+                                                    {
+                                                        <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                    }
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+    <div class="register-main single-register-main container">
+        <div class="register-wrapper">
+            <div class="register-row row">
+                <div class="register-col col-lg-6">
+                    <div class="register-form">
+                        <p style="font-size: 21px;line-height: 21px;color:white;text-align:center;text-transform:uppercase;">Đăng ký khám, tư vấn</p>
+                        <div class="form">
+
+                            <style type="text/css">
+                                input[name='CaptchaInputText'] {
+                                    width: 100% !important;
+                                    line-height: 28px;
+                                    background: rgba(255, 255, 255, .8) none;
+                                    padding: 10px;
+                                    height: 50px;
+                                    display: block;
+                                    width: 100%;
+                                    font-size: 1rem;
+                                    font-weight: 400;
+                                    line-height: 1.5;
+                                    color: #495057;
+                                    border: 1px solid #ced4da;
+                                    border-radius: .25rem;
+                                    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                }
+                            </style>
+
+                            <div class="form-group register-name">
+                                <label>Họ và tên <i>(*)</i></label>
+                                <input value="" name="txthoten" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-phone">
+                                <label>Số điện thoại <i>(*)</i></label>
+                                <input value="" name="txtsdt" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-email">
+                                <label>Email</label>
+                                <input value="" name="txtemail" class="form-control" type="email" />
+                            </div>
+                            <div class="form-group register-comment">
+                                <label>Ghi chú khác</label>
+                                <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                            </div>
+
+
+                            <div class="form-group form-group--btn">
+                                <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-col col-lg-6 d-none d-lg-block">
+                    <div class="choose-main">
+                        <p class="line-title">Tại sao nên chọn bệnh viện đa khoa MEDLATEC</p>
+                        <div class="choose-main--row row">
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/hospital.png" alt="" /></div>
+                                    <div class="choose-main--desc">Bệnh viện đa khoa với nhiều năm kinh nghiệm trong lĩnh vực y tế.</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/doctors.png" alt="" /></div>
+                                    <div class="choose-main--desc">Thăm khám bởi đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/infrastructure.png" alt="" /></div>
+                                    <div class="choose-main--desc">Cơ sở vật chất, máy móc trang thiết bị hiện đại</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/bill.png" alt="" /></div>
+                                    <div class="choose-main--desc">Áp dụng thanh toán bảo hiểm y tế và các bảo hiểm khác lên tới 100%</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/fast.png" alt="" /></div>
+                                    <div class="choose-main--desc">Quy trình khám chữa bệnh nhanh chóng, thuận tiện</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/Content/Content/images/dollar.png" alt="" /></div>
+                                    <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

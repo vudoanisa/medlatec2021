@@ -1,0 +1,377 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+    var NewsCate = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+@section Note {
+    <title>Nam khoa | Bệnh viện đa khoa Medlatec</title>
+
+    <meta name="description" content="Nam khoa" />
+    <meta property="og:description" content="Nam khoa" />
+    <meta name="title" content="Nam khoa | Bệnh viện đa khoa Medlatec" />
+    <meta property="og:title" content="Nam khoa | Bệnh viện đa khoa Medlatec" />
+    <meta name="keywords" content="nam khoa" />
+
+
+
+
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/content/images/Chuyen-khoa/anh-chinh-nam-khoa.jpg" />
+
+
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+    <meta property="og:url" content="https://medlatec.vn/chuyen-khoa/nam-khoa" />
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/chuyen-khoa/nam-khoa" />
+}
+
+@using (Html.BeginForm("Namkhoa", "Service", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+
+
+   
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><a href="https://medlatec.vn/chuyen-khoa">Chuyên khoa y tế</a></li>
+            <li><a href="#">Nam khoa</a></li>
+
+        </ul>
+    </div>
+
+    <div class="specialist specialist-child container">
+        <div class="specialist-child--row row">
+            <div class="specialist-child--col col-xl-9 col-lg-8">
+                <h1>Nam khoa</h1>
+                <div class="specialist-child--desc">Nam khoa là chuyên khoa y tế chăm sóc sức khỏe của nam giới, đặc biệt liên quan đến các vấn đề về sức khỏe sinh sản và sức khỏe tình dục – tiết niệu. Trước tầm quan trọng đó, chuyên khoa Nam khoa, Bệnh viện Đa khoa MEDLATEC đã được chú trọng phát triển để mang đến chất lượng và sự hài lòng nhất của khách hàng đến khám và điều trị tại đây.</div>
+                <div class="specialist-child--img"><img src="/content/images/Chuyen-khoa/anh-chinh-nam-khoa.jpg" alt="Nam khoa" /></div>
+                <div class="specialist-service">
+                    <h2 class="main-title">Dịch vụ chính</h2>
+                    <div class="specialist-service--wrapper">
+                        <div class="specialist-service--list row">
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám và điều trị rối loạn tình dục nam giới</h3>
+                                    <p>Giảm ham muốn, rối loạn cương, xuất tinh sớm, giao hợp không xuất tinh …</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám sức khỏe sinh sản</h3>
+                                    <p>Khám sức khỏe tiền hôn nhân, hiếm muộn, vô sinh nam.</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám các bệnh lý liên quan đến cơ quan sinh dục, tiết niệu nam</h3>
+                                    <p>Các bệnh lý viêm nhiễm qua đường tình dục, dậy thì muộn, suy sinh dục, mãn dục nam, lỗ đái thấp, lỗ đái cao, hẹp niệu đạo, hẹp bao quy đầu, dài bao quy đầu, viêm bao quy đầu, dương vật nhỏ, cong vẹo dương vật, u phì đại tiền liệt tuyến, giãn tĩnh mạch tinh hoàn, đau tinh hoàn mãn tính, thoát vị bẹn, nang thừng tinh, tràn dịch màng tinh hoàn, nang mào tinh ….</p>
+                                </div>
+                            </div>
+                            <div class="specialist-service--col col-lg-6">
+                                <div class="specialist-service-item">
+                                    <h3>Khám các bệnh lý liên quan đến cơ quan sinh dục, tiết niệu nam</h3>
+                                    <p>Phẫu thuật nam khoa: Cắt bao quy đầu, thắt tĩnh mạch tinh giãn, cắt lộn màng tinh hoàn, thắt ống dẫn tinh, cắt nang mào tinh, cắt/đốt u nhú dương vật,…</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="specialist-material" style="margin-top:15px;">
+                    <h2 class="main-title">Cơ sở vật chất - Trang thiết bị</h2>
+                    <div class="specialist-material-desc">Khám các bệnh lý liên quan đến cơ quan sinh dục, tiết niệu nam: -	Để chẩn đoán chính xác các bệnh nam khoa, ngoài khám lâm sàng do các bác sĩ chuyên khoa nghiệm thực hiện, Bệnh viện Đa khoa MEDLATEC còn có đầy đủ các kỹ thuật đem lại hiệu quả chẩn đoán bệnh chính xác như:</div>
+                    <div class="specialist-material-wrapper">
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/content/images/Chuyen-khoa/he-thong-xet-nghiem.jpg" alt="Hệ thống máy xét nghiệm" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Hệ thống máy xét nghiệm</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>
+                                            MEDLATEC là đơn vị y tế đầu tiên và duy nhất tại Việt Nam sử dụng đồng thời hai hệ thống xét nghiệm tự động hiện đại của Roche (Thụy Sĩ) và Abbott (Mỹ), đó là hệ thống tự động hóa Cobas 8100 và  hệ thống tự động Accelerator A3600.
+                                        </p>
+                                        <p>
+                                            Đây là giải pháp hữu hiệu cho việc chẩn đoán nhanh, chính xác, giúp bác sĩ đưa ra quyết định điều trị hiệu quả. Theo đó, chuyên khoa Nam khoa có hỗ trợ đầy đủ các xét nghiệm chuyên khoa:
+                                        </p>
+                                        <p>
+                                            Xét nghiệm nội tiết sinh dục nam giới (Testosterone, LH, FSH, Prolactin, Estradiol …)
+                                        </p>
+                                        <p>
+                                            Xét nghiệm đánh giá khả năng sinh sản: Tinh dịch đồ, định lượng kẽm, fructozo trong tinh dịch, kháng thể kháng tinh trùng
+                                        </p>
+                                        <p>
+                                            Xét nghiệm chuyên sâu về di truyền: Nhiễm sắc thể đồ, tìm bất thường nhỏ trên NST Y quy định việc sản sinh tinh trùng, xác định các đột biến hiếm gặp, DNA cha con …
+                                        </p>
+                                        <p>
+                                            Xét nghiệm các bệnh lây truyền qua đường tình dục: HIV, viêm gan B, viêm gan C, lậu, giang mai, … đặc biệt có xét nghiệm tìm các tác nhân gây viêm niệu đạo hiếm gặp như Mycoplasma, Ureplasma …
+                                        </p>
+                                        <p>
+                                            Xét nghiệm khác như các xét nghiệm tầm soát ung thư …
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/content/images/Chuyen-khoa/may-logiq-f6.png" alt="Máy siêu âm" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy siêu âm</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Bệnh viện đa khoa Medlatec đã và đang sử dụng các hệ thống máy siêu âm màu hiện đại bậc nhất hiện nay trong thăm khám và điều trị cho bệnh nhân.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialist-material-item">
+                            <div class="specialist-material--row row">
+                                <div class="specialist-material--col col-xl-3 col-sm-4">
+                                    <div class="specialist-material--img">
+                                        <img src="/content/images/Chuyen-khoa/chup-cong-huong-tu-MRI.jpg" alt="Máy chụp cộng hưởng từ (viết tắt theo tiếng Anh là MRI)" />
+                                    </div>
+                                </div>
+                                <div class="specialist-material--col col-xl-9 col-sm-8">
+                                    <h3>Máy Chụp Cộng hưởng từ (MRI)</h3>
+                                    <div class="specialist-material-intro d-none d-sm-block">
+                                        <p>Chụp cộng hưởng từ cung cấp những hình ảnh giải phẫu chi tiết với độ phân giải và tương phản cao, giúp phân loại chi tiết tổn thương ung thư ở nam giới: ung thư tiền liệt tuyến,… do đó giúp làm giảm tỉ lệ phải tiến hành sinh thiết.</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="single-news--col col-xl-3 col-lg-4 d-none d-lg-block">
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin cùng chuyên mục</p>
+                        <div class="news-post--list">
+                            @if (NewsCate != null)
+                            {
+                                for (int i = 0; i < NewsCate.Count; i++)
+                                {
+
+                                    if (i < 5)
+                                    {
+                                        <div class="news-post--item">
+                                            <div class="news-post--row row">
+                                                <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                                    <div class="news-post--img">
+
+                                                        @if (NewsCate[i].NewsImages != null)
+                                                        {
+                                                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@NewsCate[i].NewsImages.ToString()" alt="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                        }
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                                    <div class="news-post--content">
+
+                                                        @if (@NewsCate[i].NewsName != null)
+                                                        {
+                                                            <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@NewsCate[i].NewsName.ToString().ToLower(),"s"+@NewsCate[i].CateId.ToString() ,"n"+@NewsCate[i].NewsId.ToString())" title="@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()">@NewsCate[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                        }
+
+                                                        <div class="news-post--info clearfix">
+                                                            @if (@NewsCate[i].DateCreate != null)
+                                                            {
+                                                                <span class="news-post--date">Ngày @NewsCate[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sidebar-container">
+                    <div class="news-post">
+                        <p style="font-size: 21px;line-height: 21px;color:#1576C4;font-weight:600;text-align:center;text-transform:uppercase;">Tin nổi bật</p>
+                        <div class="news-post--list">
+
+                            @for (int i = 0; i < 5; i++)
+                            {
+
+
+
+                                <div class="news-post--item">
+                                    <div class="news-post--row row">
+                                        <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                            <div class="news-post--img">
+
+                                                @if (@TinNoiBat[i].NewsImages != null)
+                                                {
+                                                    <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()"><img src="@TinNoiBat[i].NewsImages.ToString()" alt="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()" /></a>
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                        <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                            <div class="news-post--content">
+
+                                                @if (@TinNoiBat[i].NewsName != null)
+                                                {
+                                                    <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",@TinNoiBat[i].NewsName.ToString().ToLower(),"s"+@TinNoiBat[i].CateId.ToString() ,"n"+@TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()">@TinNoiBat[i].NewsName.ToString().TrimStart().TrimEnd()</a></h3>
+                                                }
+
+                                                <div class="news-post--info clearfix">
+                                                    @if (@TinNoiBat[i].DateCreate != null)
+                                                    {
+                                                        <span class="news-post--date">Ngày @TinNoiBat[i].DateCreate.ToString("dd/MM/yyyy")</span>
+                                                    }
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+    <div class="register-main single-register-main container">
+        <div class="register-wrapper">
+            <div class="register-row row">
+                <div class="register-col col-lg-6">
+                    <div class="register-form">
+                        <p style="font-size: 21px;line-height: 21px;color:white;text-align:center;text-transform:uppercase;">Đăng ký khám, tư vấn</p>
+                        <div class="form">
+
+                            <style type="text/css">
+                                input[name='CaptchaInputText'] {
+                                    width: 100% !important;
+                                    line-height: 28px;
+                                    background: rgba(255, 255, 255, .8) none;
+                                    padding: 10px;
+                                    height: 50px;
+                                    display: block;
+                                    width: 100%;
+                                    font-size: 1rem;
+                                    font-weight: 400;
+                                    line-height: 1.5;
+                                    color: #495057;
+                                    border: 1px solid #ced4da;
+                                    border-radius: .25rem;
+                                    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                                }
+                            </style>
+
+                            <div class="form-group register-name">
+                                <label>Họ và tên <i>(*)</i></label>
+                                <input value="" name="txthoten" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-phone">
+                                <label>Số điện thoại <i>(*)</i></label>
+                                <input value="" name="txtsdt" class="form-control" type="text" />
+                            </div>
+                            <div class="form-group register-email">
+                                <label>Email</label>
+                                <input value="" name="txtemail" class="form-control" type="email" />
+                            </div>
+                            <div class="form-group register-comment">
+                                <label>Ghi chú khác</label>
+                                <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                            </div>
+
+
+                            <div class="form-group form-group--btn">
+                                <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-col col-lg-6 d-none d-lg-block">
+                    <div class="choose-main">
+                        <p class="line-title">Tại sao nên chọn bệnh viện đa khoa MEDLATEC</p>
+                        <div class="choose-main--row row">
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/images/hospital.png" alt="" /></div>
+                                    <div class="choose-main--desc">Bệnh viện đa khoa với nhiều năm kinh nghiệm trong lĩnh vực y tế.</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/images/doctors.png" alt="" /></div>
+                                    <div class="choose-main--desc">Thăm khám bởi đội ngũ giáo sư, bác sĩ đầu ngành</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/images/infrastructure.png" alt="" /></div>
+                                    <div class="choose-main--desc">Cơ sở vật chất, máy móc trang thiết bị hiện đại</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/images/bill.png" alt="" /></div>
+                                    <div class="choose-main--desc">Áp dụng thanh toán bảo hiểm y tế và các bảo hiểm khác lên tới 100%</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/images/fast.png" alt="" /></div>
+                                    <div class="choose-main--desc">Quy trình khám chữa bệnh nhanh chóng, thuận tiện</div>
+                                </div>
+                            </div>
+                            <div class="choose-main--col col-lg-6">
+                                <div class="choose-main--item">
+                                    <div class="choose-main--icon"><img src="/images/dollar.png" alt="" /></div>
+                                    <div class="choose-main--desc">Chi phí khám chữa bệnh hợp lý.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

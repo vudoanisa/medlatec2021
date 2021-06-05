@@ -1,0 +1,114 @@
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\ApplicationInsights.config
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\MEDLATEC2019.dll.config
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\MEDLATEC2019.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\MEDLATEC2019.pdb
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\csc.exe
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\csc.exe.config
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\csc.rsp
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\csi.exe
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\csi.rsp
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\System.AppContext.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\System.Collections.Immutable.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\System.IO.FileSystem.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\System.Reflection.Metadata.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\vbc.exe
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\vbc.exe.config
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\vbc.rsp
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\VBCSCompiler.exe
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\roslyn\VBCSCompiler.exe.config
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\WebGrease.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\CaptchaMvc.pdb
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\CaptchaMvc.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Dapper.pdb
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Dapper.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\HtmlAgilityPack.pdb
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\HtmlAgilityPack.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Newtonsoft.Json.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\System.Web.Helpers.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\System.Web.Mvc.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\System.Web.Optimization.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\System.Web.Razor.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\System.Web.WebPages.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\System.Web.WebPages.Deployment.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\System.Web.WebPages.Razor.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Antlr3.Runtime.pdb
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\System.Diagnostics.DiagnosticSource.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Microsoft.AI.DependencyCollector.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Microsoft.AI.WindowsServer.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Microsoft.AI.Web.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\obj\Debug\MEDLATEC2019.csproj.CoreCompileInputs.cache
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\obj\Debug\MEDLATEC2019.csproj.CopyComplete
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\obj\Debug\MEDLATEC2019.dll
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\obj\Debug\MEDLATEC2019.pdb
+D:\doanv\WEB\Medlatec\MEDLATEC2020__\MEDLATEC2019\obj\Debug\MEDLATEC2019.csprojAssemblyReference.cache
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\ApplicationInsights.config
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\MEDLATEC2019.dll.config
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\MEDLATEC2019.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\MEDLATEC2019.pdb
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\csc.exe
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\csc.exe.config
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\csc.rsp
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\csi.exe
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\csi.rsp
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\System.AppContext.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\System.Collections.Immutable.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\System.IO.FileSystem.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\System.Reflection.Metadata.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\vbc.exe
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\vbc.exe.config
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\vbc.rsp
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\VBCSCompiler.exe
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\roslyn\VBCSCompiler.exe.config
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\WebGrease.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\CaptchaMvc.pdb
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\CaptchaMvc.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Dapper.pdb
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Dapper.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\HtmlAgilityPack.pdb
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\HtmlAgilityPack.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Newtonsoft.Json.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\System.Web.Helpers.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\System.Web.Mvc.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\System.Web.Optimization.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\System.Web.Razor.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\System.Web.WebPages.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\System.Web.WebPages.Deployment.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\System.Web.WebPages.Razor.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Antlr3.Runtime.pdb
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\System.Diagnostics.DiagnosticSource.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Microsoft.AI.DependencyCollector.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Microsoft.AI.WindowsServer.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Microsoft.AI.Web.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\obj\Debug\MEDLATEC2019.csprojAssemblyReference.cache
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\obj\Debug\MEDLATEC2019.csproj.CoreCompileInputs.cache
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\obj\Debug\MEDLATEC2019.csproj.CopyComplete
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\obj\Debug\MEDLATEC2019.dll
+D:\__Work__\MED\2021\Month 5\Medlatec\MEDLATEC2019\obj\Debug\MEDLATEC2019.pdb

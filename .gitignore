@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Medlatec2021/LOG
+/Medlatec2021/Properties/PublishProfiles
+/Medlatec2021/Content/amp/images
+/Medlatec2021/Content/images
+/Medlatec2021/obj/Release/Package/PackageTmp/Content/amp/images
+/Medlatec2021/obj/Release/Package/PackageTmp/Content/images
+/Medlatec2021/obj/Release/Package/PackageTmp/Content/images.zip
+/Medlatec2021/obj/Release/Package/PackageTmp/LOG
+/Medlatec2021/obj/Release/Package/PackageTmp/Properties/PublishProfiles
+/Medlatec2021/Medlatec2019111.csproj
+/.vs

@@ -1,0 +1,148 @@
+﻿@using MEDLATEC2019.Entity;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var listAlphaB = (List<string>)ViewBag.Data;
+    var listViews = (List<Cms_DictionaryEntity>)ViewBag.Views;
+    List<string> alphab = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp">
+    <meta name="title" content="Từ điển bệnh lý | Medlatec" />
+
+    <meta name="keywords" content="Hệ thống bệnh viện đa khoa MEDLATEC với đội ngũ y bác sĩ giỏi giàu kinh nghiệm, trang thiết bị y tế hàng đầu Việt Nam. Dịch vụ khám chữa bệnh đầy đủ chuyên khoa: Xét nghiệm lấy mẫu máu tại nhà, chẩn đoán hình ảnh, chế độ bảo hiểm y tế toàn diện, khám sức khoẻ doanh nghiệp" />
+    <link rel="preload" href="~/Content/build/baseLegacy.css" as="style" onload="this.rel='stylesheet'">
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn" />
+    <title>Từ điển bệnh lý | Medlatec</title>
+</head>
+<body>
+    <div class="" id="main">
+        <div id="page-title">
+            <div class="background"></div>
+            <div class="mask">
+                <div class="position">
+                    <h1 style="color: #3389f0">Từ điển bệnh lý</h1>
+                    <p class="breadcrumbs" style="margin-top: 15px;margin-bottom: 15px; color: #777">
+                        Bạn băn khoăn về chứng bệnh mà người thân hoặc chính bạn đang mắc phải? Có thể bác sĩ đã chẩn đoán cho bạn nhưng bạn vẫn còn muốn tìm hiểu thêm. Chào mừng bạn đến với trang thông tin y khoa hàng đầu Việt Nam, Medlatec sẽ giúp bạn tra cứu chính xác về các dấu hiệu, triệu chứng, nguyên nhân, chẩn đoán, phương pháp điều trị và nhiều khía cạnh khác về bệnh nhờ từ điển y khoa do các chuyên gia y tế đầu ngành cung cấp.
+                    </p>
+                    <div class="search2">
+                        <div class="container">
+                            <input type="text" name="timkiem" id="filter_search" placeholder="Nhập vấn đề hoặc chủ đề sức khỏe (ví dụ bệnh vẩy nến)">
+                            <button id="nuttimkiem" name="nuttimkiem" style="border-radius:10px; height: 50px;" class="btntimkiem"><i class="fa fa-search icon-search-not-loading"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="position">
+            <div id="disease-list">
+                <div class="content">
+                    <section class="disease-index smooth-scroll-link alpha fix-pd-head">
+                        <h4>Tra theo bảng chữ cái</h4>
+                        <ul class="">
+                            @for (int i = 0; i < alphab.Count; i++)
+                            {
+                                if (listAlphaB.IndexOf(alphab[i]) > -1)
+                                {
+                                    <li>
+                                        <a href="#@alphab[i].ToLower()"> @alphab[i]</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        @alphab[i]
+                                    </li>
+                                }
+                            }
+
+                        </ul>
+                    </section>
+
+                    <section class="disease-body collapsible-container collapsible-block screen-sm">
+                        <h3 class="collapse-trigger">Bệnh được tìm nhiều nhất</h3>
+                        <ul class="collapsible-target benh">
+                            @for (int i = 0; listViews != null && i < listViews.Count; i++)
+                            {
+                                <li><a href="/tu-dien-benh-ly/@listViews[i].Url">@listViews[i].Name</a></li>
+                            }
+                        </ul>
+                    </section>
+                    @for (int i = 0; listAlphaB != null && i < listAlphaB.Count; i++)
+                    {
+                        var getdic = Cms_DictionaryService.Instance.GetDictionaryByGroupName(listAlphaB[i]);
+                        <section id="@listAlphaB[i].ToLower()" class="disease-body collapsible-container collapsible-block collapsed screen-sm">
+                            <h3 class="collapse-trigger" data-alpha="@listAlphaB[i]">@listAlphaB[i]</h3>
+
+                            <ul class="collapsible-target benh tu-dien-benh alpha-@listAlphaB[i]">
+                                @for (int j = 0; getdic != null && j < getdic.Count; j++)
+                                {
+                                    <li><a href="/tu-dien-benh-ly/@getdic[j].Url">@getdic[j].Name</a></li>
+                                }
+                            </ul>
+
+                            <span class="back-to-top smooth-scroll-link">
+                                <a href="#main">
+                                    Trở về đầu trang
+                                    <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                </a>
+                            </span>
+                        </section>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .fix-pd-head {
+            background: #fff;
+            z-index: 9998;
+        }
+    </style>
+    <script src="~/Content/js/jquery.sticky.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function stick(id, el_class, offset_top, stick, unstick) {
+                if ($(id).length > 0) {
+                    $(id).sticky({
+                        sticky_class: el_class,
+                        topSpacing: offset_top
+                    }).on("sticky_kit:stick", function (e) {
+                        $(stick).hide();
+                    }).on("sticky_kit:unstick", function (e) {
+                        $(unstick).show();
+                    });
+                    console.log(offset_top);
+                }
+            };
+
+            stick('.fix-pd-head', '.fixed-fix-pd-head', 60, '', '');
+          
+        });
+        $("#filter_search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            console.log(value);
+            $(".benh li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        $('.collapse-trigger').on('click', function () {
+            var id = $(this).data('alpha');
+            console.log(id);
+            $('.tu-dien-benh').slideUp();
+            $('.alpha-' + id).slideDown();
+        });
+
+    </script>
+  
+</body>
+</html>

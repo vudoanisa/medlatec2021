@@ -1,0 +1,89 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@{
+    ViewBag.Title = "MEDLATEC group";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Map = (List<Cms_Map>)ViewBag.Map;
+}
+@if (Map != null)
+{
+    if (Map.Count > 0)
+    {
+
+        @section Note {
+            <title>Địa điểm @Map[0].TenPK | Medlatec</title>
+
+            <meta name="description" content="Địa điểm @Map[0].TenPK | Medlatec" />
+
+
+            <meta name="title" content="Địa điểm @Map[0].TenPK | Medlatec" />
+
+
+
+            <meta name="keywords" content="Địa điểm @Map[0].TenPK | Medlatec" />
+
+
+
+
+
+
+            <meta name="robots" content="index,follow,all">
+            <link rel="canonical" href="https://medlatec.vn/he-thong-medlatec-group/@CMS_Core.Common.Common.GetURLDetailByMap(Map[0].TenPK,Map[0].ID.ToString())" />
+        }
+
+        <div class="breadcrumb-container container">
+            <ul class="clearfix">
+                <li><a href="https://medlatec.vn">Trang chủ</a></li>
+                <li><a href="https://medlatec.vn/he-thong-medlatec-group">MEDLATEC group</a></li>
+                <li><span>@Map[0].TenPK</span></li>
+            </ul>
+        </div>
+
+        <div class="medlatec-map medlatec-map-detail">
+            <div class="map-container">
+                <iframe @Map[0].Thongso.ToString()></iframe>
+                        
+            </div>
+            <div class="map-sidebar map-sidebar-active">
+                <button class="map-toggle-btn map-toggle-active">&nbsp;</button>
+                <div class="map-find">
+
+                    <div class="form-group">
+                        <select class="form-control map-select" name="dllTruso" style="text-align-last:center;padding:0px;">
+                            <option value="MB">Khu vực miền Bắc</option>
+                            <option value="MN">Khu vực miền Nam</option>
+                            <option value="MT">Khu vực miền Trung </option>
+                        </select>
+
+                        <button class="form-control schedule-row--btn" style="padding: 0px;line-height: 30px;border: none;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;font-size: 18px;color: #fff;font-weight: 700;background: #1576C4 none;text-transform: uppercase;border:1px solid white;margin-top:15px;" type="submit" name="submit" value="SaveAdd">Tìm kiếm</button>
+
+                    </div>
+
+
+                </div>
+
+                <div class="map-location">
+                    <div class="map-detail">
+                        <div class="map-detail-img"><img style="max-height:320px;" src="https://login.medlatec.vn/@Map[0].Img" alt="@Map[0].TenPK" /></div>
+                        <h3>@Map[0].TenPK</h3>
+                        <div class="map-detail-gd">Giám đốc chi nhánh : @Map[0].Giamdoc</div>
+                        <ul class="map-detail-info">
+                            <li class="map-detail-address">Địa chỉ: @Map[0].Diachi</li>
+                            <li class="map-detail-phone">@Map[0].Hotline</li>
+                            <li class="map-detail-web"><a href="@Map[0].Website">@Map[0].Website</a></li>
+                            <li class="map-detail-face"><a href="@Map[0].Fanpage">@Map[0].Fanpage.Replace("https://www.","")</a> </li>
+                            <li><a class="map-detail-button" href="https://medlatec.vn/dat-lich-lay-mau">Đặt lịch khám</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+}
+
+
+

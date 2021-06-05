@@ -1,0 +1,780 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@using MEDLATEC2019.Entity;
+
+@{
+    ViewBag.Title = "Tra cứu kết quả khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Thongtin = (List<Cms_Patient>)ViewBag.Thongtin;
+    var Ketqua = (List<Cms_Result>)ViewBag.Ketqua;
+    var Ketqua1 = Ketqua.Where(o => o.PhanLoai1.Equals("2.CDHA")).ToList();
+    var TestCodes = (List<tbl_TestCode>)ViewBag.TestCodes;
+
+
+    List<Cms_ImgPMBV> ImgPMBV = new List<Cms_ImgPMBV>();
+    bool tiencovid = false;
+    float Giatiencovid = 0;
+}
+<!--- End Menu --->
+@Html.Raw(TempData["msg"])
+@if (Thongtin != null)
+{
+    @section Note {
+        <title>Tra cứu kết quả khám chữa bệnh | Medlatec | @Thongtin[0].SID.ToString()</title>
+
+        <meta name="description" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi" + @Thongtin[0].SID.ToString())" />
+
+
+        <meta name="title" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh | Medlatec |" + @Thongtin[0].SID.ToString())" />
+
+        <meta name="keywords" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi" + @Thongtin[0].SID.ToString())" />
+        <meta name="robots" content="noindex,follow,all">
+
+    }
+
+
+
+    if (Thongtin.Count > 0)
+    {
+
+
+        <div class="return-find container">
+            <div class="logo-medlatec">
+                <img src="/Content/images/logo-medlatec.png" alt="" />
+            </div>
+            <style type="text/css">
+                .table.return-table .return-col--1 {
+                    width: 20%;
+                }
+            </style>
+            <div class="return-find--container">
+                <h2 class="title">Phiếu kết quả</h2>
+                <div class="return-find--info row">
+                    <div class="return-find--col col-lg-6">
+                        <div class="return-find--contact">
+                            <div class="row">
+                                <div class="col-xl-4 col-5">
+                                    <label>Họ tên:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].PatientName.ToString()</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Năm sinh:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].Age.ToString()</p>
+                                </div>
+
+                                <div class="col-xl-4 col-5">
+                                    <label>SĐT:</label>
+                                </div>
+
+                                <div class="col-xl-8 col-7">
+                                    @if (!string.IsNullOrEmpty(@Thongtin[0].Phone))
+                                    {
+                                        <p>@Thongtin[0].Phone.ToString()</p>
+                                    }
+
+                                </div>
+
+                                <div class="col-xl-4 col-5">
+                                    <label>Mã xét nghiệm:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].SID.ToString()</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Trạng thái:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    @if (Thongtin[0].ShowWeb == true)
+                                    {
+                                        if (@Thongtin[0].Valid == true)
+                                        {
+                                            <p>Đủ kết quả</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Chưa đủ kết quả</p>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <p>Không cho phép xem kết quả trên website</p>
+
+                                    }
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="return-find--col col-lg-6">
+                        <div class="return-find--contact">
+                            <div class="row">
+                                <div class="col-xl-4 col-5">
+                                    <label>Đơn vị:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].LocationName.ToString()</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Giới tính:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    @if (Thongtin[0].Sex.ToString() == "F")
+                                    {
+                                        <p>Nữ</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Nam</p>
+                                    }
+
+
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label> Bác sĩ chỉ định:</label>
+                                </div>
+
+                                <div class="col-xl-8 col-7">
+                                    @if (!string.IsNullOrEmpty(@Thongtin[0].DoctorName))
+                                    {
+                                        <label> @Thongtin[0].DoctorName.ToString()</label>
+                                    }
+
+                                </div>
+
+                                <div class="col-xl-4 col-5">
+                                    <label>Ngày xét nghiệm:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].Intime.ToString("dd/MM/yyyy")</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Chẩn đoán:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (Thongtin[0].ShowWeb == true)
+                {
+                    if (Thongtin[0].Valid == true)
+                    {
+                        if (Ketqua != null)
+                        {
+                            if (Ketqua.Count > 0)
+                            {
+                                <div class="return-table--container">
+                                    <table class="return-table table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="return-col--1">Danh mục khám</th>
+                                                <th class="return-col--2">Kết quả</th>
+
+                                                <th class="return-col--4">Khoảng tham chiếu</th>
+                                                <th class="return-col--5">Ghi chú</th>
+                                                <th class="return-col--6">Đơn giá (VNĐ)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (int i = 0; i < Ketqua.Count; i++)
+                                            {
+                                                if (i == 0)
+                                                {
+                                                    <tr>
+                                                        <td colspan="5" class="return-table--title">@Ketqua[i].CategoryName1.ToString()</td>
+                                                    </tr>
+                                                }
+                                                else
+                                                {
+                                                    if (Ketqua[i].CategoryName1.ToString() != Ketqua[i - 1].CategoryName1.ToString())
+                                                    {
+                                                        <tr>
+                                                            <td colspan="5" class="return-table--title">@Ketqua[i].CategoryName1.ToString()</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                                <tr>
+                                                    <td class="return-col--1">
+
+
+
+                                                        @if (Ketqua[i].PhanLoai1.ToString() == "2.CDHA")
+                                                        {
+                                                            var testcode1 = TestCodes.Where(o => o.TestCode.Trim().Equals(Ketqua[i].TestCode1.ToString().Trim())).ToList();
+
+
+                                                            if (testcode1 != null)
+                                                            {
+                                                                if (testcode1.Count > 0)
+                                                                {
+                                                                    <a href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(testcode1[0].TestName.ToString().ToLower().Replace("\"", "").ToLower(),  testcode1[0].ID.ToString() )" title="@testcode1[0].TestName">
+                                                                        @Ketqua[i].TestName1.ToString()
+                                                                    </a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <a href="#@Ketqua[i].TestCode1.ToString().Trim()">
+                                                                        @Ketqua[i].TestName1.ToString()
+                                                                    </a>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="#@Ketqua[i].TestCode1.ToString().Trim()">
+                                                                    @Ketqua[i].TestName1.ToString()
+                                                                </a>
+                                                            }
+
+                                                        }
+                                                        else
+                                                        {
+                                                            var testcode1 = TestCodes.Where(o => o.TestCode.Trim().Equals(Ketqua[i].TestCode1.ToString().Trim())).ToList();
+                                                            if (testcode1 != null)
+                                                            {
+                                                                if (testcode1.Count > 0)
+                                                                {
+                                                                    <a href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByTestcode(testcode1[0].TestName.ToString().ToLower().Replace("\"", "").ToLower(),  testcode1[0].ID.ToString() )" title="@testcode1[0].TestName">
+                                                                        @Ketqua[i].TestName1.ToString()
+                                                                    </a>
+                                                                }
+                                                                else
+                                                                {
+                                                                    @Ketqua[i].TestName1.ToString()
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                @Ketqua[i].TestName1.ToString()
+                                                            }
+                                                        }
+                                                    </td>
+                                                    @if (Ketqua[i].Result1 != null)
+                                                    {
+                                                        if ("291220HPVPCR".Equals(Ketqua[i].TestName1.Trim()))
+                                                        {
+                                                            tiencovid = true;
+                                                            Giatiencovid = float.Parse(Ketqua[i].Price1.ToString());
+                                                        }
+
+
+
+
+                                                        if (Ketqua[i].Comment1 != null)
+                                                        {
+                                                            if (Ketqua[i].Unit1 != null)
+                                                            {
+                                                                if (Ketqua[i].Unit1.ToString().Trim().Length > 1)
+                                                                {
+                                                                    if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "tăng")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:red">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "cao")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:red">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "dương tính")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:red">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "to")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:red">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "giảm")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:blue">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "thấp")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:blue">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "âm tính")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:blue">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "nhỏ")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:blue">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <td class="return-col--2">@Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "tăng")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:red">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "cao")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:red">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "dương tính")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:red">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "to")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:red">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "giảm")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:blue">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "thấp")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:blue">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "âm tính")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:blue">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+                                                                    else if (Ketqua[i].Comment1.ToString().Trim().ToLower() == "nhỏ")
+                                                                    {
+                                                                        <td class="return-col--2" style=" color:blue">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <td class="return-col--2">@Html.Raw(Ketqua[i].Result1.ToString())  </td>
+                                                                    }
+
+                                                                    @*<td class="return-col--2">@Html.Raw(Ketqua[i].Result1.ToString()) </td>*@
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--2"> @Html.Raw(Ketqua[i].Result1.ToString())    </td>
+                                                            }
+
+
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Ketqua[i].Unit1 != null)
+                                                            {
+                                                                if (Ketqua[i].Unit1.ToString().Trim().Length > 1)
+                                                                {
+                                                                    <td class="return-col--2"> @Html.Raw(Ketqua[i].Result1.ToString()) (@Ketqua[i].Unit1.ToString())</td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="return-col--2"> @Html.Raw(Ketqua[i].Result1.ToString()) </td>
+                                                                }
+
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--2">
+                                                                    @Html.Raw(Ketqua[i].Result1.ToString())
+                                                                </td>
+                                                            }
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--2"></td>
+                                                    }
+                                                    @if (Ketqua[i].NormalRange1 != null)
+                                                    {
+                                                        <td class="return-col--4 text-left  " style="white-space: pre-line; ">@Html.Raw(Ketqua[i].NormalRange1.ToString())</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--4"></td>
+                                                    }
+                                                    @if (Ketqua[i].Comment1 != null)
+                                                    {
+                                                        <td class="return-col--5">@Ketqua[i].Comment1.ToString()</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--5"></td>
+                                                    }
+                                                    @if (Ketqua[i].Price1 != 0)
+                                                    {
+                                                        if (Thongtin[0].ShowMoney == true)
+                                                        {
+                                                            <td class="return-col--6"> @String.Format("{0:0,0}", float.Parse(Ketqua[i].Price1.ToString()))</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--6"></td>
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--6"></td>
+                                                    }
+                                                </tr>
+
+                                            }
+
+
+
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-bordered return-price">
+                                        <thead>
+                                            <tr>
+                                                <th class="return-price--title" colspan="4">Tổng tiền thanh toán</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="return-col--1">Tổng tiền dịch vụ</th>
+                                                <th class="return-col--2">Giảm giá</th>
+                                                <th class="return-col--3">Tiền đi lại</th>
+                                                <th class="return-col--4">Tổng tiền thanh toán</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                @if (Thongtin[0].SumMoney != 0)
+                                                {
+                                                    if (Thongtin[0].ShowMoney == true)
+                                                    {
+                                                        if (tiencovid)
+                                                        {
+                                                            <td class="return-col--1 text-center">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].SumMoney.ToString()) - Giatiencovid)</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--1 text-center">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].SumMoney.ToString()))</td>
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--1"></td>
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    <td class="return-col--1"></td>
+                                                }
+
+                                                @if (Thongtin[0].SumPerTage != 0)
+                                                {
+                                                    if (Thongtin[0].ShowMoney == true)
+                                                    {
+                                                        <td class="return-col--2 text-center">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].SumPerTage.ToString()))</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--2"></td>
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    <td class="return-col--2"></td>
+                                                }
+                                                @if (Thongtin[0].SumTransport != 0)
+                                                {
+                                                    if (Thongtin[0].ShowMoney == true)
+                                                    {
+                                                        <td class="return-col--2 text-center">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].SumTransport.ToString()))</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--2"></td>
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    <td class="return-col--2"></td>
+                                                }
+                                                @if (Thongtin[0].Total != 0)
+                                                {
+                                                    if (Thongtin[0].ShowMoney == true)
+                                                    {
+                                                        if (tiencovid)
+                                                        {
+                                                            <td class="return-col--4 return-blue return-bold text-center">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].Total.ToString()) - Giatiencovid)</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--4 return-blue return-bold text-center">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].Total.ToString()))</td>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--4 return-blue return-bold"></td>
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    <td class="return-col--4 return-blue return-bold"></td>
+                                                }
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="return-note">Ngoài số tiền trên, Quý khách không phải thanh toán thêm bất cứ số tiền nào khác. Xin cảm ơn Quý Khách đã lựa chọn dịch vụ y tế của chúng tôi. Nếu cần tư vấn kết quả xin liên hệ tổng đài <span>1900 56 56 56</span></div>
+                                <div class="return-down">
+                                    <a href="/PrintSID?sid=@ViewBag.SID&token=@ViewBag.Token">Tải kết quả dạng PDF</a>
+                                </div>
+                            }
+                        }
+
+                    }
+
+
+                }
+
+            </div>
+            @if (Ketqua1 != null)
+            {
+                if (Ketqua1.Count > 0)
+                {
+                    for (int i = 0; i < Ketqua1.Count; i++)
+                    {
+                        if (Ketqua1[i].PhanLoai1.ToString() == "2.CDHA")
+                        {
+                            if (Ketqua1[i].ShowWeb1 == true)
+                            {
+                                <div class="return-picture">
+                                    <h3 class="title" id="@Ketqua1[i].TestCode1.ToString().Trim()">Kết quả dịch vụ: @Ketqua1[i].TestName1.ToString()</h3>
+                                    <div class="return-desc">
+                                        <p>
+                                            @if (Ketqua1[i].DiagnosticResult1 != null)
+                                            {
+
+                                                if ("963CLVT56".Equals(Ketqua1[i].TestCode1.Trim()) || "963CLVT22".Equals(Ketqua1[i].TestCode1.Trim()))
+                                                {
+                                                    @Html.Raw(Ketqua1[i].DiagnosticResult1.ToString().Replace("<br>", "").Replace("<br/>", ""));
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(Ketqua1[i].DiagnosticResult1.ToString().Replace("\r", "<br/>"));
+                                                }
+
+                                            }
+
+                                        </p>
+                                    </div>
+                                    <h3 class="title">Kết luận</h3>
+                                    <div class="return-content">
+                                        @if (Ketqua1[i].Result1 != null)
+                                        {
+                                            @Html.Raw(Ketqua1[i].Result1.ToString());
+                                        }
+                                    </div>
+
+                                    <div class="return-find--info row">
+                                        <div class="return-find--col col-lg-6">
+                                            <p style="text-align: center;margin-bottom: 0px;">  &nbsp;</p>
+                                            <h3 class="titleKQ"> Ban cố vấn chuyên môn</h3>
+                                            <p style="text-align: center;margin-bottom: 0px;">  &nbsp;</p>
+                                            <p style="text-align: center;margin-bottom: 0px;">  &nbsp;</p>
+                                            <p style="text-align: center;margin-bottom: 0px;">  &nbsp;</p>
+                                            @if (Ketqua1[i].bstv != null)
+                                            {
+                                                <h3 class="titleKQ"> @Ketqua1[i].bstv.ToString() </h3>
+                                            }
+
+                                        </div>
+                                        <div class="return-find--col col-lg-6">
+                                            <p style="text-align: center;margin-bottom: 0px;">  Ngày @Thongtin[0].Intime.Day tháng @Thongtin[0].Intime.Month năm @Thongtin[0].Intime.Year </p>
+                                            <h3 class="titleKQ"> Bác sỹ chuyên khoa</h3>
+                                            <p style="text-align: center;margin-bottom: 0px;">  &nbsp;</p>
+                                            <p style="text-align: center;margin-bottom: 0px;">  &nbsp;</p>
+                                            <p style="text-align: center;margin-bottom: 0px;">  &nbsp;</p>
+                                            @if (Ketqua1[i].tenbs != null)
+                                            {
+                                                <h3 class="titleKQ"> @Ketqua1[i].tenbs.ToString() </h3>
+                                            }
+
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="return-picture--img">
+                                        @if (Ketqua1[i].IMG11 != null || Ketqua1[i].IMG21 != null || Ketqua1[i].IMG31 != null || Ketqua1[i].IMG41 != null || Ketqua1[i].IMG51 != null || Ketqua1[i].IDCLS1 != null)
+                                        {
+                                            <h3 class="title" style="margin: 35px 0 30px;">Hình ảnh</h3>
+                                        }
+                                        @if (Ketqua1[i].IMG11 != null)
+                                        {
+
+                                            if (Ketqua1[i].IMG11.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img style="margin: 5px 0 5px;" src="@System.String.Format("data:image/png;base64,{0}",Convert.ToBase64String(Ketqua1[i].IMG11))">
+                                            }
+
+                                        }
+                                        @if (Ketqua1[i].IMG21 != null)
+                                        {
+                                            if (Ketqua1[i].IMG21.ToString().Trim().Length > 1)
+                                            {
+                                                <img style="margin: 5px 0 5px;" src="@System.String.Format("data:image/png;base64,{0}",Convert.ToBase64String(Ketqua1[i].IMG21))">
+                                            }
+
+                                        }
+                                        @if (Ketqua1[i].IMG31 != null)
+                                        {
+                                            if (Ketqua1[i].IMG31.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img style="margin: 5px 0 5px;" src="@System.String.Format("data:image/png;base64,{0}",Convert.ToBase64String(Ketqua1[i].IMG31))">
+                                            }
+
+                                        }
+                                        @if (Ketqua1[i].IMG41 != null)
+                                        {
+                                            if (Ketqua1[i].IMG41.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img style="margin: 5px 0 5px;" src="@System.String.Format("data:image/png;base64,{0}",Convert.ToBase64String(Ketqua1[i].IMG41))">
+                                            }
+
+                                        }
+                                        @if (Ketqua1[i].IMG51 != null)
+                                        {
+                                            if (Ketqua1[i].IMG51.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img style="margin: 5px 0 5px;" src="@System.String.Format("data:image/png;base64,{0}",Convert.ToBase64String(Ketqua1[i].IMG51))">
+                                            }
+
+                                        }
+                                        @if (Ketqua1[i].IDCLS1 != null)
+                                        {
+                                            if (Ketqua1[i].IDCLS1.ToString() != "0")
+                                            {
+                                                var ImgPMBV1 = Common.GetlinkImage(int.Parse(Ketqua1[i].IDCLS1.ToString()), Ketqua1[i].TestCode1.Trim());
+
+                                                if (ImgPMBV1 != null)
+                                                {
+                                                    if (ImgPMBV1.Count > 0)
+                                                    {
+                                                        for (int j = 0; j < ImgPMBV1.Count; j++)
+                                                        {
+                                                            @*<img style="margin: 5px 0 5px;" src="@System.String.Format("data:image/png;base64,{0}",ImgPMBV1[j].Anh)">*@
+                                                           
+                                                            <img src="@ImgPMBV1[j]._imageLink" alt="" style="margin: 5px 0 5px;">
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            }
+
+        </div>
+    }
+    else
+    {
+        <p style="text-align:center;">Không có kết quả hiển thị, vui lòng liên hệ tới Hotline : 1900 56 56 56 để được hỗ trợ. Xin cám ơn!</p>
+    }
+
+
+}
+
+<!--- News --->
+@*<div class="news-main container">
+        <h2 class="main-title">Chương trình ưu đãi</h2>
+        <div class="news-list">
+            <div class="news-list--row row">
+                <div class="news-list--col col-lg-6">
+                    <div class="news-item row">
+                        <div class="news-col col-6">
+                            <div class="news-item--img">
+                                <a href="#" title=""><img src="/Content/images/news.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="news-col col-6">
+                            <div class="news-content">
+                                <h3 class="news-title"><a href="#" title="">Thanh toán đúng tuyến với mọi thẻ bảo hiểm y tế ...</a></h3>
+                                <div class="new-desc d-none d-xl-block">Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện tại Nhật, Singapore, Mỹ, Hàn Quốc,… trong việc hỗ trợ phát triển công nghệ khám chữa bệnh</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày 28/03/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-list--col col-lg-6">
+                    <div class="news-item row">
+                        <div class="news-col col-6">
+                            <div class="news-item--img">
+                                <a href="#" title=""><img src="/Content/images/news.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="news-col col-6">
+                            <div class="news-content">
+                                <h3 class="news-title"><a href="#" title="">Thanh toán đúng tuyến với mọi thẻ bảo hiểm y tế ...</a></h3>
+                                <div class="new-desc d-none d-xl-block">Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện tại Nhật, Singapore, Mỹ, Hàn Quốc,… trong việc hỗ trợ phát triển công nghệ khám chữa bệnh</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày 28/03/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-list--col col-lg-6">
+                    <div class="news-item row">
+                        <div class="news-col col-6">
+                            <div class="news-item--img">
+                                <a href="#" title=""><img src="/Content/images/news.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="news-col col-6">
+                            <div class="news-content">
+                                <h3 class="news-title"><a href="#" title="">Thanh toán đúng tuyến với mọi thẻ bảo hiểm y tế ...</a></h3>
+                                <div class="new-desc d-none d-xl-block">Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện tại Nhật, Singapore, Mỹ, Hàn Quốc,… trong việc hỗ trợ phát triển công nghệ khám chữa bệnh</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày 28/03/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-list--col col-lg-6">
+                    <div class="news-item row">
+                        <div class="news-col col-6">
+                            <div class="news-item--img">
+                                <a href="#" title=""><img src="/Content/images/news.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="news-col col-6">
+                            <div class="news-content">
+                                <h3 class="news-title"><a href="#" title="">Thanh toán đúng tuyến với mọi thẻ bảo hiểm y tế ...</a></h3>
+                                <div class="new-desc d-none d-xl-block">Bệnh viện MEDLATEC đang hợp tác với nhiều Bệnh viện tại Nhật, Singapore, Mỹ, Hàn Quốc,… trong việc hỗ trợ phát triển công nghệ khám chữa bệnh</div>
+                                <div class="news-date"><i class="news-calendar"></i>Ngày 28/03/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news-more">
+            <a href="#">Xem tất cả</a>
+        </div>
+    </div>*@
+<!--- End News --->

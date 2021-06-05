@@ -1,0 +1,704 @@
+﻿@using CaptchaMvc.HtmlHelpers;
+@using MEDLATEC.BusinessLayer;
+@{
+    Layout = null;
+    var News = (List<Cms_News>)ViewBag.NewsCate;
+}
+
+<html>
+<head>
+    <title>Chương trình Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà tại Medlatec</title>
+
+    <meta name="description" content="@Html.Raw("Chương trình Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà.")" />
+
+
+    <meta name="title" content="@Html.Raw("Chương trình Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà.")" />
+
+    <meta name="keywords" content="@Html.Raw("Chương trình Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà.")" />
+
+    <meta property="og:description" content="@Html.Raw("Chương trình Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà.")" />
+    <meta property="og:title" content="@Html.Raw("Chương trình Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà.")" />
+
+
+
+    <meta property="og:image" content="https://medlatec.vn/Content/images/uu-dai-tai-nha/banner-pc.png" />
+
+
+    <meta property="og:image:secure_url" content="https://medlatec.vn/Content/images/uu-dai-tai-nha/banner-pc.png" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1110" />
+    <meta property="og:image:height" content="514" />
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="2092985977431269" />
+
+
+
+    <meta property="og:url" content="https://medlatec.vn/dich-vu/goi-kiem-tra-suc-khoe-tong-quat-tai-nha" />
+    <meta name="robots" content="index,follow,all">
+
+    <link rel="canonical" href="https://medlatec.vn/dich-vu/goi-kiem-tra-suc-khoe-tong-quat-tai-nha" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&amp;subset=vietnamese" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/Content/css/styles.css" />
+    <script src="~/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/js/default.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.standalone.min.css" />
+    <meta name="google-site-verification" content="ccIfgcSBv7UttiBiE_C4LQuIJr1be5vwhE1f5mPY3lg" />
+    <script type="text/javascript">
+        if (window.location.protocol == "http:") {
+            var restOfUrl = window.location.href.substr(5);
+            restOfUrl = restOfUrl.replace("www.", "");
+            window.location = "https:" + restOfUrl;[w]
+        }
+    </script>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://mc.yandex.ru">
+    <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://code.jquery.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.facebook.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://static.subiz.com">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/images/logochuan-01.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/images/logochuan-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Content/images/logochuan-16.png">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-20501699-10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-20501699-10');
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WG5728Z"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WG5728Z');</script>
+
+
+
+    <style>
+        .body-skdn .title {
+            text-align: center;
+            color: #052A66;
+            font-size: 26px;
+        }
+
+        .body-skdn .sapo-subtitle {
+            color: #052A66;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .body-skdn {
+            padding-top: 0px;
+        }
+
+            .body-skdn .title-h3 {
+                text-align: center;
+                color: #0066AE;
+                font-size: 26px;
+                margin-top: 15px;
+                background: transparent url(/Content/images/ksk/line.png) no-repeat center bottom;
+                padding: 0 0 30px;
+                text-align: center;
+                display: block;
+                margin: 0;
+                text-transform: uppercase;
+            }
+
+        .register-form input.form-control {
+            height: 40px;
+        }
+
+        .register-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .col-12 {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .khonggian {
+            padding: 3px;
+        }
+
+            .khonggian a {
+                display: block;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .khonggian img {
+                width: 100%;
+                height: auto;
+                -webkit-transition: all 0.5s ease-in-out;
+                -moz-transition: all 0.5s ease-in-out;
+                -o-transition: all 0.5s ease-in-out;
+                -ms-transition: all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
+            }
+
+            .khonggian:hover img {
+                -webkit-transform: scale(1.2);
+                -moz-transform: scale(1.2);
+                -o-transform: scale(1.2);
+                -ms-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+
+        .feedback-customer p {
+            text-align: center;
+            color: white;
+            font-size: 17px;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        .feedback-customer h2 {
+            color: #f8e283;
+        }
+
+
+
+        .feedback-customer {
+            padding-bottom: 0px;
+        }
+
+        .line-title {
+            font-size: 28px;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Add a pointer when hovering over the thumbnail images */
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover,
+            .next:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Container for image text */
+        .caption-container {
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Six columns side by side */
+        .column {
+            float: left;
+            width: 16.66%;
+        }
+
+        /* Add a transparency effect for thumnbail images */
+        .demo {
+            opacity: 0.6;
+        }
+
+            .active,
+            .demo:hover {
+                opacity: 1;
+            }
+
+
+        .feedback-customer::before {
+            background: none !important;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    @using (Html.BeginForm("LandingSuckhoeTQ", "Landing", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+
+
+        <div class="banner-skdn my-auto">
+
+            <div class="col-12 d-block d-xl-none" style="padding-left:0px;padding-right:0px;">
+                <a href="#dangkyngay">
+                    <img src="/Content/images/uu-dai-tai-nha/mobile/banner-mb.jpg" alt="Chương trình Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà." />
+                </a>
+            </div>
+            <div class="col-lg-12 d-none d-sm-block" style="padding-left:0px;padding-right:0px;">
+                <a href="#dangkyngay">
+                    <img src="/Content/images/uu-dai-tai-nha/banner-pc.png" alt="Chương trình Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà." />
+                </a>
+            </div>
+
+        </div>
+
+        <div class="body-skdn" style="background-image:url(/Content/images/uu-dai-tai-nha/banner-bg.png);background-size: cover;background-position:center;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                        <img src="/Content/images/uu-dai-tai-nha/vi-sao.png" alt="Vì sao cần kiểm tra sức khỏe tổng quát" />
+                    </div>
+                    <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                        <img src="/Content/images/uu-dai-tai-nha/Mobile/vi-sao.jpg" alt="Vì sao cần kiểm tra sức khỏe tổng quát" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body-skdn" style="background-image:url(/Content/images/uu-dai-tai-nha/bg-3.png);background-size: cover;background-position:center;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                        <img src="/Content/images/uu-dai-tai-nha/con-so.png" alt="Một số con số ấn tượng về dịch vụ lấy mẫu tại nhà" />
+                    </div>
+                    <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                        <img src="/Content/images/uu-dai-tai-nha/Mobile/con-so.jpg" alt="Sức khỏe là món quà quý giá" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body-skdn" style="background-image:url(/Content/images/uu-dai-tai-nha/bg-4.png);background-size: cover;background-position:center;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                        <img src="/Content/images/uu-dai-tai-nha/cac-tien-ich.png" alt="Các tiện ích đi kèm khi sử dụng dịch vụ lấy mẫu tại nhà" />
+                    </div>
+                    <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                        <img src="/Content/images/uu-dai-tai-nha/Mobile/cac-tien-ich.jpg" alt="Các tiện ích đi kèm khi sử dụng dịch vụ lấy mẫu tại nhà" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="feedback-customer" id="doinguchuyengia" style="background-image:url(/Content/images/uu-dai-tai-nha/bg-footer.png);background-size: cover;background-position:center;">
+            <div class="container">
+                <h2 class="title">Đội ngũ chuyên gia</h2>
+                <hr />
+                <div class="banner-feature--row row">
+                    <div class="banner-feature--col col-xl-7">
+
+                        <div class="mySlides">
+                            <div class="numbertext">1 / 6</div>
+                            <img src="/Content/images/thanhxuan/Chuyen-gia-Tri-650x480px.jpg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext">2 / 6</div>
+                            <img src="/Content/images/thanhxuan/Chuyen-gia-Chau-650x480px.jpg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext">3 / 6</div>
+                            <img src="/Content/images/thanhxuan/Chuyen-gia-Hoa-650x480px.jpg" style="width:100%">
+                        </div>
+
+                        <div class="mySlides">
+                            <div class="numbertext">4 / 6</div>
+                            <img src="/Content/images/thanhxuan/Chuyen-gia-Nghi-650x480px.jpg" style="width:100%">
+                        </div>
+                        <div class="mySlides">
+                            <div class="numbertext">5 / 6</div>
+                            <img src="/Content/images/thanhxuan/Chuyen-gia-Ngoc-650x480px.jpg" style="width:100%">
+                        </div>
+                        <div class="mySlides">
+                            <div class="numbertext">6 / 6</div>
+                            <img src="/Content/images/thanhxuan/Chuyen-gia-trinh-ngoc-650x480px.jpg" style="width:100%">
+                        </div>
+
+                    </div>
+                    <div class="banner-feature--col col-xl-5">
+
+                        <div class="feature-main container">
+                            <div class="row">
+                                <div class="feature-col col-6">
+
+                                    <img class="demo cursor" src="/Content/images/thanhxuan/Chuyen-gia-Tri-650x480px.jpg" style="width:100%;max-height:159px;" onclick="currentSlide(1)" alt="a">
+
+                                </div>
+                                <div class="feature-col col-6">
+                                    <img class="demo cursor" src="/Content/images/thanhxuan/Chuyen-gia-Chau-650x480px.jpg" style="width:100%;max-height:159px;" onclick="currentSlide(2)" alt="b">
+                                </div>
+                                <div class="feature-col col-6">
+                                    <img class="demo cursor" src="/Content/images/thanhxuan/Chuyen-gia-Hoa-650x480px.jpg" style="width:100%;max-height:159px;" onclick="currentSlide(3)" alt="c">
+                                </div>
+                                <div class="feature-col col-6">
+                                    <img class="demo cursor" src="/Content/images/thanhxuan/Chuyen-gia-Nghi-650x480px.jpg" style="width:100%;max-height:159px;" onclick="currentSlide(4)" alt="d">
+                                </div>
+                                <div class="feature-col col-6">
+                                    <img class="demo cursor" src="/Content/images/thanhxuan/Chuyen-gia-Ngoc-650x480px.jpg" style="width:100%;max-height:159px;" onclick="currentSlide(5)" alt="e">
+                                </div>
+                                <div class="feature-col col-6">
+                                    <img class="demo cursor" src="/Content/images/thanhxuan/Chuyen-gia-trinh-ngoc-650x480px.jpg" style="width:100%;max-height:159px;" onclick="currentSlide(6)" alt="f">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <h2 class="title" style="margin-top:25px;margin-bottom:15px;">Không gian khám lý tưởng</h2>
+
+            <p>Với mô hình bệnh viện hướng tới tiêu chuẩn dịch vụ 5 sao, quy mô diện tích lớn, bệnh viện có thể tiếp đón và thăm khám số lượng khách lên đến 1.000 người/ ngày</p>
+            <div class="banner-feature--row row">
+
+                <div class="banner-feature--col col-xl-12">
+
+                    <div class="feature-main">
+
+                        <div class="row" style="background-color:white;">
+                            <div class="feature-col col-6 col-lg-3">
+                                <div class="khonggian">
+                                    <a href="#" title="">
+                                        <img src="/Content/images/thanhxuan/1.png">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="feature-col col-6 col-lg-3">
+
+                                <div class="khonggian">
+
+                                    <a href="#" title="">
+                                        <img src="/Content/images/thanhxuan/2.png">
+                                    </a>
+
+                                </div>
+
+                            </div>
+                            <div class="feature-col col-6 col-lg-3">
+
+                                <div class="khonggian">
+                                    <a href="#" title="">
+                                        <img src="/Content/images/thanhxuan/3.png">
+                                    </a>
+
+                                </div>
+
+                            </div>
+                            <div class="feature-col col-6 col-lg-3">
+
+                                <div class="khonggian">
+                                    <a href="#" title="">
+                                        <img src="/Content/images/thanhxuan/4.png">
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                            <div class="feature-col col-6 col-lg-3">
+                                <div class="khonggian">
+                                    <a href="#" title="">
+                                        <img src="/Content/images/thanhxuan/5.png">
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="feature-col col-6 col-lg-3">
+
+                                <div class="khonggian">
+                                    <a href="#" title="">
+                                        <img src="/Content/images/thanhxuan/6.png">
+                                    </a>
+
+                                </div>
+
+                            </div>
+                            <div class="feature-col col-6 col-lg-3">
+
+                                <div class="khonggian">
+                                    <a href="#" title="">
+                                        <img src="/Content/images/thanhxuan/7.png">
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="feature-col col-6 col-lg-3">
+
+                                <div class="khonggian">
+                                    <a href="#" title="">
+                                        <img src="/Content/images/thanhxuan/8.png">
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="body-skdn" style="background-image:url(/Content/images/uu-dai-tai-nha/bg-2.png);background-size: cover;background-position:center;">
+            <div class="container">
+            <div class="row">
+                <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                    <img src="/Content/images/uu-dai-tai-nha/chuong-trinh-uu-dai.png" alt="Chương trình ưu đãi" />
+                </div>
+                <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                    <img src="/Content/images/uu-dai-tai-nha/Mobile/chuong-trinh-uu-dai.jpg" alt="Chương trình ưu đãi" />
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="body-skdn" style="background-image:url(/Content/images/uu-dai-tai-nha/bg-2.png);background-size: cover;background-position:center;">
+            @*<div class="container">*@
+            <div class="row">
+                <div class="col-12 d-none d-sm-block" style="text-align:center;">
+                    <img src="/Content/images/uu-dai-tai-nha/dia-diem.png" alt="Danh sách các văn phòng tại Hà Nội" />
+                </div>
+                <div class="col-12 d-block d-xl-none" style="text-align:center;">
+                    <img src="/Content/images/uu-dai-tai-nha/Mobile/dia-diem.jpg" alt="Danh sách các văn phòng tại Hà Nội" />
+                </div>
+            </div>
+            @*</div>*@
+        </div>
+
+        @Html.Raw(TempData["msg"])
+
+        @Html.AntiForgeryToken()
+        <div id="dangkyngay" style="background-image:url(/Content/images/uu-dai-tai-nha/bg-footer.png);background-size: cover;background-position:top;">
+            @*<div class="container">*@
+            <div class="row">
+                <div class="col-xl-7 d-none d-sm-block">
+                    <img src="/Content/images/uu-dai-tai-nha/footer.png" alt="" />
+
+
+
+                </div>
+                <div class="col-xl-4 my-auto">
+                    <div class="register-form" style="width:100%;background:transparent;background-image:url(/Content/images/Landing-covid/fixing-07.png);background-size: cover;padding:18%;border:none;background-repeat:round;">
+
+                        <img src="/Content/images/Landing-covid/text-h3.png" />
+
+                        <div class="form-group">
+                            <input value="" name="txthoten" placeholder="Họ tên (*)" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <input value="" name="txtdt" class="form-control" type="text" placeholder="Điện thoại (*)" />
+                        </div>
+                        <div class="form-group">
+                            <input value="" name="txtdiachi" class="form-control" type="text" placeholder="Điạ chỉ" />
+                        </div>
+                        <div class="form-group register-email">
+
+                            <h6 style="text-align:center;color:white;">Ngày khám ?</h6>
+                            <select id="locationCustomer" name="dllNgayhen" class="form-control tab-customer--location" style="text-align-last:center;">
+
+                                @for (var i = 0; i < 15; i++)
+                                {
+                                    <option value="@DateTime.Now.AddDays(i).ToString("yyyy-MM-dd")">@DateTime.Now.AddDays(i).ToString("dd/MM/yyyy")</option>
+                                }
+ 
+                            </select>
+
+                        </div>
+                        <div class="form-group register-phone">
+
+                            <h6 style="text-align:center;color:white;">Bạn chọn khung giờ?</h6>
+                            <select id="locationCustomer" name="dllGiohen" class="form-control tab-customer--location" style="text-align-last:center;">
+                                <option value="07:30:00">7h30-8h30</option>
+                                <option value="08:30:00">8h30-9h30</option>
+                                <option value="09:30:00">9h30-10h30</option>
+                                <option value="10:30:00">10h30-11h30</option>
+                                <option value="13:30:00">13h30-14h30</option>
+                                <option value="14:30:00">14h30-15h30</option>
+                                <option value="15:30:00">15h30-16h30</option>
+                                <option value="16:30:00">16h30-17h30</option>
+                                <option value="17:30:00">17h30-18h30</option>
+                                <option value="18:30:00">18h30-19h30</option>
+                                <option value="19:30:00">19h30-20h30</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="txtGhichu" placeholder="Nội dung yêu cầu"></textarea>
+                        </div>
+                        <div class="form-group form-group--btn" style="margin-bottom:20px;">
+                            <button type="submit" name="submit" value="SaveAdd">Gửi yêu cầu</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            @*</div>*@
+        </div>
+
+
+    }
+</body>
+</html>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
+
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+
+    {
+    "@@type": "ListItem",
+    "position": 1,
+    "item": { "@@id": "https://medlatec.vn", "name": "Trang chủ" }
+    },
+
+    {
+    "@@type": "ListItem",
+    "position": 2,
+    "item": { "@@id": "https://medlatec.vn/dich-vu/uu-dai-xet-nghiem-kiem-tra-suc-khoe-tong-quat-tai-nha", "name": "@Html.Raw("Ưu đãi xét nghiệm kiểm tra sức khỏe tổng quát tại nhà")" }
+    }
+
+    ]
+    }
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "LocalBusiness",
+    "@@id":"https://medlatec.vn",
+    "priceRange":"$$",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "address": {
+    "@@type": "PostalAddress",
+    "streetAddress": "Số 42 - 44 Nghĩa Dũng, Phúc Xá, Ba Đình",
+    "addressLocality": "Hà Nội"
+    },
+    "potentialAction": {
+    "@@type": "OrderAction",
+    "target": {
+    "@@type": "EntryPoint",
+    "urlTemplate": "https://medlatec.vn/dat-lich-lay-mau",
+    "inLanguage": "vi-VN",
+    "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+    }}}
+</script>
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Hospital",
+    "priceRange":"$$",
+    "@@id":"https://medlatec.vn",
+    "image":"https://medlatec.vn/Content/images/logo.jpg",
+    "name" : "Bệnh Viện Đa Khoa Medlatec",
+    "telephone": "+841900565656",
+    "openingHours": "Mo-Su 00:00-24:00",
+    "ContactPoint": {
+    "telephone": "+841900565656",
+    "contactType": "sales",
+    "contactOption": "TollFree",
+    "areaServed": "VN"},
+    "sameAs":"https://www.facebook.com/BenhVienDaKhoaMedlatec",
+    "slogan":"Dịch vụ tốt, công nghệ cao",
+    "founder":[{
+    "@@type":"Person",
+    "name":"Thầy thuốc Nhân dân Nguyễn Anh Trí ",
+    "url":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "@@id":"https://vi.wikipedia.org/wiki/Nguyễn_Anh_Trí",
+    "sameAs":["https://www.facebook.com/tri.1957"]
+    }]
+    }
+
+</script>

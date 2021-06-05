@@ -1,0 +1,315 @@
+﻿@using MEDLATEC.BusinessLayer;
+@{
+    /**/
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var News = (List<Cms_News>)ViewBag.News;
+    var NewsYkhoa = (List<Cms_News>)ViewBag.NewsYkhoa;
+    var TinNoiBat = (List<Cms_News>)ViewBag.TinNoiBat;
+
+}
+@section Note {
+    <style>
+        .h2 {
+            font-size: 20px;
+        }
+
+        .news-box--wrapper {
+            background-color: #fff !important;
+            -webkit-box-shadow: none;
+        }
+
+        .news-box--col {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        .news-item::after {
+            margin: 10px auto 0;
+        }
+
+        .news-item {
+            padding-top: 10px;
+        }
+
+        .news-title {
+            font-size: 15px;
+            font-weight:600;
+        }
+
+        .row {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .col-lg-12 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .line-title {
+            font-size: 25px;
+        }
+
+        .col-lg-7 {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .new-desc {
+            max-height: 58px;
+            overflow: hidden;
+            font-size: 13px;
+        }
+
+        .specialist-list li a {
+            padding: 10px 10px 10px 10px;
+        }
+    </style>
+    <title>Tin tức tổng hợp</title>
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/tin-tuc" />
+
+}
+<div class="breadcrumb-container container">
+    <ul class="clearfix">
+        <li><a href="https://medlatec.vn/">Trang chủ</a></li>
+
+        <li><span>Tin tức tổng hợp</span></li>
+    </ul>
+</div>
+
+@using (Html.BeginForm("HomeNews", "News", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    if (News.Count > 0)
+    {
+<div class="archive-news container">
+    <h1 class="title" style="display:none">Tin tức tổng hợp MEDLATEC</h1>
+
+    <div class="archive-news--row row">
+        <div class="archive-news--col col-xl-9 col-lg-8 col-md-7">
+            <div class="news-box">
+
+                <div class="news-box--wrapper">
+
+                    @for (int i = 0; i < News.Count; i++)
+                    {
+                        var ListTin = CMS_Core.Common.Common.GetNewsBy_Cateid(News[i].CateId);
+
+                        <h2>
+                            <a style="border-bottom: none;background: #fff;margin-top: -20px;padding-right: 10px;text-transform: uppercase;font-size: 20px;" href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByCate("tin-tuc",News[i].CateName.ToString().ToLower() ,"s"+ News[i].CateId.ToString())">
+                                @News[i].CateName
+                            </a>
+
+
+                        </h2>
+                        <hr />
+                        <div class="news-box--row row">
+
+                            @if (ListTin.Count > 0)
+                            {
+                                <div class="news-box--col col-lg-6">
+                                    <div class="news-box--left row">
+                                        <div class="news-box--img col-12 col-lg-12">
+                                            <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",ListTin[0].NewsName.ToString().ToLower(),"s"+ListTin[0].CateId.ToString() ,"n"+ListTin[0].NewsId.ToString())" title="@ListTin[0].NewsName.ToString()"> 
+                                            <img src="@CMS_Core.Common.Common.GetPathImage(ListTin[0].NewsImages.ToString())" alt="@ListTin[0].NewsName.ToString()" />
+                                            </a>
+                                            <h3 class="news-title"> <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",ListTin[0].NewsName.ToString().ToLower(),"s"+ListTin[0].CateId.ToString(),"n"+ListTin[0].NewsId.ToString())" title="@ListTin[0].NewsName.ToString()">@ListTin[0].NewsName.ToString()</a></h3>
+                                            <div class="new-desc">@ListTin[0].NewsDescription.ToString()</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="news-box--col col-lg-6">
+                                    <div class="news-box--list">
+                                        @for (int j = 1; j < ListTin.Count; j++)
+                                        {
+                                            if (j < 4)
+                                            {
+                                                <div class="news-list--col col-lg-12">
+                                                    <div class="news-item row">
+                                                        <div class="news-col col-5 d-none d-xl-block">
+                                                            <div class="news-item--img">
+
+
+                                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",ListTin[j].NewsName.ToString().ToLower(),"s"+ ListTin[j].CateId.ToString() , "n"+ListTin[j].NewsId.ToString())" title="@ListTin[j].NewsName.ToString()">
+                                                                <img src="@CMS_Core.Common.Common.GetPathImage(ListTin[j].newsImagesweb.ToString())  " alt="@ListTin[j].NewsName.ToString()" /></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="news-col col-lg-7 col-sm-12">
+                                                            <div class="news-content">
+                                                                <h3 class="news-title"> <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc",ListTin[j].NewsName.ToString().ToLower(),"s"+ListTin[j].CateId.ToString(),"n"+ListTin[j].NewsId.ToString())" title="@ListTin[j].NewsName.ToString()">@ListTin[j].NewsName.ToString()</a></h3>
+                                                                <div class="new-desc d-none d-xl-block">@ListTin[j].NewsDescription.ToString()</div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+                            }
+
+
+
+
+                        </div>
+
+                    }
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="specialist-main">
+                <div class="container">
+                    <h2 class="line-title">Y khoa MEDLATEC</h2>
+                    <div class="specialist-list">
+                        <div class="specialist-list--row row">
+
+                            <div class="specialist-list--col col-lg-4">
+                                <ul>
+                                    @for (int k = 0; k <= 7; k++)
+                                    {
+                                        <li><a href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByCate("tin-tuc",NewsYkhoa[k].CateName.ToString().ToLower() ,"s"+ NewsYkhoa[k].CateId.ToString())">@NewsYkhoa[k].CateName.Replace("Medlatec - ", "") </a></li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="specialist-list--col col-lg-4">
+                                <ul>
+                                    @for (int k = 8; k <= 15; k++)
+                                    {
+                                        <li><a href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByCate("tin-tuc",NewsYkhoa[k].CateName.ToString().ToLower() ,"s"+ NewsYkhoa[k].CateId.ToString())">@NewsYkhoa[k].CateName.Replace("Medlatec - ", "") </a></li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class="specialist-list--col col-lg-4">
+                                <ul>
+                                    @for (int k = 16; k <= 22; k++)
+                                    {
+                                        <li><a href="https://medlatec.vn/@CMS_Core.Common.Common.GetURLDetailByCate("tin-tuc",NewsYkhoa[k].CateName.ToString().ToLower() ,"s"+ NewsYkhoa[k].CateId.ToString())">@NewsYkhoa[k].CateName.Replace("Medlatec - ", "") </a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="archive-news--col col-xl-3 col-lg-4 col-md-5">
+            <div class="sidebar-container">
+                <div class="news-post">
+                    <h2>Tin mới nhất</h2>
+                    <div class="news-post--list">
+
+                        @for (int i = 0; i < 6; i++)
+                        {
+
+
+
+                            <div class="news-post--item">
+                                <div class="news-post--row row">
+                                    <div class="news-post--col col-5 col-sm-4 col-md-5">
+                                        <div class="news-post--img">
+                                            @if (@TinNoiBat[i].NewsImages != null)
+                                            {
+                                                <a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @TinNoiBat[i].NewsName.ToString().ToLower(), "s" + @TinNoiBat[i].CateId.ToString(), "n" + @TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString()">
+                                            <img src="@CMS_Core.Common.Common.GetPathImage(TinNoiBat[i].newsImagesweb.ToString())" alt="@TinNoiBat[i].NewsName.ToString()" /></a>
+
+                                            }
+
+
+                                        </div>
+                                    </div>
+                                    <div class="news-post--col col-7 col-sm-8 col-md-7">
+                                        <div class="news-post--content">
+                                            @if (@TinNoiBat[i].NewsName != null)
+                                            {
+                                                <h3><a href="/@CMS_Core.Common.Common.GetURLDetailByNews("tin-tuc", @TinNoiBat[i].NewsName.ToString().ToLower(), "s" + @TinNoiBat[i].CateId.ToString(), "n" + @TinNoiBat[i].NewsId.ToString())" title="@TinNoiBat[i].NewsName.ToString()">@TinNoiBat[i].NewsName.ToString()</a></h3>
+                                            }
+
+                                            <div class="news-post--info clearfix">
+                                                @if (@TinNoiBat[i].Datepub != null)
+                                                {
+                                                    <span class="news-post--date">Ngày @TinNoiBat[i].Datepub.ToString("dd/MM/yyyy")</span>
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="register-form d-none d-md-block">
+                    <h2>Đăng ký khám, tư vấn</h2>
+                    @Html.AntiForgeryToken()
+                    <div class="form">
+
+                        <style type="text/css">
+                            input[name='CaptchaInputText'] {
+                                width: 100% !important;
+                                line-height: 28px;
+                                background: rgba(255, 255, 255, .8) none;
+                                padding: 10px;
+                                height: 50px;
+                                display: block;
+                                width: 100%;
+                                font-size: 1rem;
+                                font-weight: 400;
+                                line-height: 1.5;
+                                color: #495057;
+                                border: 1px solid #ced4da;
+                                border-radius: .25rem;
+                                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                            }
+                        </style>
+
+                        <div class="form-group register-name">
+                            <label>Họ và tên <i>(*)</i></label>
+                            <input value="" name="txthoten" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group register-phone">
+                            <label>Số điện thoại <i>(*)</i></label>
+                            <input value="" name="txtsdt" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group register-email">
+                            <label>Email</label>
+                            <input value="" name="txtemail" class="form-control" type="email" />
+                        </div>
+                        <div class="form-group register-comment">
+                            <label>Ghi chú khác</label>
+                            <textarea class="form-control" name="txtGhichu" placeholder="Nhu cầu khám của bạn là gì? (không bắt buộc)"></textarea>
+                        </div>
+
+
+                        <div class="form-group form-group--btn">
+                            <button type="submit" name="submit" value="SaveAdd">ĐĂNG KÝ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+    }
+}

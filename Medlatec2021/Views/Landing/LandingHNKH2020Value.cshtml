@@ -1,0 +1,96 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@using MEDLATEC2019.Entity;
+@model  MEDLATEC2019.Models.MPTXViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var hoinghis = (List<tbl_hoinghi>)ViewBag.hoinghis;
+
+}
+
+
+<title>Câu hỏi hội nghị medlatec 2021 | Bệnh viện đa khoa MEDLATEC  </title>
+
+
+
+<meta name="description" content="@Html.Raw("Câu hỏi hội nghị medlatec 2021 | Bệnh viện đa khoa MEDLATEC")" />
+
+
+<meta name="title" content="Câu hỏi hội nghị medlatec 2021 | Bệnh viện đa khoa MEDLATEC" />
+
+
+<meta name="keywords" content="@Html.Raw("Câu hỏi hội nghị medlatec 2021 | Bệnh viện đa khoa MEDLATEC")" />
+
+
+
+<meta name="robots" content="index,follow,all">
+
+
+
+
+ 
+
+
+
+
+    <div class="breadcrumb-container container">
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn">Trang chủ</a></li>
+            <li><span>Câu hỏi hội nghị Medlatec </span></li>
+        </ul>
+    </div>
+
+    <div class="price-service container">
+        <h1>Câu hỏi thảo luận</h1>
+
+        <div class="form">
+
+
+            <div class="archive-news container">
+                <div class="archive-news--row row">
+                    <div class="service-table col-xl-12 col-lg-12 col-md-12" style="max-height:none;">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Nội dung câu hỏi</th>
+                                    <th scope="col">Thời gian</th>
+                                   
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (hoinghis != null)
+                                {
+                                    if (hoinghis.Count > 0)
+                                    {
+                                        for (int i = 0; i < hoinghis.Count; i++)
+                                        {
+                                            <tr>
+                                                <th scope="row">@(i + 1)</th>
+                                                <td>@HttpUtility.HtmlDecode(hoinghis[i].Content.ToString())</td>
+                                                <td>@hoinghis[i].datesave.ToString("yyyy/MM/dd HH:mm:ss")</td>
+
+                                            </tr>
+                                        }
+                                    }
+                                }
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+ 

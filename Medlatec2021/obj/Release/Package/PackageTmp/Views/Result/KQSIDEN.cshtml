@@ -1,0 +1,491 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+
+@{
+    ViewBag.Title = "Tra cứu kết quả khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Thongtin = (List<Cms_Patient>)ViewBag.Thongtin;
+    var Ketqua = (List<Cms_Result>)ViewBag.Ketqua;
+    List<Cms_ImgPMBV> ImgPMBV = new List<Cms_ImgPMBV>();
+}
+<!--- End Menu --->
+@Html.Raw(TempData["msg"])
+@if (Thongtin != null)
+{
+    @section Note {
+        <title>Tra cứu kết quả khám chữa bệnh | Medlatec | @Thongtin[0].SID.ToString()</title>
+        <meta name="description" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi" + @Thongtin[0].SID.ToString())" />
+        <meta name="title" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh | Medlatec |" + @Thongtin[0].SID.ToString())" />
+        <meta name="keywords" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi" + @Thongtin[0].SID.ToString())" />
+        <meta name="robots" content="noindex,follow,all">
+    }
+    if (Thongtin.Count > 0)
+    {
+        <div class="return-find container">
+            <div class="logo-medlatec">
+                <img src="/Content/images/logo-medlatec-EN.png" alt="" />
+            </div>
+            <style type="text/css">
+                .table.return-table .return-col--1 {
+                    width: 20%;
+                }
+            </style>
+            <div class="return-find--container">
+                <h2 class="title">Result</h2>
+                <div class="return-find--info row">
+                    <div class="return-find--col col-lg-6">
+                        <div class="return-find--contact">
+                            <div class="row">
+                                <div class="col-xl-4 col-5">
+                                    <label>FullName:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].PatientName.ToString()</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Birthday:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].Age.ToString()</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Test code:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].SID.ToString()</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Status:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    @if (Thongtin[0].ShowWeb == true)
+                                    {
+                                        if (@Thongtin[0].Valid == true)
+                                        {
+                                            <p>Full Result</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Not enough results yet</p>
+                                        }
+                                    }
+                                    else
+                                    {
+                                       <p>Do not allow viewing results on the website</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="return-find--col col-lg-6">
+                        <div class="return-find--contact">
+                            <div class="row">
+                                <div class="col-xl-4 col-5">
+                                    <label>Branch:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].LocationName.ToString()</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Sex:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    @if (Thongtin[0].Sex.ToString() == "F")
+                                    {
+                                        <p>Female</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Male</p>
+                                    }
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Test Date:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p>@Thongtin[0].Intime.ToString("dd/MM/yyyy")</p>
+                                </div>
+                                <div class="col-xl-4 col-5">
+                                    <label>Diagnose:</label>
+                                </div>
+                                <div class="col-xl-8 col-7">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (Thongtin[0].ShowWeb == true)
+                {
+                    if (@Thongtin[0].Valid == true)
+                    {
+                        if (Ketqua != null)
+                        {
+                            if (Ketqua.Count > 0)
+                            {
+                                <div class="return-table--container">
+                                    <table class="return-table table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="return-col--1">Name of service</th>
+                                                <th class="return-col--2">Result</th>
+
+                                                <th class="return-col--4">Normal</th>
+                                                <th class="return-col--5">Note</th>
+                                                <th class="return-col--6">Price (VNĐ)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (int i = 0; i < Ketqua.Count; i++)
+                                            {
+                                                if (i == 0)
+                                                {
+                                                    <tr>
+                                                        <td colspan="5" class="return-table--title">@Ketqua[i].CategoryNameE1.ToString()</td>
+                                                    </tr>
+                                                }
+                                                else
+                                                {
+                                                    if (Ketqua[i].CategoryNameE1 != null && Ketqua[i - 1].CategoryNameE1 != null)
+                                                    {
+                                                        if (@Ketqua[i].CategoryNameE1.ToString() == @Ketqua[i - 1].CategoryNameE1.ToString())
+                                                        {
+                                                           
+                                                        }
+                                                        else
+                                                        {
+                                                        <tr>
+                                                            <td colspan="5" class="return-table--title">@Ketqua[i].CategoryNameE1.ToString()</td>
+                                                        </tr>
+                                                        }
+                                                    }
+                                                }
+                                                <tr>
+                                                    <td class="return-col--1">
+                                                        @if (Ketqua[i].TestNameE1 != null)
+                                                        {
+                                                            <p>@Ketqua[i].TestNameE1.ToString()</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p>@Ketqua[i].TestName1.ToString()</p>
+                                                        }
+                                                    </td>
+                                                    @if (Ketqua[i].Result1 != null)
+                                                    {
+                                                        if (Ketqua[i].CommentE1 != null)
+                                                        {
+                                                            if (Ketqua[i].Unit1 != null)
+                                                            {
+                                                                if (Ketqua[i].Unit1.ToString().Trim().Length > 1)
+                                                                {
+                                                                    if (Ketqua[i].CommentE1.ToString().Trim() == "Increase")
+                                                                    {
+                                                                        <td class="return-col--2" style="text-align: right;color:red">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].CommentE1.ToString().Trim() == "Hight")
+                                                                    {
+                                                                        <td class="return-col--2" style="text-align: right;color:red">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].CommentE1.ToString().Trim() == "Positive")
+                                                                    {
+                                                                        <td class="return-col--2" style="text-align: right;color:red">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].CommentE1.ToString().Trim() == "Big")
+                                                                    {
+                                                                        <td class="return-col--2" style="text-align: right;color:red">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].CommentE1.ToString().Trim() == "Decrease")
+                                                                    {
+                                                                        <td class="return-col--2" style="text-align: left;color:blue">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].CommentE1.ToString().Trim() == "Low")
+                                                                    {
+                                                                        <td class="return-col--2" style="text-align: left;color:blue">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].CommentE1.ToString().Trim() == "Negative")
+                                                                    {
+                                                                        <td class="return-col--2" style="text-align: left;color:blue">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else if (Ketqua[i].CommentE1.ToString().Trim() == "Small")
+                                                                    {
+                                                                        <td class="return-col--2" style="text-align: left;color:blue">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <td class="return-col--2">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="return-col--2">@Ketqua[i].Result1.ToString() </td>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--2">@Ketqua[i].Result1.ToString()  </td>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            if (Ketqua[i].Unit1 != null)
+                                                            {
+                                                                if (Ketqua[i].Unit1.ToString().Trim().Length > 1)
+                                                                {
+                                                                    <td class="return-col--2">@Ketqua[i].Result1.ToString() (@Ketqua[i].Unit1.ToString())</td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td class="return-col--2">@Ketqua[i].Result1.ToString() </td>
+                                                                }
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--2">@Ketqua[i].Result1.ToString() </td>
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--2"> </td>
+                                                    }
+                                                    @if (Ketqua[i].NormalRange1F != null)
+                                                    {
+                                                        <td class="return-col--4">@Ketqua[i].NormalRange1F.ToString()</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--4"></td>
+                                                    }
+                                                    @if (Ketqua[i].Comment1 != null)
+                                                    {
+                                                        <td class="return-col--5">
+                                                            @if(Ketqua[i].CommentE1 == null)
+                                                            {
+                                                                
+                                                            }
+                                                            else
+                                                            {
+                                                                Ketqua[i].CommentE1.ToString();
+                                                            }
+                                                        </td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--5"></td>
+                                                    }
+                                                    @if (Ketqua[i].Price1 != 0)
+                                                    {
+                                                        if (Thongtin[0].ShowMoney == true)
+                                                        {
+                                                            <td class="return-col--6"> @String.Format("{0:0,0}", float.Parse(@Ketqua[i].Price1.ToString()))</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--6"></td>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--6"></td>
+                                                    }
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-bordered return-price">
+                                        <thead>
+                                            <tr>
+                                                <th class="return-price--title" colspan="4">Total money</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="return-col--1">Total hospital charges </th>
+                                                <th class="return-col--2">Discount</th>
+                                                <th class="return-col--3">Travel cost</th>
+                                                <th class="return-col--4">Total money</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                @if (Thongtin[0].SumMoney != 0)
+                                                {
+                                                    if (Thongtin[0].ShowMoney == true)
+                                                    {
+                                                        <td class="return-col--1">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].SumMoney.ToString()))</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--1"></td>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <td class="return-col--1"></td>
+                                                }
+                                                @if (Thongtin[0].SumPerTage != 0)
+                                                {
+                                                    if (Thongtin[0].ShowMoney == true)
+                                                    {
+                                                        <td class="return-col--2">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].SumPerTage.ToString()))</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--2"></td>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <td class="return-col--2"></td>
+                                                }
+                                                @if (Thongtin[0].SumTransport != 0)
+                                                {
+                                                    if (Thongtin[0].ShowMoney == true)
+                                                    {
+                                                        <td class="return-col--2">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].SumTransport.ToString()))</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--2"></td>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <td class="return-col--2"></td>
+                                                }
+                                                @if (Thongtin[0].Total != 0)
+                                                {
+                                                    if (Thongtin[0].ShowMoney == true)
+                                                    {
+                                                        <td class="return-col--4 return-blue return-bold">@String.Format("{0:0,0}", float.Parse(@Thongtin[0].Total.ToString()))</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="return-col--4 return-blue return-bold"></td>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <td class="return-col--4 return-blue return-bold"></td>
+                                                }
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="return-note">In addition to the above amount, you do not have to pay any other amount! Thank you for choosing our medical service. If you need advice, please contact the Hotline <span>1900 56 56 56</span></div>
+                                <div class="return-down">
+                                    <a href="/PrintSID?sid=@ViewBag.SID&token=@ViewBag.Token">Download PDF file</a>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            </div>
+            @if (Ketqua != null)
+            {
+                if (Ketqua.Count > 0)
+                {
+                    for (int i = 0; i < Ketqua.Count; i++)
+                    {
+                        if (Ketqua[i].PhanLoai1.ToString() == "2.CDHA")
+                        {
+                            if (Ketqua[i].ShowWeb1 == true)
+                            {
+                                <div class="return-picture">
+                                    <h3 class="title">Result of service: @Ketqua[i].TestName1.ToString()</h3>
+                                    <div class="return-desc">
+                                        <p>
+                                            @if (Ketqua[i].DiagnosticResult1 != null)
+                                            {
+                                                @Html.Raw(Ketqua[i].DiagnosticResult1.ToString());
+                                            }
+                                        </p>
+                                    </div>
+                                    <h3 class="title">Conclude</h3>
+                                    <div class="return-content">
+                                        @if (Ketqua[i].Result1 != null)
+                                        {
+                                            @Html.Raw(Ketqua[i].Result1.ToString());
+                                        }
+                                    </div>
+                                    <div class="return-picture--img">
+                                        <h3 class="title">Images</h3>
+                                        @if (Ketqua[i].IMG11 != null)
+                                        {
+                                            if (Ketqua[i].IMG11.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img src="@System.String.Format("data:{0};base64,{0}", Convert.ToBase64String(Ketqua[i].IMG11))">
+                                            }
+                                        }
+                                        @if (Ketqua[i].IMG21 != null)
+                                        {
+                                            if (Ketqua[i].IMG21.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img src="@System.String.Format("data:{0};base64,{0}", Convert.ToBase64String(Ketqua[i].IMG21))">
+                                            }
+                                        }
+                                        @if (Ketqua[i].IMG31 != null)
+                                        {
+                                            if (Ketqua[i].IMG31.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img src="@System.String.Format("data:{0};base64,{0}", Convert.ToBase64String(Ketqua[i].IMG31))">
+                                            }
+                                        }
+                                        @if (Ketqua[i].IMG41 != null)
+                                        {
+                                            if (Ketqua[i].IMG41.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img src="@System.String.Format("data:{0};base64,{0}", Convert.ToBase64String(Ketqua[i].IMG41))">
+                                            }
+                                        }
+                                        @if (Ketqua[i].IMG51 != null)
+                                        {
+                                            if (Ketqua[i].IMG51.ToString().Trim().Length > 1)
+                                            {
+
+                                                <img src="@System.String.Format("data:{0};base64,{0}", Convert.ToBase64String(Ketqua[i].IMG51))">
+                                            }
+                                        }
+                                        @if (Ketqua[i].IDCLS1 != null)
+                                        {
+                                            if (Ketqua[i].IDCLS1.ToString() != "0")
+                                            {
+                                                var ImgPMBV1 = Common.GetImage(int.Parse(Ketqua[i].IDCLS1.ToString()), Ketqua[i].TestCode1.Trim());
+
+                                                if (ImgPMBV1 != null)
+                                                {
+                                                    if (ImgPMBV1.Count > 0)
+                                                    {
+                                                        for (int j = 0; j < ImgPMBV1.Count; j++)
+                                                        {
+
+
+                                                            <img src="@System.String.Format("data:{0};base64,{0}", Convert.ToBase64String(ImgPMBV1[j].Anh1))">
+
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        }
+                    }
+                }
+            }
+        </div>
+    }
+    else
+    {
+        <p style="text-align:center;">No results displayed, please contact Hotline: 1900 56 56 56 for assistance. Thank you!</p>
+    }
+}

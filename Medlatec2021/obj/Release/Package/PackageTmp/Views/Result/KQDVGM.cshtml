@@ -1,0 +1,280 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@using CMS_Core.Common;
+@{
+    ViewBag.Title = "Tra cứu theo Đơn vị gửi mẫu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Thongtin = (List<Cms_Patient>)ViewBag.Thongtin;
+    var ngay = ViewBag.check;
+    float total = 0;
+}
+@Html.Raw(TempData["msg"])
+@using (Html.BeginForm("KQDVGM", "Result", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal"  }))
+{
+    if (Thongtin != null)
+    {
+
+	 if (Thongtin.Count > 0)
+	 {
+        @section Note {
+		 
+          
+            <title>Tra cứu kết quả khám chữa bệnh | Medlatec | @Thongtin[0].DoctorID</title>
+		 
+
+            <meta name="description" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi" + @Thongtin[0].DoctorID)" />
+
+
+            <meta name="title" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh | Medlatec |" + @Thongtin[0].DoctorID)" />
+
+            <meta name="keywords" content="@Html.Raw("Tra cứu kết quả khám chữa bệnh tại bệnh viện đa khoa Medlatec giúp giảm thời gian đi lại, chờ đợi. Kết quả được lưu trữ online giúp bệnh nhân tra cứu mọi lúc mọi nơi" + @Thongtin[0].DoctorID)" />
+            <meta name="robots" content="noindex,follow,all">
+
+        }
+
+
+
+
+        if (Thongtin.Count > 0)
+        {
+            @Html.AntiForgeryToken()
+            <div class="return-find return-find-2 container">
+                <div class="logo-medlatec">
+                    <img src="/Content/images/logo-medlatec.png" alt="" />
+                </div>
+
+                <div class="return-find--container">
+                    <h2 class="title" style="font-size:26px;">Tra cứu theo mã Bác sỹ cộng tác viên tại Bệnh viện MEDLATEC</h2>
+
+                    <div class="return-find--wrapper">
+                        <h3 class="return-find--partner">Tên đối tác gửi mẫu: <span class="return-red">@Thongtin[0].DoctorName</span></h3>
+                        <div class="return-find--data">
+
+                            <div class="return-find--row row">
+                                <div class="return-find--col col-lg-5">
+                                    <div class="form-group">
+                                        <label for="dataDate">Số kết quả xét nghiệm đã tư vấn tháng </label>  
+                                        <select id="locationCustomer" name="dllNgay" class="form-control tab-customer--location" style="height:50px;">
+                                           
+											@for (int i = 0; i < 6; i++)
+                                            {
+                                                if (DateTime.Now.AddMonths(-i).ToString("yyyyMM").Equals(ngay))
+                                                {
+                                                 
+                                                    <option selected="selected"   value="@(DateTime.Now.AddMonths(-i).ToString("yyyyMM"))">Tháng @(int.Parse(DateTime.Now.AddMonths(-i).Month.ToString()))  năm @DateTime.Now.AddMonths(-i).Year.ToString()</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@(DateTime.Now.AddMonths(-i).ToString("yyyyMM"))">Tháng @(int.Parse(DateTime.Now.AddMonths(-i).Month.ToString()))  năm @DateTime.Now.AddMonths(-i).Year.ToString()</option>
+                                                }
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="return-find--col col-lg-5">
+                                    <div class="form-group">
+                                        <label for="dataName">Tên bệnh nhân</label>
+                                        <input id="dataName" name="txthoten" type="text" class="form-control data-name" />
+                                    </div>
+                                </div>
+                                <div class="return-find--col col-lg-2">
+                                    <div class="form-group form-group--btn">
+                                        <button type="submit" name="submit" value="Tracuu">Tra cứu</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="return-data--table">
+                            *@if (Thongtin[0].Intime != null)
+                            {
+                                int count = 0;
+                               // int count1 = 0;
+
+                                //for (int j = 0; j < Thongtin.Count; j++)
+                                //{
+                                //    if (@ViewBag.check == "0")
+                                //    {
+                                //        if (@Thongtin[j].Intime.Month == DateTime.Now.Month)
+                                //        {
+                                //            count1 = count1 + 1;
+                                //        }
+                                //    }
+                                //    else
+                                //    {
+                                //        count1 = count1 + 1;
+                                //    }
+
+                                //} 
+
+
+                                <div class="return-data--note">Bệnh nhân đã tư vấn: @Thongtin.Count.ToString() </div>
+                                <div class="return-table--container">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="6" style="text-align:center;border:3px solid white;">
+                                                    Danh sách Bệnh nhân đã được tư vấn xét nghiệm
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="return-col--1">STT</th>
+                                                <th class="return-col--2">Họ tên</th>
+                                                <th class="return-col--3">Ngày khám</th>
+                                                <th class="return-col--4">Giới tính</th>
+                                                <th class="return-col--5">Năm sinh</th>
+                                                <th class="return-col--6">Xem kết quả</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (int i = 0; i < Thongtin.Count; i++)
+                                            {
+                                                if (@ViewBag.check == "0")
+                                                {
+                                                    if (@Thongtin[i].Intime.Month == DateTime.Now.Month)
+                                                    {
+                                                        count = count + 1;
+                                                        total = total + Thongtin[i].Total;
+                                                        <tr>
+                                                            <td class="return-col--1">@count.ToString()</td>
+                                                            @if (Thongtin[i].PatientName != null)
+                                                            {
+                                                                <td class="return-col--2">@Thongtin[i].PatientName</td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--2"></td>
+                                                            }
+                                                            @if (Thongtin[i].Intime != null)
+                                                            {
+                                                                <td class="return-col--3">@Thongtin[i].Intime.ToString("dd/MM/yyyy")</td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--3"></td>
+                                                            }
+
+
+                                                            @if (@Thongtin[i].Sex.ToString().Trim() == "F")
+                                                            {
+                                                                <td class="return-col--4">Nữ</td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--4">Nam</td>
+                                                            }
+                                                            @if (Thongtin[i].Age != null)
+                                                            {
+                                                                <td class="return-col--5">@Thongtin[i].Age.ToString()</td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--5"></td>
+                                                            }
+                                                            @if (Thongtin[i].SID != null)
+                                                            {
+                                                                <td class="return-col--6"><a href="@CMS_Core.Common.Common.GetLinkSId(Thongtin[i].SID)">@Thongtin[i].SID.ToString()</a></td>
+                                                            }
+                                                            else
+                                                            {
+                                                                <td class="return-col--6"></td>
+                                                            }
+
+                                                        </tr>
+                                                    }
+
+                                                }
+                                                else
+                                                {
+
+                                                    count = count + 1;
+                                                    total = total + Thongtin[i].Total;
+                                                    <tr>
+                                                        <td class="return-col--1">@count.ToString()</td>
+                                                        @if (Thongtin[i].PatientName != null)
+                                                        {
+                                                            <td class="return-col--2">@Thongtin[i].PatientName</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--2"></td>
+                                                        }
+                                                        @if (Thongtin[i].Intime != null)
+                                                        {
+                                                            <td class="return-col--3">@Thongtin[i].Intime.ToString("dd/MM/yyyy")</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--3"></td>
+                                                        }
+
+
+                                                        @if (@Thongtin[i].Sex.ToString().Trim() == "F")
+                                                        {
+                                                            <td class="return-col--4">Nữ</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--4">Nam</td>
+                                                        }
+                                                        @if (Thongtin[i].Age != null)
+                                                        {
+                                                            <td class="return-col--5">@Thongtin[i].Age.ToString()</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--5"></td>
+                                                        }
+                                                        @if (Thongtin[i].SID != null)
+                                                        {
+                                                            <td class="return-col--6"><a href="@CMS_Core.Common.Common.GetLinkSId(Thongtin[i].SID)">@Thongtin[i].SID.ToString()</a></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td class="return-col--6"></td>
+                                                        }
+                                                    </tr>
+
+
+                                                }
+
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                    <input id="txtU" name="txtU" type="hidden" value="@Thongtin[0].DoctorID" />
+                                </div>
+                                <div class="return-data--price clearfix"><span>Tổng tiền : @String.Format("{0:0,0}", total) VNĐ</span></div>
+                            }
+                            <div class="return-note">
+                                [Thông báo] Số dư phí tư vấn hàng tháng của Quý đối tác < 150,000 VNĐ sẽ được đơn vị giữ lại và sẽ được tính lũy kế vào những tháng kế tiếp.
+                                Mọi thắc mắc Quý vị vui lòng liên hệ tổng đài<span> 1900 565656 </span> hoặc hotline <span> 094.891.2662 </span> để được hỗ trợ.Trân trọng cảm ơn!
+                                <br />
+                                Quý vị có thể thay đổi thông tin mật khẩu <a href="@CMS_Core.Common.Common.GetLinkDoiMKDVGM(Thongtin[0].DoctorID)"><span>tại đây </span> </a>
+                            </div>
+                            <div class="return-form--feedback">
+
+                                @*<div class="form-group">
+                                        <label for="feedbackEmail">Email khách hàng</label>
+                                        <input id="feedbackEmail" name="txtemail" class="form-control feedback-email" type="email" placeholder="abc@gmail.com" />
+                                    </div>*@
+                                <div class="form-group">
+                                    <label for="feedbackComment">Gửi ý kiến phản hồi</label>
+                                    <textarea id="feedbackComment" name="txtphanhoi" class="form-control feedback-comment"></textarea>
+                                </div>
+                                <div class="form-group form-group--btn">
+                                    <button type="submit" name="submit" value="Phanhoi">Gửi phản hồi</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+	}
+}

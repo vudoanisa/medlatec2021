@@ -1,0 +1,45 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+
+    @{
+        ViewBag.Title = "Chỉnh sửa câu hỏi";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+     
+    }
+    @section Note {
+
+
+        @{
+
+
+
+            <meta name="robots" content="noindex,nofollow">
+
+        }
+    }
+
+    @using (Html.BeginForm("EditCauhoi", "Question", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+        <div class="price-service container">
+            <h1>Sửa câu hỏi</h1>
+            @Html.AntiForgeryToken()
+
+            <div class="service-search--row row" style="margin:25px;">
+                <div class="service-search--col col-md-12">
+                    <div class="service-search--wrapper clearfix">
+                        <input type="text" name="txttimkiem" placeholder="Tìm kiếm theo mã câu hỏi" />
+                        <button type="submit" name="submit" value="SaveAdd" class="btn-form--submit">Tìm kiếm</button>
+                    </div>
+                </div>
+                <div class="service-search--col col-md-5">
+
+                </div>
+            </div>
+
+           
+
+
+        </div>
+
+    }

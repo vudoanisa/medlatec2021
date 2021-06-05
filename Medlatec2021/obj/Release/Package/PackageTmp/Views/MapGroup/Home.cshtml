@@ -1,0 +1,91 @@
+﻿@using MEDLATEC.BusinessLayer;
+@using System.Data;
+@using CaptchaMvc.HtmlHelpers;
+@model  MEDLATEC2019.Models.MapViewModel
+
+@{
+    ViewBag.Title = "MEDLATEC group";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Map = (List<Cms_Map>)ViewBag.Map;
+}
+@section Note {
+    <title>Danh sách Phòng khám, Bệnh viện trên cả nước | Medlatec</title>
+
+    <meta name="description" content="Danh sách chi nhánh medlatec trên cả nước" />
+
+
+    <meta name="title" content="Danh sách chi nhánh medlatec trên cả nước" />
+
+
+
+    <meta name="keywords" content="danh sách phòng khám,chi nhánh, bệnh viện, hệ thống medlatec group" />
+
+
+
+
+
+
+    <meta name="robots" content="index,follow,all">
+    <link rel="canonical" href="https://medlatec.vn/he-thong-medlatec-group" />
+}
+    <div class="breadcrumb-container container">
+        <h1 class="title" style="text-align:center;display:none;">Hệ thống chi nhánh Medlatec</h1>
+        <ul class="clearfix">
+            <li><a href="https://medlatec.vn/">Trang chủ</a></li>
+            <li><span>Hệ thống MEDLATEC</span></li>
+        </ul>
+    </div>
+@if (Map != null)
+{
+    if (Map.Count > 0)
+    {
+
+
+
+        <div class="medlatec-map">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.60283098508!2d105.84389931492977!3d21.048571992477598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abb3fd62fe1d%3A0x8258254f7bb0a921!2zQuG7h25oIHZp4buHbiDEkGEga2hvYSBNRURMQVRFQw!5e0!3m2!1svi!2s!4v1564134902999!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="map-sidebar map-sidebar-active">
+                <button class="map-toggle-btn map-toggle-active">&nbsp;</button>
+                <div class="map-find">
+                    @using (Html.BeginForm("Home", "MapGroup", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+
+                            @Html.DropDownListFor(m => m.Khuvuc, this.ViewBag.GetTypeLocaltion as List<SelectListItem>, new { @class = "form-control map-select", style = "text-align-last:center;padding:0px;" })
+
+                            <button type="submit" name="submit" class="form-control schedule-row--btn" style="padding: 0px;line-height: 30px;border: none;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;font-size: 18px;color: #fff;font-weight: 700;background: #1576C4 none;text-transform: uppercase;border:1px solid white;margin-top:15px;" value="SearchMap">Tìm kiếm</button>
+
+                        </div>
+
+                    }
+                </div>
+
+                <div class="map-location">
+
+                    @for (int i = 0; i < Map.Count; i++)
+                    {
+                        <div class="map-item">
+                            <div class="map-info">
+
+                                <a href="https://medlatec.vn/he-thong-medlatec-group/@CMS_Core.Common.Common.GetURLDetailByMap(Map[i].TenPK,Map[i].ID.ToString())">
+                                    <h3>@Map[i].TenPK</h3>
+                                    <address>@Map[i].Diachi</address>
+                                    <div class="location-phone">@Map[i].Hotline</div>
+                                </a>
+                            </div>
+                            <div class="map-img"><img src="https://login.medlatec.vn/@Map[i].Img" alt="@Map[i].TenPK" /></div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+
+    }
+}
+
+
